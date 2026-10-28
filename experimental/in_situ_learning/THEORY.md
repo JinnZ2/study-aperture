@@ -1,6 +1,6 @@
 # Theory: an in situ learning program for AI, modelled on the DNP loop
 
-Status: PROPOSED throughout. Nothing here has been run on an AI system. The toy in `loop.py` tests properties of the loop shape on constructed functions; it does not test the mapping below. Owner's question that started this: can the learning methods in Jensen et al. (arXiv:2603.19448) be turned into a learning program for AI?
+Status: PROPOSED throughout. Nothing here has been run on an AI system, and T7's measurement design has not been run on any corpus. The toy in `loop.py` tests properties of the loop shape on constructed functions; it does not test the mapping below. Owner's question that started this: can the learning methods in Jensen et al. (arXiv:2603.19448) be turned into a learning program for AI?
 
 ## The shape
 
@@ -58,4 +58,51 @@ The DNP paper meets L1 and L2 in full, L6 in part (Fig. 3d), L7 in part (second 
 ## Where this could be measured here
 
 - **Cheap, in this repository:** a loop that adjusts an assessment procedure (which cards, in what order) and scores it against records with planted, known defects, on `assess.py check` plus a known-answer set. A second instrument for L7: a different known-answer set written by someone else. Not built.
-- **Open:** whether the AI's procedure space has anything like resonance conditions, i.e. a physics-like prior that makes the search tractable. In the DNP case the prior came from spin theory; for AI procedures no equivalent theory is named here.
+- **Open, partly answered by T7 below:** whether the AI's procedure space has anything like resonance conditions, i.e. a physics-like prior that makes the search tractable. In the DNP case the prior came from spin theory.
+
+## T7: the system the AI acts on as the spin system (PROPOSED)
+
+Proposed by the owner, 2026-10-28: human culture, traditions, economic systems, extraction cycles and turbulence may be to AI what electron spin is to the DNP experiment. The first mapping drafted here cast the AI as the source of order; the owner corrected it (record of the exchange below). The corrected mapping:
+
+| DNP | Human systems |
+|---|---|
+| main magnetic field B0 | the imposing structure: economic and extraction systems. It sets the axis and decides which states are "low energy". |
+| spin populations | people, practices, traditions, aligned to that axis |
+| equilibrium populations in the field | what corpus statistics record |
+| natural frequencies (Larmor, couplings) | cycles already running: seasons, generations, credit and extraction cycles, ritual calendars |
+| resonance condition (ZQ / DQ matching) | an intervention takes hold only when matched to the timescale and structure of an existing cycle |
+| off-resonance microwave power → heat | interventions that disturb without transferring: churn |
+| relaxation when the field changes | what happens when the imposing structure is removed or shifts |
+| many coupled spins (TEMPO; two-spin prior stops helping) | turbulence: many-body, nonlinear |
+| microwave pulses + the learner | AI |
+| 1H solid echo (the readout) | language |
+
+### What follows (PROPOSED)
+
+1. **The search prior lives in the system, not in the optimizer.** In the paper the tractable search came from spin physics. Here the constraints would come from the system's own cycles, most of which are held by the people inside them and not written down.
+2. **Corpus statistics are a field-frozen average.** Equilibrium spin populations exist only in their field; turned off, the polarization relaxes. Statistics of human text are the population aligned under the current imposing structure, not the system's own state. An AI trained on them learns the field's alignment and reads it as human nature. This extends the Card 02 frozen-average check: an average can be frozen by a field as well as by a window.
+3. **History is the evaluations already run.** Billions of tokens of written, rewritten and explored record are a log of past trials. A loop can read them instead of running new trials on people. The log's quality then decides what can be learned:
+   - successes kept, failures dropped (E3's best-observed overstatement at large scale);
+   - rewriting is drift in the log (T4);
+   - who kept the archive decides what was measured (Simulators `observer-exclusion`).
+4. **Language is the readout channel.** It can be evaluated cheaply from existing text (term drift, frame density: Simulators `term-drift-citation`, `frame-token-audit`). Its bandwidth is what was spoken or written down, as the paper's readout sees protons and not electrons.
+
+### Where the analogy breaks, after the owner's corrections
+
+| Earlier break | Owner's correction | What remains |
+|---|---|---|
+| the sample responds back | spins also adapt to the field; the sample also loads the resonator (the paper recalibrates the MW profile each session) | a difference of degree. Narrower residual: a spin has no model of the pulse sequence; people can anticipate the one applied to them. |
+| evaluations on people are not cheap or reversible | history is billions of evaluations already run | reading history and language is observation. A loop that proposes the next intervention is the pulse sequence; consent and irreversibility apply to that step. |
+| one cycle can take a generation | language can be evaluated now | none at the readout; the cycles themselves stay slow. |
+| reading DNP straight across makes the AI the source of order | AI is the AI; the field does the imposing | none; the mapping above uses the correction. |
+
+### Measurement design: the field-change removal test (not run)
+
+Claim under test: corpus statistics of a practice reflect alignment to the imposing structure, not the practice's own state.
+
+- **Cases:** places and periods where the imposing structure changed on a datable occasion (enclosure, colonial imposition or withdrawal, the collapse of a market, the end of an extraction regime), with written record on both sides of the change.
+- **Readout:** language measures computed the same way before and after: term frequencies and senses for the practice, frame density (`frame-token-audit`), what is described as normal or costly.
+- **Prediction (fails if wrong):** the measures shift with the field, at the change, and relax toward a different state afterwards. If they stay put across the change, the alignment was the practice's own and not the field's.
+- **Resonance prediction (fails if wrong):** interventions matched to the period of an existing cycle show lasting effect; unmatched ones show a disturbance that decays. No dependence on timing relative to the cycle means the shape does not carry over (Simulators `SHAPE_SPEC.md` removal test).
+- **Confounds to state up front:** the record's own selection (who wrote, who survived); the field change also changes who writes; sense drift in the terms being counted (Simulators `coinage-log`, `term-drift-citation`).
+- **Cost:** reading existing text only; no intervention on anyone.

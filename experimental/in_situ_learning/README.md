@@ -9,7 +9,7 @@ Source paper: Jensen et al., *In situ Learning-Based Spin Engineering of Pulsed 
 | File | Contents |
 |---|---|
 | `GAPS.md` | what the study does, what holds, gaps G1-G11 with locations, cheapest discriminators |
-| `THEORY.md` | mapping to an AI learning program, propositions T1-T6, protocol L1-L8 (all PROPOSED) |
+| `THEORY.md` | mapping to an AI learning program, propositions T1-T6, protocol L1-L8, and T7 (the owner's proposal: human systems as the spin system, with a field-change removal test); all PROPOSED |
 | `loop.py` | stdlib Gaussian process + expected improvement on constructed functions; experiments E1-E5 |
 | `test_loop.py` | selftest + sample regeneration check |
 | `samples/run.txt` | the pinned output of `python3 loop.py` |
