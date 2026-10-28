@@ -91,3 +91,5 @@ The proposed `equation`, `assumption`, `derivation`, and `assessment` types spec
 This is not a storage-schema selection, runtime implementation, or completed migration of `assess.py`. Follow the [decision checklist](../../docs/decision-checklist.md): E-02/E-03 and verification/numerical/integration choices remain open pending review.
 
 Review the [planned cases](review-cases.md) before implementing a validator. Examples are synthetic, include no real measurement or executed check, and deliberately leave the demonstration assessment NOT_EVALUATED.
+
+The subsequent [physics-case review](../../reviews/physics-cases/README.md) examines dimensional consistency, quantity kinds, conservation accounting, approximation criteria, initial conditions, and uncertainty dependencies. Its separate authoring calculations and structural probes leave this schema and the original five examples unchanged; they are not lab acceptance-suite execution or empirical validation.

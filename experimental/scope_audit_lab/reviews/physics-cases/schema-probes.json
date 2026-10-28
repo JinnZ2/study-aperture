@@ -1,0 +1,343 @@
+{
+  "artifact_kind": "AUTHORING_STRUCTURAL_BOUNDARY_PROBES",
+  "procedure": "probe_schema.py / physics-review-1",
+  "reviewer": {
+    "jsonschema": "4.26.0",
+    "rfc3339-validator": "0.1.4",
+    "date_time_support_verified": true
+  },
+  "examined_sha256": {
+    "schema": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+    "examples": "4d152cf48c629ff0e96857fe40716844669ef445f6f6d472fcac57c5192e9f90",
+    "procedure": "084d7ecd648fbea41b7219a007d90ccd9ffef453519c7d33784d0ae843fae535"
+  },
+  "results": [
+    {
+      "case_id": "P-01",
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+        "schema_version": "0.1",
+        "record_id": "physics-review:p-01",
+        "record_type": "equation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "authoring-physics-review-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No acquisition timestamp asserted for this synthetic fixture."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture schema-draft authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "MISSING",
+            "reason": "No versioned capture process exists."
+          }
+        },
+        "relations": [],
+        "payload": {
+          "exact_statement": "E = m*v",
+          "statement_kind": "THEOREM_CLAIM",
+          "original": {
+            "text": "E = m*v",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Synthetic equation authored by probe_schema.py; not a publication."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "transcription": {
+            "status": "NOT_APPLICABLE",
+            "reason": "No separate transcription."
+          },
+          "symbols": [
+            {
+              "symbol": "E",
+              "meaning": {
+                "status": "PRESENT",
+                "value": "energy"
+              },
+              "mathematical_type": {
+                "status": "PRESENT",
+                "value": "real scalar"
+              },
+              "domain": {
+                "status": "PRESENT",
+                "value": "declared real scalar domain"
+              },
+              "quantity": {
+                "status": "PRESENT",
+                "value": "energy"
+              },
+              "dimensions": {
+                "status": "PRESENT",
+                "value": "M L^2 T^-2"
+              },
+              "units": {
+                "status": "PRESENT",
+                "value": "J"
+              },
+              "conventions": {
+                "status": "PRESENT",
+                "value": "Fixture declarations, not measured properties."
+              }
+            },
+            {
+              "symbol": "m",
+              "meaning": {
+                "status": "PRESENT",
+                "value": "mass"
+              },
+              "mathematical_type": {
+                "status": "PRESENT",
+                "value": "real scalar"
+              },
+              "domain": {
+                "status": "PRESENT",
+                "value": "declared real scalar domain"
+              },
+              "quantity": {
+                "status": "PRESENT",
+                "value": "mass"
+              },
+              "dimensions": {
+                "status": "PRESENT",
+                "value": "M"
+              },
+              "units": {
+                "status": "PRESENT",
+                "value": "kg"
+              },
+              "conventions": {
+                "status": "PRESENT",
+                "value": "Fixture declarations, not measured properties."
+              }
+            },
+            {
+              "symbol": "v",
+              "meaning": {
+                "status": "PRESENT",
+                "value": "speed"
+              },
+              "mathematical_type": {
+                "status": "PRESENT",
+                "value": "real scalar"
+              },
+              "domain": {
+                "status": "PRESENT",
+                "value": "declared real scalar domain"
+              },
+              "quantity": {
+                "status": "PRESENT",
+                "value": "speed"
+              },
+              "dimensions": {
+                "status": "PRESENT",
+                "value": "L T^-1"
+              },
+              "units": {
+                "status": "PRESENT",
+                "value": "m/s"
+              },
+              "conventions": {
+                "status": "PRESENT",
+                "value": "Fixture declarations, not measured properties."
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Real scalars with the explicitly declared physical quantities."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Structural boundary probe only."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "No empirical interpretation established."
+            },
+            "regime": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No physical operating regime."
+            },
+            "boundary_conditions": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No boundary-value problem."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No condition supplied."
+            }
+          },
+          "assumption_refs": [],
+          "dependency_refs": [],
+          "ambiguities": []
+        }
+      },
+      "schema_accepted": true,
+      "structural_errors": [],
+      "semantic_boundary": "Dimensional compatibility is not evaluated by JSON Schema.",
+      "semantic_assessment_executed": false
+    },
+    {
+      "case_id": "P-07",
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+        "schema_version": "0.1",
+        "record_id": "physics-review:p-07",
+        "record_type": "equation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "authoring-physics-review-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No acquisition timestamp asserted for this synthetic fixture."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture schema-draft authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "MISSING",
+            "reason": "No versioned capture process exists."
+          }
+        },
+        "relations": [],
+        "payload": {
+          "exact_statement": "dy/dt = 0 therefore y(t) = 0",
+          "statement_kind": "THEOREM_CLAIM",
+          "original": {
+            "text": "dy/dt = 0 therefore y(t) = 0",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Synthetic equation authored by probe_schema.py; not a publication."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "transcription": {
+            "status": "NOT_APPLICABLE",
+            "reason": "No separate transcription."
+          },
+          "symbols": [
+            {
+              "symbol": "y",
+              "meaning": {
+                "status": "PRESENT",
+                "value": "abstract dependent variable"
+              },
+              "mathematical_type": {
+                "status": "PRESENT",
+                "value": "real scalar"
+              },
+              "domain": {
+                "status": "PRESENT",
+                "value": "declared real scalar domain"
+              },
+              "quantity": {
+                "status": "PRESENT",
+                "value": "abstract scalar"
+              },
+              "dimensions": {
+                "status": "PRESENT",
+                "value": "1"
+              },
+              "units": {
+                "status": "PRESENT",
+                "value": "1"
+              },
+              "conventions": {
+                "status": "PRESENT",
+                "value": "Fixture declarations, not measured properties."
+              }
+            },
+            {
+              "symbol": "t",
+              "meaning": {
+                "status": "PRESENT",
+                "value": "abstract independent variable"
+              },
+              "mathematical_type": {
+                "status": "PRESENT",
+                "value": "real scalar"
+              },
+              "domain": {
+                "status": "PRESENT",
+                "value": "declared real scalar domain"
+              },
+              "quantity": {
+                "status": "PRESENT",
+                "value": "abstract scalar"
+              },
+              "dimensions": {
+                "status": "PRESENT",
+                "value": "1"
+              },
+              "units": {
+                "status": "PRESENT",
+                "value": "1"
+              },
+              "conventions": {
+                "status": "PRESENT",
+                "value": "Fixture declarations, not measured properties."
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Differentiable real y on a connected real interval; no initial condition supplied."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Structural boundary probe only."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "No empirical interpretation established."
+            },
+            "regime": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No physical operating regime."
+            },
+            "boundary_conditions": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No boundary-value problem."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No condition supplied."
+            }
+          },
+          "assumption_refs": [],
+          "dependency_refs": [],
+          "ambiguities": []
+        }
+      },
+      "schema_accepted": true,
+      "structural_errors": [],
+      "semantic_boundary": "The unprovided initial condition and implication are not checked.",
+      "semantic_assessment_executed": false
+    }
+  ],
+  "limitations": [
+    "A schema-accepted record is not a mathematically valid equation.",
+    "These synthetic inputs and procedures have the same author.",
+    "No lab runtime validator or acceptance test is implemented.",
+    "No source, evidence-graph, or physical assertion was authenticated."
+  ]
+}

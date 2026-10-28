@@ -1,0 +1,222 @@
+{
+  "artifact_kind": "AUTHORING_REVIEW_CALCULATIONS",
+  "fixture_status": "SYNTHETIC_NOT_EMPIRICAL",
+  "procedure": "compute_review.py / physics-review-1",
+  "python_version": "3.14.8",
+  "examined_sha256": {
+    "compute_review.py": "18b505fd3cfd780b9736de5ca9f17e6bbfb8be1c3d94bec376729cc1e70aa4ec",
+    "evidence.schema.json": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+    "schema_example_records.json": "4d152cf48c629ff0e96857fe40716844669ef445f6f6d472fcac57c5192e9f90",
+    "requirements_0.2.md": "50a1bf3d5b556cdb08c4367b5e442cdd512b7f2fbda9498383645b4c8e57a10d"
+  },
+  "dimensions": {
+    "basis_order": [
+      "mass",
+      "length",
+      "time"
+    ],
+    "declared_energy": [
+      1,
+      2,
+      -2
+    ],
+    "declared_mass_times_speed": [
+      1,
+      1,
+      -1
+    ],
+    "declared_mass_times_speed_squared": [
+      1,
+      2,
+      -2
+    ],
+    "energy_equals_mass_times_speed_dimensions": false,
+    "energy_equals_mass_times_speed_squared_dimensions": true,
+    "dimensionless_coefficient_determined": false,
+    "physical_law_established": false
+  },
+  "balance": {
+    "units": "W",
+    "synthetic_total_power_in": 100,
+    "synthetic_total_power_out": 120,
+    "measured_storage_rate": {
+      "status": "UNAVAILABLE",
+      "reason": "No storage measurement was supplied."
+    },
+    "residual_with_missing_storage": {
+      "status": "UNAVAILABLE",
+      "reason": "r = dE/dt - (P_in - P_out) requires a supplied storage rate."
+    },
+    "required_storage_rate_for_zero_residual": -20,
+    "conditional_residual_if_storage_rate_is_minus_20": 0,
+    "conditional_residual_if_storage_rate_is_zero": 20,
+    "cause_selected": false
+  },
+  "small_angle": {
+    "metric": "abs(theta - sin(theta)) / abs(sin(theta)); theta in radians",
+    "not_a_period_error_estimate": true,
+    "cases": [
+      {
+        "angle_degrees": 0,
+        "angle_radians": 0.0,
+        "absolute_difference": 0.0,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": {
+          "status": "UNAVAILABLE",
+          "reason": "The defined denominator is zero; no extension was specified."
+        }
+      },
+      {
+        "angle_degrees": 1,
+        "angle_radians": 0.017453292519943295,
+        "absolute_difference": 8.860826597838212e-07,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 5.077137430691999e-05
+      },
+      {
+        "angle_degrees": 5,
+        "angle_radians": 0.08726646259971647,
+        "absolute_difference": 0.00011071985205830803,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.0012703678331200158
+      },
+      {
+        "angle_degrees": 10,
+        "angle_radians": 0.17453292519943295,
+        "absolute_difference": 0.0008847475325026166,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.005095057975210231
+      },
+      {
+        "angle_degrees": 14.5,
+        "angle_radians": 0.2530727415391778,
+        "absolute_difference": 0.0026927374847363628,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.010754602768321972
+      },
+      {
+        "angle_degrees": 15,
+        "angle_radians": 0.2617993877991494,
+        "absolute_difference": 0.0029803426966286684,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.011515159927462547
+      },
+      {
+        "angle_degrees": 30,
+        "angle_radians": 0.5235987755982988,
+        "absolute_difference": 0.02359877559829887,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.04719755119659775
+      },
+      {
+        "angle_degrees": 45,
+        "angle_radians": 0.7853981633974483,
+        "absolute_difference": 0.07829138221090082,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.11072073453959162
+      },
+      {
+        "angle_degrees": 60,
+        "angle_radians": 1.0471975511965976,
+        "absolute_difference": 0.18117214741215903,
+        "relative_difference_denominator": "abs(sin(theta))",
+        "relative_difference": 0.20919957615614518
+      }
+    ],
+    "exact_threshold_comparisons_in_error_space": [
+      {
+        "position": "below",
+        "error_exact": "999/100000",
+        "threshold_exact": "1/100",
+        "rule": "error <= threshold",
+        "criterion_met": true
+      },
+      {
+        "position": "at",
+        "error_exact": "1/100",
+        "threshold_exact": "1/100",
+        "rule": "error <= threshold",
+        "criterion_met": true
+      },
+      {
+        "position": "above",
+        "error_exact": "1001/100000",
+        "threshold_exact": "1/100",
+        "rule": "error <= threshold",
+        "criterion_met": false
+      }
+    ],
+    "threshold_is_user_chosen_not_a_physical_boundary": true
+  },
+  "rational_approximation": {
+    "formula": "F(epsilon)=1/(1-epsilon), A(epsilon)=1+epsilon",
+    "reference_domain": "real epsilon != 1",
+    "review_interval": "-1/10 <= epsilon <= 1/10",
+    "absolute_error_bound_on_review_interval_exact": "1/90",
+    "relative_error_bound_on_review_interval_exact": "1/100",
+    "cases": [
+      {
+        "epsilon_exact": "-1/10",
+        "reference_exact": "10/11",
+        "approximation_exact": "9/10",
+        "absolute_error_exact": "1/110",
+        "relative_error_exact": "1/100",
+        "absolute_error_le_1_percent_of_one": true,
+        "relative_error_le_1_percent_of_reference": true
+      },
+      {
+        "epsilon_exact": "0",
+        "reference_exact": "1",
+        "approximation_exact": "1",
+        "absolute_error_exact": "0",
+        "relative_error_exact": "0",
+        "absolute_error_le_1_percent_of_one": true,
+        "relative_error_le_1_percent_of_reference": true
+      },
+      {
+        "epsilon_exact": "1/10",
+        "reference_exact": "10/9",
+        "approximation_exact": "11/10",
+        "absolute_error_exact": "1/90",
+        "relative_error_exact": "1/100",
+        "absolute_error_le_1_percent_of_one": false,
+        "relative_error_le_1_percent_of_reference": true
+      }
+    ]
+  },
+  "uncertainty": {
+    "quantity_units": "declared common scalar unit U",
+    "covariance_and_variance_units": "U^2",
+    "missing_covariance_result": {
+      "status": "UNAVAILABLE",
+      "reason": "No independence or zero-covariance assumption may be inferred."
+    },
+    "conditional_examples": [
+      {
+        "sigma_observation": 3,
+        "sigma_prediction": 4,
+        "covariance": 0,
+        "assumption_basis": "Explicit synthetic zero-covariance assumption.",
+        "residual_variance": 25,
+        "residual_standard_uncertainty": 5.0
+      },
+      {
+        "sigma_observation": 3,
+        "sigma_prediction": 4,
+        "covariance": 12,
+        "assumption_basis": "Explicit synthetic perfect-positive-correlation assumption.",
+        "residual_variance": 1,
+        "residual_standard_uncertainty": 1.0
+      }
+    ]
+  },
+  "limitations": [
+    "These calculations are author-generated synthetic fixtures.",
+    "No laboratory observation, external experiment, or empirical validation.",
+    "No runtime Scope Audit Lab validator or acceptance-suite implementation.",
+    "Python floating-point trigonometry is not an interval proof.",
+    "Exact fractions are used only for these authoring illustrations.",
+    "A future numerical backend and uncertainty policy remain undecided.",
+    "A zero residual establishes only arithmetic agreement under supplied assumptions."
+  ]
+}

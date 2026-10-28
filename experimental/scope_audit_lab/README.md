@@ -1,6 +1,6 @@
 # Scope Audit Lab
 
-Status: Proposed; documentation only. Specification 0.2 is not implemented or validated by this addition. No experiment runner, executable schemas, live voice instrumentation, or acceptance-test results are supplied here.
+Status: Proposed; documentation, draft schemas, and authoring-review artifacts only. Specification 0.2 is not implemented or validated by this addition. No runtime experiment runner, semantic validator, live voice instrumentation, or lab acceptance-test results are supplied here.
 
 Scope Audit Lab is proposed as an experimental auditing instrument for scoped mathematical models and computational agents. It should preserve claims, conditions, observations, artifacts, verification events, unknowns, and competing interpretations without silently choosing a conclusion.
 
@@ -13,6 +13,7 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 - **Evidence contract:** [Draft proposal 0.1](docs/evidence-contract.md) separates proposed design choices from unchanged specification 0.2, covering typed records, missingness, verification, amendments, numerical rules, execution authorization, and voice observability. It is not an implemented or stable interface.
 - **Decision checklist:** [Pre-implementation review](docs/decision-checklist.md) records E-01 APPROVED for independent development, with Prototype 0.1 compatibility UNKNOWN. Voice items are DEFERRED; other design items remain OPEN.
 - **Draft evidence schemas:** [Five mathematical evidence record types](schemas/draft-0.1/README.md) propose equations, assumptions, derivations, scalar observations, and property-specific assessments, with synthetic examples and planned review cases. These are not a runtime validator, an approved stable interface, or mathematical/empirical validation.
+- **Physics-case review:** [Dimensional, balance, and approximation cases](reviews/physics-cases/README.md) examine the draft against eight scoped cases, with reproducible synthetic arithmetic and authoring-only structural probes. Proposed extensions are not adopted schema changes or lab acceptance-test results.
 - **Parent toolkit:** [study-aperture](../../README.md) remains the publication-appraisal and decision-record layer; this folder does not replace or extend its recorder.
 
 ## Boundary decision
