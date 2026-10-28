@@ -2,7 +2,7 @@
 
 Status: Draft for review; no design decisions approved by this checklist. The [evidence contract 0.1](evidence-contract.md) is a proposal beneath [requirements 0.2](../requirements/scope-audit-lab-0.2.md), and this checklist does not change either document.
 
-Use this checklist to distinguish a recommendation from an authorized choice and a design approval from demonstrated implementation behavior. All items below begin **OPEN**; the instruction to prepare this checklist is not approval of its recommendations or permission to implement them.
+Use this checklist to distinguish a recommendation from an authorized choice and a design approval from demonstrated implementation behavior. All items initially began OPEN; the owner has since prioritized mathematics/physics assessment and deferred voice work, as recorded in the [scope decision](math-physics-focus.md). W-01 through W-03 are now DEFERRED; the remaining design choices stay OPEN.
 
 ## How to record a decision
 
@@ -45,13 +45,13 @@ Review this gate before Stage B calculations and transition probing. Approving a
 
 ## Voice gate
 
-Review this gate before Stage C schema/classification work. Live instrumentation needs a separate capability demonstration and authorization even if synthetic classification rules are approved.
+This gate is deferred by the project owner in [S-02](math-physics-focus.md#recorded-scope-decision), to prioritize mathematics/physics evidence and assessment. The revisit trigger is an explicit owner request to resume voice work, not completion of another milestone. No voice schema/classification or live instrumentation work is in the current scope.
 
 | ID / status | Decision required | Recommended starting choice | Check before approval |
 |---|---|---|---|
-| W-01 / OPEN | What events are observable for each trial? | Explicit capability records; unavailable endpoint decisions remain unknown. | Identify audio/event access, system/mode/version, timestamp sources, and what cannot be observed. |
-| W-02 / OPEN | What establishes completion and premature response? | Attributed completion annotation plus comparable response timing; ambiguous timing yields indeterminate classification. | Define clock alignment, annotation reliability, timing uncertainty, backchannels, and instruction-compliance criteria. |
-| W-03 / OPEN | How are disruption, recovery, consent, and retention handled? | Record attributed reports/measurements separately; never infer recovery cost from interruption alone. | Define measurement procedure, consent, allowed sharing, retention, and redaction before collecting real participant material. |
+| W-01 / DEFERRED | What events are observable for each trial? | Explicit capability records; unavailable endpoint decisions remain unknown. | Identify audio/event access, system/mode/version, timestamp sources, and what cannot be observed. |
+| W-02 / DEFERRED | What establishes completion and premature response? | Attributed completion annotation plus comparable response timing; ambiguous timing yields indeterminate classification. | Define clock alignment, annotation reliability, timing uncertainty, backchannels, and instruction-compliance criteria. |
+| W-03 / DEFERRED | How are disruption, recovery, consent, and retention handled? | Record attributed reports/measurements separately; never infer recovery cost from interruption alone. | Define measurement procedure, consent, allowed sharing, retention, and redaction before collecting real participant material. |
 
 ## Integration gate
 
@@ -67,7 +67,7 @@ Review these choices before building reporting/export behavior, and execute the 
 
 The recommended first review is **E-01 through E-04**, plus **V-01 through V-03** for a recorder-only Stage A slice. Also settle I-01's required execution evidence and I-02's exchange envelope before making implementation claims or exposing an interchange interface.
 
-Numerical and voice gates may be deferred explicitly for that slice, provided no deferred convention is baked into the common schema as an unstated assumption. No approval is being requested for a live voice collector, network-dependent runtime, benchmark ranking, or automatic causal diagnosis.
+Voice gates are deferred under S-02. Numerical conventions remain OPEN and are active review priorities for the mathematics/physics focus: N-01 and N-02 must be settled before implementing calculations, and N-03 before transition probing. No approval is being requested for a live voice collector, network-dependent runtime, benchmark ranking, or automatic causal diagnosis.
 
 ### Decision-entry template
 

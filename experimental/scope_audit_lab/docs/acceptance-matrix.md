@@ -2,6 +2,8 @@
 
 Status: Proposed; documentation only. Every row below has execution status **NOT RUN**; no row is implemented or passed by its inclusion here. This matrix interprets the [unchanged specification 0.2](../requirements/scope-audit-lab-0.2.md) into proposed tests and required evidence, without adding implementation claims.
 
+Current scope: [S-01 and S-02](math-physics-focus.md#recorded-scope-decision) prioritize mathematical/physical evidence and assessment, and defer voice work. VOICE.01–07 and the voice-dependent G-08 remain NOT RUN and excluded from the current milestone; deferral is not a pass or a reason to claim full-baseline conformance.
+
 ## Reading the matrix
 
 Test identifiers are planning references, not existing test functions. `FR-xx.nn` follows the acceptance-bullet order under each functional requirement; FR-11, evidence-model, and research-source rows map prose obligations into proposed tests, while `VOICE.nn` follows the seven voice acceptance bullets.
@@ -107,7 +109,7 @@ These are integration-level checks, not redundant declarations that the unit-lev
 
 - **Stage A:** TYPE, FR-01–04, FR-09–10, and SOURCE fixtures first; establish the evidence contract before an execution engine.
 - **Stage B:** FR-05–08 with synthetic numerical cases; retain FR-09–11 checks throughout.
-- **Stage C:** VOICE event fixtures and capability limits; live instrumentation remains a separate unestablished capability.
+- **Stage C:** deferred by S-02; the VOICE plans below remain baseline documentation, not active implementation work. Live instrumentation remains a separate unestablished capability.
 - **Stage D:** consolidate reporting and adversarial integration tests, including conflicting observations and unsupported causes; this does not defer earlier-stage integrity tests.
 
 Before writing tests, settle identifier namespaces, reference resolution, timestamp/clock semantics, verification-to-state bindings, dependency relevance, correction rules, unit compatibility, threshold inclusivity, residual denominators, uncertainty assumptions, and execution authorization. These are open design contracts, not decisions silently added to specification 0.2.

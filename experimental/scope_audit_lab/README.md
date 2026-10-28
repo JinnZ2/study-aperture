@@ -6,10 +6,12 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 
 ## Start here
 
+- **Active focus:** [Mathematics and physics scope decision](docs/math-physics-focus.md) records the owner's prioritization of evidence and assessment for mathematics, equations, and physics. Voice work is deferred; the proposed procedures are not implemented capabilities.
+
 - **Requirements:** [Specification 0.2](requirements/scope-audit-lab-0.2.md) preserves the specification supplied by the project owner, including its proposed baseline and implementation order.
 - **Acceptance matrix:** [Requirement-to-test mapping](docs/acceptance-matrix.md) assigns documentation identifiers to proposed checks, inputs, and inspectable artifacts. Every check is planned and not run.
 - **Evidence contract:** [Draft proposal 0.1](docs/evidence-contract.md) separates proposed design choices from unchanged specification 0.2, covering typed records, missingness, verification, amendments, numerical rules, execution authorization, and voice observability. It is not an implemented or stable interface.
-- **Decision checklist:** [Pre-implementation review](docs/decision-checklist.md) turns the contract's gates into explicit choices. Every item starts OPEN; drafting the checklist does not approve a design or authorize implementation.
+- **Decision checklist:** [Pre-implementation review](docs/decision-checklist.md) turns the contract's gates into explicit choices. Voice items are now DEFERRED by the owner; other design items remain OPEN.
 - **Parent toolkit:** [study-aperture](../../README.md) remains the publication-appraisal and decision-record layer; this folder does not replace or extend its recorder.
 
 ## Boundary decision
@@ -29,8 +31,8 @@ Initially prefer explicit JSON exchange over shared mutable state. An imported t
 
 Review Prototype 0.1 before adapting its modules. Review the draft evidence contract and settle its open implementation choices before treating it as an interface commitment.
 
-Use the decision checklist to record approvals, deferrals, decision makers, and their scope. Start with the evidence and verification gates for a proposed recorder-only milestone, without silently approving numerical or live voice capabilities.
+Use the decision checklist to record approvals, deferrals, decision makers, and their scope. Prioritize evidence and verification for mathematical and physical claims; settle numerical representation and uncertainty rules before implementing calculations. Voice work remains deferred until explicitly resumed.
 
-Use the supplied Stage A through D order as the baseline. Run adversarial checks and report checks alongside each implementation stage rather than interpreting Stage D as permission to delay evidence-integrity tests.
+Keep the supplied Stage A through D order as the unchanged baseline, but exclude Stage C voice work from the current scoped milestone. Run relevant adversarial and report checks alongside each active stage rather than interpreting Stage D as permission to delay evidence-integrity tests; a milestone excluding voice cannot claim complete specification 0.2 conformance.
 
 The acceptance matrix is a planning artifact, not an execution log or proof of coverage by working tests. Passing future tests would establish the specified software behaviors within their tested scope, not universal correctness of audited models, agents, or voice interactions.

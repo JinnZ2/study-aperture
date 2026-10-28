@@ -4,6 +4,8 @@ Status: Draft proposal for review; not implemented, adopted as a stable interfac
 
 The contract describes what a future implementation would record and what it would refuse to infer. “Require,” “reject,” and “must” below describe proposed behavior to implement and test, not capabilities already present in this repository.
 
+The subsequent [scope decision](math-physics-focus.md) prioritizes mathematics/physics evidence and assessment, with voice work deferred. The voice provisions remain a future proposal rather than an active milestone dependency; no other design choice in this contract is approved solely by that prioritization.
+
 ## Contract boundary
 
 The instrument records evidence and explicitly specified calculations. It may establish that a declared criterion was met for an identified subject state, but it does not thereby establish general correctness, causality, truth, or suitability for an action.
