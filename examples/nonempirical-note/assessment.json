@@ -1,0 +1,64 @@
+{
+  "schema": "study-aperture/1",
+  "title": "WO-1: Chain position detectability from inside a container (research note)",
+  "pub_type": "COMMENTARY",
+  "citation": "github.com/JinnZ2/chain-position-detectability (README)",
+  "materials": "full README of the research note",
+  "decision_context": "which parts of the note are observations vs proposals",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "OWASP ACS and Top 10 for Agentic Applications 2026 specify per-agent isolation, lineage tracking, gateway tracing, and runtime interception",
+      "evidence_location": "README, standards review section",
+      "support": "UNTESTED"
+    },
+    {
+      "id": "C2",
+      "text": "These controls operate from the gateway's external view, so lineage can exist without being visible to the container",
+      "evidence_location": "README, identified-gap section",
+      "support": "UNTESTED"
+    },
+    {
+      "id": "C3",
+      "text": "The rule that an unassessed factor should be treated as not stable",
+      "evidence_location": "README, load-class test section",
+      "support": "UNDETERMINED"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "01",
+      "state": "RUN",
+      "output": "claims labeled: C1 OBSERVED (public standards review), C2 DERIVED (from C1 plus stated rule), C3 PROPOSED (a practice derived by the note, not an observation); note explicitly labels its own claims OBSERVED/DERIVED/PROPOSED and its unverified statements as unverified - the labeling is already done by the source; C3 recorded as UNDETERMINED by assessor since the note flags the cost-preservation claim as derived and not demonstrated"
+    },
+    {
+      "id": "T2",
+      "card": "02",
+      "state": "NOT_APPLICABLE"
+    },
+    {
+      "id": "T3",
+      "card": "03",
+      "state": "NOT_APPLICABLE"
+    },
+    {
+      "id": "T4",
+      "card": "04",
+      "state": "NOT_APPLICABLE"
+    },
+    {
+      "id": "T5",
+      "card": "05",
+      "state": "NOT_APPLICABLE"
+    },
+    {
+      "id": "T6",
+      "card": "06",
+      "state": "RUN",
+      "output": "target/rendering: the note is a rendering of the target 'can a container detect its chain position'; no mitigation specified and the note states the join is not published before the mitigation side exists - the target remains open with the rendering; the note's own open problems list is the branch set; four runnable next steps recorded by the source, none run"
+    }
+  ],
+  "decisions": [],
+  "notes": "UNDECLARED"
+}

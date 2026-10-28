@@ -1,0 +1,163 @@
+{
+  "schema": "study-aperture/1",
+  "title": "Carney, Cuddy & Yap (2010): Power posing",
+  "pub_type": "EMPIRICAL",
+  "citation": "Psychological Science 21(10):1363-1368, doi:10.1177/0956797610383437",
+  "materials": "original article: journal full text consulted to verify reported statistics; replication/p-curve/commentary literature: excerpts of the primary texts obtained via search; first author's 2016 statement: excerpts",
+  "decision_context": "whether to rely on power posing as a low-cost intervention for confidence in high-stakes situations",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "High-power posers reported feeling significantly more 'powerful' and 'in charge' (M=2.57 vs 1.83), F(1,41)=9.53, p<.01, r=.44",
+      "evidence_location": "Results, felt-power analysis (verified against journal full text)",
+      "support": "PARTIALLY_SUPPORTED",
+      "measurand": "self-reported felt power, 4-item scale",
+      "grade": "MEASURED_PRESENT",
+      "falsifiers": "null felt-power effect at adequate power; negative direction vs neutral control",
+      "label": "OBSERVED",
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+    },
+    {
+      "id": "C2",
+      "text": "High-power posers took the gambling risk more often, chi2(1,N=42)=3.86, p<.05, phi=.30",
+      "evidence_location": "Results, risk-tolerance analysis (verified against journal full text)",
+      "support": "UNSUPPORTED",
+      "measurand": "gambling decision (2-choice), coded 0/1",
+      "grade": "MEASURED_PRESENT",
+      "falsifiers": "null gambling effect at adequate power",
+      "label": "OBSERVED",
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+    },
+    {
+      "id": "C3",
+      "text": "High-power posers showed a treatment effect on testosterone, F(1,39)=4.29, p<.05, r=.34",
+      "evidence_location": "Results, hormone analyses (verified against journal full text)",
+      "support": "UNSUPPORTED",
+      "measurand": "salivary testosterone, pre/post change",
+      "grade": "MEASURED_PRESENT",
+      "falsifiers": "null testosterone change at adequate power; win-feedback confound explains effect",
+      "label": "OBSERVED",
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+    },
+    {
+      "id": "C4",
+      "text": "High-power poses caused a decrease in cortisol vs an increase under low-power poses, F(1,38)=7.45, p<.02, r=.43",
+      "evidence_location": "Results, hormone analyses (verified against journal full text)",
+      "support": "UNSUPPORTED",
+      "measurand": "salivary cortisol, pre/post change",
+      "grade": "MEASURED_PRESENT",
+      "falsifiers": "null cortisol change at adequate power",
+      "label": "OBSERVED",
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "00",
+      "state": "RUN",
+      "output": "routed EMPIRICAL (defaults; no overrides needed); design checks recorded separately above"
+    },
+    {
+      "id": "T2",
+      "card": "01",
+      "state": "RUN",
+      "output": "4 claims extracted, statistics verified against journal full text. Conditional rigidity (assessor-authored formalization of the public retelling): original formalized as IF [participants adopt expansive poses] THEN ([felt power rises] AND [risk tolerance rises] AND [testosterone rises] AND [cortisol falls]); antecedent-loss comparison (IF [pose] THEN [risk rises] vs bare [risk rises]) returns ASSERTED_CONSEQUENT (operator dropped: premise deleted, consequent stated as unconditional fact); retelling A (single conjunct) and retelling B (TED-style life outcomes) both NOT_ENTAILED - logically incomparable, neither entails the other; retelling B adds a new atom no original conjunct covers. Falsifiers for hormone/risk claims: null effects at adequate power - reported by Ranehill 2015 and Ronay 2016.",
+      "source": "vendored/conditional_claims.py run outputs; Slate 2016 for TED phrasing"
+    },
+    {
+      "id": "T3",
+      "card": "02",
+      "state": "RUN",
+      "output": "layer findings: testosterone layer instrument CONTAMINATED (gambling win feedback before saliva sampling; admitted in 2016 statement); felt-power self-report layer: many questions asked, chosen subset reported -> MEASURED_DISCARDED with discard rule undeclared at publication (disclosed 2016); exclusions: 5 of 47 -> MEASURED_DISCARDED, discard rule undeclared; join check Carney2010 vs Ranehill2015 on felt power: COMMENSURABLE as far as recorded excerpts show.",
+      "source": "2016 statement excerpts; journal full text (no exclusions mentioned there)"
+    },
+    {
+      "id": "T4",
+      "card": "03",
+      "state": "RUN",
+      "output": "false_agree (false_agree.json): Ranehill2015~Cuddy2018-pcurve -> FALSE_AGREE_DEFINITION - a FIELD MISMATCH REQUIRING REVIEW, not a verdict: control structure and outcome scope differ (per commentary on Cuddy et al. 2018); assessor judges the control-structure difference load-bearing for the expansive-vs-neutral question. safe_provenance on data lineage (provenance-data.json): all pairs NO_SHARED_ANCESTOR_IN_DECLARED_GRAPH - property of the declared graph only. safe_provenance on methods lineage (provenance-methods.json): SOME_PAIRS_SHARE_ANCESTORS (witness: Carney 2010 methods); what the shared node contributes is study-specific: Ronay 2016 states exact replication of Carney et al. methodology; for Ranehill 2015 and Garrison 2016 inheritance of specific design features is NOT established from the excerpts in hand.",
+      "source": "vendored/safe_provenance.py and vendored/false_agree.py run outputs"
+    },
+    {
+      "id": "T5",
+      "card": "04",
+      "state": "RUN",
+      "output": "open branches for the felt-power effect: (a) expansive pose raises felt power; (b) contractive pose lowers it (difference is harm-driven); (c) demand/expectation effect; (d) publication bias artifact. Cheapest discriminators: neutral-pose control (b), blinded participants/experimenters (c), preregistered studies (d). (d) partially eliminated: Gronau et al. 2017 Bayesian meta-analysis of preregistered studies found a small positive effect on felt power (per Clearer Thinking summary). (a) vs (b): NOT ASSESSED - the exact pose/control contrasts in the cited studies (Ceunen et al. 2014; Garrison et al. 2016) were not verified from the primary texts in hand, and the commentary's argument that control-group designs favor (b) is the commentary authors' inference, not an independently verified finding here; the discrimination between (a) and (b) requires reading those designs and remains open. (c) remains open. Branches (a),(b),(c) remain open; no elimination completed by this assessment.",
+      "source": "commentary on Cuddy et al. 2018 (open.lnu.se); Clearer Thinking summary of Gronau et al. 2017"
+    },
+    {
+      "id": "T6",
+      "card": "05",
+      "state": "RUN",
+      "output": "claim-scope narrowing: defended claim family moved from 'neuroendocrine and behavioral changes' (2010) to 'feelings, emotions, affect' (2018 p-curve reply) to 'postural feedback' - recorded as REFERENT_NARROWED, an honest narrowing IF labeled as such; illicit drift only where the 2010 hormone/risk claims are still cited as supported - citation frequency not verified by this assessment. observer position: NOT_APPLICABLE. grounding layers: NOT_APPLICABLE. assumed stabilities: experimenter non-blindness (ASSUMED harmless at publication; unassessed then), gambling-win feedback independence (ASSESSED in 2016 statement: not stable, confound admitted)."
+    },
+    {
+      "id": "T7",
+      "card": "06",
+      "state": "RUN",
+      "output": "labels: C1-C4 OBSERVED as reported statistics (verified); the abstract-level 'confirmed our prediction' framing is DERIVED from four separate tests; public retellings asserting life-outcome benefits are PROPOSED with no observation in the record. target vs rendering: the 2010 rendering is superseded; the target (do postures change felt states) remains open and partly answered. DECLINED: none - all cards read.",
+      "source": "journal full text; Slate 2016"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "text": "Rely on power posing as a confidence intervention before high-stakes situations?",
+      "state": "UNRESOLVED"
+    },
+    {
+      "id": "D2",
+      "text": "Treat the 2010 hormone and risk-tolerance claims as established?",
+      "state": "RESOLVED",
+      "answer": "No: UNSUPPORTED by direct replications at adequate power (Ranehill 2015: no effect on hormones or risk tolerance, N=200; Ronay 2016: no effect on testosterone, cortisol, risk, or felt power, exact method) and by p-curve analysis (Simmons & Simonsohn 2017); first author disavows the embodied-effects claim (2016 statement)",
+      "by": "assessor"
+    },
+    {
+      "id": "D3",
+      "text": "Spend research resources searching for moderators of the hormone/risk effects?",
+      "state": "DEFERRED",
+      "deferred_reason": "Simmons & Simonsohn 2017: existing evidence too fragile to justify moderator search; re-open only with preregistered adequately-powered designs",
+      "by": "assessor"
+    }
+  ],
+  "notes": "UNDECLARED",
+  "design_checks": [
+    {
+      "check": "confounding",
+      "state": "CHECKED",
+      "finding": "gambling win feedback precedes saliva sampling; winning alone can raise testosterone (admitted as possible confound in first author's 2016 statement)",
+      "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    },
+    {
+      "check": "selection",
+      "state": "CHECKED",
+      "finding": "47 run, 5 excluded on bases like 'didn't follow directions'; exclusions not mentioned in the article",
+      "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    },
+    {
+      "check": "stopping-rule",
+      "state": "CHECKED",
+      "finding": "data collection in chunks (25, then 10, then 7, then 5) with effects checked along the way",
+      "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    },
+    {
+      "check": "multiplicity",
+      "state": "CHECKED",
+      "finding": "many power questions asked, chosen subset reported (self-report DV p-hacked per 2016 statement)",
+      "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    },
+    {
+      "check": "preregistration",
+      "state": "CHECKED",
+      "finding": "none",
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+    },
+    {
+      "check": "blinding",
+      "state": "CHECKED",
+      "finding": "experimenters not blind to condition",
+      "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    }
+  ]
+}

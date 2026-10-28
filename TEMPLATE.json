@@ -1,0 +1,63 @@
+{
+  "schema": "study-aperture/1",
+  "title": "Author(s) (Year): Short title",
+  "pub_type": "UNDECLARED",
+  "citation": "journal, volume(pages), doi or URL - where the study itself lives",
+  "materials": "what you ACTUALLY held and read - be honest; every grade below is conditioned on this",
+  "decision_context": "what the assessment is FOR; UNDECLARED if none - then downstream implications must be conditional, never recommendations",
+  "design_checks": [
+    {
+      "check": "confounding",
+      "state": "NOT_CHECKED",
+      "finding": "what the check found, verbatim where possible",
+      "source": "URL or location of the finding"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "VERBATIM claim text - quote, do not paraphrase",
+      "evidence_location": "NO_EVIDENCE_LOCATION",
+      "support": "UNDETERMINED",
+      "label": "UNDECLARED",
+      "measurand": "what was measured, not what it is called",
+      "range": "sector / domain where it holds",
+      "instrument": "the exact task/assay/scaffold that produced the number - the datum",
+      "grade": "UNDECLARED",
+      "resolution": "coarseness, as a value",
+      "falsifiers": "what would have to be observed for the claim to be wrong, and whether the publication reports testing it",
+      "source": "URL or location backing this claim record"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "01",
+      "state": "NOT_APPLICABLE",
+      "output": "the finding, with its source location",
+      "declined_reason": "required if DECLINED - a decline is the headline, not a gap; a gate may block scoring, never reading",
+      "source": "URL or location"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "text": "the decision surface the reader's decision actually turns on",
+      "state": "DETECTED",
+      "answer": "only via the resolve command - RESOLVED requires answer AND by (no silent resolution)",
+      "by": "named author of the resolution",
+      "deferred_reason": "required if DEFERRED - owned, with reason"
+    }
+  ],
+  "notes": "UNDECLARED",
+  "_field_guide": {
+    "pub_type": "EMPIRICAL | REVIEW | THEORETICAL | SIMULATION | COMMENTARY | UNDECLARED",
+    "design_check.state": "CHECKED | NOT_CHECKED | NOT_APPLICABLE | UNDECLARED",
+    "claim.support": "SUPPORTED | PARTIALLY_SUPPORTED | UNSUPPORTED | CONTRADICTED | UNTESTED | UNDETERMINED",
+    "claim.label": "OBSERVED | DERIVED | PROPOSED | UNDECLARED",
+    "claim.grade": "MEASURED_PRESENT | MEASURED_ABSENT | MEASURED_DISCARDED | UNMEASURED | UNDERPOWERED | IMPOSED | UNDECLARED",
+    "tool.state": "RUN | DECLINED | BLOCKED | NOT_APPLICABLE",
+    "decision.state": "DETECTED | UNRESOLVED | RESOLVED | DEFERRED | NOT_APPLICABLE",
+    "source fields": "recorded provenance (where you say it came from), not verified provenance"
+  }
+}

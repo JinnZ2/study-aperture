@@ -1,0 +1,30 @@
+{
+  "schema": "study-aperture/1",
+  "title": "Unknown preprint (abstract only)",
+  "pub_type": "UNDECLARED",
+  "citation": "UNDECLARED",
+  "materials": "abstract only, obtained in transit; no full text",
+  "decision_context": "UNDECLARED",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Abstract states the intervention 'significantly improved outcomes'",
+      "evidence_location": "",
+      "support": "UNDETERMINED"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "02",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "T2",
+      "card": "03",
+      "state": "BLOCKED"
+    }
+  ],
+  "decisions": [],
+  "notes": "UNDECLARED"
+}

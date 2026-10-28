@@ -1,0 +1,21 @@
+{
+  "claim_under_test": "expansive postures raise feelings of power",
+  "studies": [
+    {
+      "id": "Ranehill2015",
+      "claim": "",
+      "definition": "expansive vs contractive pose; self-reported felt power",
+      "population": "mixed, N=200",
+      "method": "conceptual replication, blind experimenter",
+      "lineage": "Ranehill et al. 2015 data collection"
+    },
+    {
+      "id": "Cuddy2018-pcurve",
+      "claim": "",
+      "definition": "expansive vs contractive; feelings incl. emotions and affect; most included studies lack a neutral-pose control",
+      "population": "aggregate of 55 published studies",
+      "method": "p-curve of published studies",
+      "lineage": "55-study published corpus"
+    }
+  ]
+}
