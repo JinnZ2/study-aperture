@@ -1,0 +1,28 @@
+In-situ learning toy (CONSTRUCTED; not a model of any instrument)
+
+E1 in situ vs in silico on instrument A (8 seeds, in-silico optimum (0.3, 0.7))
+   model_error  sigma  regret_in_silico  regret_in_situ(median)  in_situ_beats_in_silico
+           0.0   0.05               0.0                   0.018              0/8
+           0.6   0.05             0.011                   0.023              1/8
+           1.2   0.05             0.089                   0.026              8/8
+           1.2    0.3             0.089                   0.045              6/8
+
+E2 learned on instrument A, measured on B (model_error 1.2, sigma 0.05)
+   instrument_term  gain_on_A  gain_on_B  retained_on_B
+               0.0      0.061      0.061            1.0
+               0.8      0.055      0.055            1.0
+               1.6      0.111     -0.256           -2.3
+
+E3 best observed value minus true value at the recommended point
+   sigma  mean_overstatement  runs_overstated
+    0.05               0.004           5/8
+    0.15                 0.2           7/8
+     0.3               0.508           8/8
+
+E4 one run each, Bayesian vs random (budget 30, sigma 0.15)
+   median true value: bayes 1.006 range (0.813, 1.084); random 0.79 range (0.356, 1.1)
+   single pairs reversing the median ordering: 17/64
+
+E5 mean over offsets [-0.12, -0.06, 0.0, 0.06, 0.12] vs worst offset
+   mean-optimal:       x (0.283, 0.683)  mean 0.73  worst offset 0.518
+   worst-case-optimal: x (0.3, 0.667)  mean 0.706  worst offset 0.584

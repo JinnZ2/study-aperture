@@ -10,7 +10,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/1)
-                     init/claim/design/tool/decide/resolve/defer ──► check ──► report
+                     init/claim/design/average/tool/decide/resolve/defer ──► check ──► report
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance
                        (Card 03 independence / conditional-form tools)
@@ -19,6 +19,9 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
       integrity_checker.py  (offline bundle checker, exit 0/1/2)
       schemas/draft-0.1, draft-0.2 · docs/ · reviews/<run>/ · tests/
       exchange with parent = explicit JSON only, never shared mutable state
+
+  experimental/in_situ_learning/  ← gap analysis + stdlib toy of an in situ learning loop
+      (GAPS.md, THEORY.md all PROPOSED, loop.py pinned by test_loop.py); no link to assess.py
 ```
 
 | Path | Role | Edit rules |
@@ -32,6 +35,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | `tests/test_repo_integrity.py`, `run_checks.sh`, `.github/workflows/checks.yml` | repo-level enforcement + CI | stdlib only; add new suites to `run_checks.sh` |
 | `examples/*/` | worked example + failure-mode examples | regenerate `report.md` from `assessment.json`; never hand-edit reports |
 | `experimental/scope_audit_lab/` | experimental lab | see Lab section |
+| `experimental/in_situ_learning/` | gap analysis of Jensen et al. (in situ DNP learning), stdlib toy loop, proposed AI learning program | toy is CONSTRUCTED: never describe its numbers as findings about instruments or AI; regenerate `samples/run.txt` and README results together |
 | `ADDENDUM.md` | open work list with states (OPEN / OWNER / UNDETERMINED) | update an item's state when work lands; never resolve an OWNER item without the owner; don't name the unnamed state in A1 |
 
 ## Commands (run from repo root; Python 3, stdlib only)
@@ -71,6 +75,10 @@ NOT_APPLICABLE       → a legal output, not a failure
 lab evidence         → enters only via `labref`: hash-bound to one report, linked to claims,
                        never changes support or decisions. Changed report = violation;
                        missing report = incompleteness; INTEGRITY_GAPS_RECORDED = incompleteness
+input average        → declares population, window, stationarity (UNDECLARED allowed, kept);
+                       none stated = FROZEN (derived, never set by hand): a claim resting on it
+                       cannot carry a MEASURED_* grade; ASSESSED needs a basis + stated
+                       population and window; frozen/partial/split/fitted/transferred = incompleteness
 no shared ancestor in declared graph ≠ independent in the world
 ```
 
@@ -85,6 +93,7 @@ Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted i
 | tool states | RUN · DECLINED · BLOCKED · NOT_APPLICABLE |
 | decision states | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
 | design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
+| stationarity states | ASSESSED · ASSUMED · UNASSESSED |
 | lab report statuses | NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE · INTEGRITY_GAPS_RECORDED |
 
 This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.

@@ -20,6 +20,12 @@ Enforcement notes (the prohibitions are enforced in code, not promised in prose)
     integrity report (by SHA-256) to claims; it never touches claim support or
     decisions. A clean lab report establishes bundle integrity only. A changed
     report file is a violation; a missing one is incompleteness.
+  - Averages used as inputs declare their freezing (Card 02). Each input average
+    states population, window and stationarity (sentinel UNDECLARED allowed and
+    kept). With none of the three stated it is FROZEN: a claim resting on it
+    cannot carry a MEASURED_* grade. ASSESSED stationarity needs a basis and a
+    stated population and window. Frozen, partial, split, fitted and transferred
+    averages are incompleteness, printed first.
 
 Schema (study-aperture/1):
 
@@ -37,6 +43,10 @@ Schema (study-aperture/1):
     "lab_refs": [ {id, report_path (relative to the record file), report_sha256,
                    procedure, status: one of LAB_REPORT_STATUSES, finding_counts,
                    inputs: [{name, sha256?}], claims: [claim ids]} ],   # optional
+    "averages": [ {id, text, value?, population, window,             # optional
+                   stationarity: one of STATIONARITY_STATES | UNDECLARED,
+                   stationarity_basis?, claims: [claim ids], split_of?,
+                   fitted_to?, estimated_from?, source?} ],
     "notes": str
   }
 
@@ -54,6 +64,11 @@ Commands:
   defer  --file s.json --id D1 --by user --reason "..."
   labref --file s.json --id L1 --lab-report integrity-report.json --claim C1 [--claim C2]
                                 # link a lab integrity report; never changes support
+  average --file s.json --id A1 --text "..." --population "..." --window "..."
+        --stationarity ASSESSED|ASSUMED|UNASSESSED|UNDECLARED --claim C1 [--claim C2]
+        [--value ...] [--basis ...] [--split-of A0] [--fitted-to ...]
+        [--estimated-from ...] [--source <url>]
+                                # an average used as a model input (Card 02 frozen-state check)
   check  --file s.json         # validate; exit 1 on violations; file never changed
   report --file s.json          # markdown report; INVALID banner if violations
   selftest
@@ -132,6 +147,15 @@ LAB_REPORT_STATUSES = frozenset([
     "NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE",
     "INTEGRITY_GAPS_RECORDED",
 ])
+# Card 02 frozen-state check: is the population an input average was taken
+# from assumed not to change within and beyond its window?
+STATIONARITY_STATES = frozenset([
+    "ASSESSED",     # checked; basis recorded
+    "ASSUMED",      # taken as stationary without a check
+    "UNASSESSED",   # not considered
+])
+MEASURED_GRADES = frozenset(["MEASURED_PRESENT", "MEASURED_ABSENT", "MEASURED_DISCARDED"])
+
 LAB_SCOPE_NOTE = ("bundle integrity only: references, version bindings, condition "
                   "coverage; not mathematical, empirical, or claim support")
 
@@ -209,6 +233,29 @@ def lab_report_state(ref, base_dir):
     return "VERIFIED" if _sha256_file(path) == ref.get("report_sha256") else "HASH_MISMATCH"
 
 
+def average_state(a):
+    """DECLARED | PARTIAL | FROZEN, derived from the three declarations (never set by hand).
+    DECLARED: population and window stated and stationarity ASSESSED.
+    FROZEN: none of population, window, stationarity stated."""
+    pop, win = not _is_sentinel(a.get("population")), not _is_sentinel(a.get("window"))
+    st = a.get("stationarity")
+    if pop and win and st == "ASSESSED":
+        return "DECLARED"
+    if not pop and not win and _is_sentinel(st):
+        return "FROZEN"
+    return "PARTIAL"
+
+
+def _average_gaps(a):
+    gaps = [f for f in ("population", "window") if _is_sentinel(a.get(f))]
+    st = a.get("stationarity")
+    if _is_sentinel(st):
+        gaps.append("stationarity")
+    elif st != "ASSESSED":
+        gaps.append(f"stationarity {st}")
+    return gaps
+
+
 def check(d, base_dir=None):
     """Return list of violation strings. Empty list = valid record.
     base_dir (the record file's folder) enables lab-report hash verification."""
@@ -272,6 +319,48 @@ def check(d, base_dir=None):
         if lab_report_state(ref, base_dir) == "HASH_MISMATCH":
             v.append(f"lab ref {lid}: {ref.get('report_path')} no longer matches its recorded "
                      f"SHA-256 (the bound report changed; link the new report as a new lab ref)")
+    avg_ids = [a.get("id") for a in d.get("averages", [])]
+    seen = set()
+    for a in d.get("averages", []):
+        aid = a.get("id", "?")
+        if _is_missing(a.get("id")):
+            v.append("average ?: id missing")
+        if aid in seen:
+            v.append(f"average {aid}: duplicate id")
+        seen.add(aid)
+        if _is_missing(a.get("text")):
+            v.append(f"average {aid}: text missing (say what is averaged)")
+        for fld in ("population", "window"):
+            if _is_missing(a.get(fld)):
+                v.append(f"average {aid}: {fld} missing; state it or record UNDECLARED "
+                         f"(an absent field is not a declared absence)")
+        st = a.get("stationarity")
+        if _is_missing(st):
+            v.append(f"average {aid}: stationarity missing; record ASSESSED, ASSUMED, "
+                     f"UNASSESSED or UNDECLARED")
+        elif st not in (STATIONARITY_STATES | {"UNDECLARED"}):
+            v.append(f"average {aid}: stationarity {st!r} not in vocabulary")
+        if st == "ASSESSED":
+            if _is_sentinel(a.get("stationarity_basis")):
+                v.append(f"average {aid}: stationarity ASSESSED without a basis")
+            if _is_sentinel(a.get("population")) or _is_sentinel(a.get("window")):
+                v.append(f"average {aid}: stationarity ASSESSED but population or window "
+                         f"unstated (stationarity of what, over when?)")
+        links = a.get("claims") or []
+        if not links:
+            v.append(f"average {aid}: linked to no claim (record averages that enter a claim)")
+        for cid in links:
+            if cid not in claim_ids:
+                v.append(f"average {aid}: linked claim {cid!r} not in record")
+        so = a.get("split_of")
+        if so is not None and (so == aid or so not in avg_ids):
+            v.append(f"average {aid}: split_of {so!r} is not another average in the record")
+        if average_state(a) == "FROZEN":
+            for c in d["claims"]:
+                if c.get("id") in links and c.get("grade") in MEASURED_GRADES:
+                    v.append(f"claim {c.get('id')}: grade {c.get('grade')} rests on frozen "
+                             f"average {aid} (population, window, stationarity unstated); "
+                             f"grade it IMPOSED or UNDECLARED")
     return v
 
 
@@ -324,6 +413,25 @@ def incompleteness(d, base_dir=None):
         if lab_report_state(ref, base_dir) == "REPORT_NOT_FOUND":
             out.append(f"lab ref {lid}: report file not found at {ref.get('report_path')} "
                        f"(hash binding cannot be re-verified)")
+    for a in d.get("averages", []):
+        aid, state = a.get("id"), average_state(a)
+        if state == "FROZEN":
+            out.append(f"average {aid}: FROZEN (population, window, stationarity unstated) "
+                       f"-> IMPOSED; claims resting on it: {', '.join(a.get('claims') or [])}")
+        elif state == "PARTIAL":
+            out.append(f"average {aid}: frozen in part (unstated or unchecked: "
+                       f"{', '.join(_average_gaps(a))})")
+        if a.get("split_of"):
+            out.append(f"average {aid}: split from {a['split_of']} (the distribution "
+                       f"reappearing; adds a free value)")
+        if not _is_missing(a.get("fitted_to")):
+            out.append(f"average {aid}: fitted to {a['fitted_to']}; reproducing that target "
+                       f"carries no information about mechanism")
+        ef = a.get("estimated_from")
+        if not _is_missing(ef) and ef != a.get("population"):
+            out.append(f"average {aid}: estimated from {ef}, used for {a.get('population')} "
+                       f"(carried across populations; INCOMMENSURABLE(range) unless a bridge "
+                       f"is stated)")
     return out
 
 
@@ -424,6 +532,22 @@ def report(d, base_dir=None):
                 lines.append(f"  - input: {i.get('name')}{sha}")
             lines.append(f"  - linked claims: {', '.join(ref.get('claims', [])) or 'none'}")
         lines.append("")
+    if d.get("averages"):  # optional section; absent records render as before
+        lines.append("## Input averages (Card 02 frozen-state check)")
+        for a in d["averages"]:
+            val = f" = {a['value']}" if not _is_missing(a.get("value")) else ""
+            lines.append(f"- **{a.get('id')}** ({average_state(a)}) — {a.get('text')}{val}")
+            lines.append(f"  - population: {a.get('population')}")
+            lines.append(f"  - window: {a.get('window')}")
+            basis = (f" (basis: {a['stationarity_basis']})"
+                     if not _is_missing(a.get("stationarity_basis")) else "")
+            lines.append(f"  - stationarity: {a.get('stationarity')}{basis}")
+            for k, label in (("estimated_from", "estimated from"), ("split_of", "split of"),
+                             ("fitted_to", "fitted to"), ("source", "source")):
+                if not _is_missing(a.get(k)):
+                    lines.append(f"  - {label}: {a[k]}")
+            lines.append(f"  - claims resting on it: {', '.join(a.get('claims') or [])}")
+        lines.append("")
     lines.append("## Decisions")
     if not d["decisions"]:
         lines.append("- NODATA (no decision surfaces recorded)")
@@ -458,7 +582,7 @@ def _commit(d, path, ok_msg):
 def main(argv=None):
     p = argparse.ArgumentParser(description="study-aperture record validator and report generator")
     p.add_argument("cmd", choices=["init", "claim", "tool", "design", "decide", "resolve", "defer",
-                                   "labref", "check", "report", "selftest"])
+                                   "labref", "average", "check", "report", "selftest"])
     p.add_argument("--file", default="assessment.json")
     p.add_argument("--title"); p.add_argument("--type", dest="pub_type")
     p.add_argument("--citation"); p.add_argument("--materials"); p.add_argument("--context")
@@ -473,6 +597,9 @@ def main(argv=None):
     p.add_argument("--declined-reason"); p.add_argument("--answer"); p.add_argument("--by")
     p.add_argument("--reason", dest="deferred_reason")
     p.add_argument("--lab-report"); p.add_argument("--claim", dest="link_claims", action="append")
+    p.add_argument("--value"); p.add_argument("--population"); p.add_argument("--window")
+    p.add_argument("--stationarity"); p.add_argument("--basis")
+    p.add_argument("--split-of"); p.add_argument("--fitted-to"); p.add_argument("--estimated-from")
     args = p.parse_args(argv)
 
     if args.cmd == "selftest":
@@ -580,6 +707,21 @@ def main(argv=None):
         # Only lab_refs is touched: claim support and decisions are never changed here.
         return _commit(d, args.file, f"lab ref {args.id} recorded ({ref['status']}; "
                                      f"{LAB_SCOPE_NOTE})")
+    if args.cmd == "average":
+        if any(a.get("id") == args.id for a in d.get("averages", [])):
+            print(f"REJECTED (file unchanged): average {args.id!r} already exists; use a new id.",
+                  file=sys.stderr)
+            return 1
+        a = {"id": args.id, "text": args.text, "population": args.population,
+             "window": args.window, "stationarity": args.stationarity,
+             "claims": list(dict.fromkeys(args.link_claims or []))}
+        for opt, key in (("value", "value"), ("basis", "stationarity_basis"),
+                         ("split_of", "split_of"), ("fitted_to", "fitted_to"),
+                         ("estimated_from", "estimated_from"), ("source", "source")):
+            if getattr(args, opt):
+                a[key] = getattr(args, opt)
+        d.setdefault("averages", []).append(a)
+        return _commit(d, args.file, f"average {args.id} recorded ({average_state(a)})")
     if args.cmd == "check":
         v = check(d, _base_dir(args.file))
         for x in v: print(f"VIOLATION: {x}")
@@ -785,6 +927,78 @@ def selftest():
     assert r.returncode != 0 and "no longer matches its recorded SHA-256" in r.stdout
     # 14i. a forged status in the record is a violation
     d = load(f); d["lab_refs"][0]["status"] = "SUPPORTED"
+    assert any("not in vocabulary" in x for x in check(d))
+    # 15. input averages: the freezing is declared, never silently assumed
+    f3 = os.path.join(tmp, "s3.json")
+    cli3 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f3],
+                                     capture_output=True, text=True)
+    cli3("init", "--title", "t", "--type", "THEORETICAL", "--materials", "full text",
+         "--context", "UNDECLARED")
+    assert cli3("claim", "--id", "C1", "--text", "x", "--evidence", "p. 2",
+                "--support", "UNTESTED", "--grade", "MEASURED_PRESENT").returncode == 0
+    assert cli3("claim", "--id", "C2", "--text", "y", "--evidence", "p. 3",
+                "--support", "UNTESTED", "--grade", "IMPOSED").returncode == 0
+    assert "## Input averages" not in report(load(f3))  # optional section absent
+    before = open(f3).read()
+    # 15a. missing population/window/stationarity rejected
+    r = cli3("average", "--id", "A1", "--text", "prevalence", "--claim", "C2")
+    assert r.returncode != 0 and "population missing" in r.stderr
+    assert "stationarity missing" in r.stderr
+    # 15b. bad stationarity value rejected
+    r = cli3("average", "--id", "A1", "--text", "p", "--population", "UNDECLARED",
+             "--window", "UNDECLARED", "--stationarity", "STABLE", "--claim", "C2")
+    assert r.returncode != 0 and "not in vocabulary" in r.stderr
+    # 15c. ASSESSED needs a basis and a stated population and window
+    r = cli3("average", "--id", "A1", "--text", "p", "--population", "UNDECLARED",
+             "--window", "2010", "--stationarity", "ASSESSED", "--claim", "C2")
+    assert r.returncode != 0 and "without a basis" in r.stderr
+    assert "stationarity of what" in r.stderr
+    # 15d. unknown linked claim, and no linked claim, rejected
+    r = cli3("average", "--id", "A1", "--text", "p", "--population", "UNDECLARED",
+             "--window", "UNDECLARED", "--stationarity", "UNDECLARED", "--claim", "NOPE")
+    assert r.returncode != 0 and "not in record" in r.stderr
+    r = cli3("average", "--id", "A1", "--text", "p", "--population", "UNDECLARED",
+             "--window", "UNDECLARED", "--stationarity", "UNDECLARED")
+    assert r.returncode != 0 and "linked to no claim" in r.stderr
+    # 15e. a frozen average under a MEASURED_* claim grade is rejected
+    r = cli3("average", "--id", "A1", "--text", "p", "--population", "UNDECLARED",
+             "--window", "UNDECLARED", "--stationarity", "UNDECLARED", "--claim", "C1")
+    assert r.returncode != 0 and "rests on frozen average" in r.stderr
+    assert open(f3).read() == before  # every rejection left the file byte-identical
+    # 15f. a frozen average under an IMPOSED claim is valid and is incompleteness
+    r = cli3("average", "--id", "A1", "--text", "prevalence", "--value", "0.25",
+             "--population", "UNDECLARED", "--window", "UNDECLARED",
+             "--stationarity", "UNDECLARED", "--claim", "C2", "--fitted-to", "rate X")
+    assert r.returncode == 0 and "FROZEN" in r.stdout, r.stderr
+    rep3 = report(load(f3))
+    assert "average A1: FROZEN" in rep3 and "-> IMPOSED" in rep3
+    assert "fitted to rate X" in rep3 and "INCOMPLETE" in rep3
+    assert "**A1** (FROZEN) — prevalence = 0.25" in rep3
+    # 15g. partial, split and transferred averages are incompleteness; split_of must exist
+    r = cli3("average", "--id", "A2", "--text", "p2", "--population", "subset B",
+             "--window", "UNDECLARED", "--stationarity", "ASSUMED", "--claim", "C2",
+             "--split-of", "A9")
+    assert r.returncode != 0 and "split_of" in r.stderr
+    r = cli3("average", "--id", "A2", "--text", "p2", "--population", "subset B",
+             "--window", "UNDECLARED", "--stationarity", "ASSUMED", "--claim", "C2",
+             "--split-of", "A1", "--estimated-from", "set Z")
+    assert r.returncode == 0, r.stderr
+    rep3 = report(load(f3))
+    assert "A2: frozen in part (unstated or unchecked: window, stationarity ASSUMED)" in rep3
+    assert "A2: split from A1" in rep3
+    assert "A2: estimated from set Z, used for subset B (carried across populations" in rep3
+    # 15h. a fully declared average is DECLARED and adds no incompleteness of its own
+    r = cli3("average", "--id", "A3", "--text", "mean", "--population", "cohort 1",
+             "--window", "2001-2005", "--stationarity", "ASSESSED",
+             "--basis", "flat trend, Table 2", "--claim", "C1")
+    assert r.returncode == 0 and "DECLARED" in r.stdout, r.stderr
+    rep3 = report(load(f3))
+    assert "average A3" not in rep3.split("## Incompleteness")[1].split("\n## ")[0]
+    # 15i. an average id is never overwritten; a forged state in the file is caught
+    r = cli3("average", "--id", "A3", "--text", "m", "--population", "x", "--window", "y",
+             "--stationarity", "ASSUMED", "--claim", "C1")
+    assert r.returncode != 0 and "already exists" in r.stderr
+    d = load(f3); d["averages"][0]["stationarity"] = "PROBABLY"
     assert any("not in vocabulary" in x for x in check(d))
     print("SELFTEST OK")
     return 0
