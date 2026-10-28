@@ -39,6 +39,8 @@ The paper's own arithmetic holds. Where it is off (R1) the table is illustrative
 
 So the observed rate does not by itself choose between "the protocol depressed the rate" and "few of the original hypotheses were true". The paper shows the bias is *sufficient* under its pi. The abstract's "able by itself to explain" is that sufficiency claim. The record does not read it as shown that the bias *is* the explanation.
 
+In the terms of Card 02's frozen-average check: pi stands for a distribution over fields, eras and designs, under a selection process that keeps acting. It enters the model as one constant, with no population, window or stationarity stated. When one value did not fit the interactions, a second was introduced (0.05), which is the distribution reappearing as a second free value.
+
 **2. One confirmation is the calibration (C5; Card 03).** pi = 0.25 is chosen as "consistent with ML-RP" (Table 1). Section 3.6 then reports ML-RP's 84.6% as very close to the predicted 0.857. That closeness was set when pi was chosen (R7), so it is not a separate test. Route: SHARED_UPSTREAM.
 
 **3. The independent check does not discriminate (C6; Cards 03, 04).** Camerer et al. are independent data. At n = 18 their rate (11/18) is compatible with the bias prediction (0.486) and with the no-bias prediction (0.796) (R8). The claim "compatible" holds; the comparison separates nothing. Graded UNDERPOWERED.

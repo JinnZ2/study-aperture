@@ -45,6 +45,36 @@ Three non-joins, three different next actions — never one blanket "incompatibl
 1. For each claim from Card 01, write the layer declaration. Most of the work is finding the `instrument` field: the exact task, assay, or scaffold that produced the number. If the publication does not state it, the grade is `IMPOSED` or `UNDECLARED`, and that is the finding.
 2. When the publication compares its result to prior results (or you do), run the join check on the two layers. `INCOMMENSURABLE(instrument)` on a "replication" is a specific, actionable finding: the studies did not measure the same thing.
 3. Watch for `MEASURED_DISCARDED` without a discard rule — exclusions, outliers dropped, conditions removed — the highest-value catch in the whole card.
+4. For any average used as an input, run the frozen-state check below.
+
+## Averages used as inputs (frozen state)
+
+*Toolbox addition, 2026-10-28; not in upstream `register_map.py`. Arose from [examples/reproducibility-model](../examples/reproducibility-model/FINDINGS.md).*
+
+An average is a state variable only where the system is at equilibrium: the average over time equals the average over the population. A literature, a workforce, a market or an ecosystem under selection is a flow. A mean taken from it is a snapshot of that flow. Used as a fixed model input, it freezes the flow into a constant, and the gradients (where the quantity varies, how fast it moves) drop out.
+
+```
+what the average stands for              what enters the model
+───────────────────────────              ─────────────────────
+a distribution over units          ──►   one number
+  (by field, era, site, design)
+a flow under selection over time   ──►   a constant
+```
+
+For every average that enters a claim as an input (a prevalence, a base rate, a mean effect, a typical value), the layer declaration states:
+
+| Field | Question |
+|---|---|
+| population | averaged over which units? |
+| window | averaged over which period? |
+| stationarity | is the population assumed not to change within and beyond the window, and is that `ASSESSED`, `ASSUMED`, or `UNASSESSED`? |
+
+- An average with none of the three stated is graded `IMPOSED`, with the reason "frozen across an unstated population and window."
+- An average stated but carried outside its window or population is an `INCOMMENSURABLE(range)` join, not a fit.
+- Where a single average is split into two to fit two subsets (one per observed rate), record the split: it is the distribution reappearing, and each split adds a free value.
+- A fitted average that reproduces one observed rate carries no information about mechanism. One free number can fit one number.
+
+Not a rule against averages. A stated, stationary, in-range average is an ordinary input. The check is that the freezing is declared.
 
 ## Limits
 
