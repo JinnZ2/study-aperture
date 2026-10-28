@@ -1,0 +1,843 @@
+{
+  "report_kind": "OFFLINE_EVIDENCE_INTEGRITY",
+  "procedure": {
+    "identity": "scope_audit_lab.integrity_checker",
+    "version": "0.2.0"
+  },
+  "inputs": [
+    {
+      "name": "<memory>"
+    }
+  ],
+  "summary": {
+    "status": "INTEGRITY_GAPS_RECORDED",
+    "record_occurrences": 16,
+    "unique_record_ids": 16,
+    "reference_count": 33,
+    "version_binding_count": 5,
+    "anchor_application_count": 0,
+    "assessment_link_count": 0,
+    "assessment_link_relevance_counts": {},
+    "finding_counts": {
+      "ERROR": 0,
+      "UNKNOWN": 19,
+      "INFO": 0
+    }
+  },
+  "structural_schema_validation": "NOT_PERFORMED",
+  "mathematical_or_empirical_validation": "NOT_PERFORMED",
+  "prototype_0_1_compatibility": "UNKNOWN",
+  "voice": "DEFERRED",
+  "reference_resolution": [
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/0/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/1/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/2/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/3/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/4/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/5/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/6/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/7/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/8/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/8/payload/trial_ref"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:execution-trial-1",
+        "expected_type": "experiment",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": null,
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/9/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/9/payload/trial_ref"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:execution-trial-2",
+        "expected_type": "experiment",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": null,
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/10/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/10/payload/trial_ref"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:execution-trial-3",
+        "expected_type": "experiment",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": null,
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/11/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/11/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ2",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/1"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/11/payload/criteria/0/evidence_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ2",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/1"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/dependency_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ8",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/3"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/dependency_refs/1"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ12",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/5"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ12",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/5"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/criteria/0/evidence_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-1",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/8"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/criteria/0/evidence_refs/1"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-2",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/9"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/criteria/0/evidence_refs/2"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-3",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/10"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ13",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/6"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/payload/criteria/0/evidence_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-1",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/8"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/payload/criteria/0/evidence_refs/1"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-2",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/9"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/payload/criteria/0/evidence_refs/2"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:trial-3",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/10"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/14/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/14/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ1",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/0"
+      }
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/15/source_refs/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:publisher-source",
+        "expected_type": "source",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/15/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ7",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "<memory>",
+        "pointer": "/2"
+      }
+    }
+  ],
+  "version_bindings": [
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/11/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ2",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ12",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ13",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/14/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ1",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "<memory>",
+        "pointer": "/15/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "tolman-20261027:equ7",
+        "expected_type": "equation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    }
+  ],
+  "anchor_condition_coverage": [],
+  "findings": [
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/0/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/1/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/2/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/3/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/4/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/5/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/6/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/7/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/8/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/8/payload/trial_ref"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/9/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/9/payload/trial_ref"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/10/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/10/payload/trial_ref"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/11/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/12/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/13/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/14/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "<memory>",
+        "pointer": "/15/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    }
+  ],
+  "assessment_link_relevance": [],
+  "limits": [
+    "Resolution establishes only supplied-snapshot identity and declared type, not authenticated content.",
+    "Same declared version does not prove equal content, complete dependencies, or empirical freshness.",
+    "Condition coverage and recorded outcomes do not establish physical applicability or evidence relevance.",
+    "Assessment relevance checks literal subject/version/selector metadata only, not free-form property meaning, criterion sufficiency, or scientific support.",
+    "No URLs/artifact paths are opened, no submitted code is executed, and inputs are not modified.",
+    "Unsupported contracts remain opaque. Missing targets do not establish falsehood.",
+    "No full JSON Schema validation, temporal ordering, proof checking, or scientific verdict."
+  ]
+}

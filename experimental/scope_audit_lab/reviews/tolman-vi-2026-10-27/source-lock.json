@@ -1,0 +1,7 @@
+{
+  "source_extract_sha256": "da5129bf4f980d4ca84b65d967ead6f97d40eda09ca16b7c4aa0d9991ab4c206",
+  "source_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "version_basis": "Publisher HTML acquired 2026-10-28 UTC, corresponding to October 27 America/Chicago; selected TeX captured without repair.",
+  "binding_limit": "This binds exact local extract bytes, not publisher identity authentication or future page content.",
+  "reinspection_required_if_changed": true
+}

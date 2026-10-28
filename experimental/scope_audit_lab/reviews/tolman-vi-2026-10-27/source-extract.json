@@ -1,0 +1,199 @@
+{
+  "artifact_kind": "SELECTED_PUBLISHER_HTML_EQUATIONS",
+  "source_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "source_html_sha256": "86751af2385a51595ea966fbe932ed873cb9dc453e9627904353f7a12c39d78d",
+  "acquired_at_utc": "2026-10-28T03:10:57Z",
+  "acquisition_time_basis": "Local downloaded-file modification time; not a publisher timestamp or independent clock attestation.",
+  "method": "HTMLParser extraction of original publisher mathjax-tex spans; no formula repair.",
+  "citation_metadata": {
+    "citation_pdf_url": [
+      "https://link.springer.com/content/pdf/10.1140/epjc/s10052-026-16462-w.pdf"
+    ],
+    "citation_fulltext_html_url": [
+      "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w"
+    ],
+    "citation_journal_title": [
+      "The European Physical Journal C"
+    ],
+    "citation_journal_abbrev": [
+      "Eur. Phys. J. C"
+    ],
+    "citation_publisher": [
+      "Springer Berlin Heidelberg"
+    ],
+    "citation_issn": [
+      "1434-6052"
+    ],
+    "citation_title": [
+      "Neutrino oscillations inside ultrarelativistic matter: on the role of the Tolman VI spacetime"
+    ],
+    "citation_volume": [
+      "86"
+    ],
+    "citation_issue": [
+      "10"
+    ],
+    "citation_publication_date": [
+      "2026/10"
+    ],
+    "citation_online_date": [
+      "2026/10/27"
+    ],
+    "citation_firstpage": [
+      "1238"
+    ],
+    "citation_lastpage": [
+      ""
+    ],
+    "citation_article_type": [
+      "Regular Article - Theoretical Physics"
+    ],
+    "citation_fulltext_world_readable": [
+      ""
+    ],
+    "citation_language": [
+      "en"
+    ],
+    "citation_doi": [
+      "10.1140/epjc/s10052-026-16462-w"
+    ],
+    "citation_springer_api_url": [
+      "http://api.springer.com/xmldata/jats?q=doi:10.1140/epjc/s10052-026-16462-w&api_key="
+    ],
+    "citation_reference": [
+      "A.D. Dolgov, Neutrinos in cosmology. Phys. Rep. 370, 333 (2002). \n                  arXiv:hep-ph/0202122\n                  \n                ",
+      "citation_journal_title=Riv. Nuovo Cim.; citation_title=Supernova neutrinos: production, oscillations and detection; citation_author=A Mirizzi, I Tamborra, H-T Janka, N Saviano, K Scholberg, R Bollig, L Hudepohl, S Chakraborty; citation_volume=39; citation_publication_date=2016; citation_pages=1; citation_doi=10.1393/ncr/i2016-10120-8; citation_id=CR2",
+      "citation_journal_title=Annu. Rev. Nucl. Part. Sci.; citation_title=Neutrino oscillations in core-collapse supernovae and neutron star mergers; citation_author=L Johns, S Richers, W Meng-Ru; citation_volume=75; citation_publication_date=2025; citation_pages=399; citation_doi=10.1146/annurev-nucl-121423-100853; citation_id=CR3",
+      "M.C. Volpe, Neutrinos from dense environments: flavor mechanisms, theoretical approaches, observations, and new directions. Rev. Mod. Phys. 96, 025004 (2024). \n                  https://doi.org/10.1103/RevModPhys.96.025004\n                  \n                . \n                  arXiv:2301.11814\n                  \n                 [hep-ph]",
+      "R. Ruffini, C.R. Argüelles, J.A. Rueda, On the core-halo distribution of dark matter in galaxies. Mon. Not. R. Astron. Soc. 451, 622 (2015). \n                  arXiv:1409.7365\n                  \n                 [astro-ph.GA]",
+      "citation_journal_title=Eur. Phys. J. C; citation_title=Can a Dehnen-type dark matter halo affect the neutrino flavor oscillations?; citation_author=M Alloqulov, A Abdujabbarov, B Ahmedov, C Yuan; citation_volume=86; citation_publication_date=2026; citation_pages=208; citation_doi=10.1140/epjc/s10052-026-15442-4; citation_id=CR6",
+      "citation_journal_title=Sov. Phys. JETP; citation_title=Inverse beta processes and nonconservation of lepton charge; citation_author=B Pontecorvo; citation_volume=7; citation_publication_date=1958; citation_pages=172; citation_id=CR7",
+      "citation_journal_title=Zh. Eksp. Teor. Fiz.; citation_author=B Pontecorvo; citation_volume=34; citation_publication_date=1957; citation_pages=247; citation_id=CR8",
+      "citation_journal_title=Phys. Lett. B; citation_title=Neutrino astronomy and lepton charge; citation_author=V Gribov, B Pontecorvo; citation_volume=28; citation_publication_date=1969; citation_pages=493; citation_doi=10.1016/0370-2693(69)90525-5; citation_id=CR9",
+      "citation_journal_title=Phys. Rev.; citation_title=Behavior of neutral particles under charge conjugation; citation_author=M Gell-Mann, A Pais; citation_volume=97; citation_publication_date=1955; citation_pages=1387; citation_doi=10.1103/PhysRev.97.1387; citation_id=CR10",
+      "citation_journal_title=Il Nuovo Cimento; citation_title=Teoria simmetrica dell’elettrone e del positrone; citation_author=E Majorana; citation_volume=14; citation_publication_date=1937; citation_pages=171; citation_doi=10.1007/BF02961314; citation_id=CR11",
+      "citation_journal_title=Phys. Rev. D; citation_title=Massless neutrino oscillations; citation_author=F Benatti, R Floreanini; citation_volume=64; citation_publication_date=2001; citation_doi=10.1103/PhysRevD.64.085015; citation_id=CR12",
+      "The Super-Kamiokande Collaboration, Y. Fukuda et al., Evidence for oscillation of atmospheric neutrinos. Phys. Rev. Lett. 81, 1562 (1998). \n                  https://doi.org/10.1103/PhysRevLett.81.1562\n                  \n                . \n                  arXiv:hep-ex/9807003\n                  \n                ",
+      "citation_journal_title=Phys. Rev. Lett.; citation_title=Measurement of the rate of \n                    \n                    \n                   interactions produced by \n                    \n                    \n                   solar neutrinos at the Sudbury Neutrino Observatory; citation_author=; citation_volume=87; citation_publication_date=2001; citation_doi=10.1103/PhysRevLett.87.071301; citation_id=CR14",
+      "citation_journal_title=Phys. Rep.; citation_title=Absolute values of neutrino masses: status and prospects; citation_author=SM Bilenky, C Giunti, JA Grifols, E Massó; citation_volume=379; citation_publication_date=2003; citation_pages=69; citation_doi=10.1016/S0370-1573(03)00102-9; citation_id=CR15",
+      "citation_journal_title=Am. J. Phys.; citation_title=Dirac, Majorana and Weyl fermions; citation_author=BP Pal; citation_volume=79; citation_publication_date=2011; citation_pages=485; citation_doi=10.1119/1.3549729; citation_id=CR16",
+      "citation_journal_title=J. Phys. G; citation_title=Neutrino physics with JUNO; citation_author=F An; citation_volume=43; citation_publication_date=2016; citation_doi=10.1088/0954-3899/43/3/030401; citation_id=CR17",
+      "citation_journal_title=Phys. Rev. D; citation_title=Neutrino oscillations in curved spacetime: a heuristic treatment; citation_author=CY Cardall, GM Fuller; citation_volume=55; citation_publication_date=1997; citation_pages=7960; citation_doi=10.1103/PhysRevD.55.7960; citation_id=CR18",
+      "citation_journal_title=Phys. Scr.; citation_title=The phase of neutrino oscillations; citation_author=C Giunti; citation_volume=67; citation_publication_date=2003; citation_pages=29; citation_doi=10.1238/Physica.Regular.067a00029; citation_id=CR19",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Neutrino flavor oscillations in a curved space-time; citation_author=L Visinelli; citation_volume=47; citation_publication_date=2015; citation_pages=62; citation_doi=10.1007/s10714-015-1899-z; citation_id=CR20",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Gravitationally induced neutrino-oscillation phases; citation_author=DV Ahluwalia, C Burgard; citation_volume=28; citation_publication_date=1996; citation_pages=1161; citation_doi=10.1007/BF03218936; citation_id=CR21",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Matter and light wave interferometry in gravitational fields; citation_author=L Stodolsky; citation_volume=11; citation_publication_date=1979; citation_pages=391; citation_doi=10.1007/BF00759302; citation_id=CR22",
+      "citation_journal_title=Phys. Rev. D; citation_title=Gravitationally induced neutrino oscillation phases in static spacetimes; citation_author=T Bhattacharya, S Habib, E Mottola; citation_volume=59; citation_publication_date=1999; citation_doi=10.1103/PhysRevD.59.067301; citation_id=CR23",
+      "citation_journal_title=Phys. Rev. D; citation_title=Experimental constraints on a minimal and nonminimal violation of the equivalence principle in the oscillations of massive neutrinos; citation_author=M Gasperini; citation_volume=39; citation_publication_date=1989; citation_pages=3606; citation_doi=10.1103/PhysRevD.39.3606; citation_id=CR24",
+      "N. Fornengo, C. Giunti, C.W. Kim, J. Song, Gravitational effects on the neutrino oscillation. Phys. Rev. D 56, 1895 (1997). \n                  https://doi.org/10.1103/PhysRevD.56.1895\n                  \n                . \n                  arXiv:hep-ph/9611231\n                  \n                ",
+      "N. Fornengo, C. Giunti, C.W. Kim, J. Song, Gravitational effects on the neutrino oscillation in vacuum. Nucl. Phys. B, Proc. Suppl. 70, 264 (1999). \n                  arXiv:hep-ph/9711494\n                  \n                ",
+      "citation_journal_title=Phys. Rev. D; citation_title=Neutrino spin oscillations in external fields in curved spacetime; citation_author=M Dvornikov; citation_volume=99; citation_publication_date=2019; citation_doi=10.1103/PhysRevD.99.116021; citation_id=CR27",
+      "L. Buoninfante, G.G. Luciano, L. Petruzziello, L. Smaldone, Neutrino oscillations in extended theories of gravity. Phys. Rev. D 101, 024016 (2020). \n                  https://doi.org/10.1103/PhysRevD.101.024016\n                  \n                . \n                  arXiv:1906.03131\n                  \n                 [gr-qc]",
+      "citation_journal_title=JCAP; citation_title=Gravitational waves and neutrino oscillations in Chern–Simons axion gravity; citation_author=G Lambiase, L Mastrototaro, L Visinelli; citation_volume=01; citation_publication_date=2023; citation_pages=011; citation_doi=10.1088/1475-7516/2023/01/011; citation_id=CR29",
+      "citation_journal_title=Phys. Rev. D; citation_title=Neutrino optics and oscillations in gravitational fields; citation_author=G Lambiase, G Papini, R Punzi, G Scarpetta; citation_volume=71; citation_publication_date=2005; citation_doi=10.1103/PhysRevD.71.073011; citation_id=CR30",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Neutrino oscillations in gravitational and cosmological backgrounds; citation_author=G Koutsoumbas, D Metaxas; citation_volume=52; citation_publication_date=2020; citation_pages=102; citation_doi=10.1007/s10714-020-02758-z; citation_id=CR31",
+      "citation_journal_title=Phys. Rev. D; citation_title=Neutrino flavor oscillations in stochastic gravitational waves; citation_author=M Dvornikov; citation_volume=100; citation_publication_date=2019; citation_doi=10.1103/PhysRevD.100.096014; citation_id=CR32",
+      "citation_journal_title=Int. J. Mod. Phys. D; citation_title=Neutrino current in a gravitational plane wave collision background; citation_author=D Bini, C Cherubini, G Cruciani, A Lunari; citation_volume=12; citation_publication_date=2003; citation_pages=1983; citation_doi=10.1142/S0218271803003876; citation_id=CR33",
+      "citation_journal_title=Eur. Phys. J. C; citation_title=Neutrino oscillation in the \n                    \n                    \n                  -metric; citation_author=K Boshkayev, O Luongo, M Muccino; citation_volume=80; citation_publication_date=2020; citation_pages=964; citation_doi=10.1140/epjc/s10052-020-08533-3; citation_id=CR34",
+      "citation_journal_title=Phys. Lett. A; citation_title=Neutrino oscillations in the field of a rotating deformed mass; citation_author=A Geralico, O Luongo; citation_volume=376; citation_publication_date=2012; citation_pages=1239; citation_doi=10.1016/j.physleta.2012.02.043; citation_id=CR35",
+      "citation_journal_title=Class. Quantum Gravity; citation_title=Neutrino oscillations in the Kerr–Newman spacetime; citation_author=J Ren, C-M Zhang; citation_volume=27; citation_publication_date=2010; citation_doi=10.1088/0264-9381/27/6/065011; citation_id=CR36",
+      "citation_journal_title=JCAP; citation_title=Gravitational lensing of neutrinos in parametrized black hole spacetimes; citation_author=M Alloqulov, H Chakrabarty, D Malafarina, B Ahmedov, A Abdujabbarov; citation_volume=02; citation_publication_date=2025; citation_pages=070; citation_doi=10.1088/1475-7516/2025/02/070; citation_id=CR37",
+      "citation_journal_title=Nucl. Phys. B; citation_title=Neutrino oscillations in the background of a black hole embedded in an expanding Universe; citation_author=D Gregoris; citation_volume=1017; citation_publication_date=2025; citation_doi=10.1016/j.nuclphysb.2025.116958; citation_id=CR38",
+      "citation_journal_title=Eur. Phys. J. C; citation_title=Spin oscillations of neutrinos scattered off a rotating black hole; citation_author=M Dvornikov; citation_volume=80; citation_publication_date=2020; citation_pages=474; citation_doi=10.1140/epjc/s10052-020-8046-z; citation_id=CR39",
+      "citation_journal_title=Eur. Phys. J. C; citation_title=The neutrino flavor oscillations in the static and spherically symmetric black-hole-like wormholes; citation_author=Y Shi, H Cheng; citation_volume=85; citation_publication_date=2025; citation_pages=909; citation_doi=10.1140/epjc/s10052-025-14460-y; citation_id=CR40",
+      "citation_journal_title=Int. J. Theor. Phys.; citation_title=Neutrino oscillations in the de Sitter and the anti-de Sitter space-time; citation_author=J Ren, Y-Y Pan; citation_volume=50; citation_publication_date=2011; citation_pages=2614; citation_doi=10.1007/s10773-011-0757-3; citation_id=CR41",
+      "citation_journal_title=Int. J. Theor. Phys.; citation_title=Using Hamilton–Jacobi equation to study the neutrino oscillations in the stationary space-time; citation_author=J Ren, Y-Y Pan; citation_volume=51; citation_publication_date=2012; citation_pages=1111; citation_doi=10.1007/s10773-011-0988-3; citation_id=CR42",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Particle motion in a photon gas: friction matters; citation_author=D Bini, D Gregoris, K Rosquist, S Succi; citation_volume=44; citation_publication_date=2012; citation_pages=2669; citation_doi=10.1007/s10714-012-1425-5; citation_id=CR43",
+      "citation_journal_title=Class. Quantum Gravity; citation_title=Effects of friction forces on the motion of objects in smoothly matched interior/exterior spacetimes; citation_author=D Bini, D Gregoris, K Rosquist, S Succi; citation_volume=30; citation_publication_date=2013; citation_doi=10.1088/0264-9381/30/2/025009; citation_id=CR44",
+      "citation_journal_title=Phys. Rev. D; citation_title=Spinoptics in a curved spacetime; citation_author=VP Frolov; citation_volume=110; citation_publication_date=2024; citation_doi=10.1103/PhysRevD.110.064020; citation_id=CR45",
+      "citation_journal_title=JCAP; citation_title=Spinoptics in the Schwarzschild spacetime; citation_author=VP Frolov; citation_volume=12; citation_publication_date=2024; citation_pages=051; citation_doi=10.1088/1475-7516/2024/12/051; citation_id=CR46",
+      "V.P. Frolov, A. Koek, Spinoptics in the Kerr spacetime: polarized wave scattering. Phys. Rev. D 111, 104081 (2025). \n                  https://doi.org/10.1103/trh5-4sgq\n                  \n                . \n                  arXiv:2503.19208\n                  \n                 [gr-qc]",
+      "citation_journal_title=Phys. Rev.; citation_title=Static solutions of Einstein’s field equations for spheres of fluid; citation_author=RC Tolman; citation_volume=55; citation_publication_date=1939; citation_pages=364; citation_doi=10.1103/PhysRev.55.364; citation_id=CR48",
+      "citation_journal_title=Phys. Rev. D; citation_title=Neutrino oscillations in matter; citation_author=L Wolfenstein; citation_volume=17; citation_publication_date=1978; citation_pages=2369; citation_doi=10.1103/PhysRevD.17.2369; citation_id=CR49",
+      "citation_journal_title=Nuovo Cim. C; citation_title=Resonant amplification of \n                    \n                    \n                   oscillations in matter and solar-neutrino spectroscopy; citation_author=SP Mikheev, AY Smirnov; citation_volume=9; citation_publication_date=1986; citation_pages=17; citation_doi=10.1007/BF02508049; citation_id=CR50",
+      "citation_journal_title=Phys. Rev.; citation_title=On the gravitational field produced by light; citation_author=RC Tolman, P Ehrenfest, B Podolsky; citation_volume=37; citation_publication_date=1931; citation_pages=602; citation_doi=10.1103/PhysRev.37.602; citation_id=CR51",
+      "R.A. Isaacson, Gravitational radiation in the limit of high frequency. I. The linear approximation and geometrical optics. Phys. Rev. 166, 1263 (1968). \n                  https://doi.org/10.1103/PhysRev.166.1263\n                  \n                ",
+      "R. Isaacson, Gravitational radiation in the limit of high frequency. II. Nonlinear terms and the effective stress tensor. Phys. Rev. 166, 1272 (1968). \n                  https://doi.org/10.1103/PhysRev.166.1272\n                  \n                ",
+      "citation_journal_title=Phys. Rev.; citation_title=Temperature equilibrium in a static gravitational field; citation_author=RC Tolman, P Ehrenfest; citation_volume=36; citation_publication_date=1930; citation_pages=1791; citation_doi=10.1103/PhysRev.36.1791; citation_id=CR54",
+      "citation_journal_title=PNAS; citation_title=Thermal equilibrium in a general gravitational field; citation_author=RC Tolman; citation_volume=21; citation_publication_date=1935; citation_pages=321; citation_doi=10.1073/pnas.21.6.321; citation_id=CR55",
+      "L.D. Landau, E.M. Lifshitz, Statistical Physics (1980)",
+      "citation_journal_title=Phys. Rev. D; citation_title=Complete classification of spherically symmetric self-similar perfect fluid solutions; citation_author=BJ Carr, AA Coley; citation_volume=62; citation_publication_date=2000; citation_doi=10.1103/PhysRevD.62.044023; citation_id=CR57",
+      "citation_journal_title=Phys. Rev. D; citation_title=When the wavepacket is unnecessary; citation_author=L Stodolsky; citation_volume=58; citation_publication_date=1998; citation_doi=10.1103/PhysRevD.58.036006; citation_id=CR58",
+      "S.M. Bilenky, S.T. Petcov, Massive neutrinos and neutrino oscillations. Rev. Mod. Phys. 59, 671 (1987). \n                  https://doi.org/10.1103/RevModPhys.59.671\n                  \n                . Erratum Rev. Mod. Phys. 60, 575 (1988). https://doi.org/10.1103/RevModPhys.60.575; Erratum Rev. Mod. Phys. 61, 169 (1989). https://doi.org/10.1103/RevModPhys.61.169",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Matter and light wave interferometry in gravitational fields; citation_author=L Stodolsky; citation_volume=11; citation_publication_date=1979; citation_pages=391; citation_doi=10.1007/BF00759302; citation_id=CR60",
+      "citation_journal_title=Phys. Lett. B; citation_title=Quantum theory of neutrino oscillations for pedestrians—simple answers to confusing questions; citation_author=HJ Lipkin; citation_volume=642; citation_publication_date=2006; citation_pages=366; citation_doi=10.1016/j.physletb.2006.09.054; citation_id=CR61",
+      "citation_journal_title=Nucl. Phys. B; citation_title=Three-generation neutrino oscillations in curved spacetime; citation_author=Y-H Zhang, X-Q Li; citation_volume=911; citation_publication_date=2016; citation_pages=563; citation_doi=10.1016/j.nuclphysb.2016.08.026; citation_id=CR62",
+      "citation_journal_title=J. Math. Phys.; citation_title=An approach to gravitational radiation by a method of spin coefficients; citation_author=E Newman, R Penrose; citation_volume=3; citation_publication_date=1962; citation_pages=566; citation_doi=10.1063/1.1724257; citation_id=CR63",
+      "citation_journal_title=J. Math. Phys.; citation_title=The gravitational compass; citation_author=P Szekeres; citation_volume=6; citation_publication_date=1965; citation_pages=1387; citation_doi=10.1063/1.1704788; citation_id=CR64",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Neutrinos in general relativity: four(?) levels of approach; citation_author=B Kuchowicz; citation_volume=5; citation_publication_date=1974; citation_pages=201; citation_doi=10.1007/BF00763501; citation_id=CR65",
+      "citation_journal_title=Ann. Inst. H. Poincaré Phys. Theor.; citation_title=Non local aspects of quantum phases; citation_author=JS Anandan; citation_volume=49; citation_publication_date=1988; citation_pages=271; citation_id=CR66",
+      "citation_journal_title=Proc. R. Soc. Lond. A; citation_title=Quantal phase factors accompanying adiabatic changes; citation_author=MV Berry; citation_volume=392; citation_publication_date=1984; citation_pages=45; citation_doi=10.1098/rspa.1984.0023; citation_id=CR67",
+      "citation_journal_title=Phys. Rev. Lett.; citation_title=Holonomy, the quantum adiabatic theorem, and Berry’s phase; citation_author=B Simon; citation_volume=51; citation_publication_date=1983; citation_pages=2167; citation_doi=10.1103/PhysRevLett.51.2167; citation_id=CR68",
+      "citation_journal_title=Acta Phys. Polon.; citation_title=Neue mechanik materieller systemes; citation_author=M Mathisson; citation_volume=6; citation_publication_date=1937; citation_pages=163; citation_id=CR69",
+      "A. Papapetrou, Spinning Test-Particles in General Relativity. I. Proc. R. Soc. Lond. A 209, 248 (1951). \n                  https://www.jstor.org/stable/98893?origin=ads\n                  \n                ",
+      "W.G. Dixon, Dynamics of extended bodies in general relativity. I. Momentum and angular momentum. Proc. R. Soc. Lond. A 314, 499 (1970). \n                  https://www.jstor.org/stable/2416466?origin=ads\n                  \n                ",
+      "citation_journal_title=Int. J. Mod. Phys. D; citation_title=Neutrino spin oscillations in gravitational fields; citation_author=M Dvornikov; citation_volume=15; citation_publication_date=2006; citation_pages=1017; citation_doi=10.1142/S021827180600870X; citation_id=CR72",
+      "citation_journal_title=Phys. Rev. Lett.; citation_title=Neutron interferometry in a rotating frame of reference; citation_author=B Mashhoon; citation_volume=61; citation_publication_date=1988; citation_pages=2639; citation_doi=10.1103/PhysRevLett.61.2639; citation_id=CR73",
+      "citation_journal_title=PNAS; citation_title=Gravitation and the electron; citation_author=H Weyl; citation_volume=15; citation_publication_date=1929; citation_pages=323; citation_doi=10.1073/pnas.15.4.323; citation_id=CR74",
+      "citation_journal_title=Nucl. Phys. B; citation_title=Neutrino dispersion at finite temperature and density; citation_author=D Nötzold, G Raffelt; citation_volume=307; citation_publication_date=1988; citation_pages=924; citation_doi=10.1016/0550-3213(88)90113-7; citation_id=CR75",
+      "citation_journal_title=Phys. Rev. D; citation_title=Finite-temperature corrections to the effective potential of neutrinos in a medium; citation_author=JC D’Olivo, JF Nieves, M Torres; citation_volume=46; citation_publication_date=1992; citation_pages=1172; citation_doi=10.1103/PhysRevD.46.1172; citation_id=CR76",
+      "citation_journal_title=Nucl. Phys. B; citation_title=General kinetic description of relativistic mixed neutrinos; citation_author=G Sigl, G Raffelt; citation_volume=406; citation_publication_date=1993; citation_pages=423; citation_doi=10.1016/0550-3213(93)90175-O; citation_id=CR77",
+      "citation_journal_title=Phys. Rev. D; citation_title=Oscillating neutrinos in the early universe; citation_author=BHJ McKellar, MJ Thomson; citation_volume=49; citation_publication_date=1994; citation_pages=2710; citation_doi=10.1103/PhysRevD.49.2710; citation_id=CR78",
+      "citation_journal_title=Nucl. Phys. B; citation_title=Soft amplitudes in hot gauge theories: a general analysis; citation_author=E Braaten, RD Pisarski; citation_volume=337; citation_publication_date=1990; citation_pages=569; citation_doi=10.1016/0550-3213(90)90508-B; citation_id=CR79",
+      "citation_journal_title=Phys. Lett. B; citation_title=Equivalence between Gaussian averaged neutrino oscillations and neutrino decoherence; citation_author=T Ohlsson; citation_volume=502; citation_publication_date=2001; citation_pages=159; citation_doi=10.1016/S0370-2693(01)00178-2; citation_id=CR80",
+      "citation_journal_title=Phys. Rev. D; citation_title=When do neutrinos really oscillate? Quantum mechanics of neutrino oscillations; citation_author=C Giunti, CW Kim, UW Lee; citation_volume=44; citation_publication_date=1991; citation_pages=3635; citation_doi=10.1103/PhysRevD.44.3635; citation_id=CR81",
+      "C. Giunti, C.W. Kim, Coherence of neutrino oscillations in the wave packet approach. Phys. Rev. D 58, 017301 (1998). \n                  https://doi.org/10.1103/PhysRevD.58.017301\n                  \n                . \n                  arXiv:hep-ph/9711363\n                  \n                ",
+      "citation_journal_title=Phys. Lett. B; citation_title=What is coherent in neutrino oscillations; citation_author=HJ Lipkin; citation_volume=579; citation_publication_date=2004; citation_pages=355; citation_doi=10.1016/j.physletb.2003.11.013; citation_id=CR83",
+      "citation_journal_title=Phys. Lett. B; citation_title=Neutrino decoherence in presence of strong gravitational fields; citation_author=A Chatelain, MC Volpe; citation_volume=801; citation_publication_date=2020; citation_doi=10.1016/j.physletb.2019.135150; citation_id=CR84",
+      "citation_journal_title=Gen. Relativ. Gravit.; citation_title=Wave packet treatment of neutrino avor oscillations in various spacetimes; citation_author=P Sadeghi, F Hammad, A Landry, T Martel; citation_volume=53; citation_publication_date=2021; citation_pages=98; citation_doi=10.1007/s10714-021-02872-6; citation_id=CR85",
+      "citation_journal_title=Phys. Rev. D; citation_title=Firewalls, black-hole thermodynamics, and singular solutions of the Tolman–Oppenheimer–Volkoff equation; citation_author=WH Zurek, DN Page; citation_volume=29; citation_publication_date=1984; citation_pages=628; citation_doi=10.1103/PhysRevD.29.628; citation_id=CR86",
+      "E.H. Tanin, Y. Wang, Gradient-produced neutrinos. Phys. Rev. D 29, 628 (1984). \n                  https://doi.org/10.1103/PhysRevD.29.628\n                  \n                . \n                  arXiv:2604.21968\n                  \n                 [hep-ph]",
+      "citation_journal_title=Phys. Rev. D; citation_title=GR effects in supernova neutrino flavor transformation; citation_author=Y Yang, JP Kneller; citation_volume=96; citation_publication_date=2017; citation_doi=10.1103/PhysRevD.96.023009; citation_id=CR88",
+      "citation_journal_title=ApJ; citation_title=Pulsar electrodynamics; citation_author=P Goldreich, WH Julian; citation_volume=157; citation_publication_date=1969; citation_pages=869; citation_doi=10.1086/150119; citation_id=CR89",
+      "L.D. Landau, A theory of energy transfer. 2. Physikalische Zeitschrift der Sowjetunion 2, 46 (1932). \n                  https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780080105864500146?via%3Dihub\n                  \n                ",
+      "citation_journal_title=Proc. R. Soc. Lond. A; citation_title=Non-adiabatic crossing of energy levels; citation_author=C Zener; citation_volume=137; citation_publication_date=1932; citation_pages=696; citation_doi=10.1098/rspa.1932.0165; citation_id=CR91",
+      "citation_journal_title=Helv. Phys. Acta; citation_title=Theorie der unelastischen Stöße ùzwischen Atomen; citation_author=E Stüeckelberg; citation_volume=5; citation_publication_date=1932; citation_pages=369; citation_id=CR92",
+      "citation_title=General Relativity; citation_publication_date=1984; citation_id=CR93; citation_author=RM Wald; citation_publisher=The University of Chicago Press",
+      "citation_journal_title=Phys. Rev. Lett.; citation_title=Possible explanation of the solar neutrino puzzle; citation_author=HA Bethe; citation_volume=56; citation_publication_date=1986; citation_pages=1305; citation_doi=10.1103/PhysRevLett.56.1305; citation_id=CR94",
+      "citation_title=Gravitation; citation_publication_date=1970; citation_id=CR95; citation_author=CW Misner; citation_author=KS Thorne; citation_author=JA Wheeler; citation_publisher=Freeman",
+      "citation_journal_title=Phys. Rev. D; citation_title=Understanding gravitational entropy of black holes: a new proposal via curvature invariants; citation_author=D Gregoris, YC Ong; citation_volume=105; citation_publication_date=2022; citation_doi=10.1103/PhysRevD.105.104017; citation_id=CR96",
+      "P.S. Joshi, D. Malafarina, R. Narayan, Distinguishing black holes from naked singularities through their accretion disk properties. Class. Quantum Gravity 31, 015002 (2014). \n                  https://doi.org/10.1088/0264-9381/31/1/015002\n                  \n                . \n                  arXiv:1304.7331\n                  \n                 [gr-qc]",
+      "citation_journal_title=JCAP; citation_title=Can we distinguish black holes from naked singularities by the images of their accretion disks?; citation_author=R Shaikh, PS Joshi; citation_volume=10; citation_publication_date=2019; citation_pages=064; citation_doi=10.1088/1475-7516/2019/10/064; citation_id=CR98",
+      "citation_journal_title=Phys. Rev. D; citation_title=Echoes from a singularity; citation_author=A Chowdhury, N Banerjee; citation_volume=102; citation_publication_date=2020; citation_doi=10.1103/PhysRevD.102.124051; citation_id=CR99",
+      "I.K. Dihingia, A. Uniyal, Y. Mizuno, Distinguishability of a naked singularity from a black hole in dynamics and radiative signatures. Astrophys. J. 978, 44 (2025). \n                  https://doi.org/10.3847/1538-4357/ad9600\n                  \n                . \n                  arXiv:2410.13406\n                  \n                 [astro-ph.HE]",
+      "citation_journal_title=Philos. Mag. Ser.; citation_title=The kinematics of an electron with an axis; citation_author=LH Thomas; citation_volume=3; citation_publication_date=1927; citation_pages=1; citation_doi=10.1080/14786440108564170; citation_id=CR101",
+      "citation_journal_title=Eur. Phys. J. C; citation_title=Neutrino trapping in extremely compact Tolman VII spacetimes; citation_author=Z Stuchlík, J Hladík, J Vrba, C Posada; citation_volume=81; citation_publication_date=2021; citation_pages=529; citation_doi=10.1140/epjc/s10052-021-09309-z; citation_id=CR102",
+      "citation_journal_title=Phys. Rep.; citation_title=Neutrino emission from neutron stars; citation_author=DG Yakovlev, AD Kaminker, OY Gnedin, P Haensel; citation_volume=354; citation_publication_date=2001; citation_pages=1; citation_doi=10.1016/S0370-1573(00)00131-9; citation_id=CR103",
+      "Y.B. Zel’dovich, S.S. Gershteǐn, Nuclear reactions in cold hydrogen. I. Mesonic catalysis. Sov. Phys. Usp. 3, 593 (1961). \n                  https://doi.org/10.1070/PU1961v003n04ABEH003311\n                  \n                ",
+      "I. Padilla-Gay, H.-H. Chen, S. Abbar, W. Meng-Ru, Z. Xiong, Flavor equilibration of supernova neutrinos: exploring the dynamics of slow modes. Phys. Rev. D 112, 043039 (2025). \n                  https://doi.org/10.1103/jg14-8p4l\n                  \n                . \n                  arXiv:2505.11588\n                  \n                 [astro-ph.HE]",
+      "citation_journal_title=Phys. Rep.; citation_title=Theory of core-collapse supernovae; citation_author=H-T Janka, K Langanke, A Marek, G Martínez-Pinedo, B Mueller; citation_volume=442; citation_publication_date=2007; citation_pages=38; citation_doi=10.1016/j.physrep.2007.02.002; citation_id=CR106"
+    ],
+    "citation_author": [
+      "Gregoris, Daniele"
+    ],
+    "citation_author_email": [
+      "danielegregoris@libero.it"
+    ],
+    "citation_author_institution": [
+      "Centre For Cosmology and Science Popularization (CCSP), SGT University, Delhi-NCR, India"
+    ],
+    "citation_cover_date": [
+      "2026/10/01"
+    ]
+  },
+  "equations": {
+    "Equ1": "$$\\begin{aligned} \\operatorname {d}\\!{s}^2=g_{\\mu \\nu } \\operatorname {d}\\!{x}^\\mu \\operatorname {d}\\!{x}^\\nu =-r \\operatorname {d}\\!{t}^2 + a \\operatorname {d}\\!{r}^2 +r^2(\\operatorname {d}\\!{\\theta }^2 + \\sin ^2 \\theta \\operatorname {d}\\!{\\phi }^2)\\,, \\end{aligned}$$",
+    "Equ2": "$$\\begin{aligned} \\rho =\\frac{a-1}{ar^2}\\,, \\quad p_r=\\frac{2-a}{ar^2}\\,, \\quad p_t=\\frac{1}{4a r^2}. \\end{aligned}$$",
+    "Equ7": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+    "Equ8": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+    "Equ11": "$$\\begin{aligned} \\Phi _k^\\textrm{eik}= &   \\sqrt{a}\\left[ \\sqrt{(E^2 -m_k^2r)r}-\\frac{E^2}{2m_k}\\arctan \\right. \\nonumber \\\\  &   \\times \\left. \\left( \\frac{E^2-2m_k^2r}{2m_k\\sqrt{(E^2 -m_k^2r)r}} \\right) -2E\\sqrt{r}\\right] \\left. \\right| ^{r_B}_{r_A}. \\end{aligned}$$",
+    "Equ12": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+    "Equ13": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+    "Equ14": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik} \\approx \\frac{ \\Delta m^2 R_\\textrm{eff} }{2E} \\qquad \\textrm{with} \\qquad R_\\textrm{eff}= \\int \\sqrt{-g_{rr} \\cdot g_{tt}} \\operatorname {d}\\!{r} \\,. \\end{aligned}$$"
+  },
+  "inspection_limits": [
+    "Selected HTML TeX inspected; PDF rendering was not inspected.",
+    "Full HTML bytes not redistributed; digest binds the acquired page, selected formulas are bundled.",
+    "HTML, text extraction, authoring transcription, and execution are distinct evidence stages."
+  ]
+}

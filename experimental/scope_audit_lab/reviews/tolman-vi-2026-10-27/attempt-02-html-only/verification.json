@@ -1,0 +1,34 @@
+{
+  "executed_at_utc": "2026-10-28T03:15:34.382178+00:00",
+  "python": "3.14.8",
+  "procedure_version": "case-review-1",
+  "checker_version": "0.2.0",
+  "source_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "study_publication_date": "2026-10-27",
+  "today_interpretation": "2026-10-27 America/Chicago; execution may be Oct28 UTC.",
+  "mapping_status": "DRAFT_NOT_EXECUTABLE; case-specific conclusions are attributed authoring assessments.",
+  "examined_sha256": {
+    "reviews/tolman-vi-2026-10-27/run_case.py": "b314f04b088b9322a5db8feb20345897b09cb211b6406308716d8c347a345f26",
+    "reviews/tolman-vi-2026-10-27/extract_source.py": "ea492c5927efbf37d1eb7c06a523b4b23247580b94c8b4680f93921f9c47e94c",
+    "reviews/tolman-vi-2026-10-27/source-extract.json": "da5129bf4f980d4ca84b65d967ead6f97d40eda09ca16b7c4aa0d9991ab4c206",
+    "reviews/tolman-vi-2026-10-27/source-lock.json": "68200f0e6a8799d0581270ca81350d03a12bad2582f21cf45c20aa0fd2b6affb",
+    "reviews/tolman-vi-2026-10-27/mappings.json": "7ac16b464278b8896a7351286f8c7597101aebde28bafb663951043b4fbf5315",
+    "integrity_checker.py": "22e14e247849531f91732c30404babb4c7f316e46a4f5e94f477ff66b3247f9b"
+  },
+  "output_sha256": {
+    "computed.json": "0cf63f179e1536767fd0e552c7b48c0339de943210473b8f3497fcae1e0e61ab",
+    "evidence-bundle.json": "2e5999d55da4ea3b49a7f033cad1c9f21defdf3c89a1cb06fc07deff1b8da3ec",
+    "integrity-report.json": "0c3c4159dabcbc2b0abc07f99f849b99dde996333b05a23617d1c45295983d8d",
+    "integrity-report.md": "6f827a5b07d44f54743df951dd64ce593b1d016af3ee8f00ffa5812c5f9d125c"
+  },
+  "execution_completed": true,
+  "scientific_validity_established": false,
+  "empirical_reproduction": "NOT_PERFORMED",
+  "prototype_0_1_compatibility": "UNKNOWN",
+  "voice": "DEFERRED",
+  "limits": [
+    "Fixed selected formulas only; no full derivation audit, formal proof, GR tensor derivation, or physical experiment.",
+    "Simpson convergence is diagnostic, not a rigorous quadrature/roundoff interval bound.",
+    "Source and artifact registries remain unresolved in the evidence checker; the manifest is not source authentication."
+  ]
+}

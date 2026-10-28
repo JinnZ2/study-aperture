@@ -1,0 +1,129 @@
+{
+  "coefficient_check": {
+    "a": "7/4",
+    "common_factor": "1/(a*r^2), r>0",
+    "coefficients": {
+      "rho": "3/4",
+      "pr": "1/4",
+      "pt": "1/4"
+    },
+    "pressure_isotropy_and_p_equals_rho_over_3": true,
+    "trace_coefficient": "0",
+    "trace_zero": true,
+    "limit": "Exact rational coefficient identity, not an Einstein-tensor derivation or empirical check."
+  },
+  "numerical_trials": [
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 10.0,
+        "L": 1.0,
+        "mk": 0.2,
+        "mj": 0.1,
+        "r_A": 1.0,
+        "r_B": 2.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "method": "Composite Simpson; CPython float; no submitted source code execution.",
+      "steps": [
+        256,
+        512,
+        1024
+      ],
+      "eq8_difference_convergence": [
+        -0.0024275116482543294,
+        -0.0024275116482550506,
+        -0.0024275116482550957
+      ],
+      "max_expansion_parameter_m2_over_q": 0.0008040201005025127,
+      "eq12_source_expansion": 0.002426578278248313,
+      "eq8_literal_taylor_comparison": -0.002427511492244388,
+      "eq13_endpoint_difference": 0.0024265782782483163,
+      "eq12_minus_eq8": 0.0048540899265034085,
+      "literal_taylor_minus_eq8": 1.5601070782467197e-10,
+      "eq13_minus_eq12": 3.469446951953614e-18,
+      "conditional_taylor_remainder_bound": 3.084629377950252e-10,
+      "tolerance": 1e-10,
+      "source_sign_agreement": false,
+      "eq12_eq13_sampled_agreement": true,
+      "convergence_difference_below_tolerance": true
+    },
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 20.0,
+        "L": 0.0,
+        "mk": 0.1,
+        "mj": 0.05,
+        "r_A": 2.0,
+        "r_B": 4.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "method": "Composite Simpson; CPython float; no submitted source code execution.",
+      "steps": [
+        256,
+        512,
+        1024
+      ],
+      "eq8_difference_convergence": [
+        -0.0008551889021970402,
+        -0.0008551889021973029,
+        -0.0008551889021973193
+      ],
+      "max_expansion_parameter_m2_over_q": 0.00010000000000000002,
+      "eq12_source_expansion": 0.0008551480630217606,
+      "eq8_literal_taylor_comparison": -0.0008551889013493428,
+      "eq13_endpoint_difference": 0.0008551480630217617,
+      "eq12_minus_eq8": 0.0017103369652190798,
+      "literal_taylor_minus_eq8": 8.479765284050145e-13,
+      "eq13_minus_eq12": 1.0842021724855044e-18,
+      "conditional_taylor_remainder_bound": 1.6798519160447977e-12,
+      "tolerance": 1e-10,
+      "source_sign_agreement": false,
+      "eq12_eq13_sampled_agreement": true,
+      "convergence_difference_below_tolerance": true
+    },
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 15.0,
+        "L": 2.0,
+        "mk": 0.15,
+        "mj": 0.03,
+        "r_A": 1.0,
+        "r_B": 3.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "method": "Composite Simpson; CPython float; no submitted source code execution.",
+      "steps": [
+        256,
+        512,
+        1024
+      ],
+      "eq8_difference_convergence": [
+        -0.0026771125883669608,
+        -0.0026771125883731147,
+        -0.002677112588373499
+      ],
+      "max_expansion_parameter_m2_over_q": 0.00030178837555886736,
+      "eq12_source_expansion": 0.0026768198160431558,
+      "eq8_literal_taylor_comparison": -0.002677112571829005,
+      "eq13_endpoint_difference": 0.0026768198160431814,
+      "eq12_minus_eq8": 0.005353932404416655,
+      "literal_taylor_minus_eq8": 1.6544494073345017e-11,
+      "eq13_minus_eq12": 2.5587171270657905e-17,
+      "conditional_taylor_remainder_bound": 3.927643585858322e-11,
+      "tolerance": 1e-10,
+      "source_sign_agreement": false,
+      "eq12_eq13_sampled_agreement": true,
+      "convergence_difference_below_tolerance": true
+    }
+  ],
+  "analytical_comparison": {
+    "definition": "q=E^2/r-L^2/r^2; q>max(mk^2,mj^2); Delta m^n=mk^n-mj^n",
+    "literal_eq8_difference": "sqrt(a)*[-Delta m^2/(2*sqrt(q))-Delta m^4/(8*q^(3/2))+O(m^6/q^(5/2))]",
+    "published_eq12": "sqrt(a)*[+Delta m^2/(2*sqrt(q))-Delta m^4/(8*q^(3/2))]",
+    "status": "CANDIDATE_INTERNAL_SIGN_DISCREPANCY",
+    "limits": "Conditional on published equations and stated mass/phase ordering. No global correction or physical consequence established."
+  }
+}

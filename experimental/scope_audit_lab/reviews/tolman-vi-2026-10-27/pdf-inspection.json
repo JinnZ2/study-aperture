@@ -1,0 +1,29 @@
+{
+  "event_kind": "ATTRIBUTED_VISUAL_SOURCE_INSPECTION",
+  "source_url": "https://link.springer.com/content/pdf/10.1140/epjc/s10052-026-16462-w.pdf",
+  "publisher_article_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "pdf_sha256": "6a5d3a5008ef27c6e0e515a4745a656875a9f2236b80b8444efb299004da9570",
+  "local_pdf_acquisition_time_utc": "2026-10-28T03:10:58Z",
+  "acquisition_time_basis": "Local downloaded-file modification time, not independent clock attestation.",
+  "visual_inspection_time_utc": {
+    "status": "MISSING",
+    "reason": "Exact visual-inspection event time was not instrumented; no timestamp reconstructed."
+  },
+  "observer": "Perplexity Computer, attributed authoring review; not an independent reviewer",
+  "procedure": "pdftotext used to locate equations, then pdftoppm rendered original PDF pages 4 and 5 at 2000-pixel maximum dimension; rendered pages visually inspected.",
+  "pages_visually_inspected": [4, 5],
+  "observations": [
+    "PDF equation 7 defines Phi_kj = Phi_k - Phi_j.",
+    "PDF equation 8 contains the massive square root minus the common massless square root.",
+    "PDF equation 12 has a positive quadratic mass-difference term and a negative quartic mass-difference term.",
+    "The definitions below equation 13 use Delta m^2 = mk^2 - mj^2 and Delta m^4 = mk^4 - mj^4.",
+    "The selected phase-definition and sign pattern match the captured original HTML TeX."
+  ],
+  "criterion_status": "HTML_PDF_DIFFERENCE_FOR_SELECTED_SIGNS_NOT_OBSERVED",
+  "limits": [
+    "Only the selected equations and adjacent definitions on pages 4-5 were visually checked.",
+    "The PDF and HTML are one publication lineage, not independent scientific confirmation.",
+    "This inspection does not identify the root cause of the discrepancy or validate the physical conclusions.",
+    "The original HTML extract's PDF-uninspected statement describes its earlier capture stage and remains preserved."
+  ]
+}

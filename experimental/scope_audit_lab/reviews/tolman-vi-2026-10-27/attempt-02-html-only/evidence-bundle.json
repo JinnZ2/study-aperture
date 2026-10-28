@@ -1,0 +1,1643 @@
+{
+  "bundle_kind": "WORKED_THEORETICAL_STUDY_ASSESSMENT",
+  "records": [
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ1",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\operatorname {d}\\!{s}^2=g_{\\mu \\nu } \\operatorname {d}\\!{x}^\\mu \\operatorname {d}\\!{x}^\\nu =-r \\operatorname {d}\\!{t}^2 + a \\operatorname {d}\\!{r}^2 +r^2(\\operatorname {d}\\!{\\theta }^2 + \\sin ^2 \\theta \\operatorname {d}\\!{\\phi }^2)\\,, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\operatorname {d}\\!{s}^2=g_{\\mu \\nu } \\operatorname {d}\\!{x}^\\mu \\operatorname {d}\\!{x}^\\nu =-r \\operatorname {d}\\!{t}^2 + a \\operatorname {d}\\!{r}^2 +r^2(\\operatorname {d}\\!{\\theta }^2 + \\sin ^2 \\theta \\operatorname {d}\\!{\\phi }^2)\\,, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ1"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ2",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\rho =\\frac{a-1}{ar^2}\\,, \\quad p_r=\\frac{2-a}{ar^2}\\,, \\quad p_t=\\frac{1}{4a r^2}. \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\rho =\\frac{a-1}{ar^2}\\,, \\quad p_r=\\frac{2-a}{ar^2}\\,, \\quad p_t=\\frac{1}{4a r^2}. \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ2"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ7",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ7"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ8",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ8"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ11",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _k^\\textrm{eik}= &   \\sqrt{a}\\left[ \\sqrt{(E^2 -m_k^2r)r}-\\frac{E^2}{2m_k}\\arctan \\right. \\nonumber \\\\  &   \\times \\left. \\left( \\frac{E^2-2m_k^2r}{2m_k\\sqrt{(E^2 -m_k^2r)r}} \\right) -2E\\sqrt{r}\\right] \\left. \\right| ^{r_B}_{r_A}. \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _k^\\textrm{eik}= &   \\sqrt{a}\\left[ \\sqrt{(E^2 -m_k^2r)r}-\\frac{E^2}{2m_k}\\arctan \\right. \\nonumber \\\\  &   \\times \\left. \\left( \\frac{E^2-2m_k^2r}{2m_k\\sqrt{(E^2 -m_k^2r)r}} \\right) -2E\\sqrt{r}\\right] \\left. \\right| ^{r_B}_{r_A}. \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ11"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ12",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+        "statement_kind": "APPROXIMATION",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ12"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ13",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+        "statement_kind": "APPROXIMATION",
+        "original": {
+          "text": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ13"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:equ14",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik} \\approx \\frac{ \\Delta m^2 R_\\textrm{eff} }{2E} \\qquad \\textrm{with} \\qquad R_\\textrm{eff}= \\int \\sqrt{-g_{rr} \\cdot g_{tt}} \\operatorname {d}\\!{r} \\,. \\end{aligned}$$",
+        "statement_kind": "APPROXIMATION",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik} \\approx \\frac{ \\Delta m^2 R_\\textrm{eff} }{2E} \\qquad \\textrm{with} \\qquad R_\\textrm{eff}= \\int \\sqrt{-g_{rr} \\cdot g_{tt}} \\operatorname {d}\\!{r} \\,. \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ14"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original HTML TeX retained; no repaired expression substituted."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "PDF typography not visually inspected; coordinate-unit normalization not fully restored."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:trial-1",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "eq12_source_expansion minus eq8_difference in local phase comparison"
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 0.0048540899265034085,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "model-coordinate phase convention; not an SI measurement"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_case.py; fixed composite Simpson comparison at 1024 steps"
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Local computational run, not physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No sensor resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "Convergence evidence is separate; no full floating-point interval or physical uncertainty model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run time is in verification.json; no physical measurement time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-20261027:execution-trial-1",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Computed output from selected source formulas, not measured neutrino behavior."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:trial-2",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "eq12_source_expansion minus eq8_difference in local phase comparison"
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 0.0017103369652190798,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "model-coordinate phase convention; not an SI measurement"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_case.py; fixed composite Simpson comparison at 1024 steps"
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Local computational run, not physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No sensor resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "Convergence evidence is separate; no full floating-point interval or physical uncertainty model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run time is in verification.json; no physical measurement time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-20261027:execution-trial-2",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Computed output from selected source formulas, not measured neutrino behavior."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:trial-3",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "eq12_source_expansion minus eq8_difference in local phase comparison"
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 0.005353932404416655,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "model-coordinate phase convention; not an SI measurement"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_case.py; fixed composite Simpson comparison at 1024 steps"
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Local computational run, not physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No sensor resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "Convergence evidence is separate; no full floating-point interval or physical uncertainty model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run time is in verification.json; no physical measurement time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-20261027:execution-trial-3",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Computed output from selected source formulas, not measured neutrino behavior."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:assessment-exact-coefficients",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-20261027:equ2",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "exact-coefficients",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "bounded authoring review"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "case-review-1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See computed.json, source-extract.json, and study-assessment.pplx.md; no generic prover."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [],
+        "criteria": [
+          {
+            "criterion_id": "exact-coefficients",
+            "version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "exact_rule": "Isotropy and trace identities from equation 2 at a=7/4 after removal of nonzero common factor.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-20261027:equ2",
+                "expected_type": "equation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent verification, authenticated source/artifact registry, full uncertainty treatment."
+            ],
+            "rationale": "Attributed limited authoring assessment; no whole-paper verdict."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Generic source/artifact/verification-event registries are not implemented; computed artifacts are linked by the sidecar manifest."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:assessment-phase-expansion",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "NUMERICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-20261027:equ12",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "phase-expansion",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "bounded authoring review"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "case-review-1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See computed.json, source-extract.json, and study-assessment.pplx.md; no generic prover."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-20261027:equ8",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-20261027:equ12",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "phase-expansion",
+            "version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "exact_rule": "Literal Eq8(k)-Eq8(j) and Eq12 agree in sign at the recorded admissible small-parameter inputs.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-20261027:trial-1",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-20261027:trial-2",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-20261027:trial-3",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent verification, authenticated source/artifact registry, full uncertainty treatment."
+            ],
+            "rationale": "Attributed limited authoring assessment; no whole-paper verdict."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Generic source/artifact/verification-event registries are not implemented; computed artifacts are linked by the sidecar manifest."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:assessment-primitive-samples",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "NUMERICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-20261027:equ13",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "primitive-samples",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "bounded authoring review"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "case-review-1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See computed.json, source-extract.json, and study-assessment.pplx.md; no generic prover."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [],
+        "criteria": [
+          {
+            "criterion_id": "primitive-samples",
+            "version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "exact_rule": "Eq12 quadrature and Eq13 endpoints differ by at most 1e-10 at three recorded inputs.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-20261027:trial-1",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-20261027:trial-2",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-20261027:trial-3",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent verification, authenticated source/artifact registry, full uncertainty treatment."
+            ],
+            "rationale": "Attributed limited authoring assessment; no whole-paper verdict."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Generic source/artifact/verification-event registries are not implemented; computed artifacts are linked by the sidecar manifest."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:assessment-coordinate-units",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-20261027:equ1",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "coordinate-units",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "bounded authoring review"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "case-review-1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See computed.json, source-extract.json, and study-assessment.pplx.md; no generic prover."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [],
+        "criteria": [
+          {
+            "criterion_id": "coordinate-units",
+            "version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "exact_rule": "Restore and inspect all coordinate and unit normalizations before an SI dimension verdict.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "INDETERMINATE",
+            "evidence_refs": [],
+            "missing_evidence": [
+              "Qualifying evidence/procedure not established."
+            ],
+            "rationale": "Attributed limited authoring assessment; no whole-paper verdict."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Generic source/artifact/verification-event registries are not implemented; computed artifacts are linked by the sidecar manifest."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-20261027:assessment-empirical",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "case-review-1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-20261027:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "run_case.py / case-review-1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "EMPIRICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-20261027:equ7",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "empirical",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "bounded authoring review"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "case-review-1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See computed.json, source-extract.json, and study-assessment.pplx.md; no generic prover."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [],
+        "criteria": [
+          {
+            "criterion_id": "empirical",
+            "version": {
+              "status": "PRESENT",
+              "value": "case-review-1"
+            },
+            "exact_rule": "Inspect actual new neutrino observations compatible with the proposed signature.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "a=7/4 rational coefficients; three admissible phase-integral comparisons."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Full proof audit, empirical neutrino observations, singular-center extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Static spherical metric, positive r; selected WKB/eikonal formulas; small m^2/q."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_EVALUATED",
+            "evidence_refs": [],
+            "missing_evidence": [
+              "Qualifying evidence/procedure not established."
+            ],
+            "rationale": "Attributed limited authoring assessment; no whole-paper verdict."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Generic source/artifact/verification-event registries are not implemented; computed artifacts are linked by the sidecar manifest."
+        ]
+      }
+    }
+  ],
+  "source_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "source_registry_status": "UNRESOLVED; URL and captured extract retained separately.",
+  "limits": [
+    "A source record was not fabricated to remove an integrity gap. Assessment records do not automatically establish their conclusions."
+  ]
+}

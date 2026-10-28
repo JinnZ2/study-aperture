@@ -1,0 +1,22 @@
+{
+  "record_kind": "AUTHORING_CORRECTION",
+  "amends": "attempt-01-invalid-trial-references/evidence-bundle.json",
+  "superseding_artifact": "artifacts/evidence-bundle.json",
+  "original_findings": {
+    "ERROR": 6,
+    "UNKNOWN": 16,
+    "codes": ["REFERENCE_MALFORMED", "REFERENCE_DECLARATION_MALFORMED"]
+  },
+  "cause_within_authored_bundle": "Three trial_ref values were incorrectly encoded as PRESENT text values instead of schema reference objects.",
+  "correction": "Use explicitly unresolved experiment references with record_id, expected_type, and resolution fields.",
+  "corrected_findings": {"ERROR": 0, "UNKNOWN": 19},
+  "scientific_calculations_changed": false,
+  "subsequent_review_stage": {
+    "retained_html_only_snapshot": "attempt-02-html-only/",
+    "final_record_version": "case-review-2",
+    "change": "Add selected visual PDF inspection and update limitations/version bindings.",
+    "computed_values_changed": false,
+    "earlier_code_hashes": "Historical manifests bind earlier procedure states and must not be treated as verification of case-review-2."
+  },
+  "limits": "The correction repairs authored evidence packaging, not study equations or missing provenance. Earlier artifacts are retained; no trial registry was invented."
+}

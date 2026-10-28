@@ -82,6 +82,8 @@ python3 assess.py selftest
 
 [Scope Audit Lab](experimental/scope_audit_lab/README.md) contains draft evidence schemas, scoped physics reference anchors, and a narrow standard-library-only [offline integrity checker](experimental/scope_audit_lab/docs/offline-integrity-checker.md) for local references, exact version bindings, anchor-condition coverage, and explicit assessment-subject links. Scoped synthetic tests and inspectable reports are included; semantic criterion-to-verdict justification, mathematical/empirical validation, full requirements conformance, prototype compatibility, and live voice instrumentation are not established.
 
+The lab also includes [draft criterion-to-conclusion mappings](experimental/scope_audit_lab/docs/criterion-conclusion-mappings.md) and a [worked study published October 27, 2026](experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27/README.md). This bounded run keeps exact algebra, sampled numerical comparisons, a candidate internal discrepancy, and unresolved physical/empirical questions separate; it does not validate an entire publication.
+
 ## License
 
 CC0-1.0. The vendored files are CC0 from their upstream repositories; see `vendored/PROVENANCE.md` for exact provenance (repo, path, commit).

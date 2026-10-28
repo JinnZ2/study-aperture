@@ -1,0 +1,17 @@
+{
+  "procedure": "Authoring-only local JSON Schema 2020-12 review; frozen local schemas; FormatChecker enabled; no network retrieval.",
+  "executed_at_utc": "2026-10-28T03:19:02.100925+00:00",
+  "record_count": 16,
+  "errors": [],
+  "packages": {
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0"
+  },
+  "examined_sha256": {
+    "experimental/scope_audit_lab/schemas/draft-0.1/evidence.schema.json": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+    "experimental/scope_audit_lab/schemas/draft-0.2/extensions.schema.json": "9103b84567b19c676611f08730f22d20f85ac04233f52f55dc7664281af1a03c",
+    "experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27/artifacts/evidence-bundle.json": "2e5999d55da4ea3b49a7f033cad1c9f21defdf3c89a1cb06fc07deff1b8da3ec"
+  },
+  "runtime_dependency": false,
+  "scientific_validation_established": false
+}
