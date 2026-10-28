@@ -2,6 +2,8 @@
 
 Status: Draft for review; no design decisions approved by this checklist. The [evidence contract 0.1](evidence-contract.md) is a proposal beneath [requirements 0.2](../requirements/scope-audit-lab-0.2.md), and this checklist does not change either document.
 
+Subsequent implementation authorization: the owner explicitly requested, “Implement the offline evidence-integrity checker for reference resolution, version bindings, and anchor-condition coverage”. This authorizes the narrow [read-only checker](offline-integrity-checker.md) and its tests, not blanket closure of the open design gates, a storage/executor selection, mathematical validation, or prototype compatibility.
+
 Use this checklist to distinguish a recommendation from an authorized choice and a design approval from demonstrated implementation behavior. All items initially began OPEN; the owner has since prioritized mathematics/physics assessment, deferred voice work, and approved an independent start. E-01 is APPROVED, W-01 through W-03 are DEFERRED, and the remaining design choices stay OPEN.
 
 ## How to record a decision

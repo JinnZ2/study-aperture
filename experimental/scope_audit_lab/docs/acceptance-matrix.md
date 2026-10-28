@@ -2,6 +2,8 @@
 
 Status: Proposed; documentation only. Every row below has execution status **NOT RUN**; no row is implemented or passed by its inclusion here. This matrix interprets the [unchanged specification 0.2](../requirements/scope-audit-lab-0.2.md) into proposed tests and required evidence, without adding implementation claims.
 
+Subsequent narrow implementation: the [offline integrity checker](offline-integrity-checker.md) has its own synthetic test suite and verification artifacts. Some tested behaviors bear on these requirements, but they are not represented as execution or complete coverage of the baseline procedures below; all baseline row statuses remain NOT RUN pending explicitly scoped requirement-to-execution mapping.
+
 Current scope: [S-01 and S-02](math-physics-focus.md#recorded-scope-decision) prioritize mathematical/physical evidence and assessment, and defer voice work. VOICE.01–07 and the voice-dependent G-08 remain NOT RUN and excluded from the current milestone; deferral is not a pass or a reason to claim full-baseline conformance.
 
 ## Reading the matrix

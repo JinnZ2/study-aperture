@@ -1,0 +1,349 @@
+{
+  "artifact_kind": "NARROW_INTEGRITY_CHECKER_VERIFICATION",
+  "recorded_at_utc": "2026-10-28T02:50:20.084702+00:00",
+  "python_version": "3.14.8",
+  "checks": {
+    "unit_tests_successful": true,
+    "parent_regressions_successful": true,
+    "example_cli_reports_gaps_with_exit_1": true,
+    "example_sources_remain_unresolved": true,
+    "example_identity_coverage_complete_but_outcomes_unevaluated": true,
+    "protected_artifacts_unchanged": true
+  },
+  "examined_sha256": {
+    "experimental/scope_audit_lab/integrity_checker.py": "15bb3dd6a16584ff2fe37581dcdaccfcf8b2dac9f87d2cdc9995f95a63dc4e9b",
+    "experimental/scope_audit_lab/tests/test_integrity_checker.py": "e3e5954008915aef435645e88867f5c31dde9c8bd811165d977679208933bcfc",
+    "experimental/scope_audit_lab/reviews/integrity-checker-0.1/run_verification.py": "c79992878b6994df314a7e61bd3cdd389facf732dd2ea2ee14754b3ebbccdaff",
+    "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json": "00f09d8add5d159924f6dd02c577af7c61492d13c9e392d5be6dbccb1980394a",
+    "experimental/scope_audit_lab/schemas/draft-0.2/extensions.schema.json": "9103b84567b19c676611f08730f22d20f85ac04233f52f55dc7664281af1a03c"
+  },
+  "unit_tests": {
+    "count": 57,
+    "successful": true,
+    "events": [
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_age_not_used_for_staleness",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_anchor_ref_cannot_target_an_observation",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_anchor_version_mismatch_does_not_pass_bound_coverage",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_calculation_retains_actual_zero_without_evaluation",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_cli_exit_codes_and_no_input_mutation",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_cli_never_overwrites_existing_output_or_input",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_cli_new_markdown_output",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_complete_coverage_not_outcome_pass",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_declared_unaddressed_note_does_not_hide_missing_check",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_anchor_condition_not_selected",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_citation_ids",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_condition_check_not_selected",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_different_versions_ambiguous_not_latest",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_json_members_rejected",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_duplicate_same_version_changed_content_is_ambiguous",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_empty_snapshot_not_complete",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_extra_condition_reported",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_false_resolved_assertion_cannot_create_target",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_identical_reimport_retains_occurrences",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_incomplete_reference_in_known_slot_not_silently_skipped",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_input_binding_version_checked",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_input_records_unchanged",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_invalid_status_is_diagnostic_even_if_conditions_declared_met",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_json_pointer_escaping",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_malformed_numeric_version_not_coerced",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_malformed_shapes_diagnosed_without_crash",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_markdown_escapes_untrusted_html",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_markdown_keeps_unknowns_and_limits_visible",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_met_without_evidence_flagged",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_missing_condition_reported",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_missing_examined_version",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_missing_input_not_zero_or_fake_reference",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_missing_target_version",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_missing_version_cannot_be_rescued_by_artifact_name",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_no_network_or_submitted_code_execution",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_nonfinite_numbers_rejected",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_outside_scope_does_not_authorize_law_verdict",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_positive_applicability_conflicts_with_unmet_condition",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_positive_status_with_unevaluated_checks_not_promoted",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_reference_cycle_does_not_recurse_graph",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_reference_list_must_be_array",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_reference_resolves",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_requirement_text_cannot_be_silently_changed",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_same_version_does_not_rescue_changed_requirement",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_single_json_object_not_accepted_as_bundle",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_size_limit",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_source_slot_cannot_be_retyped_to_hide_wrong_target",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_subject_version_mismatch",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_two_supported_bundles_checked",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_type_mismatch",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_unknown_citation_id_reported",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_unmet_criterion_record_not_declared_invalid",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_unresolved_evidence_blocks_positive_status_support",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_unsupported_contract_opaque_not_admitted",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_version_same_is_not_content_proof",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_version_strings_not_normalized",
+        "outcome": "PASSED"
+      },
+      {
+        "test": "test_integrity_checker.IntegrityTests.test_version_zero_string_is_present",
+        "outcome": "PASSED"
+      }
+    ],
+    "failures": [],
+    "errors": []
+  },
+  "parent_regressions": [
+    {
+      "procedure": [
+        "assess.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "procedure": [
+        "vendored/false_agree.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "procedure": [
+        "vendored/provenance_graph.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "procedure": [
+        "vendored/safe_provenance.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "procedure": [
+        "vendored/conditional_claims.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    }
+  ],
+  "example_cli": {
+    "argv_without_interpreter": [
+      "experimental/scope_audit_lab/integrity_checker.py",
+      "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json"
+    ],
+    "exit_code": 1,
+    "stderr": "",
+    "report_summary": {
+      "status": "INTEGRITY_GAPS_RECORDED",
+      "record_occurrences": 14,
+      "unique_record_ids": 14,
+      "reference_count": 35,
+      "version_binding_count": 7,
+      "anchor_application_count": 1,
+      "finding_counts": {
+        "ERROR": 0,
+        "UNKNOWN": 16,
+        "INFO": 0
+      }
+    }
+  },
+  "protected_artifacts": {
+    "requirements/scope-audit-lab-0.2.md": {
+      "expected": "50a1bf3d5b556cdb08c4367b5e442cdd512b7f2fbda9498383645b4c8e57a10d",
+      "observed": "50a1bf3d5b556cdb08c4367b5e442cdd512b7f2fbda9498383645b4c8e57a10d"
+    },
+    "schemas/draft-0.1/evidence.schema.json": {
+      "expected": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+      "observed": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775"
+    },
+    "examples/schema-draft-0.1/records.json": {
+      "expected": "4d152cf48c629ff0e96857fe40716844669ef445f6f6d472fcac57c5192e9f90",
+      "observed": "4d152cf48c629ff0e96857fe40716844669ef445f6f6d472fcac57c5192e9f90"
+    }
+  },
+  "artifact_sha256": {
+    "example-report.json": "16a1d70d6eaad5349580387554cb846566b0e8291ccf28613aeb5144dc7182be",
+    "example-report.md": "80eb22255befc2d48dd49642531940cc7a04197f94de8068f56147c866115621",
+    "tests.log": "900188f741a0fe9bda19b96dbb91fa175b3a73d9cc6d2cfc98715ed22d410040"
+  },
+  "limits": [
+    "Synthetic tests and implementation share an author; no independent audit.",
+    "These are narrow implementation tests, not the baseline acceptance matrix.",
+    "No physics/empirical validity, source authenticity, prototype compatibility, or voice access was established.",
+    "Runtime checker is read-only; this explicitly invoked authoring runner creates new review artifacts and runs fixed tests."
+  ]
+}

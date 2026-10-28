@@ -1,0 +1,979 @@
+{
+  "report_kind": "OFFLINE_EVIDENCE_INTEGRITY",
+  "procedure": {
+    "identity": "scope_audit_lab.integrity_checker",
+    "version": "0.1.0"
+  },
+  "inputs": [
+    {
+      "name": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+      "sha256": "00f09d8add5d159924f6dd02c577af7c61492d13c9e392d5be6dbccb1980394a",
+      "byte_count": 73510
+    }
+  ],
+  "summary": {
+    "status": "INTEGRITY_GAPS_RECORDED",
+    "record_occurrences": 14,
+    "unique_record_ids": 14,
+    "reference_count": 35,
+    "version_binding_count": 7,
+    "anchor_application_count": 1,
+    "finding_counts": {
+      "ERROR": 0,
+      "UNKNOWN": 16,
+      "INFO": 0
+    }
+  },
+  "structural_schema_validation": "NOT_PERFORMED",
+  "mathematical_or_empirical_validation": "NOT_PERFORMED",
+  "prototype_0_1_compatibility": "UNKNOWN",
+  "voice": "DEFERRED",
+  "reference_resolution": [
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0/source_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-energy-2020",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0/payload/source_citations/0/source_record"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-energy-2020",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/source_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-sonin",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/source_refs/1"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-nasa-newton",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/payload/source_citations/0/source_record"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-sonin",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/payload/source_citations/1/source_record"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-nasa-newton",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/source_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-energy-2020",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/source_refs/1"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-entropy-2010",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/payload/source_citations/0/source_record"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-energy-2020",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/payload/source_citations/1/source_record"
+      },
+      "reference": {
+        "record_id": "physics-draft:source-mit-entropy-2010",
+        "expected_type": "source",
+        "resolution": "UNRESOLVED"
+      },
+      "snapshot_resolution": "UNRESOLVED",
+      "context_expected_type": "source",
+      "target_location": null
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/result_quantity"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/dependency_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:balance",
+        "expected_type": "balance_specification",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/0/input"
+      },
+      "reference": {
+        "record_id": "physics-draft:storage-rate",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/8"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/0/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/1/input"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-in",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/6"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/1/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/2/input"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-out",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/7"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/2/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/anchor"
+      },
+      "reference": {
+        "record_id": "physics-draft:energy-anchor",
+        "expected_type": "physics_anchor",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "physics_anchor",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/balanced_quantity"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/0/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/0/input_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:storage-rate",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/8"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/1/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/1/input_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-in",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/6"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/2/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10/payload/terms/2/input_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-out",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/7"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/11/payload/inputs/0/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:angle",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/5"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/11/payload/error/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:dimension-one",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/4"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/11/payload/criterion/threshold_quantity"
+      },
+      "reference": {
+        "record_id": "physics-draft:dimension-one",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/4"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/anchor"
+      },
+      "reference": {
+        "record_id": "physics-draft:energy-anchor",
+        "expected_type": "physics_anchor",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "physics_anchor",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "physics-draft:balance",
+        "expected_type": "balance_specification",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/10"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/symbol_mappings/0/subject"
+      },
+      "reference": {
+        "record_id": "physics-draft:storage-rate",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/8"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/symbol_mappings/0/quantity_definition"
+      },
+      "reference": {
+        "record_id": "physics-draft:power",
+        "expected_type": "quantity_definition",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": "quantity_definition",
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/3"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/13/payload/dependency_refs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:storage-rate",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/8"
+      }
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/13/payload/subjects/0/subject"
+      },
+      "reference": {
+        "record_id": "physics-draft:residual",
+        "expected_type": "calculation",
+        "resolution": "NOT_CHECKED"
+      },
+      "snapshot_resolution": "RESOLVED",
+      "context_expected_type": null,
+      "target_location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9"
+      }
+    }
+  ],
+  "version_bindings": [
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:storage-rate",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/1"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-in",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/9/payload/inputs/2"
+      },
+      "reference": {
+        "record_id": "physics-draft:power-out",
+        "expected_type": "observation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/11/payload/inputs/0"
+      },
+      "reference": {
+        "status": "MISSING",
+        "reason": "No input record supplied."
+      },
+      "reference_resolution": "ABSENT",
+      "examined_version": {
+        "status": "MISSING",
+        "reason": "No input version."
+      },
+      "examined_version_state": "MISSING",
+      "target_version": null,
+      "target_version_state": "MISSING",
+      "binding_status": "BLOCKED_REFERENCE",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:balance",
+        "expected_type": "balance_specification",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/13/payload/subjects/0"
+      },
+      "reference": {
+        "record_id": "physics-draft:residual",
+        "expected_type": "calculation",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    },
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/anchor"
+      },
+      "reference": {
+        "record_id": "physics-draft:energy-anchor",
+        "expected_type": "physics_anchor",
+        "resolution": "NOT_CHECKED"
+      },
+      "reference_resolution": "RESOLVED",
+      "examined_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "examined_version_state": "PRESENT",
+      "target_version": {
+        "status": "PRESENT",
+        "value": "fixture-0.2-1"
+      },
+      "target_version_state": "PRESENT",
+      "binding_status": "SAME_DECLARED_VERSION",
+      "content_state_equality_established": false
+    }
+  ],
+  "anchor_condition_coverage": [
+    {
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12"
+      },
+      "record_id": "physics-draft:energy-application",
+      "anchor_reference_resolution": "RESOLVED",
+      "anchor_binding_status": "SAME_DECLARED_VERSION",
+      "identity_coverage": "COMPLETE",
+      "coverage_for_bound_version": "COMPLETE",
+      "missing_conditions": [],
+      "extra_checks": [],
+      "condition_checks": [
+        {
+          "condition_id": "E-boundary",
+          "recorded_outcome": "NOT_EVALUATED",
+          "exact_requirement_text_matches": true,
+          "evidence_reference_resolutions": [],
+          "outcome_truth_established": false
+        },
+        {
+          "condition_id": "E-signs",
+          "recorded_outcome": "NOT_EVALUATED",
+          "exact_requirement_text_matches": true,
+          "evidence_reference_resolutions": [],
+          "outcome_truth_established": false
+        },
+        {
+          "condition_id": "E-stored",
+          "recorded_outcome": "NOT_EVALUATED",
+          "exact_requirement_text_matches": true,
+          "evidence_reference_resolutions": [],
+          "outcome_truth_established": false
+        },
+        {
+          "condition_id": "E-formalism",
+          "recorded_outcome": "NOT_EVALUATED",
+          "exact_requirement_text_matches": true,
+          "evidence_reference_resolutions": [],
+          "outcome_truth_established": false
+        },
+        {
+          "condition_id": "E-inventory",
+          "recorded_outcome": "NOT_EVALUATED",
+          "exact_requirement_text_matches": true,
+          "evidence_reference_resolutions": [],
+          "outcome_truth_established": false
+        }
+      ],
+      "recorded_applicability_status": "UNKNOWN",
+      "recorded_comparison_status": "NOT_EVALUATED",
+      "condition_truth_established": false,
+      "law_applicability_or_consistency_established": false
+    }
+  ],
+  "findings": [
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/0/payload/source_citations/0/source_record"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/source_refs/1"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/payload/source_citations/0/source_record"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/1/payload/source_citations/1/source_record"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/source_refs/0"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/source_refs/1"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/payload/source_citations/0/source_record"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "REFERENCE_UNRESOLVED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/2/payload/source_citations/1/source_record"
+      },
+      "message": "Snapshot identity/type resolution is UNRESOLVED; content truth is not evaluated."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "BINDING_BLOCKED_REFERENCE",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/11/payload/inputs/0"
+      },
+      "message": "Exact declared-version binding is BLOCKED_REFERENCE; chronology, relevance of changes, and physical validity are not inferred."
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "CONDITION_NOT_EVALUATED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/condition_checks/0"
+      },
+      "message": "Recorded condition outcome remains NOT_EVALUATED.",
+      "condition_id": "E-boundary"
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "CONDITION_NOT_EVALUATED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/condition_checks/1"
+      },
+      "message": "Recorded condition outcome remains NOT_EVALUATED.",
+      "condition_id": "E-signs"
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "CONDITION_NOT_EVALUATED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/condition_checks/2"
+      },
+      "message": "Recorded condition outcome remains NOT_EVALUATED.",
+      "condition_id": "E-stored"
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "CONDITION_NOT_EVALUATED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/condition_checks/3"
+      },
+      "message": "Recorded condition outcome remains NOT_EVALUATED.",
+      "condition_id": "E-formalism"
+    },
+    {
+      "severity": "UNKNOWN",
+      "code": "CONDITION_NOT_EVALUATED",
+      "location": {
+        "input": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+        "pointer": "/records/12/payload/condition_checks/4"
+      },
+      "message": "Recorded condition outcome remains NOT_EVALUATED.",
+      "condition_id": "E-inventory"
+    }
+  ],
+  "limits": [
+    "Resolution establishes only supplied-snapshot identity and declared type, not authenticated content.",
+    "Same declared version does not prove equal content, complete dependencies, or empirical freshness.",
+    "Condition coverage and recorded outcomes do not establish physical applicability or evidence relevance.",
+    "No URLs/artifact paths are opened, no submitted code is executed, and inputs are not modified.",
+    "Unsupported contracts remain opaque. Missing targets do not establish falsehood.",
+    "No full JSON Schema validation, temporal ordering, proof checking, or scientific verdict."
+  ]
+}
