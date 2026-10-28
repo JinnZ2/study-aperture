@@ -1,0 +1,37 @@
+{
+  "kind": "ATTRIBUTED_SOURCE_LINEAGE_AND_VISUAL_REVIEW",
+  "reviewer": "Perplexity Computer; same authoring process, not independent scientific confirmation",
+  "publisher_url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+  "preprint_version_url": "https://arxiv.org/abs/2610.11319v1",
+  "preprint_html_url": "https://arxiv.org/html/2610.11319v1",
+  "preprint_submission": "2026-10-08T06:23:18Z",
+  "journal_publication": "2026-10-27",
+  "lineage_observations": [
+    "The retrieved arXiv history lists v1, submitted October 8, 2026, and links the same journal DOI.",
+    "The selected preprint HTML expressions have the same Eq7 phase ordering, Eq8 square-root ordering, positive-quadratic/negative-quartic Eq12 pattern, Eq32 boost expression, and Eq35 survival probability as the publisher HTML.",
+    "This is a selected-expression comparison, not a whole-paper semantic diff.",
+    "The work therefore predates its October 27 journal publication; the earlier review did not assert October 27 was its first disclosure."
+  ],
+  "pdf_inspection": {
+    "pdf_url": "https://link.springer.com/content/pdf/10.1140/epjc/s10052-026-16462-w.pdf",
+    "pdf_sha256": "6a5d3a5008ef27c6e0e515a4745a656875a9f2236b80b8444efb299004da9570",
+    "selected_pages_visually_inspected_in_this_followup": [9, 10],
+    "procedure": "Original PDF pages rendered by pdftoppm at 2000-pixel maximum dimension and visually inspected.",
+    "observations": [
+      "Page 9 Eq35 includes sin^2(2 theta_kj) and the sum of eikonal and boost phases.",
+      "Page 9 footnote 14 invokes reversal of the full phase for inward/outward symmetry.",
+      "Page 10 replaces the oscillatory sine-squared factor by its phase average, then states equal probability of measuring any flavor.",
+      "The inspected averaging passage does not set theta_kj to pi/4."
+    ],
+    "inspection_timestamp": {
+      "status": "MISSING",
+      "reason": "Exact visual-inspection event time was not instrumented; no timestamp reconstructed."
+    }
+  },
+  "unresolved": [
+    "Which expression should change to restore a fully consistent phase convention.",
+    "Whether an additional mixing or population-equilibration assumption is intended.",
+    "Independent derivation of boost spin transport and physical normalization.",
+    "Finite source/detector response, wavepacket dynamics, applicability near the curvature singularity, and empirical detectability."
+  ]
+}

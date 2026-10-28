@@ -1,0 +1,16 @@
+{
+  "record_kind": "AUTHORING_EVIDENCE_PACKAGING_CORRECTION",
+  "amends": "attempt-01-missing-derivation-links/evidence-bundle.json",
+  "superseding_artifact": "artifacts/evidence-bundle.json",
+  "initial_procedure_version": "phase-trace-0.1",
+  "corrected_procedure_version": "phase-trace-0.1.1",
+  "trigger": "Authoring-only schema review rejected three analytical MET/NOT_MET criteria with empty evidence_refs.",
+  "correction": "Add three original local derivation records with explicit steps and scope, and link the analytical criteria to those records.",
+  "calculated_probability_values_changed": false,
+  "scientific_support_established": false,
+  "limits": [
+    "The initial zero-error narrow-integrity report did not imply full schema acceptance; that distinction is preserved.",
+    "The initial passing tests did not cover the missing analytical evidence requirement; a regression test was added.",
+    "Supplying derivation records establishes inspectable declared reasoning, not formal proof or physical validation."
+  ]
+}

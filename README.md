@@ -84,6 +84,8 @@ python3 assess.py selftest
 
 The lab also includes [draft criterion-to-conclusion mappings](experimental/scope_audit_lab/docs/criterion-conclusion-mappings.md) and a [worked study published October 27, 2026](experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27/README.md). This bounded run keeps exact algebra, sampled numerical comparisons, a candidate internal discrepancy, and unresolved physical/empirical questions separate; it does not validate an entire publication.
 
+A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
+
 ## License
 
 CC0-1.0. The vendored files are CC0 from their upstream repositories; see `vendored/PROVENANCE.md` for exact provenance (repo, path, commit).

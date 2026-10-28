@@ -1,0 +1,163 @@
+{
+  "executed_at_utc": "2026-10-28T03:37:49.510634+00:00",
+  "checks": {
+    "fixed_procedures_exit_zero": true,
+    "isolated_rerun_exit_zero": true,
+    "deterministic_outputs_match": true,
+    "code_input_hashes_match": true,
+    "output_hashes_match": true,
+    "draft_mapping_id_version_links_match": true
+  },
+  "procedures": [
+    {
+      "argv_without_interpreter": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/home/user/workspace/study-aperture/experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1",
+        "-p",
+        "test_trace.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "test_count": 27,
+      "stdout": "",
+      "stderr": "test_amplitude_derives_compact_formula (test_trace.TraceTests.test_amplitude_derives_compact_formula) ... ok\ntest_analytical_assessments_have_explicit_derivation_evidence (test_trace.TraceTests.test_analytical_assessments_have_explicit_derivation_evidence) ... ok\ntest_boost_invalid_domains_rejected (test_trace.TraceTests.test_boost_invalid_domains_rejected) ... ok\ntest_common_phase_invariance (test_trace.TraceTests.test_common_phase_invariance) ... ok\ntest_eikonal_only_flip_invariance (test_trace.TraceTests.test_eikonal_only_flip_invariance) ... ok\ntest_finite_trial_probabilities_and_differences (test_trace.TraceTests.test_finite_trial_probabilities_and_differences) ... ok\ntest_full_uniform_phase_period (test_trace.TraceTests.test_full_uniform_phase_period) ... ok\ntest_log_kernel_matches_weighted_quadrature (test_trace.TraceTests.test_log_kernel_matches_weighted_quadrature) ... ok\ntest_log_kernel_subsequences_do_not_collapse (test_trace.TraceTests.test_log_kernel_subsequences_do_not_collapse) ... ok\ntest_maximal_mixing_average_is_half (test_trace.TraceTests.test_maximal_mixing_average_is_half) ... ok\ntest_negative_phase_width_rejected (test_trace.TraceTests.test_negative_phase_width_rejected) ... ok\ntest_no_network_or_submitted_execution (test_trace.TraceTests.test_no_network_or_submitted_execution) ... ok\ntest_nonfinite_values_rejected (test_trace.TraceTests.test_nonfinite_values_rejected) ... ok\ntest_nonmaximal_mixing_average_is_not_half (test_trace.TraceTests.test_nonmaximal_mixing_average_is_not_half) ... ok\ntest_partial_flip_can_change_formal_probability_fully (test_trace.TraceTests.test_partial_flip_can_change_formal_probability_fully) ... ok\ntest_partial_flip_identity (test_trace.TraceTests.test_partial_flip_identity) ... ok\ntest_partial_window_retains_phase_dependence (test_trace.TraceTests.test_partial_window_retains_phase_dependence) ... ok\ntest_pinned_sources_and_parent_code (test_trace.TraceTests.test_pinned_sources_and_parent_code) ... ok\ntest_quartic_eikonal_identity (test_trace.TraceTests.test_quartic_eikonal_identity) ... ok\ntest_reversing_endpoints_reverses_spin (test_trace.TraceTests.test_reversing_endpoints_reverses_spin) ... ok\ntest_species_swap_reverses_spin (test_trace.TraceTests.test_species_swap_reverses_spin) ... ok\ntest_spin_orientation_preserved (test_trace.TraceTests.test_spin_orientation_preserved) ... ok\ntest_uniform_phase_average_quadrature (test_trace.TraceTests.test_uniform_phase_average_quadrature) ... ok\ntest_unknown_provenance_not_erased (test_trace.TraceTests.test_unknown_provenance_not_erased) ... ok\ntest_whole_relative_phase_flip (test_trace.TraceTests.test_whole_relative_phase_flip) ... ok\ntest_zero_mixing_average_is_one (test_trace.TraceTests.test_zero_mixing_average_is_one) ... ok\ntest_zero_width_means_no_averaging (test_trace.TraceTests.test_zero_width_means_no_averaging) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 0.424s\n\nOK\n"
+    },
+    {
+      "argv_without_interpreter": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/home/user/workspace/study-aperture/experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27",
+        "-p",
+        "test_case.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "test_count": 19,
+      "stdout": "",
+      "stderr": "test_conditional_taylor_remainder (test_case.CaseTests.test_conditional_taylor_remainder) ... ok\ntest_equal_masses_zero_difference (test_case.CaseTests.test_equal_masses_zero_difference) ... ok\ntest_exact_rational_coefficients (test_case.CaseTests.test_exact_rational_coefficients) ... ok\ntest_extractor_preserves_math_sign_and_html_entities (test_case.CaseTests.test_extractor_preserves_math_sign_and_html_entities) ... ok\ntest_extractor_repeated_id_rejected (test_case.CaseTests.test_extractor_repeated_id_rejected) ... ok\ntest_invalid_domains_rejected (test_case.CaseTests.test_invalid_domains_rejected) ... ok\ntest_invalid_metric_a (test_case.CaseTests.test_invalid_metric_a) ... ok\ntest_mappings_match_exact_declared_criteria (test_case.CaseTests.test_mappings_match_exact_declared_criteria) ... ok\ntest_mass_order_reverses_exact_phase (test_case.CaseTests.test_mass_order_reverses_exact_phase) ... ok\ntest_missing_evidence_not_fabricated (test_case.CaseTests.test_missing_evidence_not_fabricated) ... ok\ntest_no_network_or_submitted_execution (test_case.CaseTests.test_no_network_or_submitted_execution) ... ok\ntest_rationalization_matches_direct_at_safe_inputs (test_case.CaseTests.test_rationalization_matches_direct_at_safe_inputs) ... ok\ntest_selected_source_date_and_hash (test_case.CaseTests.test_selected_source_date_and_hash) ... ok\ntest_simpson_cubic (test_case.CaseTests.test_simpson_cubic) ... ok\ntest_simpson_invalid_steps (test_case.CaseTests.test_simpson_invalid_steps) ... ok\ntest_simpson_nonfinite (test_case.CaseTests.test_simpson_nonfinite) ... ok\ntest_small_parameters_and_convergence (test_case.CaseTests.test_small_parameters_and_convergence) ... ok\ntest_source_primitive_agrees_only_at_samples (test_case.CaseTests.test_source_primitive_agrees_only_at_samples) ... ok\ntest_source_sign_discrepancy_preserved (test_case.CaseTests.test_source_sign_discrepancy_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.184s\n\nOK\n"
+    },
+    {
+      "argv_without_interpreter": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/home/user/workspace/study-aperture/experimental/scope_audit_lab/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "test_count": 100,
+      "stdout": "",
+      "stderr": "test_ambiguous_assessment_no_latest_wins (test_assessment_relevance.AssessmentRelevanceTests.test_ambiguous_assessment_no_latest_wins) ... ok\ntest_application_exact_field_selector_matches (test_assessment_relevance.AssessmentRelevanceTests.test_application_exact_field_selector_matches) ... ok\ntest_application_model_subject_only_is_indirect_unknown (test_assessment_relevance.AssessmentRelevanceTests.test_application_model_subject_only_is_indirect_unknown) ... ok\ntest_application_wrong_field_selector_not_substituted (test_assessment_relevance.AssessmentRelevanceTests.test_application_wrong_field_selector_not_substituted) ... ok\ntest_assessment_criterion_evidence_targets_exact_criterion (test_assessment_relevance.AssessmentRelevanceTests.test_assessment_criterion_evidence_targets_exact_criterion) ... ok\ntest_calculation_prerequisite_assessment_selector (test_assessment_relevance.AssessmentRelevanceTests.test_calculation_prerequisite_assessment_selector) ... ok\ntest_comparison_requires_its_own_selector (test_assessment_relevance.AssessmentRelevanceTests.test_comparison_requires_its_own_selector) ... ok\ntest_condition_evidence_cannot_launder_unrelated_assessment (test_assessment_relevance.AssessmentRelevanceTests.test_condition_evidence_cannot_launder_unrelated_assessment) ... ok\ntest_condition_selector_matches_but_does_not_establish_outcome (test_assessment_relevance.AssessmentRelevanceTests.test_condition_selector_matches_but_does_not_establish_outcome) ... ok\ntest_conflicting_duplicate_subject_versions_not_selected (test_assessment_relevance.AssessmentRelevanceTests.test_conflicting_duplicate_subject_versions_not_selected) ... ok\ntest_current_wrong_field_binding_does_not_rescue_stale_right_field (test_assessment_relevance.AssessmentRelevanceTests.test_current_wrong_field_binding_does_not_rescue_stale_right_field) ... ok\ntest_definitive_status_mapping_remains_unestablished (test_assessment_relevance.AssessmentRelevanceTests.test_definitive_status_mapping_remains_unestablished) ... ok\ntest_direct_subject_version_matches_metadata_only (test_assessment_relevance.AssessmentRelevanceTests.test_direct_subject_version_matches_metadata_only) ... ok\ntest_duplicate_criterion_ids_block_selector_policy (test_assessment_relevance.AssessmentRelevanceTests.test_duplicate_criterion_ids_block_selector_policy) ... ok\ntest_empty_or_malformed_assessment_lists (test_assessment_relevance.AssessmentRelevanceTests.test_empty_or_malformed_assessment_lists) ... ok\ntest_examined_version_mismatch_not_relevant (test_assessment_relevance.AssessmentRelevanceTests.test_examined_version_mismatch_not_relevant) ... ok\ntest_generic_observation_evidence_not_treated_as_assessment (test_assessment_relevance.AssessmentRelevanceTests.test_generic_observation_evidence_not_treated_as_assessment) ... ok\ntest_identical_subject_repetition_does_not_strengthen_support (test_assessment_relevance.AssessmentRelevanceTests.test_identical_subject_repetition_does_not_strengthen_support) ... ok\ntest_malformed_subjects_or_criteria_do_not_crash (test_assessment_relevance.AssessmentRelevanceTests.test_malformed_subjects_or_criteria_do_not_crash) ... ok\ntest_markdown_has_relevance_limits (test_assessment_relevance.AssessmentRelevanceTests.test_markdown_has_relevance_limits) ... ok\ntest_missing_application_selector_stays_unknown (test_assessment_relevance.AssessmentRelevanceTests.test_missing_application_selector_stays_unknown) ... ok\ntest_missing_assessment_not_inferred_from_resolution_assertion (test_assessment_relevance.AssessmentRelevanceTests.test_missing_assessment_not_inferred_from_resolution_assertion) ... ok\ntest_missing_criteria_reported (test_assessment_relevance.AssessmentRelevanceTests.test_missing_criteria_reported) ... ok\ntest_missing_examined_version_not_guessed (test_assessment_relevance.AssessmentRelevanceTests.test_missing_examined_version_not_guessed) ... ok\ntest_missing_owner_version_not_guessed (test_assessment_relevance.AssessmentRelevanceTests.test_missing_owner_version_not_guessed) ... ok\ntest_no_network_execution_or_mutation (test_assessment_relevance.AssessmentRelevanceTests.test_no_network_execution_or_mutation) ... ok\ntest_no_transitive_inheritance (test_assessment_relevance.AssessmentRelevanceTests.test_no_transitive_inheritance) ... ok\ntest_not_met_does_not_automatically_determine_conclusion (test_assessment_relevance.AssessmentRelevanceTests.test_not_met_does_not_automatically_determine_conclusion) ... ok\ntest_owner_ambiguity_blocks_match (test_assessment_relevance.AssessmentRelevanceTests.test_owner_ambiguity_blocks_match) ... ok\ntest_relevant_and_unrelated_links_both_retained (test_assessment_relevance.AssessmentRelevanceTests.test_relevant_and_unrelated_links_both_retained) ... ok\ntest_same_property_wording_does_not_create_subject_identity (test_assessment_relevance.AssessmentRelevanceTests.test_same_property_wording_does_not_create_subject_identity) ... ok\ntest_selector_alias_not_silently_equated (test_assessment_relevance.AssessmentRelevanceTests.test_selector_alias_not_silently_equated) ... ok\ntest_self_reference_does_not_substantiate_assessment (test_assessment_relevance.AssessmentRelevanceTests.test_self_reference_does_not_substantiate_assessment) ... ok\ntest_step_selector_must_name_exact_unique_step (test_assessment_relevance.AssessmentRelevanceTests.test_step_selector_must_name_exact_unique_step) ... ok\ntest_uncertainty_requires_explicit_uncertainty_selector (test_assessment_relevance.AssessmentRelevanceTests.test_uncertainty_requires_explicit_uncertainty_selector) ... ok\ntest_unevaluated_criteria_not_promoted (test_assessment_relevance.AssessmentRelevanceTests.test_unevaluated_criteria_not_promoted) ... ok\ntest_unknown_nested_context_not_guessed (test_assessment_relevance.AssessmentRelevanceTests.test_unknown_nested_context_not_guessed) ... ok\ntest_unrelated_but_resolved_assessment_is_blocked (test_assessment_relevance.AssessmentRelevanceTests.test_unrelated_but_resolved_assessment_is_blocked) ... ok\ntest_valid_criterion_self_reference_cannot_substantiate_itself (test_assessment_relevance.AssessmentRelevanceTests.test_valid_criterion_self_reference_cannot_substantiate_itself) ... ok\ntest_version_strings_not_trimmed (test_assessment_relevance.AssessmentRelevanceTests.test_version_strings_not_trimmed) ... ok\ntest_whole_record_selector_does_not_imply_specific_field (test_assessment_relevance.AssessmentRelevanceTests.test_whole_record_selector_does_not_imply_specific_field) ... ok\ntest_wrong_assessment_type (test_assessment_relevance.AssessmentRelevanceTests.test_wrong_assessment_type) ... ok\ntest_wrong_subject_expected_type (test_assessment_relevance.AssessmentRelevanceTests.test_wrong_subject_expected_type) ... ok\ntest_age_not_used_for_staleness (test_integrity_checker.IntegrityTests.test_age_not_used_for_staleness) ... ok\ntest_anchor_ref_cannot_target_an_observation (test_integrity_checker.IntegrityTests.test_anchor_ref_cannot_target_an_observation) ... ok\ntest_anchor_version_mismatch_does_not_pass_bound_coverage (test_integrity_checker.IntegrityTests.test_anchor_version_mismatch_does_not_pass_bound_coverage) ... ok\ntest_calculation_retains_actual_zero_without_evaluation (test_integrity_checker.IntegrityTests.test_calculation_retains_actual_zero_without_evaluation) ... ok\ntest_cli_exit_codes_and_no_input_mutation (test_integrity_checker.IntegrityTests.test_cli_exit_codes_and_no_input_mutation) ... ok\ntest_cli_never_overwrites_existing_output_or_input (test_integrity_checker.IntegrityTests.test_cli_never_overwrites_existing_output_or_input) ... ok\ntest_cli_new_markdown_output (test_integrity_checker.IntegrityTests.test_cli_new_markdown_output) ... ok\ntest_complete_coverage_not_outcome_pass (test_integrity_checker.IntegrityTests.test_complete_coverage_not_outcome_pass) ... ok\ntest_declared_unaddressed_note_does_not_hide_missing_check (test_integrity_checker.IntegrityTests.test_declared_unaddressed_note_does_not_hide_missing_check) ... ok\ntest_duplicate_anchor_condition_not_selected (test_integrity_checker.IntegrityTests.test_duplicate_anchor_condition_not_selected) ... ok\ntest_duplicate_citation_ids (test_integrity_checker.IntegrityTests.test_duplicate_citation_ids) ... ok\ntest_duplicate_condition_check_not_selected (test_integrity_checker.IntegrityTests.test_duplicate_condition_check_not_selected) ... ok\ntest_duplicate_different_versions_ambiguous_not_latest (test_integrity_checker.IntegrityTests.test_duplicate_different_versions_ambiguous_not_latest) ... ok\ntest_duplicate_json_members_rejected (test_integrity_checker.IntegrityTests.test_duplicate_json_members_rejected) ... ok\ntest_duplicate_same_version_changed_content_is_ambiguous (test_integrity_checker.IntegrityTests.test_duplicate_same_version_changed_content_is_ambiguous) ... ok\ntest_empty_snapshot_not_complete (test_integrity_checker.IntegrityTests.test_empty_snapshot_not_complete) ... ok\ntest_extra_condition_reported (test_integrity_checker.IntegrityTests.test_extra_condition_reported) ... ok\ntest_false_resolved_assertion_cannot_create_target (test_integrity_checker.IntegrityTests.test_false_resolved_assertion_cannot_create_target) ... ok\ntest_identical_reimport_retains_occurrences (test_integrity_checker.IntegrityTests.test_identical_reimport_retains_occurrences) ... ok\ntest_incomplete_reference_in_known_slot_not_silently_skipped (test_integrity_checker.IntegrityTests.test_incomplete_reference_in_known_slot_not_silently_skipped) ... ok\ntest_input_binding_version_checked (test_integrity_checker.IntegrityTests.test_input_binding_version_checked) ... ok\ntest_input_records_unchanged (test_integrity_checker.IntegrityTests.test_input_records_unchanged) ... ok\ntest_invalid_status_is_diagnostic_even_if_conditions_declared_met (test_integrity_checker.IntegrityTests.test_invalid_status_is_diagnostic_even_if_conditions_declared_met) ... ok\ntest_json_pointer_escaping (test_integrity_checker.IntegrityTests.test_json_pointer_escaping) ... ok\ntest_malformed_numeric_version_not_coerced (test_integrity_checker.IntegrityTests.test_malformed_numeric_version_not_coerced) ... ok\ntest_malformed_shapes_diagnosed_without_crash (test_integrity_checker.IntegrityTests.test_malformed_shapes_diagnosed_without_crash) ... ok\ntest_markdown_escapes_untrusted_html (test_integrity_checker.IntegrityTests.test_markdown_escapes_untrusted_html) ... ok\ntest_markdown_keeps_unknowns_and_limits_visible (test_integrity_checker.IntegrityTests.test_markdown_keeps_unknowns_and_limits_visible) ... ok\ntest_met_without_evidence_flagged (test_integrity_checker.IntegrityTests.test_met_without_evidence_flagged) ... ok\ntest_missing_condition_reported (test_integrity_checker.IntegrityTests.test_missing_condition_reported) ... ok\ntest_missing_examined_version (test_integrity_checker.IntegrityTests.test_missing_examined_version) ... ok\ntest_missing_input_not_zero_or_fake_reference (test_integrity_checker.IntegrityTests.test_missing_input_not_zero_or_fake_reference) ... ok\ntest_missing_target_version (test_integrity_checker.IntegrityTests.test_missing_target_version) ... ok\ntest_missing_version_cannot_be_rescued_by_artifact_name (test_integrity_checker.IntegrityTests.test_missing_version_cannot_be_rescued_by_artifact_name) ... ok\ntest_no_network_or_submitted_code_execution (test_integrity_checker.IntegrityTests.test_no_network_or_submitted_code_execution) ... ok\ntest_nonfinite_numbers_rejected (test_integrity_checker.IntegrityTests.test_nonfinite_numbers_rejected) ... ok\ntest_outside_scope_does_not_authorize_law_verdict (test_integrity_checker.IntegrityTests.test_outside_scope_does_not_authorize_law_verdict) ... ok\ntest_positive_applicability_conflicts_with_unmet_condition (test_integrity_checker.IntegrityTests.test_positive_applicability_conflicts_with_unmet_condition) ... ok\ntest_positive_status_with_unevaluated_checks_not_promoted (test_integrity_checker.IntegrityTests.test_positive_status_with_unevaluated_checks_not_promoted) ... ok\ntest_reference_cycle_does_not_recurse_graph (test_integrity_checker.IntegrityTests.test_reference_cycle_does_not_recurse_graph) ... ok\ntest_reference_list_must_be_array (test_integrity_checker.IntegrityTests.test_reference_list_must_be_array) ... ok\ntest_reference_resolves (test_integrity_checker.IntegrityTests.test_reference_resolves) ... ok\ntest_requirement_text_cannot_be_silently_changed (test_integrity_checker.IntegrityTests.test_requirement_text_cannot_be_silently_changed) ... ok\ntest_same_version_does_not_rescue_changed_requirement (test_integrity_checker.IntegrityTests.test_same_version_does_not_rescue_changed_requirement) ... ok\ntest_single_json_object_not_accepted_as_bundle (test_integrity_checker.IntegrityTests.test_single_json_object_not_accepted_as_bundle) ... ok\ntest_size_limit (test_integrity_checker.IntegrityTests.test_size_limit) ... ok\ntest_source_slot_cannot_be_retyped_to_hide_wrong_target (test_integrity_checker.IntegrityTests.test_source_slot_cannot_be_retyped_to_hide_wrong_target) ... ok\ntest_subject_version_mismatch (test_integrity_checker.IntegrityTests.test_subject_version_mismatch) ... ok\ntest_two_supported_bundles_checked (test_integrity_checker.IntegrityTests.test_two_supported_bundles_checked) ... ok\ntest_type_mismatch (test_integrity_checker.IntegrityTests.test_type_mismatch) ... ok\ntest_unknown_citation_id_reported (test_integrity_checker.IntegrityTests.test_unknown_citation_id_reported) ... ok\ntest_unmet_criterion_record_not_declared_invalid (test_integrity_checker.IntegrityTests.test_unmet_criterion_record_not_declared_invalid) ... ok\ntest_unresolved_evidence_blocks_positive_status_support (test_integrity_checker.IntegrityTests.test_unresolved_evidence_blocks_positive_status_support) ... ok\ntest_unsupported_contract_opaque_not_admitted (test_integrity_checker.IntegrityTests.test_unsupported_contract_opaque_not_admitted) ... ok\ntest_version_same_is_not_content_proof (test_integrity_checker.IntegrityTests.test_version_same_is_not_content_proof) ... ok\ntest_version_strings_not_normalized (test_integrity_checker.IntegrityTests.test_version_strings_not_normalized) ... ok\ntest_version_zero_string_is_present (test_integrity_checker.IntegrityTests.test_version_zero_string_is_present) ... ok\n\n----------------------------------------------------------------------\nRan 100 tests in 0.316s\n\nOK\n"
+    },
+    {
+      "argv_without_interpreter": [
+        "assess.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "argv_without_interpreter": [
+        "vendored/false_agree.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "argv_without_interpreter": [
+        "vendored/provenance_graph.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "argv_without_interpreter": [
+        "vendored/safe_provenance.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    },
+    {
+      "argv_without_interpreter": [
+        "vendored/conditional_claims.py",
+        "selftest"
+      ],
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "SELFTEST OK\n",
+      "stderr": ""
+    }
+  ],
+  "isolated_rerun": {
+    "exit_code": 0,
+    "stdout": "{\n  \"findings\": {\n    \"global_relative_phase_flip\": \"INVARIANT_WITHIN_STATED_TWO_FLAVOR_FORMULA\",\n    \"eikonal_only_leading_sign_flip\": \"INVARIANT_IF_SPIN_AND_QUARTIC_TERMS_ARE_OMITTED\",\n    \"partial_phase_flip_with_fixed_spin\": \"GENERALLY_NOT_INVARIANT\",\n    \"quartic_eikonal_only\": \"SOURCE_AND_LITERAL_EQ8_ARE_NOT_EXACT_GLOBAL_NEGATIVES\",\n    \"averaged_survival\": \"1-0.5*sin^2(2theta), not generically 0.5\",\n    \"averaging_from_divergence_alone\": \"NOT_ESTABLISHED; response/ensemble kernel needed\",\n    \"empirical_detectability\": \"NOT_EVALUATED\",\n    \"corrected_physical_prediction\": \"NOT_ESTABLISHED\"\n  },\n  \"integrity\": {\n    \"status\": \"INTEGRITY_GAPS_RECORDED\",\n    \"record_occurrences\": 21,\n    \"unique_record_ids\": 21,\n    \"reference_count\": 51,\n    \"version_binding_count\": 5,\n    \"anchor_application_count\": 0,\n    \"assessment_link_count\": 0,\n    \"assessment_link_relevance_counts\": {},\n    \"finding_counts\": {\n      \"ERROR\": 0,\n      \"UNKNOWN\": 24,\n      \"INFO\": 0\n    }\n  },\n  \"first_trial\": {\n    \"inputs\": {\n      \"a\": \"7/4\",\n      \"E\": 10.0,\n      \"L\": 1.0,\n      \"mk\": 0.2,\n      \"mj\": 0.1,\n      \"r_A\": 1.0,\n      \"r_B\": 2.0,\n      \"interpretation\": \"model-coordinate numbers, not SI measurements\"\n    },\n    \"theta_radians\": 0.5235987755982988,\n    \"mixing_amplitude\": 0.7499999999999999,\n    \"leading_positive_eikonal_A\": 0.0024270448852463503,\n    \"positive_quartic_magnitude_B\": 4.666069980375231e-07,\n    \"source_eikonal_A_minus_B\": 0.0024265782782483163,\n    \"eq8_literal_eikonal\": -0.0024275116482550957,\n    \"conditional_quartic_eikonal_minus_A_minus_B\": -0.002427511492244388,\n    \"eikonal_only_source_probability\": 0.9999988959476405,\n    \"eikonal_only_eq8_probability\": 0.9999988950981421,\n    \"eikonal_only_quartic_probability_delta\": -8.493563630196377e-10,\n    \"quartic_delta_identity_rhs\": -8.493562621425934e-10,\n    \"branches\": [\n      {\n        \"spin_orientation\": 1,\n        \"index_alignment\": \"Delta m_ij=+(mk-mj)\",\n        \"source_boost_phase\": 0.0003742642983116734,\n        \"published_probability\": 0.9999985291161231,\n        \"conditional_eq8_with_unchanged_boost_probability\": 0.9999992095331502,\n        \"conditional_minus_published\": 6.804170271657028e-07,\n        \"partial_eikonal_sign_flip_probability\": 0.9999992102516512,\n        \"partial_flip_minus_published\": 6.811355280911258e-07,\n        \"partial_flip_identity_rhs\": 6.811355281001769e-07,\n        \"global_phase_sign_flip_probability\": 0.9999985291161231,\n        \"complex_amplitude_probability\": 0.9999985291161231\n      },\n      {\n        \"spin_orientation\": -1,\n        \"index_alignment\": \"Delta m_ij=-(mk-mj)\",\n        \"source_boost_phase\": -0.0003742642983116734,\n        \"published_probability\": 0.9999992102516512,\n        \"conditional_eq8_with_unchanged_boost_probability\": 0.9999985281356276,\n        \"conditional_minus_published\": -6.821160235537249e-07,\n        \"partial_eikonal_sign_flip_probability\": 0.9999985291161231,\n        \"partial_flip_minus_published\": -6.811355280911258e-07,\n        \"partial_flip_identity_rhs\": -6.811355281001769e-07,\n        \"global_phase_sign_flip_probability\": 0.9999992102516512,\n        \"complex_amplitude_probability\": 0.9999992102516511\n      }\n    ],\n    \"limits\": [\n      \"Formal model-coordinate evaluation, not an SI-calibrated prediction or measured probability.\",\n      \"Holding Eq32 fixed while replacing Eq13 is a conditional branch, not an established correction.\",\n      \"Mass-index orientation is explicit; neither branch is automatically selected as the physical one.\"\n    ]\n  }\n}\n",
+    "stderr": "",
+    "deterministic_outputs": {
+      "computed.json": {
+        "recorded_sha256": "19101eb3fa221afd3bcb2e5eff4e77d66f85eb3bf958656fa98bd234ada3f612",
+        "rerun_sha256": "19101eb3fa221afd3bcb2e5eff4e77d66f85eb3bf958656fa98bd234ada3f612",
+        "identical": true
+      },
+      "evidence-bundle.json": {
+        "recorded_sha256": "7c90f8019d0fdf561e8312f8b7472119036331c3be8b3c20592cbefd204d533c",
+        "rerun_sha256": "7c90f8019d0fdf561e8312f8b7472119036331c3be8b3c20592cbefd204d533c",
+        "identical": true
+      },
+      "integrity-report.json": {
+        "recorded_sha256": "0ccd499a0f2887877b5fa664f26982034307d452c8649fc87d1bd35e1e526609",
+        "rerun_sha256": "0ccd499a0f2887877b5fa664f26982034307d452c8649fc87d1bd35e1e526609",
+        "identical": true
+      },
+      "integrity-report.md": {
+        "recorded_sha256": "8f7240d68c57215493fbd97dd6281377c189527c2c41d7e47daf58273faf869b",
+        "rerun_sha256": "8f7240d68c57215493fbd97dd6281377c189527c2c41d7e47daf58273faf869b",
+        "identical": true
+      }
+    },
+    "limits": "Run timestamp is intentionally not compared; reproduction is not independent scientific confirmation."
+  },
+  "examined_sha256": {
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/verify_trace.py": "5f3ee3f4838a5bdc971229a941ff17236c248ef3830ce4f8704be36d6c31632a",
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/test_trace.py": "944e5fca45f39e94f206e21866dcd9a334617ee5388c4281be5648f0af7ca0f6",
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/mappings.json": "b52cbeef0df92b4a9e457cac7b4bd864806b7f557d11fd0974b9cd301931f150",
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/source-review.json": "29e5966292f03b6242a386c597030d07d24ea3f37fcdf6b9dd2338db489a6046",
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/capture_sources.py": "17c1552e466cfcd3d691f826f0599b95c157c0e877ebc5f751720433d2d6d6d4",
+    "experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27/test_case.py": "343085b16b8521bcbd47e2317f2c59c79c93fa20b23a8f25d156c6a1659ec4b0",
+    "experimental/scope_audit_lab/tests/test_assessment_relevance.py": "10d0d9f37e5773432c5af8f18289b855bd3bd6886f23dd369f316ecca9476e1b",
+    "experimental/scope_audit_lab/tests/test_integrity_checker.py": "e3e5954008915aef435645e88867f5c31dde9c8bd811165d977679208933bcfc",
+    "assess.py": "69134210385b174f48ba49499c06a5ea080cccbc0a7acd3e8cc1301c4b7fe3d5",
+    "vendored/false_agree.py": "a21747d2ace336c04849f1e33caf9db036ef66bb410475d8face0afe0c6876e6",
+    "vendored/provenance_graph.py": "a2242fa8ff27e80e7a3ebde6b989bfa2e15d9118e0c63c988f5f75cb0cefb344",
+    "vendored/safe_provenance.py": "85e9689e241d04fb69f91d5c535db719e7c932da7c54a01ed601cd0d1f0c669d",
+    "vendored/conditional_claims.py": "947ab69351537315037a310224a6d6a7330d0078be5a77b1166b36b62dcd248f"
+  },
+  "case_artifact_sha256": {
+    "computed.json": "19101eb3fa221afd3bcb2e5eff4e77d66f85eb3bf958656fa98bd234ada3f612",
+    "integrity-report.json": "0ccd499a0f2887877b5fa664f26982034307d452c8649fc87d1bd35e1e526609",
+    "verification.json": "70d347883c7c849e71b9f4b02ad95a031504ab8fc86535f782fd587a43b0b11b",
+    "integrity-report.md": "8f7240d68c57215493fbd97dd6281377c189527c2c41d7e47daf58273faf869b",
+    "evidence-bundle.json": "7c90f8019d0fdf561e8312f8b7472119036331c3be8b3c20592cbefd204d533c"
+  },
+  "limits": [
+    "Tests authored in the same process, not independent scientific validation.",
+    "Mapping link checks do not execute scientific mappings or establish property alignment."
+  ]
+}

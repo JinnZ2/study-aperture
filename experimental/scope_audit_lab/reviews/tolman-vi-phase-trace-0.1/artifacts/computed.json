@@ -1,0 +1,283 @@
+{
+  "procedure_version": "phase-trace-0.1.1",
+  "formula": "P=1-sin^2(2theta)*sin^2((F+S)/2)",
+  "probability_trials": [
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 10.0,
+        "L": 1.0,
+        "mk": 0.2,
+        "mj": 0.1,
+        "r_A": 1.0,
+        "r_B": 2.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "theta_radians": 0.5235987755982988,
+      "mixing_amplitude": 0.7499999999999999,
+      "leading_positive_eikonal_A": 0.0024270448852463503,
+      "positive_quartic_magnitude_B": 4.666069980375231e-07,
+      "source_eikonal_A_minus_B": 0.0024265782782483163,
+      "eq8_literal_eikonal": -0.0024275116482550957,
+      "conditional_quartic_eikonal_minus_A_minus_B": -0.002427511492244388,
+      "eikonal_only_source_probability": 0.9999988959476405,
+      "eikonal_only_eq8_probability": 0.9999988950981421,
+      "eikonal_only_quartic_probability_delta": -8.493563630196377e-10,
+      "quartic_delta_identity_rhs": -8.493562621425934e-10,
+      "branches": [
+        {
+          "spin_orientation": 1,
+          "index_alignment": "Delta m_ij=+(mk-mj)",
+          "source_boost_phase": 0.0003742642983116734,
+          "published_probability": 0.9999985291161231,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999992095331502,
+          "conditional_minus_published": 6.804170271657028e-07,
+          "partial_eikonal_sign_flip_probability": 0.9999992102516512,
+          "partial_flip_minus_published": 6.811355280911258e-07,
+          "partial_flip_identity_rhs": 6.811355281001769e-07,
+          "global_phase_sign_flip_probability": 0.9999985291161231,
+          "complex_amplitude_probability": 0.9999985291161231
+        },
+        {
+          "spin_orientation": -1,
+          "index_alignment": "Delta m_ij=-(mk-mj)",
+          "source_boost_phase": -0.0003742642983116734,
+          "published_probability": 0.9999992102516512,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999985281356276,
+          "conditional_minus_published": -6.821160235537249e-07,
+          "partial_eikonal_sign_flip_probability": 0.9999985291161231,
+          "partial_flip_minus_published": -6.811355280911258e-07,
+          "partial_flip_identity_rhs": -6.811355281001769e-07,
+          "global_phase_sign_flip_probability": 0.9999992102516512,
+          "complex_amplitude_probability": 0.9999992102516511
+        }
+      ],
+      "limits": [
+        "Formal model-coordinate evaluation, not an SI-calibrated prediction or measured probability.",
+        "Holding Eq32 fixed while replacing Eq13 is a conditional branch, not an established correction.",
+        "Mass-index orientation is explicit; neither branch is automatically selected as the physical one."
+      ]
+    },
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 20.0,
+        "L": 0.0,
+        "mk": 0.1,
+        "mj": 0.05,
+        "r_A": 2.0,
+        "r_B": 4.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "theta_radians": 0.5235987755982988,
+      "mixing_amplitude": 0.7499999999999999,
+      "leading_positive_eikonal_A": 0.0008551684821855516,
+      "positive_quartic_magnitude_B": 2.0419163791104845e-08,
+      "source_eikonal_A_minus_B": 0.0008551480630217617,
+      "eq8_literal_eikonal": -0.0008551889021973193,
+      "conditional_quartic_eikonal_minus_A_minus_B": -0.0008551889013493427,
+      "eikonal_only_source_probability": 0.999999862885344,
+      "eikonal_only_eq8_probability": 0.9999998628722474,
+      "eikonal_only_quartic_probability_delta": -1.3096412843083272e-11,
+      "quartic_delta_identity_rhs": -1.309636738379526e-11,
+      "branches": [
+        {
+          "spin_orientation": 1,
+          "index_alignment": "Delta m_ij=+(mk-mj)",
+          "source_boost_phase": 9.356607457791835e-05,
+          "published_probability": 0.9999998312390411,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999998912370056,
+          "conditional_minus_published": 5.99979644855253e-08,
+          "partial_eikonal_sign_flip_probability": 0.9999998912486693,
+          "partial_flip_minus_published": 6.00096281555551e-08,
+          "partial_flip_identity_rhs": 6.000962817837605e-08,
+          "global_phase_sign_flip_probability": 0.9999998312390411,
+          "complex_amplitude_probability": 0.9999998312390412
+        },
+        {
+          "spin_orientation": -1,
+          "index_alignment": "Delta m_ij=-(mk-mj)",
+          "source_boost_phase": -9.356607457791835e-05,
+          "published_probability": 0.9999998912486693,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999998312245115,
+          "conditional_minus_published": -6.002415775530068e-08,
+          "partial_eikonal_sign_flip_probability": 0.9999998312390411,
+          "partial_flip_minus_published": -6.00096281555551e-08,
+          "partial_flip_identity_rhs": -6.000962817837605e-08,
+          "global_phase_sign_flip_probability": 0.9999998912486693,
+          "complex_amplitude_probability": 0.9999998912486693
+        }
+      ],
+      "limits": [
+        "Formal model-coordinate evaluation, not an SI-calibrated prediction or measured probability.",
+        "Holding Eq32 fixed while replacing Eq13 is a conditional branch, not an established correction.",
+        "Mass-index orientation is explicit; neither branch is automatically selected as the physical one."
+      ]
+    },
+    {
+      "inputs": {
+        "a": "7/4",
+        "E": 15.0,
+        "L": 2.0,
+        "mk": 0.15,
+        "mj": 0.03,
+        "r_A": 1.0,
+        "r_B": 3.0,
+        "interpretation": "model-coordinate numbers, not SI measurements"
+      },
+      "theta_radians": 0.5235987755982988,
+      "mixing_amplitude": 0.7499999999999999,
+      "leading_positive_eikonal_A": 0.00267696619393608,
+      "positive_quartic_magnitude_B": 1.463778929242331e-07,
+      "source_eikonal_A_minus_B": 0.0026768198160431814,
+      "eq8_literal_eikonal": -0.002677112588373499,
+      "conditional_quartic_eikonal_minus_A_minus_B": -0.0026771125718290044,
+      "eikonal_only_source_probability": 0.9999986564949908,
+      "eikonal_only_eq8_probability": 0.9999986562010881,
+      "eikonal_only_quartic_probability_delta": -2.93886137647803e-10,
+      "quartic_delta_identity_rhs": -2.938861521677539e-10,
+      "branches": [
+        {
+          "spin_orientation": 1,
+          "index_alignment": "Delta m_ij=+(mk-mj)",
+          "source_boost_phase": 0.000474555902546175,
+          "published_probability": 0.9999981379073686,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999990903898763,
+          "conditional_minus_published": 9.524825077544818e-07,
+          "partial_eikonal_sign_flip_probability": 0.9999990906316779,
+          "partial_flip_minus_published": 9.527243093332416e-07,
+          "partial_flip_identity_rhs": 9.527243092869916e-07,
+          "global_phase_sign_flip_probability": 0.9999981379073686,
+          "complex_amplitude_probability": 0.999998137907369
+        },
+        {
+          "spin_orientation": -1,
+          "index_alignment": "Delta m_ij=-(mk-mj)",
+          "source_boost_phase": -0.000474555902546175,
+          "published_probability": 0.9999990906316779,
+          "conditional_eq8_with_unchanged_boost_probability": 0.9999981375613648,
+          "conditional_minus_published": -9.530703131144236e-07,
+          "partial_eikonal_sign_flip_probability": 0.9999981379073686,
+          "partial_flip_minus_published": -9.527243093332416e-07,
+          "partial_flip_identity_rhs": -9.527243092869916e-07,
+          "global_phase_sign_flip_probability": 0.9999990906316779,
+          "complex_amplitude_probability": 0.999999090631678
+        }
+      ],
+      "limits": [
+        "Formal model-coordinate evaluation, not an SI-calibrated prediction or measured probability.",
+        "Holding Eq32 fixed while replacing Eq13 is a conditional branch, not an established correction.",
+        "Mass-index orientation is explicit; neither branch is automatically selected as the physical one."
+      ]
+    }
+  ],
+  "uniform_phase_averaging": [
+    {
+      "theta_radians": 0,
+      "phase_average": 1.0,
+      "uniform_phase_quadrature": 1.0,
+      "equals_one_half": false
+    },
+    {
+      "theta_radians": 0.2617993877991494,
+      "phase_average": 0.875,
+      "uniform_phase_quadrature": 0.875,
+      "equals_one_half": false
+    },
+    {
+      "theta_radians": 0.39269908169872414,
+      "phase_average": 0.75,
+      "uniform_phase_quadrature": 0.75,
+      "equals_one_half": false
+    },
+    {
+      "theta_radians": 0.5235987755982988,
+      "phase_average": 0.625,
+      "uniform_phase_quadrature": 0.625,
+      "equals_one_half": false
+    },
+    {
+      "theta_radians": 0.7853981633974483,
+      "phase_average": 0.5,
+      "uniform_phase_quadrature": 0.5,
+      "equals_one_half": true
+    }
+  ],
+  "finite_phase_windows": [
+    {
+      "width_radians": 0.0,
+      "center_radians": 0.7,
+      "mean_probability": 0.9118158202316831
+    },
+    {
+      "width_radians": 0.2,
+      "center_radians": 0.7,
+      "mean_probability": 0.9113380328209139
+    },
+    {
+      "width_radians": 3.141592653589793,
+      "center_radians": 0.7,
+      "mean_probability": 0.8075926221873153
+    },
+    {
+      "width_radians": 6.283185307179586,
+      "center_radians": 0.7,
+      "mean_probability": 0.625
+    },
+    {
+      "width_radians": 62.83185307179586,
+      "center_radians": 0.7,
+      "mean_probability": 0.625
+    }
+  ],
+  "log_phase_response_counterexample": {
+    "assumptions": "Ideal mathematical response uniform in r on (0,epsilon); Phi=C ln(r/rA); no eikonal term.",
+    "characteristic_function": "<exp(i Phi)>=(epsilon/rA)^(iC)/(1+iC)",
+    "residual_amplitude": "1/sqrt(1+C^2), independent of epsilon for fixed C",
+    "subsequences": [
+      {
+        "coefficient": 1.0,
+        "n": 0,
+        "log_epsilon_over_rA_high": -0.0,
+        "log_epsilon_over_rA_low": -3.141592653589793,
+        "uniform_radial_average_high": 0.8125,
+        "uniform_radial_average_low": 0.4375
+      },
+      {
+        "coefficient": 1.0,
+        "n": 1,
+        "log_epsilon_over_rA_high": -6.283185307179586,
+        "log_epsilon_over_rA_low": -9.42477796076938,
+        "uniform_radial_average_high": 0.8125,
+        "uniform_radial_average_low": 0.43749999999999994
+      },
+      {
+        "coefficient": 1.0,
+        "n": 2,
+        "log_epsilon_over_rA_high": -12.566370614359172,
+        "log_epsilon_over_rA_low": -15.707963267948966,
+        "uniform_radial_average_high": 0.8125,
+        "uniform_radial_average_low": 0.4374999999999999
+      },
+      {
+        "coefficient": 1.0,
+        "n": 3,
+        "log_epsilon_over_rA_high": -18.84955592153876,
+        "log_epsilon_over_rA_low": -21.991148575128552,
+        "uniform_radial_average_high": 0.8125000000000001,
+        "uniform_radial_average_low": 0.4374999999999999
+      }
+    ],
+    "limit": "Counterexample to divergence alone guaranteeing full averaging; not a model of a measured detector."
+  },
+  "findings": {
+    "global_relative_phase_flip": "INVARIANT_WITHIN_STATED_TWO_FLAVOR_FORMULA",
+    "eikonal_only_leading_sign_flip": "INVARIANT_IF_SPIN_AND_QUARTIC_TERMS_ARE_OMITTED",
+    "partial_phase_flip_with_fixed_spin": "GENERALLY_NOT_INVARIANT",
+    "quartic_eikonal_only": "SOURCE_AND_LITERAL_EQ8_ARE_NOT_EXACT_GLOBAL_NEGATIVES",
+    "averaged_survival": "1-0.5*sin^2(2theta), not generically 0.5",
+    "averaging_from_divergence_alone": "NOT_ESTABLISHED; response/ensemble kernel needed",
+    "empirical_detectability": "NOT_EVALUATED",
+    "corrected_physical_prediction": "NOT_ESTABLISHED"
+  }
+}

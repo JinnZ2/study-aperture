@@ -1,0 +1,2300 @@
+{
+  "bundle_kind": "PHASE_TO_PROBABILITY_TRACE",
+  "records": [
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ7",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ7"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ8",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ8"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ12",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ12"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ13",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ13"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ22",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _k= &   \\Phi _k^\\textrm{eik}+\\Phi _k^\\textrm{spin} , \\nonumber \\\\ \\Phi _k^\\textrm{spin}= &   \\frac{1}{4}\\int \\omega ^{ab}_\\mu S_{(k)ab} \\operatorname {d}\\!{x}^\\mu =\\frac{1}{4}\\int \\omega ^{ab}_\\mu U^\\mu S_{ab} \\operatorname {d}\\!{\\lambda }, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _k= &   \\Phi _k^\\textrm{eik}+\\Phi _k^\\textrm{spin} , \\nonumber \\\\ \\Phi _k^\\textrm{spin}= &   \\frac{1}{4}\\int \\omega ^{ab}_\\mu S_{(k)ab} \\operatorname {d}\\!{x}^\\mu =\\frac{1}{4}\\int \\omega ^{ab}_\\mu U^\\mu S_{ab} \\operatorname {d}\\!{\\lambda }, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ22"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ29",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Delta b^{\\hat{i}}(r)=S^{(i)}_{0\\hat{i}}-S^{(j)}_{0 \\hat{i}} \\quad \\Rightarrow \\quad \\Delta b^{\\hat{1}}(r)\\approx \\Delta b^{\\hat{3}}(r) \\approx \\frac{\\Delta m_{ij}}{E} \\,, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Delta b^{\\hat{i}}(r)=S^{(i)}_{0\\hat{i}}-S^{(j)}_{0 \\hat{i}} \\quad \\Rightarrow \\quad \\Delta b^{\\hat{1}}(r)\\approx \\Delta b^{\\hat{3}}(r) \\approx \\frac{\\Delta m_{ij}}{E} \\,, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ29"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ31",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Delta b^{\\hat{1}}(r)=\\frac{\\sqrt{r}\\Delta m_{ij}}{E}\\cdot \\frac{P^{\\hat{r}}}{P^{\\hat{t}}}\\,. \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Delta b^{\\hat{1}}(r)=\\frac{\\sqrt{r}\\Delta m_{ij}}{E}\\cdot \\frac{P^{\\hat{r}}}{P^{\\hat{t}}}\\,. \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ31"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ32",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin} \\rightarrow \\Phi _{kj}^\\textrm{boost}= \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\int _{r_A}^{r_B} \\frac{\\operatorname {d}\\!{r}}{r} = \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\ln \\left( \\frac{r_B}{r_A} \\right) \\,. \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin} \\rightarrow \\Phi _{kj}^\\textrm{boost}= \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\int _{r_A}^{r_B} \\frac{\\operatorname {d}\\!{r}}{r} = \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\ln \\left( \\frac{r_B}{r_A} \\right) \\,. \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ32"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ34",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin}\\equiv &   \\Phi _{kj}^\\textrm{boost}=\\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\rho _A}{\\rho _B} \\right) =\\frac{\\Delta m_{ij}}{4a^{3/2} E} \\ln \\left( \\frac{T_A}{T_B} \\right) \\nonumber \\\\= &   \\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\Psi _A}{\\Psi _B} \\right) . \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin}\\equiv &   \\Phi _{kj}^\\textrm{boost}=\\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\rho _A}{\\rho _B} \\right) =\\frac{\\Delta m_{ij}}{4a^{3/2} E} \\ln \\left( \\frac{T_A}{T_B} \\right) \\nonumber \\\\= &   \\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\Psi _A}{\\Psi _B} \\right) . \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ34"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:equ35",
+      "record_type": "equation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "$$\\begin{aligned}&P= 1-\\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}}{2}\\right) \\nonumber \\\\&\\quad = 1- \\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}^\\textrm{eik}+\\Phi _{kj}^\\textrm{boost}}{2}\\right) \\,, \\end{aligned}$$",
+        "statement_kind": "OTHER",
+        "original": {
+          "text": "$$\\begin{aligned}&P= 1-\\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}}{2}\\right) \\nonumber \\\\&\\quad = 1- \\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}^\\textrm{eik}+\\Phi _{kj}^\\textrm{boost}}{2}\\right) \\,, \\end{aligned}$$",
+          "notation": "LATEX",
+          "source_location": {
+            "status": "PRESENT",
+            "value": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w#Equ35"
+          },
+          "transcription_status": "REVIEWED",
+          "artifact_refs": []
+        },
+        "transcription": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Original selected HTML TeX retained."
+        },
+        "symbols": [],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "assumption_refs": [],
+        "dependency_refs": [],
+        "ambiguities": [
+          "Spin mass-index alignment and physical phase normalization not independently derived."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:derivation-global-invariance",
+      "record_type": "derivation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "target_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ35",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "completeness": "PARTIAL",
+        "steps": [
+          {
+            "step_id": "s1",
+            "premise_refs": [
+              {
+                "record_id": "tolman-phase-trace:equ35",
+                "expected_type": "equation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "prior_step_ids": [],
+            "conclusion": {
+              "text": "P(F,S)=1-M*sin^2((F+S)/2); M=sin^2(2theta).",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Adopt the inspected Eq35 within its real, coherent two-state scope."
+            },
+            "claimed_relation": "UNSPECIFIED",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s2",
+            "premise_refs": [],
+            "prior_step_ids": [
+              "s1"
+            ],
+            "conclusion": {
+              "text": "P(-F,-S)=1-M*sin^2(-(F+S)/2)=P(F,S).",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Use oddness of sine and evenness of its square; reverse both contributions."
+            },
+            "claimed_relation": "EQUIVALENT",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          }
+        ],
+        "omitted_steps": {
+          "status": "PRESENT",
+          "value": "Elementary field/integration axioms not expanded; no formal proof certificate."
+        },
+        "limitations": [
+          "Attributed local algebraic derivation, not a schema-established proof.",
+          "Explicit fixed-mixing and response assumptions are declared in the steps and report, not physically validated."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:derivation-universal-half",
+      "record_type": "derivation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "target_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ35",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "completeness": "PARTIAL",
+        "steps": [
+          {
+            "step_id": "s1",
+            "premise_refs": [
+              {
+                "record_id": "tolman-phase-trace:equ35",
+                "expected_type": "equation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "prior_step_ids": [],
+            "conclusion": {
+              "text": "<P>=1-M/2+(M/2)*Re<exp(i*Phi)>.",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Rewrite the sine square in Eq35 using the double-angle identity; keep fixed M."
+            },
+            "claimed_relation": "EQUIVALENT",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s2",
+            "premise_refs": [],
+            "prior_step_ids": [
+              "s1"
+            ],
+            "conclusion": {
+              "text": "For uniform full-period phase averaging: <P>=1-M/2.",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Integrate exp(i*Phi) over a full uniformly weighted phase period."
+            },
+            "claimed_relation": "IMPLIES",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s3",
+            "premise_refs": [],
+            "prior_step_ids": [
+              "s2"
+            ],
+            "conclusion": {
+              "text": "theta=pi/6 gives <P>=5/8, not 1/2; M=1 gives 1/2.",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Exhibit a nonmaximal-mixing counterexample without introducing population equilibration."
+            },
+            "claimed_relation": "IMPLIES",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          }
+        ],
+        "omitted_steps": {
+          "status": "PRESENT",
+          "value": "Elementary field/integration axioms not expanded; no formal proof certificate."
+        },
+        "limitations": [
+          "Attributed local algebraic derivation, not a schema-established proof.",
+          "Explicit fixed-mixing and response assumptions are declared in the steps and report, not physically validated."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:derivation-divergence-implies-averaging",
+      "record_type": "derivation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "target_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ35",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "completeness": "PARTIAL",
+        "steps": [
+          {
+            "step_id": "s1",
+            "premise_refs": [
+              {
+                "record_id": "tolman-phase-trace:equ32",
+                "expected_type": "equation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "prior_step_ids": [],
+            "conclusion": {
+              "text": "Phi=C*ln(r/rA); response w(r)=1/epsilon for 0<r<epsilon.",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Specify a purely mathematical normalized response, not a measured detector."
+            },
+            "claimed_relation": "UNSPECIFIED",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s2",
+            "premise_refs": [],
+            "prior_step_ids": [
+              "s1"
+            ],
+            "conclusion": {
+              "text": "<exp(i*Phi)>=(epsilon/rA)^(iC)/(1+iC).",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Integrate (r/rA)^(iC) on (0,epsilon); the lower-end primitive has magnitude proportional to r."
+            },
+            "claimed_relation": "IMPLIES",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s3",
+            "premise_refs": [],
+            "prior_step_ids": [
+              "s2"
+            ],
+            "conclusion": {
+              "text": "abs(<exp(i*Phi)>)=1/sqrt(1+C^2); for fixed C it does not decay as epsilon->0.",
+              "notation": "PLAIN_TEXT",
+              "source_location": {
+                "status": "PRESENT",
+                "value": "Original local derivation in phase-trace.md; not a quoted author result."
+              },
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {
+              "status": "PRESENT",
+              "value": "Take the modulus; compare two shrinking-window subsequences at C=1."
+            },
+            "claimed_relation": "IMPLIES",
+            "assumption_refs": [],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          }
+        ],
+        "omitted_steps": {
+          "status": "PRESENT",
+          "value": "Elementary field/integration axioms not expanded; no formal proof certificate."
+        },
+        "limitations": [
+          "Attributed local algebraic derivation, not a schema-established proof.",
+          "Explicit fixed-mixing and response assumptions are declared in the steps and report, not physically validated."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:trial-1",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "Conditional Eq8 plus unchanged Eq32 survival probability minus published Eq13 plus Eq32 value."
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 6.804170271657028e-07,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "dimensionless, within formal Eq35; not a measured probability"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_trace.py; fixed phases; theta=pi/6; spin orientation +1."
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No measured resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "No physical uncertainty or full floating-point interval model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run timestamp recorded separately; no physical observation time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-phase-trace:execution-trial-1",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Both spin orientations retained in computed.json; this observation stores +1 only.",
+          "Not an established correction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:trial-2",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "Conditional Eq8 plus unchanged Eq32 survival probability minus published Eq13 plus Eq32 value."
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 5.99979644855253e-08,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "dimensionless, within formal Eq35; not a measured probability"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_trace.py; fixed phases; theta=pi/6; spin orientation +1."
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No measured resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "No physical uncertainty or full floating-point interval model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run timestamp recorded separately; no physical observation time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-phase-trace:execution-trial-2",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Both spin orientations retained in computed.json; this observation stores +1 only.",
+          "Not an established correction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:trial-3",
+      "record_type": "observation",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "NUMERICAL_RUN",
+        "quantity": {
+          "status": "PRESENT",
+          "value": "Conditional Eq8 plus unchanged Eq32 survival probability minus published Eq13 plus Eq32 value."
+        },
+        "value": {
+          "status": "PRESENT",
+          "value": 9.524825077544818e-07,
+          "encoding": "json_number"
+        },
+        "units": {
+          "status": "PRESENT",
+          "value": "dimensionless, within formal Eq35; not a measured probability"
+        },
+        "scope": {
+          "domain": {
+            "status": "PRESENT",
+            "value": "Selected equations of the published Tolman VI theoretical model."
+          },
+          "included": {
+            "status": "PRESENT",
+            "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+          },
+          "excluded": {
+            "status": "PRESENT",
+            "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+          },
+          "regime": {
+            "status": "PRESENT",
+            "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+          },
+          "boundary_conditions": {
+            "status": "MISSING",
+            "reason": "No astrophysical matching to an external solution examined."
+          },
+          "initial_conditions": {
+            "status": "MISSING",
+            "reason": "No physical source/detector realization examined."
+          }
+        },
+        "method": {
+          "status": "PRESENT",
+          "value": "run_trace.py; fixed phases; theta=pi/6; spin orientation +1."
+        },
+        "instrument": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical apparatus."
+        },
+        "calibration": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No physical instrument."
+        },
+        "resolution": {
+          "status": "NOT_APPLICABLE",
+          "reason": "No measured resolution."
+        },
+        "uncertainty": {
+          "status": "MISSING",
+          "reason": "No physical uncertainty or full floating-point interval model."
+        },
+        "observed_at": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Run timestamp recorded separately; no physical observation time."
+        },
+        "condition_refs": [],
+        "trial_ref": {
+          "record_id": "tolman-phase-trace:execution-trial-3",
+          "expected_type": "experiment",
+          "resolution": "NOT_CHECKED"
+        },
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": [
+          "Both spin orientations retained in computed.json; this observation stores +1 only.",
+          "Not an established correction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:assessment-global-invariance",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-phase-trace:equ35",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "global-invariance",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "Attributed probability trace"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "phase-trace-0.1.1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See phase-trace.md and computed.json; analytical identities and fixed bounded tests."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ32",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-phase-trace:equ13",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "global-invariance",
+            "version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "exact_rule": "The two-flavor survival probability is invariant under simultaneous F->-F and S->-S.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-phase-trace:derivation-global-invariance",
+                "expected_type": "derivation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent scientific review; authenticated registries; physical observation/response model."
+            ],
+            "rationale": "Restricted implication only; no universal verdict on the publication."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Case-specific authoring assessment, not a generic mapping executor or independent empirical reproduction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:assessment-partial-invariance",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "NUMERICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-phase-trace:equ35",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "partial-invariance",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "Attributed probability trace"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "phase-trace-0.1.1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See phase-trace.md and computed.json; analytical identities and fixed bounded tests."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ32",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-phase-trace:equ13",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "partial-invariance",
+            "version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "exact_rule": "Keeping S fixed, reversing F leaves all recorded survival probabilities unchanged within 1e-12.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-phase-trace:trial-1",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-phase-trace:trial-2",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              {
+                "record_id": "tolman-phase-trace:trial-3",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent scientific review; authenticated registries; physical observation/response model."
+            ],
+            "rationale": "Restricted implication only; no universal verdict on the publication."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Case-specific authoring assessment, not a generic mapping executor or independent empirical reproduction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:assessment-universal-half",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-phase-trace:equ35",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "universal-half",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "Attributed probability trace"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "phase-trace-0.1.1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See phase-trace.md and computed.json; analytical identities and fixed bounded tests."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ32",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-phase-trace:equ13",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "universal-half",
+            "version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "exact_rule": "Uniform phase averaging gives survival probability one-half for every recorded mixing angle.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-phase-trace:derivation-universal-half",
+                "expected_type": "derivation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent scientific review; authenticated registries; physical observation/response model."
+            ],
+            "rationale": "Restricted implication only; no universal verdict on the publication."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Case-specific authoring assessment, not a generic mapping executor or independent empirical reproduction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:assessment-divergence-implies-averaging",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-phase-trace:equ35",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "divergence-implies-averaging",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "Attributed probability trace"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "phase-trace-0.1.1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See phase-trace.md and computed.json; analytical identities and fixed bounded tests."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ32",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-phase-trace:equ13",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "divergence-implies-averaging",
+            "version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "exact_rule": "A logarithmically divergent phase necessarily makes the specified radial-window average converge to the fully phase-averaged value.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_MET",
+            "evidence_refs": [
+              {
+                "record_id": "tolman-phase-trace:derivation-divergence-implies-averaging",
+                "expected_type": "derivation",
+                "resolution": "NOT_CHECKED"
+              }
+            ],
+            "missing_evidence": [
+              "Independent scientific review; authenticated registries; physical observation/response model."
+            ],
+            "rationale": "Restricted implication only; no universal verdict on the publication."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Case-specific authoring assessment, not a generic mapping executor or independent empirical reproduction."
+        ]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "tolman-phase-trace:assessment-empirical-effect",
+      "record_type": "assessment",
+      "record_version": {
+        "status": "PRESENT",
+        "value": "phase-trace-0.1.1"
+      },
+      "source_refs": [
+        {
+          "record_id": "tolman-phase-trace:publisher-source",
+          "expected_type": "source",
+          "resolution": "NOT_CHECKED"
+        }
+      ],
+      "recorded_at": {
+        "status": "MISSING",
+        "reason": "This authoring record is not an instrument acquisition."
+      },
+      "producer": {
+        "identity": {
+          "status": "PRESENT",
+          "value": "study-aperture local authoring review"
+        },
+        "kind": "PROCESS",
+        "version": {
+          "status": "PRESENT",
+          "value": "phase-trace-0.1.1"
+        }
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "EMPIRICAL",
+        "subjects": [
+          {
+            "subject": {
+              "record_id": "tolman-phase-trace:equ35",
+              "expected_type": "equation",
+              "resolution": "NOT_CHECKED"
+            },
+            "examined_version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "examined_state_artifact_refs": [],
+            "selector": {
+              "status": "PRESENT",
+              "value": "payload.exact_statement"
+            }
+          }
+        ],
+        "property": "empirical-effect",
+        "procedure": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "Attributed probability trace"
+          },
+          "version": {
+            "status": "PRESENT",
+            "value": "phase-trace-0.1.1"
+          },
+          "description": {
+            "status": "PRESENT",
+            "value": "See phase-trace.md and computed.json; analytical identities and fixed bounded tests."
+          },
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [
+          {
+            "record_id": "tolman-phase-trace:equ32",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          },
+          {
+            "record_id": "tolman-phase-trace:equ13",
+            "expected_type": "equation",
+            "resolution": "NOT_CHECKED"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "empirical-effect",
+            "version": {
+              "status": "PRESENT",
+              "value": "phase-trace-0.1.1"
+            },
+            "exact_rule": "A measured, calibrated, model-compatible probability dataset distinguishes the competing phase branches.",
+            "scope": {
+              "domain": {
+                "status": "PRESENT",
+                "value": "Selected equations of the published Tolman VI theoretical model."
+              },
+              "included": {
+                "status": "PRESENT",
+                "value": "Eq35 two-flavor algebra, fixed sample branches, and specified averaging kernels."
+              },
+              "excluded": {
+                "status": "PRESENT",
+                "value": "Spin transport rederivation, measured detector response, 3-flavor/matter evolution, singularity extrapolation."
+              },
+              "regime": {
+                "status": "PRESENT",
+                "value": "Formal coherent two-flavor Eq35; nonsingular numerical trials; response-kernel counterexample is not a detector model."
+              },
+              "boundary_conditions": {
+                "status": "MISSING",
+                "reason": "No astrophysical matching to an external solution examined."
+              },
+              "initial_conditions": {
+                "status": "MISSING",
+                "reason": "No physical source/detector realization examined."
+              }
+            },
+            "outcome": "NOT_EVALUATED",
+            "evidence_refs": [],
+            "missing_evidence": [
+              "Independent scientific review; authenticated registries; physical observation/response model."
+            ],
+            "rationale": "Restricted implication only; no universal verdict on the publication."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": [
+          "Case-specific authoring assessment, not a generic mapping executor or independent empirical reproduction."
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "No source/trial registry entries invented.",
+    "Draft mappings are declarations only; property alignment not inferred by the general checker."
+  ]
+}

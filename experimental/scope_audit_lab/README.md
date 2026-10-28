@@ -6,6 +6,8 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 
 The [criterion-to-conclusion mappings](docs/criterion-conclusion-mappings.md) are a draft contract separating mathematical validity, dimensional compatibility, numerical agreement, and empirical support. A [worked October 27, 2026 theoretical-study run](reviews/tolman-vi-2026-10-27/README.md) exercises bounded offline checks with recorded passing results, a candidate discrepancy, unresolved provenance, and preserved correction history; it is not a general inference engine or full-paper validation.
 
+The [phase-to-probability follow-up](reviews/tolman-vi-phase-trace-0.1/README.md) separately examines global versus partial phase reversal, mixing-angle-dependent averages, and response-kernel assumptions. Its conditional mathematical results do not establish empirical detectability or an adopted correction to the published model.
+
 ## Start here
 
 - **Active focus:** [Mathematics and physics scope decision](docs/math-physics-focus.md) records the owner's prioritization of evidence and assessment for mathematics, equations, and physics. Voice work is deferred; mathematical and physical judgment procedures remain proposals rather than implemented capabilities.

@@ -1,0 +1,28 @@
+{
+  "executed_at_utc": "2026-10-28T03:32:11.597087+00:00",
+  "python": "3.14.8",
+  "procedure_version": "phase-trace-0.1",
+  "checker_version": "0.2.0",
+  "examined_sha256": {
+    "reviews/tolman-vi-phase-trace-0.1/run_trace.py": "ffaa5b4f16d954e48c87abb62d4bbc9485ea0de45dd2d0dbc11bead84fac789b",
+    "reviews/tolman-vi-phase-trace-0.1/capture_sources.py": "17c1552e466cfcd3d691f826f0599b95c157c0e877ebc5f751720433d2d6d6d4",
+    "reviews/tolman-vi-phase-trace-0.1/sources.json": "62c59fbd31722d3c2980cbe378b688670b68682851118c4d79e2e4759357e585",
+    "reviews/tolman-vi-phase-trace-0.1/source-lock.json": "5b6156dfaf2dfdc26fc39e4d44364c41906e35077caad81dfae7a10dea72c43f",
+    "reviews/tolman-vi-phase-trace-0.1/source-review.json": "29e5966292f03b6242a386c597030d07d24ea3f37fcdf6b9dd2338db489a6046",
+    "reviews/tolman-vi-2026-10-27/run_case.py": "6cef926cb871a384d07ba165402c641379327d4a84a56153456a80b5f9b4ed16",
+    "integrity_checker.py": "22e14e247849531f91732c30404babb4c7f316e46a4f5e94f477ff66b3247f9b"
+  },
+  "output_sha256": {
+    "computed.json": "ac15475a9be345df971066ce79071c16e18cb2b4e3bd39142edc8016155a11f5",
+    "integrity-report.json": "e0081e1d4010a00589caf82349bc327192552e6b3b208ada6b3d1d5a3f431d80",
+    "integrity-report.md": "2bbb27e9ac85a23187bb9ef600f3c8d565eb6f0e3948cd6451d09caa280e66ad",
+    "evidence-bundle.json": "3b7f81a1aacda91c6cdc43737f69c42b9c6bf239c76684da2e90780bd6aad8cf"
+  },
+  "execution_completed": true,
+  "scientific_validity_established": false,
+  "empirical_detectability": "NOT_EVALUATED",
+  "corrected_physical_prediction": "NOT_ESTABLISHED",
+  "mapping_executor": "NOT_IMPLEMENTED; case-specific analytical review only",
+  "prototype_0_1_compatibility": "UNKNOWN",
+  "voice": "DEFERRED"
+}

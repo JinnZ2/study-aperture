@@ -1,0 +1,80 @@
+{
+  "contract_id": "study-aperture:criterion-conclusion-mapping:draft-0.1",
+  "status": "DRAFT_NOT_EXECUTABLE",
+  "mapping_version": "phase-trace-0.1.1",
+  "author": "Attributed same-process authoring review; not independent scientific confirmation",
+  "common_binding": {
+    "subject_id": "tolman-phase-trace:equ35",
+    "subject_type": "equation",
+    "subject_version": "phase-trace-0.1.1",
+    "selector": "payload.exact_statement",
+    "criterion_version": "phase-trace-0.1.1",
+    "procedure": "run_trace.py / phase-trace-0.1.1",
+    "hashes": "artifacts/verification.json",
+    "outcome_policy": "MET permits only the scoped implication for review; NOT_MET rejects only that criterion proposition; INDETERMINATE/NOT_EVALUATED establish neither support nor contradiction."
+  },
+  "mappings": [
+    {
+      "mapping_id": "trace-map:global-invariance",
+      "assessment_id": "tolman-phase-trace:assessment-global-invariance",
+      "criterion_id": "global-invariance",
+      "exact_rule": "The two-flavor survival probability is invariant under simultaneous F->-F and S->-S.",
+      "lane": "MATHEMATICAL_VALIDITY",
+      "target_attribution": "REVIEW_TEST_PROPOSITION_AND_PUBLISHED_DIRECTION_SYMMETRY",
+      "exact_conclusion": "Reversing both phase contributions leaves Eq35 unchanged within a coherent real two-flavor model.",
+      "scope": "Formal Eq35 only; consistent relabeling/reversal; no absorption or three-flavor CP generalization.",
+      "evidence_obligations": ["Inspect Eq35 and footnote14", "Derive the squared-amplitude expression", "Examine simultaneous-sign numerical tests"],
+      "defeaters_and_limits": ["Does not justify reversing one contribution while keeping the other fixed."]
+    },
+    {
+      "mapping_id": "trace-map:partial-invariance",
+      "assessment_id": "tolman-phase-trace:assessment-partial-invariance",
+      "criterion_id": "partial-invariance",
+      "exact_rule": "Keeping S fixed, reversing F leaves all recorded survival probabilities unchanged within 1e-12.",
+      "lane": "NUMERICAL_AGREEMENT",
+      "target_attribution": "REVIEW_TEST_PROPOSITION_NOT_A_VERBATIM_AUTHOR_CLAIM",
+      "exact_conclusion": "All recorded sample probabilities are unchanged within 1e-12 when only F is reversed.",
+      "scope": "Three fixed nonsingular model-coordinate inputs, theta=pi/6, both explicitly retained spin orientations.",
+      "evidence_obligations": ["Compute both branches", "Check M sin(F) sin(S) difference identity", "Preserve spin-index choices"],
+      "defeaters_and_limits": ["This universal sample-invariance proposition is NOT_MET.", "Its rejection does not establish which phase expression should be corrected or empirical detectability."]
+    },
+    {
+      "mapping_id": "trace-map:universal-half",
+      "assessment_id": "tolman-phase-trace:assessment-universal-half",
+      "criterion_id": "universal-half",
+      "exact_rule": "Uniform phase averaging gives survival probability one-half for every recorded mixing angle.",
+      "lane": "MATHEMATICAL_VALIDITY",
+      "target_attribution": "SCOPED_FORMALIZATION_OF_THE_PUBLISHED_AVERAGING_INFERENCE",
+      "exact_conclusion": "Full phase averaging alone makes Eq35 survival probability equal one-half for every recorded fixed mixing angle.",
+      "scope": "Fixed-angle two-flavor Eq35, without silently adding maximal mixing or population-changing dynamics.",
+      "evidence_obligations": ["Retain the mixing-angle prefactor", "Integrate over a full phase period", "Inspect the averaging passage for added premises"],
+      "defeaters_and_limits": ["The proposition is NOT_MET; maximal mixing gives one-half but arbitrary fixed mixing does not.", "An additional physical equilibration mechanism would require separate examination."]
+    },
+    {
+      "mapping_id": "trace-map:divergence-implies-averaging",
+      "assessment_id": "tolman-phase-trace:assessment-divergence-implies-averaging",
+      "criterion_id": "divergence-implies-averaging",
+      "exact_rule": "A logarithmically divergent phase necessarily makes the specified radial-window average converge to the fully phase-averaged value.",
+      "lane": "MATHEMATICAL_VALIDITY",
+      "target_attribution": "REVIEW_TEST_PROPOSITION_NOT_A_CLAIM_ABOUT_A_MEASURED_DETECTOR",
+      "exact_conclusion": "Logarithmic phase divergence necessarily fully averages the specified shrinking uniform-radial-window response.",
+      "scope": "Ideal kernel uniform in r on (0,epsilon); Phi=C ln(r/rA); fixed C and mixing.",
+      "evidence_obligations": ["Normalize the kernel", "Integrate its characteristic function", "Compare shrinking-window subsequences"],
+      "defeaters_and_limits": ["The proposition is NOT_MET; the counterexample rules out inference from divergence alone.", "It neither models an actual detector nor falsifies every proposed averaging model."]
+    },
+    {
+      "mapping_id": "trace-map:empirical-effect",
+      "assessment_id": "tolman-phase-trace:assessment-empirical-effect",
+      "criterion_id": "empirical-effect",
+      "exact_rule": "A measured, calibrated, model-compatible probability dataset distinguishes the competing phase branches.",
+      "lane": "EMPIRICAL_SUPPORT",
+      "target_attribution": "UNPERFORMED_REVIEW_OBJECTIVE",
+      "exact_conclusion": "Measured calibrated observations distinguish the competing phase branches.",
+      "scope": "A specified physical realization, valid propagation approximation, normalization, response, and uncertainty model.",
+      "evidence_obligations": ["Acquire actual observations and calibration", "Establish physical model applicability", "Propagate uncertainty through the observation model"],
+      "defeaters_and_limits": ["NOT_EVALUATED; formal numerical differences are not empirical support or a detection forecast."]
+    }
+  ],
+  "cross_lane_promotion": "FORBIDDEN_WITHOUT_SEPARATE_JUSTIFIED_BRIDGE",
+  "dimensional_lane_status": "Full physical coordinate/phase normalization is not completed by this follow-up."
+}

@@ -1,0 +1,17 @@
+{
+  "procedure": "Authoring-only JSON Schema 2020-12 review; frozen local schemas and format checker; no network retrieval.",
+  "executed_at_utc": "2026-10-28T03:37:46.934489+00:00",
+  "record_count": 21,
+  "errors": [],
+  "packages": {
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0"
+  },
+  "examined_sha256": {
+    "experimental/scope_audit_lab/schemas/draft-0.1/evidence.schema.json": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+    "experimental/scope_audit_lab/schemas/draft-0.2/extensions.schema.json": "9103b84567b19c676611f08730f22d20f85ac04233f52f55dc7664281af1a03c",
+    "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/artifacts/evidence-bundle.json": "7c90f8019d0fdf561e8312f8b7472119036331c3be8b3c20592cbefd204d533c"
+  },
+  "runtime_dependency": false,
+  "scientific_validation_established": false
+}

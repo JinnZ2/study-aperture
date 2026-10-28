@@ -1,0 +1,9 @@
+{
+  "examined_sha256": {
+    "reviews/tolman-vi-phase-trace-0.1/sources.json": "62c59fbd31722d3c2980cbe378b688670b68682851118c4d79e2e4759357e585",
+    "reviews/tolman-vi-2026-10-27/run_case.py": "6cef926cb871a384d07ba165402c641379327d4a84a56153456a80b5f9b4ed16",
+    "integrity_checker.py": "22e14e247849531f91732c30404babb4c7f316e46a4f5e94f477ff66b3247f9b"
+  },
+  "basis": "Prior case frozen at e3e8757eddb72683926bfacac51cf3d1481bba11; new selected sources explicitly inspected.",
+  "on_change": "Stop and require explicit reinspection/rebinding, not latest-version inheritance."
+}

@@ -1,0 +1,119 @@
+{
+  "kind": "SELECTED_EQUATION_CAPTURE",
+  "extracted_at_utc": "2026-10-28T03:30:21.198184+00:00",
+  "publisher": {
+    "url": "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w",
+    "original_html_sha256": "86751af2385a51595ea966fbe932ed873cb9dc453e9627904353f7a12c39d78d",
+    "equations": {
+      "Equ7": "$$\\begin{aligned} \\Phi _{kj}=\\Phi _k - \\Phi _j \\,, \\quad \\Phi _k\\equiv \\Phi _k^\\textrm{eik}=\\int _{r_A}^{r_B}P_{\\mu (k)}\\frac{K^\\mu }{K^r}\\operatorname {d}\\!{r}\\,, \\end{aligned}$$",
+      "Equ8": "$$\\begin{aligned}  &   \\Phi _k^\\textrm{eik} = \\sqrt{a} \\int ^{r_B}_{r_A}\\left[ \\sqrt{-m_k^2+\\frac{E^2}{r}-\\frac{L^2}{r^2}}-\\sqrt{\\frac{E^2}{r}-\\frac{L^2}{r^2}} \\right] \\operatorname {d}\\!{r} \\end{aligned}$$",
+      "Equ12": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{eik}\\approx &   \\frac{ \\sqrt{a} }{2E} \\int ^{r_B}_{r_A} \\left( \\Delta m^2(r-b^2)^{-1/2} r -\\frac{\\Delta m^4 r^3}{4E^2}(r-b^2)^{-3/2}\\right) \\end{aligned}$$",
+      "Equ13": "$$\\begin{aligned}= &   \\frac{ \\sqrt{a} }{E}\\left( \\frac{(r+2b^2) \\sqrt{r-b^2}\\Delta m^2}{3} \\right. \\nonumber \\\\  &   \\left. -\\frac{(r^3+2(br)^2+8b^4r-16b^6)\\Delta m^4}{20E^2\\sqrt{r-b^2}} \\right) \\left. \\right| ^{r_B}_{r_A}, \\end{aligned}$$",
+      "Equ22": "$$\\begin{aligned} \\Phi _k= &   \\Phi _k^\\textrm{eik}+\\Phi _k^\\textrm{spin} , \\nonumber \\\\ \\Phi _k^\\textrm{spin}= &   \\frac{1}{4}\\int \\omega ^{ab}_\\mu S_{(k)ab} \\operatorname {d}\\!{x}^\\mu =\\frac{1}{4}\\int \\omega ^{ab}_\\mu U^\\mu S_{ab} \\operatorname {d}\\!{\\lambda }, \\end{aligned}$$",
+      "Equ29": "$$\\begin{aligned} \\Delta b^{\\hat{i}}(r)=S^{(i)}_{0\\hat{i}}-S^{(j)}_{0 \\hat{i}} \\quad \\Rightarrow \\quad \\Delta b^{\\hat{1}}(r)\\approx \\Delta b^{\\hat{3}}(r) \\approx \\frac{\\Delta m_{ij}}{E} \\,, \\end{aligned}$$",
+      "Equ31": "$$\\begin{aligned} \\Delta b^{\\hat{1}}(r)=\\frac{\\sqrt{r}\\Delta m_{ij}}{E}\\cdot \\frac{P^{\\hat{r}}}{P^{\\hat{t}}}\\,. \\end{aligned}$$",
+      "Equ32": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin} \\rightarrow \\Phi _{kj}^\\textrm{boost}= \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\int _{r_A}^{r_B} \\frac{\\operatorname {d}\\!{r}}{r} = \\frac{\\Delta m_{ij}}{8a^{3/2} E} \\ln \\left( \\frac{r_B}{r_A} \\right) \\,. \\end{aligned}$$",
+      "Equ34": "$$\\begin{aligned} \\Phi _{kj}^\\textrm{spin}\\equiv &   \\Phi _{kj}^\\textrm{boost}=\\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\rho _A}{\\rho _B} \\right) =\\frac{\\Delta m_{ij}}{4a^{3/2} E} \\ln \\left( \\frac{T_A}{T_B} \\right) \\nonumber \\\\= &   \\frac{\\Delta m_{ij}}{16a^{3/2} E} \\ln \\left( \\frac{\\Psi _A}{\\Psi _B} \\right) . \\end{aligned}$$",
+      "Equ35": "$$\\begin{aligned}&P= 1-\\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}}{2}\\right) \\nonumber \\\\&\\quad = 1- \\sin ^2(2 \\theta _{kj}) \\sin ^2 \\left( \\frac{\\Phi _{kj}^\\textrm{eik}+\\Phi _{kj}^\\textrm{boost}}{2}\\right) \\,, \\end{aligned}$$"
+    }
+  },
+  "preprint": {
+    "url": "https://arxiv.org/html/2610.11319v1",
+    "version_record_url": "https://arxiv.org/abs/2610.11319",
+    "version": "v1",
+    "submitted_at_utc": "2026-10-08T06:23:18Z",
+    "original_html_sha256": "060fdbfce5c9b533b2404be473b6ae6ecf90ac678160a45f04f88ba8c5447c1f",
+    "equations": {
+      "Equ7": [
+        {
+          "math_id": "S3.E7.m1",
+          "original_alttext": "\\Phi_{kj}=\\Phi_{k}-\\Phi_{j}\\,,\\qquad\\Phi_{k}\\equiv\\Phi_{k}^{\\rm eik}=\\int_{r_{A}}^{r_{B}}P_{\\mu(k)}\\frac{K^{\\mu}}{K^{r}}\\operatorname{d}\\!{r}\\,,"
+        }
+      ],
+      "Equ8": [
+        {
+          "math_id": "S3.E8.m1",
+          "original_alttext": "\\displaystyle\\Phi_{k}^{\\rm eik}"
+        },
+        {
+          "math_id": "S3.E8.m2",
+          "original_alttext": "\\displaystyle="
+        },
+        {
+          "math_id": "S3.E8.m3",
+          "original_alttext": "\\displaystyle\\sqrt{a}\\int^{r_{B}}_{r_{A}}\\left[\\sqrt{-m_{k}^{2}+\\frac{E^{2}}{r}-\\frac{L^{2}}{r^{2}}}-\\sqrt{\\frac{E^{2}}{r}-\\frac{L^{2}}{r^{2}}}\\right]\\operatorname{d}\\!{r}"
+        }
+      ],
+      "Equ12": [
+        {
+          "math_id": "S3.E12.m1",
+          "original_alttext": "\\displaystyle\\Phi_{kj}^{\\rm eik}"
+        },
+        {
+          "math_id": "S3.E12.m2",
+          "original_alttext": "\\displaystyle\\approx"
+        },
+        {
+          "math_id": "S3.E12.m3",
+          "original_alttext": "\\displaystyle\\frac{\\sqrt{a}}{2E}\\int^{r_{B}}_{r_{A}}\\left(\\Delta m^{2}(r-b^{2})^{-1/2}r-\\frac{\\Delta m^{4}r^{3}}{4E^{2}}(r-b^{2})^{-3/2}\\right)"
+        }
+      ],
+      "Equ13": [
+        {
+          "math_id": "S3.E13.m2",
+          "original_alttext": "\\displaystyle="
+        },
+        {
+          "math_id": "S3.E13.m3",
+          "original_alttext": "\\displaystyle\\frac{\\sqrt{a}}{E}\\left(\\frac{(r+2b^{2})\\sqrt{r-b^{2}}\\Delta m^{2}}{3}-\\frac{(r^{3}+2(br)^{2}+8b^{4}r-16b^{6})\\Delta m^{4}}{20E^{2}\\sqrt{r-b^{2}}}\\right)\\Bigg|^{r_{B}}_{r_{A}}\\,,"
+        }
+      ],
+      "Equ22": [
+        {
+          "math_id": "S4.E22.m1",
+          "original_alttext": "\\Phi_{k}=\\Phi_{k}^{\\rm eik}+\\Phi_{k}^{\\rm spin}\\,,\\qquad\\Phi_{k}^{\\rm spin}=\\frac{1}{4}\\int\\omega^{ab}_{\\mu}S_{(k)ab}\\operatorname{d}\\!{x}^{\\mu}=\\frac{1}{4}\\int\\omega^{ab}_{\\mu}U^{\\mu}S_{ab}\\operatorname{d}\\!{\\lambda}\\,,"
+        }
+      ],
+      "Equ29": [
+        {
+          "math_id": "S4.E29.m1",
+          "original_alttext": "\\Delta b^{\\hat{i}}(r)=S^{(i)}_{0\\hat{i}}-S^{(j)}_{0\\hat{i}}\\qquad\\Rightarrow\\qquad\\Delta b^{\\hat{1}}(r)\\approx\\Delta b^{\\hat{3}}(r)\\approx\\frac{\\Delta m_{ij}}{E}\\,,"
+        }
+      ],
+      "Equ31": [
+        {
+          "math_id": "S4.E31.m1",
+          "original_alttext": "\\Delta b^{\\hat{1}}(r)=\\frac{\\sqrt{r}\\Delta m_{ij}}{E}\\cdot\\frac{P^{\\hat{r}}}{P^{\\hat{t}}}\\,."
+        }
+      ],
+      "Equ32": [
+        {
+          "math_id": "S4.E32.m1",
+          "original_alttext": "\\Phi_{kj}^{\\rm spin}\\to\\Phi_{kj}^{\\rm boost}=\\frac{\\Delta m_{ij}}{8a^{3/2}E}\\int_{r_{A}}^{r_{B}}\\frac{\\operatorname{d}\\!{r}}{r}=\\frac{\\Delta m_{ij}}{8a^{3/2}E}\\ln\\left(\\frac{r_{B}}{r_{A}}\\right)\\,."
+        }
+      ],
+      "Equ34": [
+        {
+          "math_id": "S4.E34.m1",
+          "original_alttext": "\\Phi_{kj}^{\\rm spin}\\equiv\\Phi_{kj}^{\\rm boost}=\\frac{\\Delta m_{ij}}{16a^{3/2}E}\\ln\\left(\\frac{\\rho_{A}}{\\rho_{B}}\\right)=\\frac{\\Delta m_{ij}}{4a^{3/2}E}\\ln\\left(\\frac{T_{A}}{T_{B}}\\right)=\\frac{\\Delta m_{ij}}{16a^{3/2}E}\\ln\\left(\\frac{\\Psi_{A}}{\\Psi_{B}}\\right)\\,."
+        }
+      ],
+      "Equ35": [
+        {
+          "math_id": "S5.E35.m1",
+          "original_alttext": "P=1-\\sin^{2}(2\\theta_{kj})\\sin^{2}\\left(\\frac{\\Phi_{kj}}{2}\\right)=1-\\sin^{2}(2\\theta_{kj})\\sin^{2}\\left(\\frac{\\Phi_{kj}^{\\rm eik}+\\Phi_{kj}^{\\rm boost}}{2}\\right)\\,,"
+        }
+      ]
+    },
+    "acquisition_timestamp": {
+      "status": "MISSING",
+      "reason": "Exact HTTP acquisition time not instrumented."
+    },
+    "raw_html_origin": "Raw HTML returned by the URL-fetch tool, copied from its read-only output; no custom HTTP fetch."
+  },
+  "limits": [
+    "TeX representations differ; no whole-paper byte or semantic equivalence is asserted.",
+    "Same source lineage, not independent scientific confirmation.",
+    "Signs and definitions are examined in the attributed review; extraction alone validates no equations."
+  ]
+}
