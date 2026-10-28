@@ -65,15 +65,18 @@ python3 assess.py selftest
 
 - **Publication types:** EMPIRICAL, REVIEW, THEORETICAL, SIMULATION, COMMENTARY, UNDECLARED
 - **Claim support:** SUPPORTED, PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED, UNTESTED, UNDETERMINED
-- **Measurement grades:** MEASURED_PRESENT / ABSENT / DISCARDED, UNMEASURED, UNDERPOWERED, IMPOSED
+- **Measurement grades:** MEASURED_PRESENT, MEASURED_ABSENT, MEASURED_DISCARDED, UNMEASURED, UNDERPOWERED, IMPOSED
+- **Epistemic labels:** OBSERVED, DERIVED, PROPOSED
 - **Tool states:** RUN, DECLINED, BLOCKED, NOT_APPLICABLE
 - **Decision states:** DETECTED, UNRESOLVED, RESOLVED, DEFERRED, NOT_APPLICABLE
+- **Design check states:** CHECKED, NOT_CHECKED, NOT_APPLICABLE
 
 `UNDECLARED`, `NODATA`, `NOTFOUND` are values, not errors. A zero is a property of the measurement, not of the world.
 
 ## Verification state
 
 - `assess.py` and all four vendored tools pass their selftests; the README quick-start commands and all three example records were re-run from a fresh extracted copy before shipping.
+- `./run_checks.sh` runs every selftest and test suite in one pass; GitHub Actions runs it on each push and pull request. `tests/test_repo_integrity.py` checks that vendored files still match their recorded upstream hashes (`vendored/SHA256SUMS`), that example reports regenerate byte-identically from their records, and that the vocabulary above matches `assess.py`.
 - Upstream repositories' own reading guidance (`READ_ME_THIS_WAY.md` where present) was read before adapting methods; per that guidance, mismatches and odd names upstream are data, not defects, and are not "fixed" here.
 - The upstream `method-layer` test suite runs 208 tests with 3 failures, all in an unrelated fitness-bin module (Python 3.14 environment); the modules this toolbox draws on (register map, branch set, ranking) pass.
 - Methods referenced but **not run** by this toolbox: `presignal_ledger` (prognostic-claims tool, upstream only), `rank_detector`, `grounding-layers` (needs NumPy), `frame_probe`, `observer_position_control`. Their cards describe documented upstream procedures; they are marked optional or NOT_APPLICABLE rather than presented as verified.

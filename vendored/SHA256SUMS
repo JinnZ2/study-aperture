@@ -1,0 +1,5 @@
+# SHA-256 of vendored upstream files (Simulators 0655e8b). Checked by tests/test_repo_integrity.py.
+# Update only on a deliberate re-vendor, together with PROVENANCE.md.
+a2242fa8ff27e80e7a3ebde6b989bfa2e15d9118e0c63c988f5f75cb0cefb344  provenance_graph.py
+a21747d2ace336c04849f1e33caf9db036ef66bb410475d8face0afe0c6876e6  false_agree.py
+947ab69351537315037a310224a6d6a7330d0078be5a77b1166b36b62dcd248f  conditional_claims.py
