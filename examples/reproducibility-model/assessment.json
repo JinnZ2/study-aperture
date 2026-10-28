@@ -215,5 +215,51 @@
       "finding": "Model and re-analysis paper; no preregistration stated or expected.",
       "source": "https://arxiv.org/html/2602.15697v1"
     }
+  ],
+  "averages": [
+    {
+      "id": "A1",
+      "text": "effect prevalence pi, main effects",
+      "population": "hypotheses tested by the OSC-RP main-effect originals",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "claims": [
+        "C1",
+        "C4",
+        "C5"
+      ],
+      "value": "0.25",
+      "fitted_to": "ML-RP 11/13 read as PPV (implies pi 0.234, recompute R7)",
+      "estimated_from": "ML-RP effects (Klein et al. 2014): Table 1 labels pi = 0.25 'consistent with ML-RP'",
+      "source": "https://arxiv.org/html/2602.15697v1"
+    },
+    {
+      "id": "A2",
+      "text": "effect prevalence pi, interactions",
+      "population": "hypotheses tested by the OSC-RP interaction originals",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "claims": [
+        "C1",
+        "C4"
+      ],
+      "value": "0.05",
+      "split_of": "A1",
+      "source": "https://arxiv.org/html/2602.15697v1"
+    },
+    {
+      "id": "A3",
+      "text": "mean type II error of the OSC-RP replications",
+      "population": "OSC-RP main-effect and interaction subsets, each predicted separately (Section 3.5)",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "claims": [
+        "C1",
+        "C2"
+      ],
+      "value": "0.468",
+      "estimated_from": "93 of 97 OSC-RP replications, all effect types pooled",
+      "source": "https://arxiv.org/html/2602.15697v1"
+    }
   ]
 }

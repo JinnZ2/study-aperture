@@ -90,6 +90,23 @@ $A claim --file $F --id C8 --label PROPOSED --support UNTESTED --grade UNDECLARE
   --falsifiers "Not an empirical claim; carried as an argument." \
   --source "$U"
 
+# ---- input averages (Card 02 frozen-state check)
+$A average --file $F --id A1 --text "effect prevalence pi, main effects" --value 0.25 \
+  --population "hypotheses tested by the OSC-RP main-effect originals" \
+  --window UNDECLARED --stationarity UNDECLARED \
+  --estimated-from "ML-RP effects (Klein et al. 2014): Table 1 labels pi = 0.25 'consistent with ML-RP'" \
+  --fitted-to "ML-RP 11/13 read as PPV (implies pi 0.234, recompute R7)" \
+  --claim C1 --claim C4 --claim C5 --source "$U"
+$A average --file $F --id A2 --text "effect prevalence pi, interactions" --value 0.05 \
+  --population "hypotheses tested by the OSC-RP interaction originals" \
+  --window UNDECLARED --stationarity UNDECLARED --split-of A1 \
+  --claim C1 --claim C4 --source "$U"
+$A average --file $F --id A3 --text "mean type II error of the OSC-RP replications" --value 0.468 \
+  --population "OSC-RP main-effect and interaction subsets, each predicted separately (Section 3.5)" \
+  --window UNDECLARED --stationarity UNDECLARED \
+  --estimated-from "93 of 97 OSC-RP replications, all effect types pooled" \
+  --claim C1 --claim C2 --source "$U"
+
 # ---- card runs
 $A tool --file $F --id T1 --card 00 --state RUN --source "$U" \
   --output "Type THEORETICAL (model, derivation, review). Defaults 00/01/04/06. Overrides: 02, because the fit rests on an imposed quantity (pi); 03, because the 'more optimistic' studies are used as agreement. Toolkit fit: no type covers a re-analysis of other studies' published data; THEORETICAL plus overrides used."

@@ -29,6 +29,23 @@
       "source": "URL or location backing this claim record"
     }
   ],
+  "averages": [
+    {
+      "id": "A1",
+      "text": "what is averaged (a prevalence, base rate, mean effect, typical value) that enters a claim as an input",
+      "value": "the number as used",
+      "population": "UNDECLARED",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "stationarity_basis": "required if ASSESSED - what shows the population did not change",
+      "claims": [
+        "C1"
+      ],
+      "fitted_to": "if the value was chosen to reproduce an observed result, name it",
+      "estimated_from": "the population the value was estimated from, if different from where it is used",
+      "source": "URL or location"
+    }
+  ],
   "tools": [
     {
       "id": "T1",
@@ -58,6 +75,7 @@
     "claim.grade": "MEASURED_PRESENT | MEASURED_ABSENT | MEASURED_DISCARDED | UNMEASURED | UNDERPOWERED | IMPOSED | UNDECLARED",
     "tool.state": "RUN | DECLINED | BLOCKED | NOT_APPLICABLE",
     "decision.state": "DETECTED | UNRESOLVED | RESOLVED | DEFERRED | NOT_APPLICABLE",
-    "source fields": "recorded provenance (where you say it came from), not verified provenance"
+    "source fields": "recorded provenance (where you say it came from), not verified provenance",
+    "average.stationarity": "ASSESSED | ASSUMED | UNASSESSED | UNDECLARED (population, window, stationarity all unstated = FROZEN; claims resting on a FROZEN average cannot be MEASURED_*)"
   }
 }

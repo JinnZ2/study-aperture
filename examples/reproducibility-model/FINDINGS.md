@@ -41,6 +41,8 @@ So the observed rate does not by itself choose between "the protocol depressed t
 
 In the terms of Card 02's frozen-average check: pi stands for a distribution over fields, eras and designs, under a selection process that keeps acting. It enters the model as one constant, with no population, window or stationarity stated. When one value did not fit the interactions, a second was introduced (0.05), which is the distribution reappearing as a second free value.
 
+The record carries these as input averages (`assess.py average`), so they print in the report's incompleteness block: A1 (pi 0.25: estimated from ML-RP, used for OSC, fitted to ML-RP), A2 (pi 0.05: split from A1), A3 (mean type II error 0.468: estimated over all 93 replications pooled, used for each subset separately). None states a window or stationarity.
+
 **2. One confirmation is the calibration (C5; Card 03).** pi = 0.25 is chosen as "consistent with ML-RP" (Table 1). Section 3.6 then reports ML-RP's 84.6% as very close to the predicted 0.857. That closeness was set when pi was chosen (R7), so it is not a separate test. Route: SHARED_UPSTREAM.
 
 **3. The independent check does not discriminate (C6; Cards 03, 04).** Camerer et al. are independent data. At n = 18 their rate (11/18) is compatible with the bias prediction (0.486) and with the no-bias prediction (0.796) (R8). The claim "compatible" holds; the comparison separates nothing. Graded UNDERPOWERED.
@@ -74,7 +76,7 @@ This was also a test of study-aperture itself. Places where it fit badly, record
 | K1 | Card 00 types | No type for a re-analysis of other studies' published data. Used THEORETICAL plus overrides for Cards 02 and 03. | A3 |
 | K2 | Measurement grades | No grade for "computed by the paper, not recomputed here" (C2). Used UNDECLARED, which says less than is known. | A3 |
 | K3 | Card 03 routes | No route for "a calibration reused as a confirmation" (C5). SHARED_UPSTREAM fits loosely. | A3 |
-| K4 | `report` incompleteness block | Lists UNDETERMINED claims and open decisions. It does not list IMPOSED grades (C1, C4, C5) or UNTESTED claims (C4, C8), although the central claim rests on an IMPOSED input. A reader of the first block alone misses the main open point. | new (ADDENDUM B5) |
+| K4 | `report` incompleteness block | Lists UNDETERMINED claims and open decisions. It does not list IMPOSED grades (C1, C4, C5) or UNTESTED claims (C4, C8), although the central claim rests on an IMPOSED input. A reader of the first block alone misses the main open point. Partly closed by the input-average check (ADDENDUM B6): the imposed pi now prints in the block as A1/A2. IMPOSED claim grades in general still do not (ADDENDUM B5). | ADDENDUM B5, B6 |
 | K5 | Material | The publisher's PDF was blocked; the HTML rendering was enough for this paper because the tables are HTML. A paper with image-only tables would have stopped at the abstract. | none |
 
 K4 is the one that matters most: the incompleteness block is the report's headline by design, and here it under-reports.

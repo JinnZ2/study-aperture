@@ -76,6 +76,16 @@ For every average that enters a claim as an input (a prevalence, a base rate, a 
 
 Not a rule against averages. A stated, stationary, in-range average is an ordinary input. The check is that the freezing is declared.
 
+Enforced by `assess.py average` (`--population`, `--window`, `--stationarity`, `--claim`, optional `--split-of`, `--fitted-to`, `--estimated-from`):
+
+| Rule | Enforcement |
+|---|---|
+| population, window, stationarity always present | missing field rejected; `UNDECLARED` accepted and kept |
+| state | derived, never set: `DECLARED` (both stated, stationarity `ASSESSED`), `FROZEN` (none stated), `PARTIAL` (otherwise) |
+| `ASSESSED` | needs `--basis` and a stated population and window |
+| a claim resting on a `FROZEN` average | cannot carry `MEASURED_PRESENT`, `MEASURED_ABSENT` or `MEASURED_DISCARDED` |
+| frozen, partial, split, fitted, or estimated-from-another-population | listed in the report's incompleteness block |
+
 ## Limits
 
 - Upstream `project()` supports coarsening only (integer factor, never upsample); this card uses the vocabulary, not the projection machinery.

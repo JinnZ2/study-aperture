@@ -10,7 +10,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/1)
-                     init/claim/design/tool/decide/resolve/defer ──► check ──► report
+                     init/claim/design/average/tool/decide/resolve/defer ──► check ──► report
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance
                        (Card 03 independence / conditional-form tools)
@@ -71,6 +71,10 @@ NOT_APPLICABLE       → a legal output, not a failure
 lab evidence         → enters only via `labref`: hash-bound to one report, linked to claims,
                        never changes support or decisions. Changed report = violation;
                        missing report = incompleteness; INTEGRITY_GAPS_RECORDED = incompleteness
+input average        → declares population, window, stationarity (UNDECLARED allowed, kept);
+                       none stated = FROZEN (derived, never set by hand): a claim resting on it
+                       cannot carry a MEASURED_* grade; ASSESSED needs a basis + stated
+                       population and window; frozen/partial/split/fitted/transferred = incompleteness
 no shared ancestor in declared graph ≠ independent in the world
 ```
 
@@ -85,6 +89,7 @@ Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted i
 | tool states | RUN · DECLINED · BLOCKED · NOT_APPLICABLE |
 | decision states | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
 | design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
+| stationarity states | ASSESSED · ASSUMED · UNASSESSED |
 | lab report statuses | NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE · INTEGRITY_GAPS_RECORDED |
 
 This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.
