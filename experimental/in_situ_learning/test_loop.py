@@ -9,6 +9,10 @@ class Pinned(unittest.TestCase):
         r = subprocess.run([sys.executable, "loop.py", "selftest"], cwd=HERE, capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
+    def test_physics_side(self):
+        r = subprocess.run([sys.executable, "physics_side.py", "selftest"], cwd=HERE, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+
     def test_sample_regenerates(self):
         r = subprocess.run([sys.executable, "loop.py"], cwd=HERE, capture_output=True, text=True)
         with open(os.path.join(HERE, "samples", "run.txt")) as f:

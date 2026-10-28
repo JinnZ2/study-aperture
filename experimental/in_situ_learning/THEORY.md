@@ -62,47 +62,65 @@ The DNP paper meets L1 and L2 in full, L6 in part (Fig. 3d), L7 in part (second 
 
 ## T7: the system the AI acts on as the spin system (PROPOSED)
 
-Proposed by the owner, 2026-10-28: human culture, traditions, economic systems, extraction cycles and turbulence may be to AI what electron spin is to the DNP experiment. The first mapping drafted here cast the AI as the source of order; the owner corrected it (record of the exchange below). The corrected mapping:
+Proposed by the owner, 2026-10-28: human culture, traditions, economic systems, extraction cycles and turbulence may be to AI what electron spin is to the DNP experiment. Revised the same day for precision ("junk in gets junk out"): every physics statement carries a source or a computation, every human-side term has an operational definition or is marked UNDEFINED, and each row states its status.
 
-| DNP | Human systems |
-|---|---|
-| main magnetic field B0 | the imposing structure: economic and extraction systems. It sets the axis and decides which states are "low energy". |
-| spin populations | people, practices, traditions, aligned to that axis |
-| equilibrium populations in the field | what corpus statistics record |
-| natural frequencies (Larmor, couplings) | cycles already running: seasons, generations, credit and extraction cycles, ritual calendars |
-| resonance condition (ZQ / DQ matching) | an intervention takes hold only when matched to the timescale and structure of an existing cycle |
-| off-resonance microwave power → heat | interventions that disturb without transferring: churn |
-| relaxation when the field changes | what happens when the imposing structure is removed or shifts |
-| many coupled spins (TEMPO; two-spin prior stops helping) | turbulence: many-body, nonlinear |
-| microwave pulses + the learner | AI |
-| 1H solid echo (the readout) | language |
+Status words used in this section: **SOURCED** (stated in a cited source, read at the depth given), **COMPUTED** (`physics_side.py`, pinned), **PROPOSED** (the analogy; not tested), **UNDEFINED** (no measurable definition yet; a gap, not a finding).
+
+### Physics side (what the analogy borrows)
+
+| # | Statement | Status | Source |
+|---|---|---|---|
+| P1 | The main field B0 splits each spin's energy levels; at thermal equilibrium the populations follow P = tanh(h nu / 2kT). | SOURCED (textbook) + COMPUTED | `physics_side.py` |
+| P2 | In the paper's setup (proton Larmor about 14.8 MHz, 80 K): B0 = 0.3476 T, electron Larmor 9.742 GHz, thermal electron polarization 2.92e-3, proton 4.44e-6. | COMPUTED from Jensen et al. Sections 4.1-4.2 + CODATA | `physics_side.py` |
+| P3 | Microwave pulses do not create the polarization. They transfer the electrons' thermal polarization, created by B0, to the protons. The ceiling on enhancement is P_e / P_H = 658 (the gyromagnetic ratio); the paper reports values "approaching 180". | COMPUTED; paper value SOURCED (Section 2.2) | `physics_side.py`; arXiv:2603.19448 |
+| P4 | Transfer happens only when the drive's effective field meets a resonance condition (ZQ or DQ matching with the proton Larmor frequency). The paper's constrained search restricted sequences to these conditions. | SOURCED | Jensen et al. Sections 2.1-2.2, SI Fig. S4 |
+| P5 | When the drive stops, the transferred proton polarization relaxes back toward its thermal value. The paper's build-up times (2 s to 64 s depending on sample) are the timescale on which enhancement is built and lost. | SOURCED (build-up times, Section 2) | Jensen et al. Figs. 2-4 captions |
+| P6 | Spins can come to anticipate a periodic drive. In quantum dots under a periodic pulse train, the nuclear spin bath reshapes ("the initial normal distributed Overhauser field evolves towards a comb like structure") so that electron precession completes whole periods between pulses, and "a revival of this polarization emerges just before the arrival of the subsequent pulse." | SOURCED | Greilich et al., *Science* (2007) 1896-1899, doi:10.1126/science.1146850 (record read, full text not); quotes from arXiv:2004.02623 |
+| P7 | The paper's two-spin constraint was applied to trityl only. For 4-oxo-TEMPO (an electron coupled to 14N and many protons) the unconstrained search reached 13 vs 9 for Monte Carlo, and the authors call the efficiencies "not impressive". | SOURCED | Jensen et al. Sections 2.4, 3 |
+
+### Mapping
+
+| DNP (physics row) | Human systems | Operational definition on the human side | Status |
+|---|---|---|---|
+| main field B0 (P1) | the imposing structure: economic and extraction systems | rules backed by enforcement that set the cost of each available practice (law, prices, debt terms, land tenure). Measurable as cost per practice, by date. | PROPOSED; definition partial |
+| spin populations aligned to B0 (P1) | people, practices, traditions aligned to that structure | share of a population carrying out each practice, by date | PROPOSED |
+| thermal equilibrium populations (P1, P2) | what corpus statistics record | frequency and sense of practice terms in text from a stated corpus and window | PROPOSED |
+| natural frequencies (P4) | cycles already running: seasons, generations, credit and extraction cycles, ritual calendars | a recurring practice with a measurable period and phase | PROPOSED |
+| resonance condition (P4) | an intervention takes hold only when matched to an existing cycle | intervention period and phase relative to the cycle's | PROPOSED |
+| order transferred, ceiling set by the field (P3) | the order an AI can move is order the imposing structure created; the ceiling is set by the structure, not the AI | UNDEFINED: no measure of "order" or its ceiling on the human side yet | PROPOSED |
+| relaxation after the drive stops (P5) | effects of an intervention fade back to the structure's equilibrium unless the structure changes | decay time of an intervention's effect after it ends | PROPOSED |
+| anticipation of a periodic drive (P6) | anticipation by people of the drive applied to them | graded, see the breaks table | PROPOSED |
+| many coupled spins, the two-spin constraint not applied (P7) | turbulence: many-body, nonlinear | UNDEFINED | PROPOSED |
+| microwave pulses + the learner | AI | the procedure the AI applies and the loop choosing it | PROPOSED |
+| 1H solid echo, the readout | language | measures computed from text (term frequency, sense, frame density) | PROPOSED |
 
 ### What follows (PROPOSED)
 
-1. **The search prior lives in the system, not in the optimizer.** In the paper the tractable search came from spin physics. Here the constraints would come from the system's own cycles, most of which are held by the people inside them and not written down.
-2. **Corpus statistics are a field-frozen average.** Equilibrium spin populations exist only in their field; turned off, the polarization relaxes. Statistics of human text are the population aligned under the current imposing structure, not the system's own state. An AI trained on them learns the field's alignment and reads it as human nature. This extends the Card 02 frozen-average check: an average can be frozen by a field as well as by a window.
-3. **History is the evaluations already run.** Billions of tokens of written, rewritten and explored record are a log of past trials. A loop can read them instead of running new trials on people. The log's quality then decides what can be learned:
-   - successes kept, failures dropped (E3's best-observed overstatement at large scale);
-   - rewriting is drift in the log (T4);
-   - who kept the archive decides what was measured (Simulators `observer-exclusion`).
-4. **Language is the readout channel.** It can be evaluated cheaply from existing text (term drift, frame density: Simulators `term-drift-citation`, `frame-token-audit`). Its bandwidth is what was spoken or written down, as the paper's readout sees protons and not electrons.
+1. **The search constraints live in the system, not in the optimizer** (from P4, P7). In the paper the tractable search came from spin physics, and where the physics was many-body the constraint was not available. Here the constraints would come from the system's own cycles, most of them held by the people inside the cycles and not written down.
+2. **Corpus statistics are a field-frozen average** (from P1, P5). Equilibrium populations exist only in their field. Text statistics are the population aligned under the current imposing structure, not the system's own state. An AI trained on them learns the structure's alignment and can read it as human nature. This extends the Card 02 frozen-average check: an average can be frozen by a field as well as by a window.
+3. **The drive moves order; it does not create it, and the field sets the ceiling** (from P3). Read across: the order an AI can move in human systems was created by the imposing structure, and its limit is set there. This is the least defined row (UNDEFINED above) and the one most in need of a measure.
+4. **What is moved relaxes back** (from P5). Without a change in the field, an intervention's effect decays toward the field's equilibrium. The decay time is the measurable quantity.
+5. **History is the evaluations already run.** Billions of tokens of written, rewritten and explored record are a log of past trials. A loop can read them instead of running new trials on people. The log's quality decides what can be learned: successes kept and failures dropped (E3's overstatement at large scale), rewriting as drift in the log (T4), and who kept the archive deciding what was measured (Simulators `observer-exclusion`).
+6. **Language is the readout channel.** It can be evaluated cheaply from existing text (Simulators `term-drift-citation`, `frame-token-audit`). Its bandwidth is what was spoken or written down, as the paper's readout sees protons and not electrons.
 
 ### Where the analogy breaks, after the owner's corrections
 
-| Earlier break | Owner's correction | What remains |
+| Earlier break | Correction | What remains |
 |---|---|---|
-| the sample responds back | spins also adapt to the field; the sample also loads the resonator (the paper recalibrates the MW profile each session) | a difference of degree. Narrower residual: a spin has no model of the pulse sequence; people can anticipate the one applied to them. |
-| evaluations on people are not cheap or reversible | history is billions of evaluations already run | reading history and language is observation. A loop that proposes the next intervention is the pulse sequence; consent and irreversibility apply to that step. |
-| one cycle can take a generation | language can be evaluated now | none at the readout; the cycles themselves stay slow. |
-| reading DNP straight across makes the AI the source of order | AI is the AI; the field does the imposing | none; the mapping above uses the correction. |
+| "the sample responds back; spins don't" | Spins respond to the field (P1, P5); the sample also loads the resonator (the paper recalibrates the microwave profile each session, Methods 4.1). | A difference of degree, not kind. |
+| "a spin has no model of the pulse sequence; people can anticipate the one applied to them" | Withdrawn. Spins can come to anticipate a periodic drive (P6). Not all people can: anticipating a drive requires seeing it, and the rule may be opaque, the information unavailable, or the period longer than a lifetime. | Anticipation is a graded variable in both: (memory of the drive) x (visibility of the drive). The earlier wording made it a category and put humans on the special side. Corollary (PROPOSED): an imposing structure that hides its own drive lowers the anticipation of the people under it. |
+| "evaluations on people are not cheap or reversible" | History is billions of evaluations already run. | Reading history and language is observation. A loop that proposes the next intervention is the pulse sequence; consent and irreversibility apply to that step. |
+| "one cycle can take a generation" | Language can be evaluated now. | None at the readout; the cycles themselves stay slow. |
+| "the AI is the source of order" | AI is the AI; the field does the imposing. | None; the mapping uses the correction, and P3 supports it on the physics side. |
 
-### Measurement design: the field-change removal test (not run)
+### Measurement design: field-change removal test (not run)
 
-Claim under test: corpus statistics of a practice reflect alignment to the imposing structure, not the practice's own state.
+Claim under test (from What follows 2 and 4): measures of a practice in text track the imposing structure, not the practice's own state.
 
-- **Cases:** places and periods where the imposing structure changed on a datable occasion (enclosure, colonial imposition or withdrawal, the collapse of a market, the end of an extraction regime), with written record on both sides of the change.
-- **Readout:** language measures computed the same way before and after: term frequencies and senses for the practice, frame density (`frame-token-audit`), what is described as normal or costly.
-- **Prediction (fails if wrong):** the measures shift with the field, at the change, and relax toward a different state afterwards. If they stay put across the change, the alignment was the practice's own and not the field's.
-- **Resonance prediction (fails if wrong):** interventions matched to the period of an existing cycle show lasting effect; unmatched ones show a disturbance that decays. No dependence on timing relative to the cycle means the shape does not carry over (Simulators `SHAPE_SPEC.md` removal test).
-- **Confounds to state up front:** the record's own selection (who wrote, who survived); the field change also changes who writes; sense drift in the terms being counted (Simulators `coinage-log`, `term-drift-citation`).
-- **Cost:** reading existing text only; no intervention on anyone.
+- **Cases.** Datable changes in an imposing structure (enclosure, colonial imposition or withdrawal, a market collapse, the end of an extraction regime), with text on both sides of the change. Cases, corpora, change dates and measures are fixed and recorded before any text is read.
+- **Readout.** The same measures before and after: term frequency and sense for the practice, frame density (`frame-token-audit`), what is described as normal or costly.
+- **Prediction (P1, P5 read across).** (a) A step in the measures at the change date larger than their pre-change variation; (b) afterwards, an approach to a new level with a measurable time constant.
+- **Null.** No step beyond pre-change variation, or a step that reverses to the pre-change level: the alignment was the practice's own, not the structure's.
+- **Resonance prediction (P4 read across).** Interventions matched in period and phase to an existing cycle show an effect that outlasts the intervention; unmatched ones show a disturbance that decays (P5). Null: no dependence on timing relative to the cycle. This is the Simulators `SHAPE_SPEC.md` removal test: if the constraint set is shared, timing matters; if not, the shape does not carry over.
+- **Confounds, stated before running.** The record's selection (who wrote, whose text survived); a change in the structure also changes who writes; sense drift in the counted terms (Simulators `coinage-log`, `term-drift-citation`); the change date may be contested.
+- **Cost.** Existing text only; no intervention on anyone.
