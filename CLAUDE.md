@@ -19,6 +19,9 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
       integrity_checker.py  (offline bundle checker, exit 0/1/2)
       schemas/draft-0.1, draft-0.2 · docs/ · reviews/<run>/ · tests/
       exchange with parent = explicit JSON only, never shared mutable state
+
+  experimental/in_situ_learning/  ← gap analysis + stdlib toy of an in situ learning loop
+      (GAPS.md, THEORY.md all PROPOSED, loop.py pinned by test_loop.py); no link to assess.py
 ```
 
 | Path | Role | Edit rules |
@@ -32,6 +35,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | `tests/test_repo_integrity.py`, `run_checks.sh`, `.github/workflows/checks.yml` | repo-level enforcement + CI | stdlib only; add new suites to `run_checks.sh` |
 | `examples/*/` | worked example + failure-mode examples | regenerate `report.md` from `assessment.json`; never hand-edit reports |
 | `experimental/scope_audit_lab/` | experimental lab | see Lab section |
+| `experimental/in_situ_learning/` | gap analysis of Jensen et al. (in situ DNP learning), stdlib toy loop, proposed AI learning program | toy is CONSTRUCTED: never describe its numbers as findings about instruments or AI; regenerate `samples/run.txt` and README results together |
 | `ADDENDUM.md` | open work list with states (OPEN / OWNER / UNDETERMINED) | update an item's state when work lands; never resolve an OWNER item without the owner; don't name the unnamed state in A1 |
 
 ## Commands (run from repo root; Python 3, stdlib only)

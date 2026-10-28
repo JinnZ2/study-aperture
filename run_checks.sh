@@ -33,6 +33,7 @@ step 0 "lab: integrity checker tests"        "$PY" -m unittest discover -s exper
 step 1 "lab: checker on draft-0.2 example"   "$PY" experimental/scope_audit_lab/integrity_checker.py \
                                                experimental/scope_audit_lab/examples/schema-draft-0.2/records.json
 step 0 "lab: tolman-vi-2026-10-27 tests"     bash -c "cd experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27 && '$PY' -m unittest test_case.py"
+step 0 "in_situ_learning: toy tests"         bash -c "cd experimental/in_situ_learning && '$PY' -m unittest test_loop.py"
 step 0 "lab: tolman-vi-phase-trace-0.1 tests" bash -c "cd experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1 && '$PY' -m unittest test_trace.py"
 
 if [ "$fail" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "CHECKS FAILED"; fi

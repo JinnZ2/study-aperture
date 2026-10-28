@@ -96,6 +96,10 @@ The lab also includes [draft criterion-to-conclusion mappings](experimental/scop
 
 A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
 
+## In situ learning (experimental)
+
+[In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
+
 ## Work to be done
 
 [ADDENDUM.md](ADDENDUM.md) lists open work, each item with a state: the translation layer (oral reasoning → English → code), remaining toolkit gaps, independence and testing, and repository housekeeping.
