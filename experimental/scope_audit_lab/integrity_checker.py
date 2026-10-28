@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Read-only offline evidence-integrity checker, Python standard library only.
 
-Resolves IDs/declared types, exact declared version bindings, and anchor-condition
-coverage. Does not validate JSON Schema or establish mathematical/physical truth.
+Resolves IDs/declared types, exact declared version bindings, anchor-condition
+coverage, and explicit assessment-subject links. Does not establish truth.
 No network, subprocess, imports from submitted content, or automatic mutation.
 """
 
@@ -15,7 +15,7 @@ from collections import Counter
 from pathlib import Path
 
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 CONTRACTS = {
     ("urn:scope-audit-lab:schema:math-evidence:0.1", "0.1"):
         {"equation", "assumption", "derivation", "observation", "assessment"},
@@ -71,6 +71,7 @@ class Checker:
         self.references = []
         self.versions = []
         self.coverage = []
+        self.assessment_links = []
 
     def finding(self, severity, code, location, message, **details):
         self.findings.append({
@@ -272,6 +273,209 @@ class Checker:
                                      "A binding must be an object.")
                         continue
                     self.binding(entry, path, value.get(reference_key), value.get("examined_version"))
+
+    @staticmethod
+    def assessment_context(record, path, parent):
+        """Literal conventions only; free-form selector equivalence is not inferred."""
+        if path in {"/payload/assessment_refs", "/payload/evidence_refs"}:
+            return True, None
+        if record["record_type"] == "anchor_application":
+            if path == "/payload/applicability_assessment_refs":
+                return True, "payload.applicability_status"
+            if path == "/payload/comparison_assessment_refs":
+                return True, "payload.comparison_status"
+        if path == "/payload/uncertainty/assessment_refs":
+            return True, "payload.uncertainty"
+        parts = path.split("/")
+        if len(parts) == 5 and parts[3].isdigit() and parts[4] == "evidence_refs":
+            contexts = {
+                ("anchor_application", "condition_checks"): ("requirement_id", "condition_id="),
+                ("assessment", "criteria"): ("criterion_id", "criterion_id="),
+                ("calculation", "prerequisites"): ("requirement_id", "requirement_id="),
+            }
+            context = contexts.get((record["record_type"], parts[2])) if parts[1] == "payload" else None
+            if context:
+                key, prefix = context
+                identifier = parent.get(key)
+                rows = record.get("payload", {}).get(parts[2])
+                if (text(identifier) and isinstance(rows, list) and
+                        sum(isinstance(r, dict) and r.get(key) == identifier for r in rows) == 1):
+                    return True, prefix + identifier
+        if (record["record_type"] == "derivation" and len(parts) == 5 and
+                parts[1:3] == ["payload", "steps"] and parts[3].isdigit()):
+            step_id = parent.get("step_id")
+            steps = record.get("payload", {}).get("steps", [])
+            if (text(step_id) and isinstance(steps, list) and
+                    sum(isinstance(s, dict) and s.get("step_id") == step_id for s in steps) == 1):
+                return True, "step_id=" + step_id
+        return False, None
+
+    def assessment_link(self, owner, path, reference, context_known, required_selector, usage_outcome=None):
+        record = owner["record"]
+        loc = self.location(owner, path)
+        resolution, assessment = self.resolve(reference)
+        row = {
+            "location": loc, "owner_record_id": record["record_id"],
+            "assessment_reference": reference, "assessment_resolution": resolution,
+            "required_selector": required_selector, "context_policy_known": context_known,
+            "owner_version": record.get("record_version"),
+            "recorded_usage_outcome": usage_outcome,
+            "link_relevance": "BLOCKED_ASSESSMENT_REFERENCE",
+            "matched_subjects": [], "recorded_assessment_property": None,
+            "recorded_criterion_outcomes": [],
+            "property_alignment_established": False,
+            "verdict_mapping_established": False,
+            "scientific_support_established": False,
+        }
+        self.assessment_links.append(row)
+
+        def stop(status, severity, code, message):
+            row["link_relevance"] = status
+            self.finding(severity, code, loc, message,
+                         owner_record_id=record["record_id"], link_relevance=status)
+
+        if resolution != "RESOLVED":
+            stop("BLOCKED_ASSESSMENT_REFERENCE",
+                 "ERROR" if resolution in {"MALFORMED", "TYPE_MISMATCH", "AMBIGUOUS"} else "UNKNOWN",
+                 "ASSESSMENT_REFERENCE_BLOCKED",
+                 "A local unambiguous assessment record is required; no support is inherited.")
+            return
+        target = assessment["record"]
+        row["assessment_record_version"] = target.get("record_version")
+        if target["record_type"] != "assessment":
+            stop("WRONG_ASSESSMENT_TYPE", "ERROR", "ASSESSMENT_TYPE_MISMATCH",
+                 "This link must name an assessment, not another evidence type.")
+            return
+        owner_resolution, _ = self.resolve({
+            "record_id": record["record_id"], "expected_type": record["record_type"]
+        })
+        if owner_resolution != "RESOLVED":
+            stop("BLOCKED_OWNER_IDENTITY", "ERROR", "ASSESSMENT_OWNER_AMBIGUOUS",
+                 "The owning record is not uniquely identified in this snapshot.")
+            return
+        if target["record_id"] == record["record_id"]:
+            stop("SELF_REFERENCE", "ERROR", "ASSESSMENT_SELF_REFERENCE",
+                 "A self-reference cannot independently substantiate the owning assessment.")
+            return
+        if not context_known:
+            stop("CONTEXT_UNESTABLISHED", "UNKNOWN", "ASSESSMENT_CONTEXT_UNESTABLISHED",
+                 "No explicit subject/selector policy exists for this link context; no scope is guessed.")
+            return
+        payload = target.get("payload")
+        subjects = payload.get("subjects") if isinstance(payload, dict) else None
+        if (not isinstance(subjects, list) or not subjects or
+                any(not isinstance(s, dict) or not isinstance(s.get("subject"), dict)
+                    or not text(s["subject"].get("record_id")) for s in subjects)):
+            stop("SUBJECTS_MALFORMED", "ERROR", "ASSESSMENT_SUBJECTS_MALFORMED",
+                 "The linked assessment must explicitly name inspectable subject bindings.")
+            return
+        row["recorded_assessment_property"] = payload.get("property")
+        candidates = [s for s in subjects if s["subject"]["record_id"] == record["record_id"]]
+        if not candidates:
+            related = set()
+            if record["record_type"] == "anchor_application":
+                app_subjects = record.get("payload", {}).get("subjects")
+                if isinstance(app_subjects, list):
+                    related = {
+                        s["subject"]["record_id"] for s in app_subjects
+                        if isinstance(s, dict) and isinstance(s.get("subject"), dict)
+                        and text(s["subject"].get("record_id"))
+                    }
+            if any(s["subject"]["record_id"] in related for s in subjects):
+                stop("RELATED_SUBJECT_ONLY", "UNKNOWN", "ASSESSMENT_INDIRECT_SUBJECT_ONLY",
+                     "The assessment names an application subject, not the application/status itself; applicability or verdict relevance is not inferred.")
+            else:
+                stop("UNRELATED_SUBJECT", "ERROR", "ASSESSMENT_UNRELATED_SUBJECT",
+                     "The assessment does not explicitly examine the record that links it.")
+            return
+        if required_selector is not None:
+            selected = [s for s in candidates
+                        if declared_version(s.get("selector"))[0] == required_selector]
+            if not selected:
+                unknown = any(declared_version(s.get("selector"))[0] is None for s in candidates)
+                stop("SELECTOR_UNKNOWN" if unknown else "SELECTOR_MISMATCH",
+                     "UNKNOWN" if unknown else "ERROR",
+                     "ASSESSMENT_SELECTOR_UNKNOWN" if unknown else "ASSESSMENT_SELECTOR_MISMATCH",
+                     "The assessment must name the exact required selector; text equivalence and whole-record coverage are not assumed.")
+                return
+            candidates = selected
+        row["matched_subjects"] = candidates
+        if any(self.resolve(s["subject"])[0] != "RESOLVED" for s in candidates):
+            stop("BLOCKED_SUBJECT_REFERENCE", "ERROR", "ASSESSMENT_SUBJECT_REFERENCE_BLOCKED",
+                 "A matching subject ID has an unresolved or mistyped target.")
+            return
+        versions = {canonical(s.get("examined_version")) for s in candidates}
+        if len(versions) != 1:
+            stop("CONFLICTING_SUBJECT_BINDINGS", "ERROR", "ASSESSMENT_SUBJECT_VERSION_CONFLICT",
+                 "Multiple matching subject bindings disagree on examined version; no convenient binding is selected.")
+            return
+        owner_version, _ = declared_version(record.get("record_version"))
+        examined, _ = declared_version(candidates[0].get("examined_version"))
+        if owner_version is None or examined is None:
+            stop("VERSION_UNKNOWN", "UNKNOWN", "ASSESSMENT_SUBJECT_VERSION_UNKNOWN",
+                 "Subject relevance cannot be bound to missing/invalid declared versions.")
+            return
+        if owner_version != examined:
+            stop("VERSION_MISMATCH", "ERROR", "ASSESSMENT_SUBJECT_VERSION_MISMATCH",
+                 "The assessment examined a different declared version of the linked subject.")
+            return
+        row["link_relevance"] = "METADATA_MATCH_ONLY"
+        criteria = payload.get("criteria")
+        if not isinstance(criteria, list) or not criteria:
+            self.finding("UNKNOWN", "ASSESSMENT_CRITERIA_UNAVAILABLE", loc,
+                         "The subject link matches, but no inspectable criterion list was supplied.")
+        else:
+            row["recorded_criterion_outcomes"] = [
+                c.get("outcome") if isinstance(c, dict) else None for c in criteria
+            ]
+            if any(not isinstance(o, str) or o not in OUTCOMES
+                   for o in row["recorded_criterion_outcomes"]):
+                self.finding("ERROR", "ASSESSMENT_CRITERIA_MALFORMED", loc,
+                             "A linked assessment criterion has no recognized recorded outcome.")
+            elif any(o in {"NOT_EVALUATED", "INDETERMINATE"} for o in row["recorded_criterion_outcomes"]):
+                self.finding("UNKNOWN", "ASSESSMENT_OUTCOME_UNESTABLISHED", loc,
+                             "Metadata matches, but recorded criterion outcomes remain unevaluated/indeterminate.")
+        field = path.rsplit("/", 2)[-2]
+        owner_payload = record.get("payload", {})
+        status_field = {
+            "applicability_assessment_refs": "applicability_status",
+            "comparison_assessment_refs": "comparison_status",
+        }.get(field)
+        recorded_status = owner_payload.get(status_field) if status_field else None
+        definitive_status = isinstance(recorded_status, str) and recorded_status in {
+            "IN_SCOPE_FOR_STATED_CHECK", "OUTSIDE_DECLARED_SCOPE",
+            "CONSISTENT_WITH_STATED_CRITERIA", "DISCREPANCY_RECORDED",
+        }
+        if definitive_status or (isinstance(usage_outcome, str) and usage_outcome in {"MET", "NOT_MET"}):
+            self.finding("UNKNOWN", "ASSESSMENT_VERDICT_MAPPING_UNESTABLISHED", loc,
+                         "Explicit subject/version/selector metadata does not establish that the free-form property and criteria justify this recorded verdict.")
+
+    def inspect_assessment_links(self):
+        for entry in self.entries:
+            if "canonical" not in entry or not self.recognized(entry["record"]):
+                continue
+            for path, parent in walk(entry["record"]):
+                if not isinstance(parent, dict):
+                    continue
+                for field, references in parent.items():
+                    dedicated = field == "assessment_refs" or field.endswith("_assessment_refs")
+                    if not dedicated and field != "evidence_refs":
+                        continue
+                    field_path = pointer(path, field)
+                    if not isinstance(references, list):
+                        if dedicated:
+                            self.finding("ERROR", "ASSESSMENT_LINK_LIST_MALFORMED", self.location(entry, field_path),
+                                         "Assessment links must be an explicit list.")
+                        continue
+                    known, selector = self.assessment_context(entry["record"], field_path, parent)
+                    for i, reference in enumerate(references):
+                        if not dedicated:
+                            _, target = self.resolve(reference)
+                            typed = isinstance(reference, dict) and reference.get("expected_type") == "assessment"
+                            if not typed and not (target and target["record"]["record_type"] == "assessment"):
+                                continue
+                        self.assessment_link(entry, pointer(field_path, i), reference, known, selector,
+                                             parent.get("outcome"))
 
     def id_rows(self, rows, key, entry, path):
         if not isinstance(rows, list):
@@ -482,6 +686,7 @@ class Checker:
                          "No records supplied; evidence completeness is not inferred.")
         self.inspect_references()
         self.inspect_bindings()
+        self.inspect_assessment_links()
         for entry in self.entries:
             record = entry["record"]
             if "canonical" not in entry or not self.recognized(record):
@@ -504,6 +709,8 @@ class Checker:
                 "record_occurrences": len(self.entries), "unique_record_ids": len(self.index),
                 "reference_count": len(self.references), "version_binding_count": len(self.versions),
                 "anchor_application_count": len(self.coverage),
+                "assessment_link_count": len(self.assessment_links),
+                "assessment_link_relevance_counts": dict(Counter(r["link_relevance"] for r in self.assessment_links)),
                 "finding_counts": {k: counts[k] for k in ("ERROR", "UNKNOWN", "INFO")},
             },
             "structural_schema_validation": "NOT_PERFORMED",
@@ -511,10 +718,12 @@ class Checker:
             "prototype_0_1_compatibility": "UNKNOWN", "voice": "DEFERRED",
             "reference_resolution": self.references, "version_bindings": self.versions,
             "anchor_condition_coverage": self.coverage, "findings": self.findings,
+            "assessment_link_relevance": self.assessment_links,
             "limits": [
                 "Resolution establishes only supplied-snapshot identity and declared type, not authenticated content.",
                 "Same declared version does not prove equal content, complete dependencies, or empirical freshness.",
                 "Condition coverage and recorded outcomes do not establish physical applicability or evidence relevance.",
+                "Assessment relevance checks literal subject/version/selector metadata only, not free-form property meaning, criterion sufficiency, or scientific support.",
                 "No URLs/artifact paths are opened, no submitted code is executed, and inputs are not modified.",
                 "Unsupported contracts remain opaque. Missing targets do not establish falsehood.",
                 "No full JSON Schema validation, temporal ordering, proof checking, or scientific verdict.",
@@ -616,7 +825,20 @@ def markdown(report):
     lines.extend("| " + safe(v["location"]) + " | " + safe(v["examined_version"]) +
                  " | " + safe(v["target_version"]) + " | " + v["binding_status"] + " |"
                  for v in report["version_bindings"])
-    lines.extend(["", "## Integrity findings", ""])
+    lines.extend([
+        "", "## Assessment-to-subject links", "",
+        "| Owning record | Assessment reference | Required selector | Link relevance |",
+        "|---|---|---|---|",
+    ])
+    lines.extend(
+        "| " + safe(r["owner_record_id"]) + " | " + safe(r["assessment_reference"]) +
+        " | " + safe(r["required_selector"]) + " | " + r["link_relevance"] + " |"
+        for r in report.get("assessment_link_relevance", [])
+    )
+    lines.extend([
+        "", "METADATA_MATCH_ONLY is not a support verdict. Property alignment, verdict mapping, and scientific support remain unestablished.",
+        "", "## Integrity findings", "",
+    ])
     if not report["findings"]:
         lines.append("No gaps detected within checked scope; no scientific conclusion follows.")
     for finding in report["findings"]:

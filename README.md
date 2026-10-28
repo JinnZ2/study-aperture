@@ -80,7 +80,7 @@ python3 assess.py selftest
 
 ## Experimental proposals
 
-[Scope Audit Lab](experimental/scope_audit_lab/README.md) contains draft evidence schemas, scoped physics reference anchors, and a narrow standard-library-only [offline integrity checker](experimental/scope_audit_lab/docs/offline-integrity-checker.md) for local references, exact version bindings, and anchor-condition coverage. Scoped synthetic tests and inspectable reports are included; mathematical/empirical validation, full requirements conformance, prototype compatibility, and live voice instrumentation are not established.
+[Scope Audit Lab](experimental/scope_audit_lab/README.md) contains draft evidence schemas, scoped physics reference anchors, and a narrow standard-library-only [offline integrity checker](experimental/scope_audit_lab/docs/offline-integrity-checker.md) for local references, exact version bindings, anchor-condition coverage, and explicit assessment-subject links. Scoped synthetic tests and inspectable reports are included; semantic criterion-to-verdict justification, mathematical/empirical validation, full requirements conformance, prototype compatibility, and live voice instrumentation are not established.
 
 ## License
 

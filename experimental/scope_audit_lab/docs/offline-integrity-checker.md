@@ -1,6 +1,6 @@
 # Offline evidence-integrity checker
 
-Status: Implemented narrow checker, version 0.1.0, with synthetic adversarial tests. This is not a full schema validator, a physics assessor, a ledger implementation, or conformance to the complete requirements specification.
+Status: Implemented narrow checker, version 0.2.0, with synthetic adversarial tests. This is not a full schema validator, a physics assessor, a ledger implementation, or conformance to the complete requirements specification.
 
 The [implementation](../integrity_checker.py) uses Python's standard library and operates only on explicitly supplied local JSON bundles. It does not open cited URLs or artifact paths, execute submitted code, install dependencies, or modify input records.
 
@@ -31,7 +31,7 @@ An input is either an array of records or an object containing a `records` array
 - **1:** Inspection completed and recorded integrity gaps or unknowns. The deliberately incomplete example bundle is expected to return 1, not 0.
 - **2:** Input/output could not be processed, including an existing output path. No existing report or input file is overwritten.
 
-The output identifies the checker version and the SHA-256 of each input file. JSON is the detailed machine-readable form; Markdown presents references, exact version bindings, condition coverage, recorded outcomes, findings, and verification limits.
+The output identifies the checker version and the SHA-256 of each input file. JSON is the detailed machine-readable form; Markdown presents references, exact version bindings, condition coverage, assessment-subject links, recorded outcomes, findings, and verification limits.
 
 ## Reference resolution
 
@@ -71,7 +71,7 @@ Identity coverage is `COMPLETE`, `GAPS`, `INVALID`, or `UNAVAILABLE`. Coverage f
 
 **Complete coverage is not satisfaction.** A check for every condition can still record `NOT_EVALUATED`, `INDETERMINATE`, or `NOT_MET`; these remain visible and no outcome is promoted. Resolved evidence links establish neither relevance nor truth of a recorded `MET` assertion.
 
-Recorded positive applicability/comparison statuses are flagged when conditions are missing, version-unbound, unresolved, unevaluated, or contradictory. Definitive status fields need assessment references, but relevance and sufficiency of a resolved assessment are not established by this checker.
+Recorded positive applicability/comparison statuses are flagged when conditions are missing, version-unbound, unresolved, unevaluated, or contradictory. Definitive status fields need assessment references, and [literal assessment-link relevance](assessment-link-relevance.md) now checks their explicit subject, version, and required selector; semantic property alignment and scientific sufficiency remain unestablished.
 
 An out-of-scope or unknown application does not authorize a definitive law-comparison verdict. Observations, numerical differences, unsuccessful criteria, and competing explanations remain untouched in their own input records.
 
@@ -83,12 +83,12 @@ Run the standard-library test suite:
 python3 -m unittest discover -s experimental/scope_audit_lab/tests -v
 ```
 
-The [verification record](../reviews/integrity-checker-0.1/artifacts/verification.json) records individual test outcomes, procedure/input hashes, existing-toolkit regression outputs, and preserved baseline hashes. The [example JSON report](../reviews/integrity-checker-0.1/artifacts/example-report.json) and [Markdown report](../reviews/integrity-checker-0.1/artifacts/example-report.md) retain the synthetic bundle's genuine gaps.
+The current [verification record](../reviews/integrity-checker-0.2/artifacts/verification.json) records individual test outcomes, procedure/input hashes, existing-toolkit regression outputs, and preserved baseline hashes. The [relevance JSON report](../reviews/integrity-checker-0.2/artifacts/relevance-report.json) and [Markdown report](../reviews/integrity-checker-0.2/artifacts/relevance-report.md) retain deliberately problematic links and unresolved evidence; the original 0.1.0 artifacts remain preserved separately.
 
 To reproduce the fixed tests and example reports into a new directory:
 
 ```sh
-python3 experimental/scope_audit_lab/reviews/integrity-checker-0.1/run_verification.py \
+python3 experimental/scope_audit_lab/reviews/integrity-checker-0.2/run_verification.py \
   --artifact-dir /tmp/study-aperture-integrity-review-new
 ```
 
@@ -98,6 +98,6 @@ Unlike the read-only checker, this separately invoked authoring runner creates a
 
 These tests demonstrate the specified narrow behavior on synthetic cases. They are not independent evidence of complete correctness and do not close the full baseline acceptance matrix.
 
-No full JSON Schema validation, assumption propagation, assessment relevance proof, source authenticity check, artifact-byte verification, append-only storage, chronology/relevant-change analysis, dimension engine, numerical solver, or physical-law validity test is implemented. A report can find no gaps within these checks while important evidence remains outside the checked scope.
+No full JSON Schema validation, assumption propagation, semantic property/criterion-to-verdict proof, source authenticity check, artifact-byte verification, append-only storage, chronology/relevant-change analysis, dimension engine, numerical solver, or physical-law validity test is implemented. Assessment relevance is limited to literal subject/version/selector metadata; a report can find no gaps within these checks while important evidence remains outside the checked scope.
 
 The checker does not mutate a claim's support, rewrite reference assertions, choose between conflicting records, or discard competing interpretations. Prototype 0.1 compatibility remains UNKNOWN, voice remains DEFERRED, and full requirements-specification 0.2 conformance remains unestablished.

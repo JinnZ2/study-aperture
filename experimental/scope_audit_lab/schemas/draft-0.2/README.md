@@ -71,7 +71,7 @@ Those guards do not authenticate evidence. A reference can be broken, point to a
 
 Until a semantic procedure resolves those dependencies, present such fields as recorded assertions, not established findings. An application record's confident status, even with a referenced assessment, cannot itself be used as proof of applicability or law consistency.
 
-The original authoring review deliberately probes these limitations in [review-results.json](../../reviews/draft-0.2/review-results.json). A subsequent [offline integrity checker](../../docs/offline-integrity-checker.md) now examines snapshot reference resolution, exact version bindings, and anchor-condition coverage; it does not establish assessment relevance or physical truth, and no equation parser, dimension engine, proof checker, numerical backend, or uncertainty estimator is supplied.
+The original authoring review deliberately probes these limitations in [review-results.json](../../reviews/draft-0.2/review-results.json). A subsequent [offline integrity checker](../../docs/offline-integrity-checker.md) now examines snapshot reference resolution, exact version bindings, anchor-condition coverage, and [literal assessment-subject/version/selector linkage](../../docs/assessment-link-relevance.md); semantic property alignment and scientific support remain unestablished, and no equation parser, dimension engine, proof checker, numerical backend, or uncertainty estimator is supplied.
 
 ## Offline review and mixed versions
 

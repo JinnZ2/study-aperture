@@ -7,7 +7,7 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 ## Start here
 
 - **Active focus:** [Mathematics and physics scope decision](docs/math-physics-focus.md) records the owner's prioritization of evidence and assessment for mathematics, equations, and physics. Voice work is deferred; mathematical and physical judgment procedures remain proposals rather than implemented capabilities.
-- **Offline integrity checker:** [Usage and verification limits](docs/offline-integrity-checker.md) covers the implemented stdlib-only checker for snapshot references, exact version bindings, and anchor-condition coverage. It is not a mathematical/empirical validator.
+- **Offline integrity checker:** [Usage and verification limits](docs/offline-integrity-checker.md) covers the implemented stdlib-only checker for snapshot references, exact version bindings, anchor-condition coverage, and [explicit assessment-subject relevance](docs/assessment-link-relevance.md). Matching metadata does not establish scientific support; this is not a mathematical/empirical validator.
 
 - **Requirements:** [Specification 0.2](requirements/scope-audit-lab-0.2.md) preserves the specification supplied by the project owner, including its proposed baseline and implementation order.
 - **Acceptance matrix:** [Requirement-to-test mapping](docs/acceptance-matrix.md) assigns documentation identifiers to proposed baseline checks. Their full procedures remain planned and not run; the narrow integrity suite is recorded separately rather than claimed as complete baseline coverage.
