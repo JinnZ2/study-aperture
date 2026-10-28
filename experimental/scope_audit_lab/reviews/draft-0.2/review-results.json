@@ -1,0 +1,5543 @@
+{
+  "artifact_kind": "AUTHORING_STRUCTURAL_SCHEMA_REVIEW",
+  "scope": "Record shapes and declared structural boundaries only; NOT lab acceptance tests.",
+  "reviewer": {
+    "python": "3.14.8",
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0",
+    "rfc3339-validator": "0.1.4",
+    "date_time_format_support_confirmed": true
+  },
+  "examined_sha256": {
+    "schemas/draft-0.1/evidence.schema.json": "db9d9902bd943e80cdccc660b22dbb12192732adc5bfcd5aecb0c4f801975775",
+    "schemas/draft-0.2/extensions.schema.json": "9103b84567b19c676611f08730f22d20f85ac04233f52f55dc7664281af1a03c",
+    "examples/schema-draft-0.2/records.json": "00f09d8add5d159924f6dd02c577af7c61492d13c9e392d5be6dbccb1980394a",
+    "examples/schema-draft-0.1/records.json": "4d152cf48c629ff0e96857fe40716844669ef445f6f6d472fcac57c5192e9f90",
+    "requirements/scope-audit-lab-0.2.md": "50a1bf3d5b556cdb08c4367b5e442cdd512b7f2fbda9498383645b4c8e57a10d",
+    "reviews/draft-0.2/review_schema.py": "2894c2fdc9eee4b6b357b91c98806409be2a98be31194b80c2cf0cfa93176109",
+    "reviews/draft-0.2/build_examples.py": "aedd8b024f81d42c8b95167a4ea653045f4d740a0de4e669c6c242610720326c"
+  },
+  "summary": {
+    "all_record_shapes_accepted": true,
+    "all_probe_expectations_matched": true,
+    "new_bundle_record_count": 14,
+    "original_bundle_record_count": 5,
+    "probe_count": 31,
+    "network_retrieval_disabled": true
+  },
+  "record_results": [
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:energy-anchor",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:momentum-anchor",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:entropy-anchor",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:power",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:dimension-one",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:angle",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:power-in",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:power-out",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:storage-rate",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:residual",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:balance",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:sine-approximation",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:energy-application",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "new_bundle",
+      "record_id": "physics-draft:residual-assessment",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "original_bundle",
+      "record_id": "schema-demo:eq-001",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "original_bundle",
+      "record_id": "schema-demo:assumption-001",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "original_bundle",
+      "record_id": "schema-demo:derivation-001",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "original_bundle",
+      "record_id": "schema-demo:observation-001",
+      "schema_accepted": true,
+      "errors": []
+    },
+    {
+      "collection": "original_bundle",
+      "record_id": "schema-demo:assessment-001",
+      "schema_accepted": true,
+      "errors": []
+    }
+  ],
+  "probes": [
+    {
+      "case_id": "D02-01",
+      "description": "Unrecognized schema version is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "9.9",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-02",
+      "description": "Missing dimensions remain representable.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "MISSING",
+            "reason": "Authoring missingness probe."
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-03",
+      "description": "Zero exponent denominator is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 0
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-04",
+      "description": "Six rather than seven dimension exponents are rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-05",
+      "description": "An explicit dimension-one declaration is accepted.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-06",
+      "description": "Scalar declaration with vector shape is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [
+              3
+            ],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-07",
+      "description": "An unsupported verified flag is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ],
+          "verified": true
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-08",
+      "description": "A zero unit scale is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-09",
+      "description": "Unexecuted calculation cannot assert a present zero result.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "PRESENT",
+            "value": 0,
+            "encoding": "json_number"
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-10",
+      "description": "Missing calculation result remains representable.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "The storage-rate input is missing; no residual was executed."
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-11",
+      "description": "Completion assertion with result is structurally accepted without execution artifacts.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "COMPLETED",
+          "execution_refs": [],
+          "result": {
+            "status": "PRESENT",
+            "value": 0,
+            "encoding": "json_number"
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "A semantic checker must distinguish unsupported completion/result assertions from recorded execution."
+    },
+    {
+      "case_id": "D02-12",
+      "description": "A definitive prerequisite outcome without evidence references is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "MET",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "The storage-rate input is missing; no residual was executed."
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-13",
+      "description": "Explicit denominator extension needs a definition.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:sine-approximation",
+        "record_type": "approximation_specification",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "reference_expression": {
+            "text": "sin(theta)",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "approximate_expression": {
+            "text": "theta",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "reference_refs": [],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Real theta in radians; target is the sine replacement only."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "theta",
+              "input": {
+                "status": "MISSING",
+                "reason": "No input record supplied."
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "MISSING",
+                "reason": "No input version."
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:angle",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "expansion_parameter": {
+            "status": "PRESENT",
+            "value": "theta, dimension-one angle expressed in radians"
+          },
+          "order_notation": {
+            "status": "NOT_APPLICABLE",
+            "reason": "No asymptotic-order claim is asserted in this fixture."
+          },
+          "target_output": "Relative error of the sine replacement, NOT pendulum period.",
+          "error": {
+            "metric": "RELATIVE",
+            "expression": {
+              "status": "PRESENT",
+              "value": "abs(theta - sin(theta))/abs(sin(theta))"
+            },
+            "denominator": {
+              "status": "PRESENT",
+              "value": "abs(sin(theta))"
+            },
+            "zero_denominator_policy": "EXPLICIT_EXTENSION",
+            "extension_definition": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No continuous extension was specified."
+            },
+            "quantity_definition": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            }
+          },
+          "criterion": {
+            "criterion_id": "sine-error-le-0.01",
+            "version": {
+              "status": "PRESENT",
+              "value": "illustrative-1"
+            },
+            "operator": "LE",
+            "threshold": {
+              "status": "PRESENT",
+              "value": 0.01,
+              "encoding": "json_number"
+            },
+            "threshold_quantity": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            },
+            "basis": "USER_SELECTED",
+            "evidence_refs": []
+          },
+          "bound_claims": [],
+          "bound_evidence_refs": [],
+          "assessment_refs": [],
+          "limitations": [
+            "No theta input or criterion evaluation is asserted.",
+            "Illustrative tolerance, not a physical transition or source-derived universal boundary."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-14",
+      "description": "A provided extension definition is structurally accepted.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:sine-approximation",
+        "record_type": "approximation_specification",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "reference_expression": {
+            "text": "sin(theta)",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "approximate_expression": {
+            "text": "theta",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "reference_refs": [],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Real theta in radians; target is the sine replacement only."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "theta",
+              "input": {
+                "status": "MISSING",
+                "reason": "No input record supplied."
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "MISSING",
+                "reason": "No input version."
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:angle",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "expansion_parameter": {
+            "status": "PRESENT",
+            "value": "theta, dimension-one angle expressed in radians"
+          },
+          "order_notation": {
+            "status": "NOT_APPLICABLE",
+            "reason": "No asymptotic-order claim is asserted in this fixture."
+          },
+          "target_output": "Relative error of the sine replacement, NOT pendulum period.",
+          "error": {
+            "metric": "RELATIVE",
+            "expression": {
+              "status": "PRESENT",
+              "value": "abs(theta - sin(theta))/abs(sin(theta))"
+            },
+            "denominator": {
+              "status": "PRESENT",
+              "value": "abs(sin(theta))"
+            },
+            "zero_denominator_policy": "EXPLICIT_EXTENSION",
+            "extension_definition": {
+              "status": "PRESENT",
+              "value": "At theta=0 define the ratio as its continuous extension, zero."
+            },
+            "quantity_definition": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            }
+          },
+          "criterion": {
+            "criterion_id": "sine-error-le-0.01",
+            "version": {
+              "status": "PRESENT",
+              "value": "illustrative-1"
+            },
+            "operator": "LE",
+            "threshold": {
+              "status": "PRESENT",
+              "value": 0.01,
+              "encoding": "json_number"
+            },
+            "threshold_quantity": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            },
+            "basis": "USER_SELECTED",
+            "evidence_refs": []
+          },
+          "bound_claims": [],
+          "bound_evidence_refs": [],
+          "assessment_refs": [],
+          "limitations": [
+            "No theta input or criterion evaluation is asserted.",
+            "Illustrative tolerance, not a physical transition or source-derived universal boundary."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "No limit or extension proof is executed by JSON Schema."
+    },
+    {
+      "case_id": "D02-15",
+      "description": "A present zero tolerance is not missing data.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:sine-approximation",
+        "record_type": "approximation_specification",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "reference_expression": {
+            "text": "sin(theta)",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "approximate_expression": {
+            "text": "theta",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "reference_refs": [],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Real theta in radians; target is the sine replacement only."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "theta",
+              "input": {
+                "status": "MISSING",
+                "reason": "No input record supplied."
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "MISSING",
+                "reason": "No input version."
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:angle",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "expansion_parameter": {
+            "status": "PRESENT",
+            "value": "theta, dimension-one angle expressed in radians"
+          },
+          "order_notation": {
+            "status": "NOT_APPLICABLE",
+            "reason": "No asymptotic-order claim is asserted in this fixture."
+          },
+          "target_output": "Relative error of the sine replacement, NOT pendulum period.",
+          "error": {
+            "metric": "RELATIVE",
+            "expression": {
+              "status": "PRESENT",
+              "value": "abs(theta - sin(theta))/abs(sin(theta))"
+            },
+            "denominator": {
+              "status": "PRESENT",
+              "value": "abs(sin(theta))"
+            },
+            "zero_denominator_policy": "UNAVAILABLE",
+            "extension_definition": {
+              "status": "NOT_APPLICABLE",
+              "reason": "No continuous extension was specified."
+            },
+            "quantity_definition": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            }
+          },
+          "criterion": {
+            "criterion_id": "sine-error-le-0.01",
+            "version": {
+              "status": "PRESENT",
+              "value": "illustrative-1"
+            },
+            "operator": "LE",
+            "threshold": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "threshold_quantity": {
+              "record_id": "physics-draft:dimension-one",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            },
+            "basis": "USER_SELECTED",
+            "evidence_refs": []
+          },
+          "bound_claims": [],
+          "bound_evidence_refs": [],
+          "assessment_refs": [],
+          "limitations": [
+            "No theta input or criterion evaluation is asserted.",
+            "Illustrative tolerance, not a physical transition or source-derived universal boundary."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-16",
+      "description": "In-scope status without an assessment reference is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "PRESENT",
+            "value": "fixture-0.2-1"
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "IN_SCOPE_FOR_STATED_CHECK",
+          "applicability_assessment_refs": [],
+          "comparison_status": "NOT_EVALUATED",
+          "comparison_assessment_refs": [],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-17",
+      "description": "Unknown applicability blocks a positive law-comparison verdict.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "PRESENT",
+            "value": "fixture-0.2-1"
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "UNKNOWN",
+          "applicability_assessment_refs": [],
+          "comparison_status": "CONSISTENT_WITH_STATED_CRITERIA",
+          "comparison_assessment_refs": [
+            {
+              "record_id": "unresolved:assessment",
+              "expected_type": "assessment",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-18",
+      "description": "Out-of-scope status blocks a definitive law-discrepancy verdict.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "PRESENT",
+            "value": "fixture-0.2-1"
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "OUTSIDE_DECLARED_SCOPE",
+          "applicability_assessment_refs": [
+            {
+              "record_id": "unresolved:assessment",
+              "expected_type": "assessment",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "comparison_status": "DISCREPANCY_RECORDED",
+          "comparison_assessment_refs": [
+            {
+              "record_id": "unresolved:assessment",
+              "expected_type": "assessment",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-19",
+      "description": "A positive assertion with unresolved references can still satisfy shape.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "PRESENT",
+            "value": "fixture-0.2-1"
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "IN_SCOPE_FOR_STATED_CHECK",
+          "applicability_assessment_refs": [
+            {
+              "record_id": "unresolved:assessment",
+              "expected_type": "assessment",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "comparison_status": "CONSISTENT_WITH_STATED_CRITERIA",
+          "comparison_assessment_refs": [
+            {
+              "record_id": "unresolved:assessment",
+              "expected_type": "assessment",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "Referenced evidence existence, relevance, condition coverage, and outcomes require a semantic resolver."
+    },
+    {
+      "case_id": "D02-20",
+      "description": "Omitting a condition check is not detected by record shape.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "PRESENT",
+            "value": "fixture-0.2-1"
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "UNKNOWN",
+          "applicability_assessment_refs": [],
+          "comparison_status": "NOT_EVALUATED",
+          "comparison_assessment_refs": [],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "A future resolver must compare condition IDs against the exact referenced anchor version."
+    },
+    {
+      "case_id": "D02-21",
+      "description": "Missing sources do not make a reference statement unrecordable.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-anchor",
+        "record_type": "physics_anchor",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "name": "Classical fixed-control-volume energy balance",
+          "anchor_kind": "BALANCE_LAW",
+          "reference_statement": {
+            "text": "dE_CV/dt = Qdot_in - Wdot_out + sum_in mdot*(h+v^2/2+g*z) - sum_out mdot*(h+v^2/2+g*z).",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "formalism": {
+            "status": "PRESENT",
+            "value": "Classical continuum thermodynamics; fixed control volume; uniform g*z potential specialization."
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Classical continuum thermodynamics; fixed control volume; uniform g*z potential specialization."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "conditions": [
+            {
+              "condition_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "basis": "EDITORIAL_SCOPE_RESTRICTION",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Conservative scope chosen for this starter anchor; not a universal necessity."
+            },
+            {
+              "condition_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "basis": "EDITORIAL_SCOPE_RESTRICTION",
+              "citation_ids": [],
+              "rationale": "Conservative scope chosen for this starter anchor; not a universal necessity."
+            }
+          ],
+          "source_citations": [],
+          "scope_exclusions": [
+            "Relativistic, cosmological, and quantum formulations are not covered by this starter anchor.",
+            "Moving-boundary variants require a separately stated formulation."
+          ],
+          "application_hazards": [
+            "Missing stored energy is not zero stored-energy change.",
+            "A convenient split into heat, work, and flow terms must be checked for omissions and double counting.",
+            "A model residual does not independently establish a violation of energy conservation."
+          ],
+          "limitations": [
+            "Source-backed reference formulation; no applicability to a particular device established.",
+            "Inline citations do not create resolved standalone source or artifact records.",
+            "Editorial scope restrictions are identified separately from source-explicit conditions."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "An anchor without sources must remain source-missing, not established by its name."
+    },
+    {
+      "case_id": "D02-22",
+      "description": "A complete-inventory declaration is not validated by shape.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:balance",
+        "record_type": "balance_specification",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "system": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "synthetic-box"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "fixture-0.2-1"
+            },
+            "boundary_kind": "FIXED_CONTROL_VOLUME",
+            "boundary_description": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed boundary; physical transfer inventory unverified."
+            },
+            "frame": {
+              "status": "MISSING",
+              "reason": "No independently established frame."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured geometry."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval."
+            },
+            "steady_state_basis": {
+              "status": "MISSING",
+              "reason": "Steady state not established."
+            },
+            "evidence_refs": []
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "balanced_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "relation": {
+            "text": "storage - incoming + outgoing = 0",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "term_inventory_status": "DECLARED_COMPLETE",
+          "terms": [
+            {
+              "term_id": "storage",
+              "role": "STORAGE",
+              "expression": {
+                "status": "PRESENT",
+                "value": "dE/dt"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": 1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:storage-rate",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            },
+            {
+              "term_id": "incoming",
+              "role": "TRANSFER",
+              "expression": {
+                "status": "PRESENT",
+                "value": "P_in"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": -1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:power-in",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            },
+            {
+              "term_id": "outgoing",
+              "role": "TRANSFER",
+              "expression": {
+                "status": "PRESENT",
+                "value": "P_out"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": 1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:power-out",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            }
+          ],
+          "missing_term_policy": "REQUIRE_EXPLICIT_JUSTIFICATION",
+          "assumption_refs": [],
+          "assessment_refs": [],
+          "limitations": [
+            "Aggregate incoming/outgoing terms have not been mapped exhaustively to the anchor channels.",
+            "Included storage term has a missing value; INCLUDED does not mean measured."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "Physical completeness and missing included-term values remain unverified."
+    },
+    {
+      "case_id": "D02-23",
+      "description": "Typed anchor reference rejects an observation type.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:balance",
+        "record_type": "balance_specification",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "observation",
+            "resolution": "NOT_CHECKED"
+          },
+          "system": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "synthetic-box"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "fixture-0.2-1"
+            },
+            "boundary_kind": "FIXED_CONTROL_VOLUME",
+            "boundary_description": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed boundary; physical transfer inventory unverified."
+            },
+            "frame": {
+              "status": "MISSING",
+              "reason": "No independently established frame."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured geometry."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval."
+            },
+            "steady_state_basis": {
+              "status": "MISSING",
+              "reason": "Steady state not established."
+            },
+            "evidence_refs": []
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "balanced_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "relation": {
+            "text": "storage - incoming + outgoing = 0",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "term_inventory_status": "UNKNOWN",
+          "terms": [
+            {
+              "term_id": "storage",
+              "role": "STORAGE",
+              "expression": {
+                "status": "PRESENT",
+                "value": "dE/dt"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": 1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:storage-rate",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            },
+            {
+              "term_id": "incoming",
+              "role": "TRANSFER",
+              "expression": {
+                "status": "PRESENT",
+                "value": "P_in"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": -1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:power-in",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            },
+            {
+              "term_id": "outgoing",
+              "role": "TRANSFER",
+              "expression": {
+                "status": "PRESENT",
+                "value": "P_out"
+              },
+              "coefficient": {
+                "status": "PRESENT",
+                "value": 1,
+                "encoding": "json_number"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              },
+              "input_refs": [
+                {
+                  "record_id": "physics-draft:power-out",
+                  "expected_type": "observation",
+                  "resolution": "NOT_CHECKED"
+                }
+              ],
+              "inclusion": "INCLUDED",
+              "rationale": "Authored aggregate balance term, not a verified inventory.",
+              "evidence_refs": []
+            }
+          ],
+          "missing_term_policy": "REQUIRE_EXPLICIT_JUSTIFICATION",
+          "assumption_refs": [],
+          "assessment_refs": [],
+          "limitations": [
+            "Aggregate incoming/outgoing terms have not been mapped exhaustively to the anchor channels.",
+            "Included storage term has a missing value; INCLUDED does not mean measured."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-24",
+      "description": "Missing producer is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "The storage-rate input is missing; no residual was executed."
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-25",
+      "description": "Quantity-kind omission is explicit, not silently inferred.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "MISSING",
+            "reason": "Authoring missingness probe."
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": 1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-26",
+      "description": "Negative standard uncertainty is rejected.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "The storage-rate input is missing; no residual was executed."
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "PRESENT",
+            "kind": "STANDARD_UNCERTAINTY",
+            "description": "Synthetic structural probe only.",
+            "value": {
+              "status": "PRESENT",
+              "value": -1,
+              "encoding": "json_number"
+            },
+            "quantity_definition": {
+              "record_id": "physics-draft:power",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            },
+            "coverage": {
+              "status": "MISSING",
+              "reason": "Authoring missingness probe."
+            },
+            "covariance_refs": [],
+            "dependence_assumptions": [],
+            "assessment_refs": []
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-27",
+      "description": "Zero standard uncertainty is representable, not permission to divide by zero.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "The storage-rate input is missing; no residual was executed."
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "PRESENT",
+            "kind": "STANDARD_UNCERTAINTY",
+            "description": "Synthetic structural probe only.",
+            "value": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "quantity_definition": {
+              "record_id": "physics-draft:power",
+              "expected_type": "quantity_definition",
+              "resolution": "NOT_CHECKED"
+            },
+            "coverage": {
+              "status": "MISSING",
+              "reason": "Authoring missingness probe."
+            },
+            "covariance_refs": [],
+            "dependence_assumptions": [],
+            "assessment_refs": []
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": []
+    },
+    {
+      "case_id": "D02-28",
+      "description": "Missingness cannot carry a hidden numerical zero.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:residual",
+        "record_type": "calculation",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "purpose": "Record prerequisites for r = storage - (incoming - outgoing).",
+          "method": {
+            "identity": {
+              "status": "PRESENT",
+              "value": "specified scalar subtraction"
+            },
+            "version": {
+              "status": "PRESENT",
+              "value": "proposed-1"
+            },
+            "expression": {
+              "status": "PRESENT",
+              "value": "r = storage - incoming + outgoing"
+            },
+            "numerical_representation": {
+              "status": "MISSING",
+              "reason": "No runtime numerical backend selected."
+            }
+          },
+          "inputs": [
+            {
+              "binding_id": "storage",
+              "input": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "incoming",
+              "input": {
+                "record_id": "physics-draft:power-in",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            },
+            {
+              "binding_id": "outgoing",
+              "input": {
+                "record_id": "physics-draft:power-out",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "state_artifact_refs": [],
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "prerequisites": [
+            {
+              "requirement_id": "storage-available",
+              "exact_requirement": "A valid storage rate and compatible input units are supplied.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "execution_status": "NOT_EXECUTED",
+          "execution_refs": [],
+          "result": {
+            "status": "MISSING",
+            "reason": "Missing.",
+            "value": 0
+          },
+          "result_quantity": {
+            "record_id": "physics-draft:power",
+            "expected_type": "quantity_definition",
+            "resolution": "NOT_CHECKED"
+          },
+          "uncertainty": {
+            "status": "MISSING",
+            "reason": "No covariance or uncertainty inputs supplied."
+          },
+          "dependency_refs": [
+            {
+              "record_id": "physics-draft:balance",
+              "expected_type": "balance_specification",
+              "resolution": "NOT_CHECKED"
+            }
+          ],
+          "assessment_refs": [],
+          "limitations": [
+            "No inference of conservation failure or root cause."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-29",
+      "description": "Negative unit scale is rejected in this declared convention.",
+      "expected_schema_acceptance": false,
+      "schema_accepted": false,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:power",
+        "record_type": "quantity_definition",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "symbol": "P",
+          "meaning": "energy transfer or storage rate",
+          "quantity_kind": {
+            "status": "PRESENT",
+            "value": "energy transfer or storage rate"
+          },
+          "structure": {
+            "status": "PRESENT",
+            "kind": "SCALAR",
+            "component_shape": [],
+            "frame": {
+              "status": "MISSING",
+              "reason": "No measured frame established."
+            },
+            "spatial_support": {
+              "status": "MISSING",
+              "reason": "No measured spatial support established."
+            },
+            "temporal_support": {
+              "status": "MISSING",
+              "reason": "No measurement interval established."
+            }
+          },
+          "dimensions": {
+            "status": "PRESENT",
+            "basis_id": "ISQ-seven-base-declared-v1",
+            "basis_order": [
+              "mass",
+              "length",
+              "time",
+              "electric_current",
+              "thermodynamic_temperature",
+              "amount_of_substance",
+              "luminous_intensity"
+            ],
+            "exponents": [
+              {
+                "numerator": 1,
+                "denominator": 1
+              },
+              {
+                "numerator": 2,
+                "denominator": 1
+              },
+              {
+                "numerator": -3,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              },
+              {
+                "numerator": 0,
+                "denominator": 1
+              }
+            ]
+          },
+          "unit": {
+            "status": "PRESENT",
+            "symbol": "W",
+            "system": {
+              "status": "PRESENT",
+              "value": "SI declared"
+            },
+            "role": "LINEAR_INTERVAL",
+            "reference_unit": {
+              "status": "PRESENT",
+              "value": "W"
+            },
+            "scale_to_reference": {
+              "status": "PRESENT",
+              "value": -1,
+              "encoding": "json_number"
+            },
+            "offset_to_reference": {
+              "status": "PRESENT",
+              "value": 0,
+              "encoding": "json_number"
+            },
+            "conversion_rule": {
+              "status": "PRESENT",
+              "value": "Identity declaration only; no conversion executed."
+            }
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "declaration_refs": [],
+          "limitations": [
+            "Author-declared fixture quantity, not an independently checked observation."
+          ]
+        }
+      },
+      "error_paths": [
+        []
+      ]
+    },
+    {
+      "case_id": "D02-30",
+      "description": "A recorded anchor version may remain unknown.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-application",
+        "record_type": "anchor_application",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "anchor": {
+            "record_id": "physics-draft:energy-anchor",
+            "expected_type": "physics_anchor",
+            "resolution": "NOT_CHECKED"
+          },
+          "anchor_version": {
+            "status": "MISSING",
+            "reason": "Authoring missingness probe."
+          },
+          "subjects": [
+            {
+              "subject": {
+                "record_id": "physics-draft:balance",
+                "expected_type": "balance_specification",
+                "resolution": "NOT_CHECKED"
+              },
+              "examined_version": {
+                "status": "PRESENT",
+                "value": "fixture-0.2-1"
+              },
+              "examined_state_artifact_refs": [],
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload"
+              }
+            }
+          ],
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Synthetic fixed-boundary illustration; not an examined device."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "condition_checks": [
+            {
+              "requirement_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            },
+            {
+              "requirement_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "outcome": "NOT_EVALUATED",
+              "evidence_refs": [],
+              "missing_evidence": [
+                "Completed, recorded check of this requirement."
+              ],
+              "rationale": "Draft fixture, not an assertion of an executed check."
+            }
+          ],
+          "unaddressed_conditions": [],
+          "symbol_mappings": [
+            {
+              "anchor_symbol": "dE_CV/dt",
+              "subject": {
+                "record_id": "physics-draft:storage-rate",
+                "expected_type": "observation",
+                "resolution": "NOT_CHECKED"
+              },
+              "selector": {
+                "status": "PRESENT",
+                "value": "payload.value"
+              },
+              "quantity_definition": {
+                "record_id": "physics-draft:power",
+                "expected_type": "quantity_definition",
+                "resolution": "NOT_CHECKED"
+              }
+            }
+          ],
+          "applicability_status": "UNKNOWN",
+          "applicability_assessment_refs": [],
+          "comparison_status": "NOT_EVALUATED",
+          "comparison_assessment_refs": [],
+          "competing_interpretation_refs": [],
+          "limitations": [
+            "Every listed condition is unevaluated; an empty unaddressed list does not mean they passed.",
+            "Transfer mappings and scope evidence are incomplete."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "No version may be inferred or used to establish freshness from this missing state."
+    },
+    {
+      "case_id": "D02-31",
+      "description": "Citation IDs are not resolved against source entries by shape.",
+      "expected_schema_acceptance": true,
+      "schema_accepted": true,
+      "expectation_matched": true,
+      "input_record": {
+        "schema_id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+        "schema_version": "0.2",
+        "record_id": "physics-draft:energy-anchor",
+        "record_type": "physics_anchor",
+        "record_version": {
+          "status": "PRESENT",
+          "value": "fixture-0.2-1"
+        },
+        "source_refs": [
+          {
+            "record_id": "physics-draft:source-mit-energy-2020",
+            "expected_type": "source",
+            "resolution": "UNRESOLVED"
+          }
+        ],
+        "recorded_at": {
+          "status": "MISSING",
+          "reason": "No instrument acquisition timestamp asserted."
+        },
+        "producer": {
+          "identity": {
+            "status": "PRESENT",
+            "value": "study-aperture synthetic schema authoring"
+          },
+          "kind": "PROCESS",
+          "version": {
+            "status": "PRESENT",
+            "value": "build_examples.py / proposed-1"
+          }
+        },
+        "relations": [],
+        "payload": {
+          "name": "Classical fixed-control-volume energy balance",
+          "anchor_kind": "BALANCE_LAW",
+          "reference_statement": {
+            "text": "dE_CV/dt = Qdot_in - Wdot_out + sum_in mdot*(h+v^2/2+g*z) - sum_out mdot*(h+v^2/2+g*z).",
+            "notation": "PLAIN_TEXT",
+            "source_location": {
+              "status": "PRESENT",
+              "value": "Editorial formulation in build_examples.py; not a verbatim source quotation."
+            },
+            "transcription_status": "ORIGINAL_LOCAL",
+            "artifact_refs": []
+          },
+          "formalism": {
+            "status": "PRESENT",
+            "value": "Classical continuum thermodynamics; fixed control volume; uniform g*z potential specialization."
+          },
+          "scope": {
+            "domain": {
+              "status": "PRESENT",
+              "value": "Classical continuum thermodynamics; fixed control volume; uniform g*z potential specialization."
+            },
+            "included": {
+              "status": "PRESENT",
+              "value": "Only the explicitly stated reference relation or synthetic case."
+            },
+            "excluded": {
+              "status": "PRESENT",
+              "value": "Empirical validation and applicability outside the declared formalism."
+            },
+            "regime": {
+              "status": "PRESENT",
+              "value": "Classical/nonrelativistic where a physical interpretation is proposed."
+            },
+            "boundary_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established physical boundary conditions."
+            },
+            "initial_conditions": {
+              "status": "MISSING",
+              "reason": "No independently established initial conditions."
+            }
+          },
+          "conditions": [
+            {
+              "condition_id": "E-boundary",
+              "exact_requirement": "Define a fixed control volume and all crossing mass/energy transfers.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "not-listed"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-signs",
+              "exact_requirement": "Qdot is positive into the volume and Wdot positive out; avoid double counting flow work already represented by h.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-stored",
+              "exact_requirement": "Retain the time rate of stored energy unless a zero-storage-rate condition is justified.",
+              "basis": "SOURCE_EXPLICIT",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Condition belongs to the cited reference formulation."
+            },
+            {
+              "condition_id": "E-formalism",
+              "exact_requirement": "Use this starter only in its declared classical continuum and uniform-g potential formulation.",
+              "basis": "EDITORIAL_SCOPE_RESTRICTION",
+              "citation_ids": [
+                "mit-energy-2020"
+              ],
+              "rationale": "Conservative scope chosen for this starter anchor; not a universal necessity."
+            },
+            {
+              "condition_id": "E-inventory",
+              "exact_requirement": "Document included energy forms and transfer mechanisms; no unrecorded transfer may be assumed zero.",
+              "basis": "EDITORIAL_SCOPE_RESTRICTION",
+              "citation_ids": [],
+              "rationale": "Conservative scope chosen for this starter anchor; not a universal necessity."
+            }
+          ],
+          "source_citations": [
+            {
+              "citation_id": "mit-energy-2020",
+              "url": "https://ocw.mit.edu/courses/2-60j-fundamentals-of-advanced-energy-conversion-spring-2020/54a791b898a31befeea178f796efcd9c_MIT2_60s20_lec2.pdf",
+              "title": "MIT 2.60, Fundamentals of Advanced Energy Conversion, Lecture 2",
+              "locator": "Energy and entropy control-volume balances",
+              "publication_version": {
+                "status": "PRESENT",
+                "value": "Spring 2020 lecture resource"
+              },
+              "inspection_status": "TEXT_EXTRACT_INSPECTED",
+              "source_record": {
+                "record_id": "physics-draft:source-mit-energy-2020",
+                "expected_type": "source",
+                "resolution": "UNRESOLVED"
+              },
+              "inspection_limits": "Fetched text/extracted equations inspected; original page rendering not inspected, not reproduced empirically. URL content is not bundled."
+            }
+          ],
+          "scope_exclusions": [
+            "Relativistic, cosmological, and quantum formulations are not covered by this starter anchor.",
+            "Moving-boundary variants require a separately stated formulation."
+          ],
+          "application_hazards": [
+            "Missing stored energy is not zero stored-energy change.",
+            "A convenient split into heat, work, and flow terms must be checked for omissions and double counting.",
+            "A model residual does not independently establish a violation of energy conservation."
+          ],
+          "limitations": [
+            "Source-backed reference formulation; no applicability to a particular device established.",
+            "Inline citations do not create resolved standalone source or artifact records.",
+            "Editorial scope restrictions are identified separately from source-explicit conditions."
+          ]
+        }
+      },
+      "error_paths": [],
+      "semantic_limit": "Cross-field citation integrity is a planned semantic check."
+    }
+  ],
+  "limitations": [
+    "Authoring schemas, fixtures, procedures, and interpretation share an author.",
+    "No reference graph, source authenticity, law applicability, equation semantics, or physical adequacy was validated.",
+    "Positive authoring results do not change prototype compatibility UNKNOWN or voice DEFERRED."
+  ]
+}

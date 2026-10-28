@@ -1,0 +1,518 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scope-audit-lab:schema:math-physics-extensions:0.2",
+  "title": "Scope Audit Lab scoped physics extensions, draft 0.2",
+  "description": "Review proposal only. Additive supporting records, not a migration or runtime validator. Register the frozen draft-0.1 schema locally; no network retrieval is authorized.",
+  "oneOf": [
+    {"$ref": "#/$defs/quantityDefinition"},
+    {"$ref": "#/$defs/calculation"},
+    {"$ref": "#/$defs/balanceSpecification"},
+    {"$ref": "#/$defs/approximationSpecification"},
+    {"$ref": "#/$defs/physicsAnchor"},
+    {"$ref": "#/$defs/anchorApplication"}
+  ],
+  "$defs": {
+    "text": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/text"},
+    "textValue": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/textValue"},
+    "absentValue": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/absentValue"},
+    "numericValue": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/numericValue"},
+    "reference": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/reference"},
+    "references": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/references"},
+    "scope": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/scope"},
+    "representation": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/representation"},
+    "subjectBinding": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/subjectBinding"},
+    "criterion": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/criterion"},
+    "limitations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+    "texts": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+    "quantityRef": {
+      "allOf": [
+        {"$ref": "#/$defs/reference"},
+        {"properties": {"expected_type": {"const": "quantity_definition"}}}
+      ]
+    },
+    "quantityRefOrAbsent": {"oneOf": [{"$ref": "#/$defs/quantityRef"}, {"$ref": "#/$defs/absentValue"}]},
+    "refOrAbsent": {"oneOf": [{"$ref": "#/$defs/reference"}, {"$ref": "#/$defs/absentValue"}]},
+    "anchorRef": {
+      "allOf": [
+        {"$ref": "#/$defs/reference"},
+        {"properties": {"expected_type": {"const": "physics_anchor"}}}
+      ]
+    },
+    "assessmentRefs": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/reference"},
+          {"properties": {"expected_type": {"const": "assessment"}}}
+        ]
+      },
+      "uniqueItems": true
+    },
+    "envelope": {
+      "type": "object",
+      "properties": {
+        "schema_id": {"const": "urn:scope-audit-lab:schema:math-physics-extensions:0.2"},
+        "schema_version": {"const": "0.2"},
+        "record_id": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/recordId"},
+        "record_type": {"enum": ["quantity_definition", "calculation", "balance_specification", "approximation_specification", "physics_anchor", "anchor_application"]},
+        "record_version": {"$ref": "#/$defs/textValue"},
+        "source_refs": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/sourceReferences"},
+        "recorded_at": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/timestamp"},
+        "producer": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/actor"},
+        "relations": {"type": "array", "items": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/relation"}},
+        "payload": {"type": "object"}
+      },
+      "required": ["schema_id", "schema_version", "record_id", "record_type", "record_version", "source_refs", "recorded_at", "producer", "relations", "payload"]
+    },
+    "rationalExponent": {
+      "type": "object",
+      "properties": {"numerator": {"type": "integer"}, "denominator": {"type": "integer", "minimum": 1}},
+      "required": ["numerator", "denominator"],
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "oneOf": [
+        {"$ref": "#/$defs/absentValue"},
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "basis_id": {"const": "ISQ-seven-base-declared-v1"},
+            "basis_order": {"const": ["mass", "length", "time", "electric_current", "thermodynamic_temperature", "amount_of_substance", "luminous_intensity"]},
+            "exponents": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/rationalExponent"}}
+          },
+          "required": ["status", "basis_id", "basis_order", "exponents"],
+          "additionalProperties": false
+        }
+      ],
+      "description": "One explicitly declared seven-base basis only. All-zero exponents declare dimension one; missing dimensions do not."
+    },
+    "unitDeclaration": {
+      "oneOf": [
+        {"$ref": "#/$defs/absentValue"},
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "symbol": {"$ref": "#/$defs/text"},
+            "system": {"$ref": "#/$defs/textValue"},
+            "role": {"enum": ["LINEAR_INTERVAL", "AFFINE_POINT", "LOGARITHMIC", "OTHER", "UNDECLARED"]},
+            "reference_unit": {"$ref": "#/$defs/textValue"},
+            "scale_to_reference": {
+              "allOf": [
+                {"$ref": "#/$defs/numericValue"},
+                {"if": {"properties": {"status": {"const": "PRESENT"}}}, "then": {"properties": {"value": {"exclusiveMinimum": 0}}}}
+              ]
+            },
+            "offset_to_reference": {"$ref": "#/$defs/numericValue"},
+            "conversion_rule": {"$ref": "#/$defs/textValue"}
+          },
+          "required": ["status", "symbol", "system", "role", "reference_unit", "scale_to_reference", "offset_to_reference", "conversion_rule"],
+          "additionalProperties": false
+        }
+      ],
+      "description": "Describes, but does not execute, conversions. Nonlinear roles cannot be converted by silently applying scale and offset."
+    },
+    "structureDeclaration": {
+      "oneOf": [
+        {"$ref": "#/$defs/absentValue"},
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "kind": {"enum": ["SCALAR", "VECTOR", "TENSOR", "FIELD", "SERIES", "OTHER"]},
+            "component_shape": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+            "frame": {"$ref": "#/$defs/textValue"},
+            "spatial_support": {"$ref": "#/$defs/textValue"},
+            "temporal_support": {"$ref": "#/$defs/textValue"}
+          },
+          "required": ["status", "kind", "component_shape", "frame", "spatial_support", "temporal_support"],
+          "additionalProperties": false,
+          "allOf": [
+            {"if": {"properties": {"kind": {"const": "SCALAR"}}}, "then": {"properties": {"component_shape": {"maxItems": 0}}}},
+            {"if": {"properties": {"kind": {"const": "VECTOR"}}}, "then": {"properties": {"component_shape": {"minItems": 1, "maxItems": 1}}}}
+          ]
+        }
+      ],
+      "description": "Shape describes declarations, not a new vector/field observation encoding. Empty component_shape for FIELD/SERIES needs an explicit convention in the record limitations."
+    },
+    "quantityDefinition": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "quantity_definition"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "symbol": {"$ref": "#/$defs/text"},
+                "meaning": {"$ref": "#/$defs/text"},
+                "quantity_kind": {"$ref": "#/$defs/textValue"},
+                "structure": {"$ref": "#/$defs/structureDeclaration"},
+                "dimensions": {"$ref": "#/$defs/dimensions"},
+                "unit": {"$ref": "#/$defs/unitDeclaration"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "declaration_refs": {"$ref": "#/$defs/references"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["symbol", "meaning", "quantity_kind", "structure", "dimensions", "unit", "scope", "declaration_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "inputBinding": {
+      "type": "object",
+      "properties": {
+        "binding_id": {"$ref": "#/$defs/text"},
+        "input": {"$ref": "#/$defs/refOrAbsent"},
+        "selector": {"$ref": "#/$defs/textValue"},
+        "examined_version": {"$ref": "#/$defs/textValue"},
+        "state_artifact_refs": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/artifactReferences"},
+        "quantity_definition": {"$ref": "#/$defs/quantityRefOrAbsent"}
+      },
+      "required": ["binding_id", "input", "selector", "examined_version", "state_artifact_refs", "quantity_definition"],
+      "additionalProperties": false
+    },
+    "requirementCheck": {
+      "type": "object",
+      "properties": {
+        "requirement_id": {"$ref": "#/$defs/text"},
+        "exact_requirement": {"$ref": "#/$defs/text"},
+        "outcome": {"enum": ["MET", "NOT_MET", "INDETERMINATE", "NOT_EVALUATED"]},
+        "evidence_refs": {"$ref": "#/$defs/references"},
+        "missing_evidence": {"$ref": "#/$defs/texts"},
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "required": ["requirement_id", "exact_requirement", "outcome", "evidence_refs", "missing_evidence", "rationale"],
+      "additionalProperties": false,
+      "allOf": [
+        {"if": {"properties": {"outcome": {"enum": ["MET", "NOT_MET"]}}}, "then": {"properties": {"evidence_refs": {"minItems": 1}}}}
+      ]
+    },
+    "uncertaintyDeclaration": {
+      "oneOf": [
+        {"$ref": "#/$defs/absentValue"},
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "kind": {"enum": ["STANDARD_UNCERTAINTY", "VARIANCE", "COVERAGE_INTERVAL", "OTHER"]},
+            "description": {"$ref": "#/$defs/text"},
+            "value": {"$ref": "#/$defs/numericValue"},
+            "quantity_definition": {"$ref": "#/$defs/quantityRefOrAbsent"},
+            "coverage": {"$ref": "#/$defs/textValue"},
+            "covariance_refs": {"$ref": "#/$defs/references"},
+            "dependence_assumptions": {"$ref": "#/$defs/references"},
+            "assessment_refs": {"$ref": "#/$defs/assessmentRefs"}
+          },
+          "required": ["status", "kind", "description", "value", "quantity_definition", "coverage", "covariance_refs", "dependence_assumptions", "assessment_refs"],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {"properties": {"kind": {"enum": ["STANDARD_UNCERTAINTY", "VARIANCE"]}}},
+              "then": {
+                "properties": {
+                  "value": {
+                    "if": {"properties": {"status": {"const": "PRESENT"}}},
+                    "then": {"properties": {"value": {"minimum": 0}}}
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Descriptive dependency contract only. Interval endpoints and covariance matrices require linked artifacts/records; no estimator or uncertainty arithmetic is supplied."
+    },
+    "calculation": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "calculation"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "purpose": {"$ref": "#/$defs/text"},
+                "method": {
+                  "type": "object",
+                  "properties": {
+                    "identity": {"$ref": "#/$defs/textValue"},
+                    "version": {"$ref": "#/$defs/textValue"},
+                    "expression": {"$ref": "#/$defs/textValue"},
+                    "numerical_representation": {"$ref": "#/$defs/textValue"}
+                  },
+                  "required": ["identity", "version", "expression", "numerical_representation"],
+                  "additionalProperties": false
+                },
+                "inputs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/inputBinding"}},
+                "scope": {"$ref": "#/$defs/scope"},
+                "prerequisites": {"type": "array", "items": {"$ref": "#/$defs/requirementCheck"}},
+                "execution_status": {"enum": ["NOT_EXECUTED", "COMPLETED", "INTERRUPTED", "REPORTED_NOT_INSPECTED"]},
+                "execution_refs": {"$ref": "#/$defs/references"},
+                "result": {"$ref": "#/$defs/numericValue"},
+                "result_quantity": {"$ref": "#/$defs/quantityRefOrAbsent"},
+                "uncertainty": {"$ref": "#/$defs/uncertaintyDeclaration"},
+                "dependency_refs": {"$ref": "#/$defs/references"},
+                "assessment_refs": {"$ref": "#/$defs/assessmentRefs"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["purpose", "method", "inputs", "scope", "prerequisites", "execution_status", "execution_refs", "result", "result_quantity", "uncertainty", "dependency_refs", "assessment_refs", "limitations"],
+              "additionalProperties": false,
+              "allOf": [
+                {"if": {"properties": {"execution_status": {"const": "NOT_EXECUTED"}}}, "then": {"properties": {"result": {"$ref": "#/$defs/absentValue"}}}}
+              ]
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "systemDefinition": {
+      "type": "object",
+      "properties": {
+        "identity": {"$ref": "#/$defs/textValue"},
+        "version": {"$ref": "#/$defs/textValue"},
+        "boundary_kind": {"enum": ["MATERIAL_SYSTEM", "FIXED_CONTROL_VOLUME", "MOVING_CONTROL_VOLUME", "OTHER", "UNKNOWN"]},
+        "boundary_description": {"$ref": "#/$defs/textValue"},
+        "frame": {"$ref": "#/$defs/textValue"},
+        "spatial_support": {"$ref": "#/$defs/textValue"},
+        "temporal_support": {"$ref": "#/$defs/textValue"},
+        "steady_state_basis": {"$ref": "#/$defs/textValue"},
+        "evidence_refs": {"$ref": "#/$defs/references"}
+      },
+      "required": ["identity", "version", "boundary_kind", "boundary_description", "frame", "spatial_support", "temporal_support", "steady_state_basis", "evidence_refs"],
+      "additionalProperties": false
+    },
+    "balanceTerm": {
+      "type": "object",
+      "properties": {
+        "term_id": {"$ref": "#/$defs/text"},
+        "role": {"enum": ["STORAGE", "TRANSFER", "GENERATION", "SINK", "OTHER"]},
+        "expression": {"$ref": "#/$defs/textValue"},
+        "coefficient": {"$ref": "#/$defs/numericValue"},
+        "quantity_definition": {"$ref": "#/$defs/quantityRefOrAbsent"},
+        "input_refs": {"$ref": "#/$defs/references"},
+        "inclusion": {"enum": ["INCLUDED", "EXCLUDED", "UNKNOWN"]},
+        "rationale": {"$ref": "#/$defs/text"},
+        "evidence_refs": {"$ref": "#/$defs/references"}
+      },
+      "required": ["term_id", "role", "expression", "coefficient", "quantity_definition", "input_refs", "inclusion", "rationale", "evidence_refs"],
+      "additionalProperties": false
+    },
+    "balanceSpecification": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "balance_specification"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "anchor": {"$ref": "#/$defs/anchorRef"},
+                "system": {"$ref": "#/$defs/systemDefinition"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "balanced_quantity": {"$ref": "#/$defs/quantityRefOrAbsent"},
+                "relation": {"$ref": "#/$defs/representation"},
+                "term_inventory_status": {"enum": ["DECLARED_COMPLETE", "PARTIAL", "UNKNOWN"]},
+                "terms": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/balanceTerm"}},
+                "missing_term_policy": {"const": "REQUIRE_EXPLICIT_JUSTIFICATION"},
+                "assumption_refs": {"$ref": "urn:scope-audit-lab:schema:math-evidence:0.1#/$defs/assumptionReferences"},
+                "assessment_refs": {"$ref": "#/$defs/assessmentRefs"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["anchor", "system", "scope", "balanced_quantity", "relation", "term_inventory_status", "terms", "missing_term_policy", "assumption_refs", "assessment_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "errorDefinition": {
+      "type": "object",
+      "properties": {
+        "metric": {"enum": ["ABSOLUTE", "RELATIVE", "CUSTOM"]},
+        "expression": {"$ref": "#/$defs/textValue"},
+        "denominator": {"$ref": "#/$defs/textValue"},
+        "zero_denominator_policy": {"enum": ["UNAVAILABLE", "EXPLICIT_EXTENSION"]},
+        "extension_definition": {"$ref": "#/$defs/textValue"},
+        "quantity_definition": {"$ref": "#/$defs/quantityRefOrAbsent"}
+      },
+      "required": ["metric", "expression", "denominator", "zero_denominator_policy", "extension_definition", "quantity_definition"],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"zero_denominator_policy": {"const": "EXPLICIT_EXTENSION"}}},
+          "then": {"properties": {"extension_definition": {"type": "object", "properties": {"status": {"const": "PRESENT"}}}}}
+        }
+      ]
+    },
+    "approximationSpecification": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "approximation_specification"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "reference_expression": {"$ref": "#/$defs/representation"},
+                "approximate_expression": {"$ref": "#/$defs/representation"},
+                "reference_refs": {"$ref": "#/$defs/references"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "inputs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/inputBinding"}},
+                "expansion_parameter": {"$ref": "#/$defs/textValue"},
+                "order_notation": {"$ref": "#/$defs/textValue"},
+                "target_output": {"$ref": "#/$defs/text"},
+                "error": {"$ref": "#/$defs/errorDefinition"},
+                "criterion": {
+                  "type": "object",
+                  "properties": {
+                    "criterion_id": {"$ref": "#/$defs/text"},
+                    "version": {"$ref": "#/$defs/textValue"},
+                    "operator": {"enum": ["LT", "LE", "EQ", "GE", "GT"]},
+                    "threshold": {"$ref": "#/$defs/numericValue"},
+                    "threshold_quantity": {"$ref": "#/$defs/quantityRefOrAbsent"},
+                    "basis": {"enum": ["USER_SELECTED", "SOURCE_REPORTED", "DERIVED", "UNKNOWN"]},
+                    "evidence_refs": {"$ref": "#/$defs/references"}
+                  },
+                  "required": ["criterion_id", "version", "operator", "threshold", "threshold_quantity", "basis", "evidence_refs"],
+                  "additionalProperties": false
+                },
+                "bound_claims": {"$ref": "#/$defs/texts"},
+                "bound_evidence_refs": {"$ref": "#/$defs/references"},
+                "assessment_refs": {"$ref": "#/$defs/assessmentRefs"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["reference_expression", "approximate_expression", "reference_refs", "scope", "inputs", "expansion_parameter", "order_notation", "target_output", "error", "criterion", "bound_claims", "bound_evidence_refs", "assessment_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "citation": {
+      "type": "object",
+      "properties": {
+        "citation_id": {"$ref": "#/$defs/text"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+        "title": {"$ref": "#/$defs/text"},
+        "locator": {"$ref": "#/$defs/text"},
+        "publication_version": {"$ref": "#/$defs/textValue"},
+        "inspection_status": {"enum": ["TEXT_EXTRACT_INSPECTED", "ORIGINAL_RENDER_INSPECTED", "NOT_INSPECTED"]},
+        "source_record": {
+          "allOf": [
+            {"$ref": "#/$defs/reference"},
+            {"properties": {"expected_type": {"const": "source"}}}
+          ]
+        },
+        "inspection_limits": {"$ref": "#/$defs/text"}
+      },
+      "required": ["citation_id", "url", "title", "locator", "publication_version", "inspection_status", "source_record", "inspection_limits"],
+      "additionalProperties": false
+    },
+    "anchorCondition": {
+      "type": "object",
+      "properties": {
+        "condition_id": {"$ref": "#/$defs/text"},
+        "exact_requirement": {"$ref": "#/$defs/text"},
+        "basis": {"enum": ["SOURCE_EXPLICIT", "EDITORIAL_SCOPE_RESTRICTION"]},
+        "citation_ids": {"type": "array", "items": {"$ref": "#/$defs/text"}, "uniqueItems": true},
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "required": ["condition_id", "exact_requirement", "basis", "citation_ids", "rationale"],
+      "additionalProperties": false
+    },
+    "physicsAnchor": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "physics_anchor"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "name": {"$ref": "#/$defs/text"},
+                "anchor_kind": {"enum": ["CONSERVATION_LAW", "BALANCE_LAW", "DYNAMICAL_LAW", "THERMODYNAMIC_INEQUALITY", "DIMENSIONAL_CONSTRAINT", "CONSTITUTIVE_RELATION", "APPROXIMATION", "OTHER"]},
+                "reference_statement": {"$ref": "#/$defs/representation"},
+                "formalism": {"$ref": "#/$defs/textValue"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "conditions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/anchorCondition"}},
+                "source_citations": {"type": "array", "items": {"$ref": "#/$defs/citation"}},
+                "scope_exclusions": {"$ref": "#/$defs/limitations"},
+                "application_hazards": {"$ref": "#/$defs/limitations"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["name", "anchor_kind", "reference_statement", "formalism", "scope", "conditions", "source_citations", "scope_exclusions", "application_hazards", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "anchorApplication": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "anchor_application"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "anchor": {"$ref": "#/$defs/anchorRef"},
+                "anchor_version": {"$ref": "#/$defs/textValue"},
+                "subjects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/subjectBinding"}},
+                "scope": {"$ref": "#/$defs/scope"},
+                "condition_checks": {"type": "array", "items": {"$ref": "#/$defs/requirementCheck"}},
+                "unaddressed_conditions": {"$ref": "#/$defs/texts"},
+                "symbol_mappings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "anchor_symbol": {"$ref": "#/$defs/text"},
+                      "subject": {"$ref": "#/$defs/refOrAbsent"},
+                      "selector": {"$ref": "#/$defs/textValue"},
+                      "quantity_definition": {"$ref": "#/$defs/quantityRefOrAbsent"}
+                    },
+                    "required": ["anchor_symbol", "subject", "selector", "quantity_definition"],
+                    "additionalProperties": false
+                  }
+                },
+                "applicability_status": {"enum": ["IN_SCOPE_FOR_STATED_CHECK", "OUTSIDE_DECLARED_SCOPE", "UNKNOWN", "NOT_EVALUATED"]},
+                "applicability_assessment_refs": {"$ref": "#/$defs/assessmentRefs"},
+                "comparison_status": {"enum": ["CONSISTENT_WITH_STATED_CRITERIA", "DISCREPANCY_RECORDED", "INDETERMINATE", "NOT_EVALUATED"]},
+                "comparison_assessment_refs": {"$ref": "#/$defs/assessmentRefs"},
+                "competing_interpretation_refs": {"$ref": "#/$defs/references"},
+                "limitations": {"$ref": "#/$defs/limitations"}
+              },
+              "required": ["anchor", "anchor_version", "subjects", "scope", "condition_checks", "unaddressed_conditions", "symbol_mappings", "applicability_status", "applicability_assessment_refs", "comparison_status", "comparison_assessment_refs", "competing_interpretation_refs", "limitations"],
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": {"properties": {"applicability_status": {"enum": ["IN_SCOPE_FOR_STATED_CHECK", "OUTSIDE_DECLARED_SCOPE"]}}},
+                  "then": {"properties": {"applicability_assessment_refs": {"minItems": 1}}}
+                },
+                {
+                  "if": {"properties": {"comparison_status": {"enum": ["CONSISTENT_WITH_STATED_CRITERIA", "DISCREPANCY_RECORDED"]}}},
+                  "then": {"properties": {"comparison_assessment_refs": {"minItems": 1}}}
+                },
+                {
+                  "if": {"properties": {"applicability_status": {"enum": ["OUTSIDE_DECLARED_SCOPE", "UNKNOWN", "NOT_EVALUATED"]}}},
+                  "then": {"properties": {"comparison_status": {"enum": ["INDETERMINATE", "NOT_EVALUATED"]}}}
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
