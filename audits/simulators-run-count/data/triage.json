@@ -1,0 +1,4191 @@
+[
+ {
+  "folder": "(root)",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "CLAUDE.md:143: n = 1",
+   "CLAUDE.md:161: n=1",
+   "CLAUDE.md:282: N_OF_1",
+   "CLAUDE.md:282: N=1",
+   "CLAUDE.md:282: N_OF_1",
+   "CLAUDE.md:282: N_OF_1",
+   "CLAUDE.md:282: N=1",
+   "CLAUDE.md:375: one draw",
+   "CLAUDE.md:595: 11/12 seeds",
+   "CLAUDE.md:1666: n=1",
+   "CLAUDE.md:1726: n=1",
+   "CLAUDE.md:2787: one run",
+   "CLAUDE.md:2794: n=1",
+   "CLAUDE.md:2835: n = 1",
+   "CLAUDE.md:4550: n=1",
+   "CLAUDE.md:4840: n=1",
+   "CLAUDE.md:5716: n = 1",
+   "CLAUDE.md:5905: across seeds",
+   "CLAUDE.md:5944: one draw",
+   "CLAUDE.md:6521: n = 1",
+   "CLAUDE.md:6738: one run",
+   "CLAUDE.md:7298: n=1",
+   "CLAUDE.md:8085: N=1",
+   "CLAUDE.md:8560: n = 1",
+   "CLAUDE.md:8925: one run",
+   "CLAUDE.md:9966: n = 1",
+   "CLAUDE.md:10458: n=1",
+   "CLAUDE.md:11076: 30 seeds",
+   "CLAUDE.md:11104: 30 seeds",
+   "CLAUDE.md:13548: N=1",
+   "CLAUDE.md:13552: N=1",
+   "CLAUDE.md:14211: 10 seeds",
+   "CLAUDE.md:14212: one seed",
+   "CLAUDE.md:14497: n = 1",
+   "EXIT_CONTRACT.md:114: n=1",
+   "KNOWN_RED.md:1517: one seed",
+   "META-PROTOCOL.md:209: one run",
+   "META-PROTOCOL.md:256: n = 1",
+   "METHOD_SPEC.md:131: n=1",
+   "METHOD_SPEC.md:132: n=1"
+  ],
+  "illustrative_md": 4
+ },
+ {
+  "folder": ".github",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "AMOC",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "adaptive-claim-loop",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 5,
+  "stochastic_files": [
+   "adaptive-claim-loop/adaptive_loop.py",
+   "adaptive-claim-loop/delivered/adaptive_sim_framework.py"
+  ],
+  "seeded_files": [
+   "adaptive-claim-loop/adaptive_loop.py",
+   "adaptive-claim-loop/delivered/adaptive_sim_framework.py"
+  ],
+  "multi_run_files": [
+   "adaptive-claim-loop/adaptive_loop.py",
+   "adaptive-claim-loop/delivered/adaptive_sim_framework.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "additivity-inheritance",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "additivity-inheritance/CLAIM_TABLE.md"
+  ],
+  "claim_count": 6,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "agent-lifecycle-energy",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "agent-lifecycle-energy/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [
+   "agent-lifecycle-energy/CLAIM_TABLE.md:27: N=1",
+   "agent-lifecycle-energy/CLAIM_TABLE.md:27: N=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "alignment-under-coupling",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 6,
+  "stochastic_files": [
+   "alignment-under-coupling/check_run_1.py",
+   "alignment-under-coupling/sim_a_field_vs_coupling.py",
+   "alignment-under-coupling/sim_b_entropy_depletion.py",
+   "alignment-under-coupling/sim_c_loop_threshold.py",
+   "alignment-under-coupling/sim_d_temperature_null.py"
+  ],
+  "seeded_files": [
+   "alignment-under-coupling/check_run_1.py",
+   "alignment-under-coupling/sim_a_field_vs_coupling.py",
+   "alignment-under-coupling/sim_b_entropy_depletion.py",
+   "alignment-under-coupling/sim_c_loop_threshold.py",
+   "alignment-under-coupling/sim_d_temperature_null.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "alignment-under-coupling/check_run_1.py",
+   "alignment-under-coupling/sim_a_field_vs_coupling.py",
+   "alignment-under-coupling/sim_b_entropy_depletion.py",
+   "alignment-under-coupling/sim_c_loop_threshold.py",
+   "alignment-under-coupling/sim_d_temperature_null.py"
+  ],
+  "claim_files": [
+   "alignment-under-coupling/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "anchor-interval",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "anchor-interval/corpus_loop.py",
+   "anchor-interval/moving_reference.py",
+   "anchor-interval/recoverability.py"
+  ],
+  "seeded_files": [
+   "anchor-interval/corpus_loop.py",
+   "anchor-interval/moving_reference.py",
+   "anchor-interval/recoverability.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "anchor-interval/corpus_loop.py",
+   "anchor-interval/moving_reference.py",
+   "anchor-interval/recoverability.py"
+  ],
+  "claim_files": [
+   "anchor-interval/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "anchor-measurand-crossing",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "anchor-measurand-crossing/amc.py"
+  ],
+  "seeded_files": [
+   "anchor-measurand-crossing/amc.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "anchor-measurand-crossing/amc.py"
+  ],
+  "claim_files": [
+   "anchor-measurand-crossing/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "anchor-position",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 4,
+  "stochastic_files": [
+   "anchor-position/prompts.py"
+  ],
+  "seeded_files": [
+   "anchor-position/prompts.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "anchor-position/prompts.py"
+  ],
+  "claim_files": [
+   "anchor-position/CLAIM_TABLE.md"
+  ],
+  "claim_count": 26,
+  "self_flags": [],
+  "illustrative_md": 3
+ },
+ {
+  "folder": "animacy-pass",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "antifungal-mechanism-sim",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 7,
+  "stochastic_files": [
+   "antifungal-mechanism-sim/antifungal_mechanism_sim.py",
+   "antifungal-mechanism-sim/tests/test_antifungal_mechanism_sim.py"
+  ],
+  "seeded_files": [
+   "antifungal-mechanism-sim/tests/test_antifungal_mechanism_sim.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "antifungal-mechanism-sim/antifungal_mechanism_sim.py",
+   "antifungal-mechanism-sim/tests/test_antifungal_mechanism_sim.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "aperiodic-order-sim-stack",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "aperiodic-order-sim-stack/aperture_alias_demo.py",
+   "aperiodic-order-sim-stack/finite_n_control.py"
+  ],
+  "seeded_files": [
+   "aperiodic-order-sim-stack/aperture_alias_demo.py",
+   "aperiodic-order-sim-stack/finite_n_control.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "aperiodic-order-sim-stack/aperture_alias_demo.py",
+   "aperiodic-order-sim-stack/finite_n_control.py"
+  ],
+  "claim_files": [
+   "aperiodic-order-sim-stack/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [
+   "aperiodic-order-sim-stack/README.md:210: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "assessor-coupling",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "assessor-coupling/CLAIM_TABLE.md"
+  ],
+  "claim_count": 23,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "automation-gap",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "automation-gap/CLAIM_TABLE.md"
+  ],
+  "claim_count": 68,
+  "self_flags": [
+   "automation-gap/ADDENDUM_3.md:4: N=1",
+   "automation-gap/ADDENDUM_3.md:66: N=1",
+   "automation-gap/CLAIM_TABLE.md:130: n=1",
+   "automation-gap/CLAIM_TABLE.md:286: N_OF_1",
+   "automation-gap/CLAIM_TABLE.md:294: n=1",
+   "automation-gap/CLAIM_TABLE.md:394: N_OF_1",
+   "automation-gap/CLAIM_TABLE.md:394: N_OF_1",
+   "automation-gap/CLAIM_TABLE.md:398: N=1",
+   "automation-gap/CLAIM_TABLE.md:638: N=1",
+   "automation-gap/CLAIM_TABLE.md:713: N_OF_1",
+   "automation-gap/CLAIM_TABLE.md:894: N_OF_1",
+   "automation-gap/CLAIM_TABLE.md:900: N=1",
+   "automation-gap/README.md:228: N_OF_1",
+   "automation-gap/README.md:234: N=1"
+  ],
+  "illustrative_md": 4
+ },
+ {
+  "folder": "battery-offgas-prearm",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "battery-offgas-prearm/prearm.py"
+  ],
+  "seeded_files": [
+   "battery-offgas-prearm/prearm.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "battery-offgas-prearm/prearm.py"
+  ],
+  "claim_files": [
+   "battery-offgas-prearm/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "blame-attribution",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "blame-attribution/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "branch-set",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "branch-set/CLAIM_TABLE.md"
+  ],
+  "claim_count": 5,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "bridge-impoundment",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "bridge-impoundment/CLAIM_TABLE.md"
+  ],
+  "claim_count": 26,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "category-weld",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "category-weld/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "ch4-four-box",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 6,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "ch4-four-box/CLAIM_TABLE.md"
+  ],
+  "claim_count": 7,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "chain-position",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 9,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "chain-position/CLAIM_TABLE.md"
+  ],
+  "claim_count": 29,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "claim-audits",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "claim-record",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "claim-record/CLAIM_TABLE.md"
+  ],
+  "claim_count": 39,
+  "self_flags": [
+   "claim-record/CLAIM_TABLE.md:196: one run",
+   "claim-record/README.md:161: one run",
+   "claim-record/SPEC.md:301: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "claim-refusal-gap",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "claim-refusal-gap/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "climate-modeling",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 20,
+  "stochastic_files": [
+   "climate-modeling/audits/cascade_speed.py",
+   "climate-modeling/audits/data_aggregation.py",
+   "climate-modeling/audits/missing_feedback.py",
+   "climate-modeling/audits/missing_positive_feedback.py",
+   "climate-modeling/audits/omitted_variable.py",
+   "climate-modeling/audits/phase_change.py",
+   "climate-modeling/audits/stationarity.py",
+   "climate-modeling/forcing.py",
+   "climate-modeling/models/cascade_grass.py",
+   "climate-modeling/models/grass.py"
+  ],
+  "seeded_files": [
+   "climate-modeling/audits/cascade_speed.py",
+   "climate-modeling/audits/data_aggregation.py",
+   "climate-modeling/forcing.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "climate-modeling/audits/cascade_speed.py",
+   "climate-modeling/audits/data_aggregation.py",
+   "climate-modeling/audits/missing_feedback.py",
+   "climate-modeling/audits/missing_positive_feedback.py",
+   "climate-modeling/audits/omitted_variable.py",
+   "climate-modeling/audits/phase_change.py",
+   "climate-modeling/audits/stationarity.py",
+   "climate-modeling/forcing.py",
+   "climate-modeling/models/cascade_grass.py",
+   "climate-modeling/models/grass.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "closure-cost",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "closure-cost/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "clustering-axes",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "clustering-axes/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [
+   "clustering-axes/ROUTES.md:123: across seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "coinage-log",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "cold-weather-battery-guide",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "columbia-chain-cascade",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 15,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "columbia-chain-cascade/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [
+   "columbia-chain-cascade/OPEN_QUESTIONS.md:191: one run",
+   "columbia-chain-cascade/SOURCE_DROP.md:57: one run",
+   "columbia-chain-cascade/UNDERGRADUATE_RESEARCH_GAPS_V2.md:268: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "condition-scoped-authority",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "consensus-anchor",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "consensus-anchor/textfree.py"
+  ],
+  "seeded_files": [
+   "consensus-anchor/textfree.py"
+  ],
+  "multi_run_files": [
+   "consensus-anchor/textfree.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "consensus-anchor/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [
+   "consensus-anchor/OPEN_RESEARCH.md:313: N = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "constraint-assembly",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "continuity-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "conversation-type",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 1,
+  "stochastic_files": [
+   "conversation-type/design_check.py"
+  ],
+  "seeded_files": [
+   "conversation-type/design_check.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "conversation-type/design_check.py"
+  ],
+  "claim_files": [
+   "conversation-type/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "cooperative-substrate",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 16,
+  "stochastic_files": [
+   "cooperative-substrate/p3_comprehension.py",
+   "cooperative-substrate/p4_goal_coherence.py"
+  ],
+  "seeded_files": [
+   "cooperative-substrate/p3_comprehension.py",
+   "cooperative-substrate/p4_goal_coherence.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "cooperative-substrate/p3_comprehension.py",
+   "cooperative-substrate/p4_goal_coherence.py"
+  ],
+  "claim_files": [
+   "cooperative-substrate/CLAIM_TABLE.md"
+  ],
+  "claim_count": 40,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "cooperative-substrate-proof",
+  "class": "STOCHASTIC_MIXED",
+  "py": 12,
+  "stochastic_files": [
+   "cooperative-substrate-proof/p3_comprehension.py",
+   "cooperative-substrate-proof/selftest.py"
+  ],
+  "seeded_files": [
+   "cooperative-substrate-proof/p3_comprehension.py",
+   "cooperative-substrate-proof/selftest.py"
+  ],
+  "multi_run_files": [
+   "cooperative-substrate-proof/p3_comprehension.py"
+  ],
+  "stochastic_without_multi": [
+   "cooperative-substrate-proof/selftest.py"
+  ],
+  "claim_files": [
+   "cooperative-substrate-proof/CLAIM_TABLE.md"
+  ],
+  "claim_count": 38,
+  "self_flags": [
+   "cooperative-substrate-proof/README.md:253: 12 seeds"
+  ],
+  "illustrative_md": 3
+ },
+ {
+  "folder": "corn-stunt-forensics",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "corn-stunt-forensics/CLAIM_TABLE.md"
+  ],
+  "claim_count": 27,
+  "self_flags": [
+   "corn-stunt-forensics/CLAIM_TABLE.md:13: n=1",
+   "corn-stunt-forensics/CLAIM_TABLE.md:23: n=1",
+   "corn-stunt-forensics/CLAIM_TABLE.md:42: n=1",
+   "corn-stunt-forensics/COMPARISON.md:15: one run",
+   "corn-stunt-forensics/PASS_2.md:18: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "corpus-input-gaps",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "credential-channel",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "credential-channel/credential_channel.py"
+  ],
+  "seeded_files": [
+   "credential-channel/credential_channel.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "credential-channel/credential_channel.py"
+  ],
+  "claim_files": [
+   "credential-channel/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "crediting-rate",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 5,
+  "stochastic_files": [
+   "crediting-rate/archive/f168f79/crediting_rate_v2.py",
+   "crediting-rate/crediting_rate.py",
+   "crediting-rate/crediting_rate_v2.py"
+  ],
+  "seeded_files": [
+   "crediting-rate/archive/f168f79/crediting_rate_v2.py",
+   "crediting-rate/crediting_rate.py",
+   "crediting-rate/crediting_rate_v2.py"
+  ],
+  "multi_run_files": [
+   "crediting-rate/archive/f168f79/crediting_rate_v2.py",
+   "crediting-rate/crediting_rate.py",
+   "crediting-rate/crediting_rate_v2.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "crediting-rate/CLAIM_TABLE.md",
+   "crediting-rate/archive/f168f79/CLAIM_TABLE.md"
+  ],
+  "claim_count": 27,
+  "self_flags": [],
+  "illustrative_md": 5
+ },
+ {
+  "folder": "criteria-drift",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 10,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "criteria-drift/CLAIM_TABLE.md"
+  ],
+  "claim_count": 14,
+  "self_flags": [
+   "criteria-drift/CLAIM_TABLE.md:127: n=1",
+   "criteria-drift/CLAIM_TABLE.md:128: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "criterion-externality",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "criterion-externality/criterion_externality.py"
+  ],
+  "seeded_files": [
+   "criterion-externality/criterion_externality.py"
+  ],
+  "multi_run_files": [
+   "criterion-externality/criterion_externality.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "criterion-externality/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "criterion-symmetry",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "criterion-symmetry/separability.py"
+  ],
+  "seeded_files": [
+   "criterion-symmetry/separability.py"
+  ],
+  "multi_run_files": [
+   "criterion-symmetry/separability.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "criterion-symmetry/CLAIM_TABLE.md"
+  ],
+  "claim_count": 14,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "crossdomain-eval",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 20,
+  "stochastic_files": [
+   "crossdomain-eval/crossdomain_eval/domains/geometry.py",
+   "crossdomain-eval/crossdomain_eval/experiments.py",
+   "crossdomain-eval/crossdomain_eval/numerical.py",
+   "crossdomain-eval/crossdomain_eval/report.py",
+   "crossdomain-eval/examples/demo_experiment.py",
+   "crossdomain-eval/tests/test_experiments.py",
+   "crossdomain-eval/tests/test_numerical.py",
+   "crossdomain-eval/tests/test_report.py"
+  ],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "crossdomain-eval/crossdomain_eval/domains/geometry.py",
+   "crossdomain-eval/crossdomain_eval/experiments.py",
+   "crossdomain-eval/crossdomain_eval/numerical.py",
+   "crossdomain-eval/crossdomain_eval/report.py",
+   "crossdomain-eval/examples/demo_experiment.py",
+   "crossdomain-eval/tests/test_experiments.py",
+   "crossdomain-eval/tests/test_numerical.py",
+   "crossdomain-eval/tests/test_report.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "crossdomain-eval/SPEC.md:88: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "custody-verification-band",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "custody-verification-band/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [
+   "custody-verification-band/README.md:109: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "cycle-ledger",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "cycle-ledger/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "declared-frame",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "declared-frame/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [
+   "declared-frame/CLAIM_TABLE.md:190: one run",
+   "declared-frame/CLAIM_TABLE.md:243: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "deep-research-correction",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "deep-research-correction/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [
+   "deep-research-correction/Simulators_Last_5_Folders_Deep_Research.md:115: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "dependency-ledger",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "dependency-ledger/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "dependency-survey",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 9,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "dependency-survey/CLAIM_TABLE.md"
+  ],
+  "claim_count": 24,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "derivation-discarded",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "design-basis-ai",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 9,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "design-basis-ai/CLAIM_TABLE.md"
+  ],
+  "claim_count": 51,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "divergence-playground",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 6,
+  "stochastic_files": [
+   "divergence-playground/null_ensemble.py"
+  ],
+  "seeded_files": [
+   "divergence-playground/null_ensemble.py"
+  ],
+  "multi_run_files": [
+   "divergence-playground/null_ensemble.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "divergence-playground/OPEN_RESEARCH.md:427: N = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "docs",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "docs/FOLDER_NOTES.md:213: 11/12 seeds",
+   "docs/FOLDER_NOTES.md:1283: n=1",
+   "docs/FOLDER_NOTES.md:1343: n=1",
+   "docs/FOLDER_NOTES.md:2404: one run",
+   "docs/FOLDER_NOTES.md:2411: n=1",
+   "docs/FOLDER_NOTES.md:2452: n = 1",
+   "docs/FOLDER_NOTES.md:3934: n=1",
+   "docs/FOLDER_NOTES.md:4224: n=1",
+   "docs/FOLDER_NOTES.md:4912: n=1",
+   "docs/FOLDER_NOTES.md:5044: n=1"
+  ],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "domain-ledger",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "domain-ledger/AUDIT_NOTES.md:573: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "earth_economics",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 16,
+  "stochastic_files": [
+   "earth_economics/earth_economic_sim.py"
+  ],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "earth_economics/earth_economic_sim.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "effective-redundancy-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "effective-redundancy-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [
+   "effective-redundancy-audit/CLAIM_TABLE.md:150: n = 1",
+   "effective-redundancy-audit/README.md:80: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "emergence-stability-simulator",
+  "class": "STOCHASTIC_MIXED",
+  "py": 12,
+  "stochastic_files": [
+   "emergence-stability-simulator/balance_threshold.py",
+   "emergence-stability-simulator/sim_engine.py"
+  ],
+  "seeded_files": [
+   "emergence-stability-simulator/balance_threshold.py",
+   "emergence-stability-simulator/sim_engine.py"
+  ],
+  "multi_run_files": [
+   "emergence-stability-simulator/sim_engine.py"
+  ],
+  "stochastic_without_multi": [
+   "emergence-stability-simulator/balance_threshold.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "emergence-stability-simulator/OPEN_RESEARCH.md:190: across seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "enclosure-first-residual",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "enclosure-first-residual/enclosure_first_residual.py"
+  ],
+  "seeded_files": [
+   "enclosure-first-residual/enclosure_first_residual.py"
+  ],
+  "multi_run_files": [
+   "enclosure-first-residual/enclosure_first_residual.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "enclosure-first-residual/CLAIM_TABLE.md"
+  ],
+  "claim_count": 12,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "encoding-selection",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "encoding-selection/encoding_selection.py"
+  ],
+  "seeded_files": [
+   "encoding-selection/encoding_selection.py"
+  ],
+  "multi_run_files": [
+   "encoding-selection/encoding_selection.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "encoding-selection/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [
+   "encoding-selection/CLAIM_TABLE.md:124: n=1",
+   "encoding-selection/WORK_ORDER.md:6: n=1",
+   "encoding-selection/WORK_ORDER.md:115: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "energy",
+  "class": "STOCHASTIC_MIXED",
+  "py": 16,
+  "stochastic_files": [
+   "energy/exploration_layers/certificate_validity_lens.py",
+   "energy/exploration_layers/local_scalar_drift_lens.py",
+   "energy/exploration_layers/reaction_diffusion_lens.py",
+   "energy/exploration_layers/rg_flow_lens.py",
+   "energy/modules/edelens.py",
+   "energy/modules/falsification_engine.py",
+   "energy/modules/generative_module.py",
+   "energy/modules/late_trigger_lens.py",
+   "energy/modules/metrology_diagnostic.py",
+   "energy/modules/overlap_lens.py",
+   "energy/modules/payload_bridge.py",
+   "energy/modules/run_iteration6.py",
+   "energy/modules/singularity_cartographer.py",
+   "energy/modules/theory_space_lenses.py",
+   "energy/modules/unified_cq_ede.py"
+  ],
+  "seeded_files": [
+   "energy/modules/generative_module.py",
+   "energy/modules/metrology_diagnostic.py"
+  ],
+  "multi_run_files": [
+   "energy/exploration_layers/rg_flow_lens.py",
+   "energy/modules/unified_cq_ede.py"
+  ],
+  "stochastic_without_multi": [
+   "energy/exploration_layers/certificate_validity_lens.py",
+   "energy/exploration_layers/local_scalar_drift_lens.py",
+   "energy/exploration_layers/reaction_diffusion_lens.py",
+   "energy/modules/edelens.py",
+   "energy/modules/falsification_engine.py",
+   "energy/modules/generative_module.py",
+   "energy/modules/late_trigger_lens.py",
+   "energy/modules/metrology_diagnostic.py",
+   "energy/modules/overlap_lens.py",
+   "energy/modules/payload_bridge.py",
+   "energy/modules/run_iteration6.py",
+   "energy/modules/singularity_cartographer.py",
+   "energy/modules/theory_space_lenses.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "engine-boiler-guide",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "envelope-asymmetry",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "envelope-asymmetry/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "equivalence-field",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "evaluation-frame",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "evaluation-frame/CLAIM_TABLE.md"
+  ],
+  "claim_count": 20,
+  "self_flags": [
+   "evaluation-frame/CLAIM_TABLE.md:378: n = 1",
+   "evaluation-frame/README.md:37: n = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "evidence-demotion-detector",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "experience-ledger",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "experience-ledger/CLAIM_TABLE.md"
+  ],
+  "claim_count": 17,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "exploration-engine",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 1,
+  "stochastic_files": [
+   "exploration-engine/exploration_engine.py"
+  ],
+  "seeded_files": [
+   "exploration-engine/exploration_engine.py"
+  ],
+  "multi_run_files": [
+   "exploration-engine/exploration_engine.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "exploration-playground",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 1,
+  "stochastic_files": [
+   "exploration-playground/exploration_playground.py"
+  ],
+  "seeded_files": [
+   "exploration-playground/exploration_playground.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "exploration-playground/exploration_playground.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "external-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "external-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 36,
+  "self_flags": [
+   "external-audit/DEEP_RESEARCH_2026_09_14.md:316: one run",
+   "external-audit/DEEP_RESEARCH_2026_09_14.md:548: one run",
+   "external-audit/DEEP_RESEARCH_2026_09_14_V2.md:335: one run",
+   "external-audit/DEEP_RESEARCH_2026_09_14_V2.md:567: one run",
+   "external-audit/README.md:207: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "extraction-blindness-sim",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 9,
+  "stochastic_files": [
+   "extraction-blindness-sim/blindness.py",
+   "extraction-blindness-sim/profiles.py",
+   "extraction-blindness-sim/run_experiments.py"
+  ],
+  "seeded_files": [
+   "extraction-blindness-sim/blindness.py",
+   "extraction-blindness-sim/profiles.py",
+   "extraction-blindness-sim/run_experiments.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "extraction-blindness-sim/blindness.py",
+   "extraction-blindness-sim/profiles.py",
+   "extraction-blindness-sim/run_experiments.py"
+  ],
+  "claim_files": [
+   "extraction-blindness-sim/CLAIM_TABLE.md"
+  ],
+  "claim_count": 5,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "extraction-chain-join",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "extraction-chain-join/chain_join.py"
+  ],
+  "seeded_files": [
+   "extraction-chain-join/chain_join.py"
+  ],
+  "multi_run_files": [
+   "extraction-chain-join/chain_join.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "extraction-chain-join/CLAIM_TABLE.md"
+  ],
+  "claim_count": 20,
+  "self_flags": [
+   "extraction-chain-join/CLAIM_TABLE.md:15: one seed"
+  ],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "failure-mode-register",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 12,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "failure-mode-register/CLAIM_TABLE.md"
+  ],
+  "claim_count": 80,
+  "self_flags": [
+   "failure-mode-register/README.md:23: 5 seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "false-tradeoff",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "false-tradeoff/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "falsifier-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "falsifier-survey",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "falsifier-survey/falsifier_survey_report.md:213: N=1",
+   "falsifier-survey/falsifier_survey_report.md:214: N=1",
+   "falsifier-survey/falsifier_survey_report.md:216: N=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "field-fabrication-guide",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "field-mode-eval",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "floor-capability",
+  "class": "STOCHASTIC_MIXED",
+  "py": 2,
+  "stochastic_files": [
+   "floor-capability/floor_capability.py",
+   "floor-capability/test_floor.py"
+  ],
+  "seeded_files": [
+   "floor-capability/floor_capability.py",
+   "floor-capability/test_floor.py"
+  ],
+  "multi_run_files": [
+   "floor-capability/floor_capability.py"
+  ],
+  "stochastic_without_multi": [
+   "floor-capability/test_floor.py"
+  ],
+  "claim_files": [
+   "floor-capability/CLAIM_TABLE.md"
+  ],
+  "claim_count": 17,
+  "self_flags": [
+   "floor-capability/CLAIM_TABLE.md:18: 10 seeds"
+  ],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "floor-resilience",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 23,
+  "stochastic_files": [
+   "floor-resilience/examples/make_example.py",
+   "floor-resilience/floor_resilience/drain_sim.py",
+   "floor-resilience/floor_resilience/indicators.py",
+   "floor-resilience/tests/test_drain_sim.py"
+  ],
+  "seeded_files": [
+   "floor-resilience/examples/make_example.py",
+   "floor-resilience/floor_resilience/drain_sim.py",
+   "floor-resilience/tests/test_drain_sim.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "floor-resilience/examples/make_example.py",
+   "floor-resilience/floor_resilience/drain_sim.py",
+   "floor-resilience/floor_resilience/indicators.py",
+   "floor-resilience/tests/test_drain_sim.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "floor-resilience/README.md:91: one draw"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "fold-matrix",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "fold-matrix/CLAIM_TABLE.md"
+  ],
+  "claim_count": 66,
+  "self_flags": [
+   "fold-matrix/CLAIM_TABLE.md:517: n = 1",
+   "fold-matrix/CLAIM_TABLE.md:541: n=1",
+   "fold-matrix/CLAIM_TABLE.md:663: n = 1",
+   "fold-matrix/PREDICTIONS_SBA.md:79: n = 1",
+   "fold-matrix/PREDICTIONS_SBA.md:115: n=1",
+   "fold-matrix/PREDICTIONS_SBA.md:159: n = 1",
+   "fold-matrix/README.md:133: n = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "fourd-municipal-engine",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 22,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "fourd-municipal-engine-v2",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 38,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "fragility-cascade",
+  "class": "STOCHASTIC_MIXED",
+  "py": 85,
+  "stochastic_files": [
+   "fragility-cascade/anthropomorphic_entrainment.py",
+   "fragility-cascade/attractor_depth_test.py",
+   "fragility-cascade/cascade_network.py",
+   "fragility-cascade/cascade_redesign_vulnerability.py",
+   "fragility-cascade/collapse_predictor.py",
+   "fragility-cascade/coupling_gap_test.py",
+   "fragility-cascade/explorer.py",
+   "fragility-cascade/legacy/collapse_predictor_v1.py",
+   "fragility-cascade/nautilus_architecture.py",
+   "fragility-cascade/phase_space_map.py",
+   "fragility-cascade/phi_collapse_variables.py",
+   "fragility-cascade/product_multiplicity.py",
+   "fragility-cascade/reciprocity_phi_metrics.py",
+   "fragility-cascade/redemption_entropy.py",
+   "fragility-cascade/scale_regime_shift.py",
+   "fragility-cascade/semantic_drift_test.py",
+   "fragility-cascade/semantic_interference_vectors.py",
+   "fragility-cascade/sensitivity_analysis.py",
+   "fragility-cascade/survival_spirals.py",
+   "fragility-cascade/test_refutations.py"
+  ],
+  "seeded_files": [
+   "fragility-cascade/anthropomorphic_entrainment.py",
+   "fragility-cascade/attractor_depth_test.py",
+   "fragility-cascade/cascade_redesign_vulnerability.py",
+   "fragility-cascade/collapse_predictor.py",
+   "fragility-cascade/coupling_gap_test.py",
+   "fragility-cascade/legacy/collapse_predictor_v1.py",
+   "fragility-cascade/nautilus_architecture.py",
+   "fragility-cascade/phi_collapse_variables.py",
+   "fragility-cascade/product_multiplicity.py",
+   "fragility-cascade/reciprocity_phi_metrics.py",
+   "fragility-cascade/redemption_entropy.py",
+   "fragility-cascade/semantic_drift_test.py",
+   "fragility-cascade/semantic_interference_vectors.py"
+  ],
+  "multi_run_files": [
+   "fragility-cascade/test_refutations.py"
+  ],
+  "stochastic_without_multi": [
+   "fragility-cascade/anthropomorphic_entrainment.py",
+   "fragility-cascade/attractor_depth_test.py",
+   "fragility-cascade/cascade_network.py",
+   "fragility-cascade/cascade_redesign_vulnerability.py",
+   "fragility-cascade/collapse_predictor.py",
+   "fragility-cascade/coupling_gap_test.py",
+   "fragility-cascade/explorer.py",
+   "fragility-cascade/legacy/collapse_predictor_v1.py",
+   "fragility-cascade/nautilus_architecture.py",
+   "fragility-cascade/phase_space_map.py",
+   "fragility-cascade/phi_collapse_variables.py",
+   "fragility-cascade/product_multiplicity.py",
+   "fragility-cascade/reciprocity_phi_metrics.py",
+   "fragility-cascade/redemption_entropy.py",
+   "fragility-cascade/scale_regime_shift.py",
+   "fragility-cascade/semantic_drift_test.py",
+   "fragility-cascade/semantic_interference_vectors.py",
+   "fragility-cascade/sensitivity_analysis.py",
+   "fragility-cascade/survival_spirals.py"
+  ],
+  "claim_files": [
+   "fragility-cascade/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [
+   "fragility-cascade/CLAIM_TABLE.md:756: n=1",
+   "fragility-cascade/EXPERIMENT_register.md:51: n=1",
+   "fragility-cascade/EXPERIMENT_register.md:164: n=1",
+   "fragility-cascade/PROVENANCE_drift_mesh.md:100: n=1",
+   "fragility-cascade/SPEC_drift_mesh.md:190: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "frame-instruments",
+  "class": "STOCHASTIC_MIXED",
+  "py": 29,
+  "stochastic_files": [
+   "frame-instruments/audit.py",
+   "frame-instruments/b1/permute.py",
+   "frame-instruments/b2/order.py",
+   "frame-instruments/b4/nullshuffle.py"
+  ],
+  "seeded_files": [
+   "frame-instruments/audit.py",
+   "frame-instruments/b1/permute.py",
+   "frame-instruments/b2/order.py",
+   "frame-instruments/b4/nullshuffle.py"
+  ],
+  "multi_run_files": [
+   "frame-instruments/audit.py",
+   "frame-instruments/b2/order.py",
+   "frame-instruments/b4/nullshuffle.py"
+  ],
+  "stochastic_without_multi": [
+   "frame-instruments/b1/permute.py"
+  ],
+  "claim_files": [
+   "frame-instruments/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [
+   "frame-instruments/BUILD_NOTES.md:20: one run",
+   "frame-instruments/CLAIM_TABLE.md:15: 30 seeds",
+   "frame-instruments/CLAIM_TABLE.md:15: one seed",
+   "frame-instruments/CLAIM_TABLE.md:15: across seeds",
+   "frame-instruments/b1/samples/report.sample.md:262: one seed",
+   "frame-instruments/workorders/runner_up_trace.md:57: ONE run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "frame-location-benchmark",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "frame-location-benchmark/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "frame-token-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "frame-token-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "fuel-independence-guide",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "gap-existence-cases",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "gap-existence-cases/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "gap-instruments",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "gap-markers",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "gap-markers/CLAIM_TABLE.md"
+  ],
+  "claim_count": 37,
+  "self_flags": [
+   "gap-markers/CLAIM_TABLE.md:38: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "gap-register",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "gap-register/CLAIM_TABLE.md"
+  ],
+  "claim_count": 21,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "gate-check",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "gdprf-framework",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 8,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "generation-capacity",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "generation-capacity/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "grounded-work-stack",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "grounded-work-stack/CLAIM_TABLE.md"
+  ],
+  "claim_count": 12,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "grounding-layers",
+  "class": "STOCHASTIC_MIXED",
+  "py": 67,
+  "stochastic_files": [
+   "grounding-layers/ai_observer_state.py",
+   "grounding-layers/collaborative_field.py",
+   "grounding-layers/cultural_rosetta.py",
+   "grounding-layers/data_filter.py",
+   "grounding-layers/degradation_monitor.py",
+   "grounding-layers/field_compass.py",
+   "grounding-layers/grounded_reasoning_benchmark.py",
+   "grounding-layers/grounding_reward_model.py",
+   "grounding-layers/integrated_stack.py",
+   "grounding-layers/l0_physics_causality.py",
+   "grounding-layers/l1_thermodynamics.py",
+   "grounding-layers/l1_thermodynamics_entropy.py",
+   "grounding-layers/l2_planetary.py",
+   "grounding-layers/l2_planetary_mass_balance.py",
+   "grounding-layers/l3_ecological_homeostasis.py",
+   "grounding-layers/l4_biomechanical_sensorimotor.py",
+   "grounding-layers/l5_core.py",
+   "grounding-layers/l5_human_construct.py",
+   "grounding-layers/l_epsilon_epistemic.py",
+   "grounding-layers/l_epsilon_epistemic_v2.py",
+   "grounding-layers/noise_purification_demo.py",
+   "grounding-layers/observer_state.py",
+   "grounding-layers/playground.py",
+   "grounding-layers/run_grounding_pipeline.py",
+   "grounding-layers/temporal_dysrhythmia.py",
+   "grounding-layers/tensor_field_resilience_v1.py",
+   "grounding-layers/tensor_field_resilience_v2.py",
+   "grounding-layers/test_harness.py",
+   "grounding-layers/tests/audit_l0.py",
+   "grounding-layers/tests/test_epsilon_with_bias.py",
+   "grounding-layers/tests/test_l0_physics_causality.py",
+   "grounding-layers/tests/test_l0_probabilistic.py",
+   "grounding-layers/tests/test_l1_probabilistic.py",
+   "grounding-layers/tests/test_l1_thermodynamics.py",
+   "grounding-layers/tests/test_l2_probabilistic.py",
+   "grounding-layers/tests/test_l5_probabilistic.py",
+   "grounding-layers/tests/test_l_epsilon_epistemic.py",
+   "grounding-layers/tests/test_l_epsilon_epistemic_v2.py",
+   "grounding-layers/tests/test_le_integration.py"
+  ],
+  "seeded_files": [
+   "grounding-layers/l0_physics_causality.py",
+   "grounding-layers/l_epsilon_epistemic_v2.py",
+   "grounding-layers/tests/audit_l0.py",
+   "grounding-layers/tests/test_l0_physics_causality.py",
+   "grounding-layers/tests/test_l0_probabilistic.py"
+  ],
+  "multi_run_files": [
+   "grounding-layers/grounded_reasoning_benchmark.py",
+   "grounding-layers/l5_core.py",
+   "grounding-layers/noise_purification_demo.py"
+  ],
+  "stochastic_without_multi": [
+   "grounding-layers/ai_observer_state.py",
+   "grounding-layers/collaborative_field.py",
+   "grounding-layers/cultural_rosetta.py",
+   "grounding-layers/data_filter.py",
+   "grounding-layers/degradation_monitor.py",
+   "grounding-layers/field_compass.py",
+   "grounding-layers/grounding_reward_model.py",
+   "grounding-layers/integrated_stack.py",
+   "grounding-layers/l0_physics_causality.py",
+   "grounding-layers/l1_thermodynamics.py",
+   "grounding-layers/l1_thermodynamics_entropy.py",
+   "grounding-layers/l2_planetary.py",
+   "grounding-layers/l2_planetary_mass_balance.py",
+   "grounding-layers/l3_ecological_homeostasis.py",
+   "grounding-layers/l4_biomechanical_sensorimotor.py",
+   "grounding-layers/l5_human_construct.py",
+   "grounding-layers/l_epsilon_epistemic.py",
+   "grounding-layers/l_epsilon_epistemic_v2.py",
+   "grounding-layers/observer_state.py",
+   "grounding-layers/playground.py",
+   "grounding-layers/run_grounding_pipeline.py",
+   "grounding-layers/temporal_dysrhythmia.py",
+   "grounding-layers/tensor_field_resilience_v1.py",
+   "grounding-layers/tensor_field_resilience_v2.py",
+   "grounding-layers/test_harness.py",
+   "grounding-layers/tests/audit_l0.py",
+   "grounding-layers/tests/test_epsilon_with_bias.py",
+   "grounding-layers/tests/test_l0_physics_causality.py",
+   "grounding-layers/tests/test_l0_probabilistic.py",
+   "grounding-layers/tests/test_l1_probabilistic.py",
+   "grounding-layers/tests/test_l1_thermodynamics.py",
+   "grounding-layers/tests/test_l2_probabilistic.py",
+   "grounding-layers/tests/test_l5_probabilistic.py",
+   "grounding-layers/tests/test_l_epsilon_epistemic.py",
+   "grounding-layers/tests/test_l_epsilon_epistemic_v2.py",
+   "grounding-layers/tests/test_le_integration.py"
+  ],
+  "claim_files": [
+   "grounding-layers/CLAIMS.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [
+   "grounding-layers/experimental/README.md:36: N=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "habitat-lag-dependency",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "habitat-lag-dependency/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "handoff-provenance",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "held-gaps",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "held-open-uncertainty",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "held-open-uncertainty/AUDIT_NOTES.md:42: n=1",
+   "held-open-uncertainty/AUDIT_NOTES.md:194: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "hf-incident-extract",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "hf-incident-extract/CLAIM_TABLE.md"
+  ],
+  "claim_count": 7,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "household-scope-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "household-scope-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 14,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "human-sensing-prior",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "human-sensing-prior/PATHWAY_B.md:66: n = 1",
+   "human-sensing-prior/PATHWAY_B.md:346: n = 1",
+   "human-sensing-prior/human-sensing-prior.md:45: n = 1",
+   "human-sensing-prior/registered/human-sensing-prior.7f780aa.md:45: n = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "incentive-blindspot-sim",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "incentive-blindspot-sim/sim/CLAIMS.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "instrument-bias-sims",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 18,
+  "stochastic_files": [
+   "instrument-bias-sims/s1_encounter_denominator.py",
+   "instrument-bias-sims/s2_symmetric_anchor.py",
+   "instrument-bias-sims/s4_antler_calibration.py",
+   "instrument-bias-sims/s5_adversarial_prior.py",
+   "instrument-bias-sims/s6_foreclosure_rate.py",
+   "instrument-bias-sims/s9_corpus_position_filter.py"
+  ],
+  "seeded_files": [
+   "instrument-bias-sims/s1_encounter_denominator.py",
+   "instrument-bias-sims/s2_symmetric_anchor.py",
+   "instrument-bias-sims/s4_antler_calibration.py",
+   "instrument-bias-sims/s5_adversarial_prior.py",
+   "instrument-bias-sims/s6_foreclosure_rate.py",
+   "instrument-bias-sims/s9_corpus_position_filter.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "instrument-bias-sims/s1_encounter_denominator.py",
+   "instrument-bias-sims/s2_symmetric_anchor.py",
+   "instrument-bias-sims/s4_antler_calibration.py",
+   "instrument-bias-sims/s5_adversarial_prior.py",
+   "instrument-bias-sims/s6_foreclosure_rate.py",
+   "instrument-bias-sims/s9_corpus_position_filter.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "instrument-epistemology",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 15,
+  "stochastic_files": [
+   "instrument-epistemology/src/instrum/simulation.py"
+  ],
+  "seeded_files": [
+   "instrument-epistemology/src/instrum/simulation.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "instrument-epistemology/src/instrum/simulation.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "instrument-index",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 10,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "instrument-index/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [
+   "instrument-index/README.md:25: one run"
+  ],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "internal-reference-boundary",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "internal-reference-boundary/CLAIM_TABLE.md"
+  ],
+  "claim_count": 25,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "inverseminar",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "investigation-sim",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "investigation-sim/CLAIM_TABLE.md"
+  ],
+  "claim_count": 25,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "kernel_stake",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 8,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "label-position-test",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "label-position-test/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "labor-instrument",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "labor-instrument/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "law-as-unvalidated-measurement",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "law-measurement-correction",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "ledger",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 6,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "ledger/DRIFT.md:3: one run"
+  ],
+  "illustrative_md": 3
+ },
+ {
+  "folder": "loop-weight",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "loop-weight/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "machine-record-format",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 10,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "machine-record-format/CLAIM_TABLE.md"
+  ],
+  "claim_count": 14,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "measurand-partition",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 8,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "measurand-partition/CLAIM_TABLE.md"
+  ],
+  "claim_count": 18,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "measurement-fork",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 13,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "measurement-fork/CLAIM_TABLE.md"
+  ],
+  "claim_count": 20,
+  "self_flags": [
+   "measurement-fork/AUDIT_NOTES.md:346: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "membership-probe",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "membership-probe/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "memory-archive",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "merge-path",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "merge-path/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "mining-increment",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "mining-increment/CLAIM_TABLE.md"
+  ],
+  "claim_count": 22,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "model-deprecation-backcast",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "model-deprecation-backcast/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "model-ecology",
+  "class": "STOCHASTIC_MIXED",
+  "py": 7,
+  "stochastic_files": [
+   "model-ecology/confound_sweep.py",
+   "model-ecology/demo.py",
+   "model-ecology/meta_engine.py",
+   "model-ecology/phylogeny.py"
+  ],
+  "seeded_files": [
+   "model-ecology/confound_sweep.py",
+   "model-ecology/demo.py",
+   "model-ecology/meta_engine.py"
+  ],
+  "multi_run_files": [
+   "model-ecology/confound_sweep.py",
+   "model-ecology/demo.py",
+   "model-ecology/phylogeny.py"
+  ],
+  "stochastic_without_multi": [
+   "model-ecology/meta_engine.py"
+  ],
+  "claim_files": [
+   "model-ecology/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [
+   "model-ecology/CLAIM_TABLE.md:16: 12 seeds",
+   "model-ecology/CLAIM_TABLE.md:18: 12 seeds",
+   "model-ecology/CLAIM_TABLE.md:38: 7/12 seeds",
+   "model-ecology/CLAIM_TABLE.md:40: across seeds",
+   "model-ecology/CLAIM_TABLE.md:53: across seeds",
+   "model-ecology/CLAIM_TABLE.md:55: 11/12 seeds",
+   "model-ecology/CLAIM_TABLE.md:62: in 11 of 12 seeds",
+   "model-ecology/CLAIM_TABLE.md:92: 1/8 seeds",
+   "model-ecology/CLAIM_TABLE.md:127: 12 seeds",
+   "model-ecology/README.md:43: 12 seeds",
+   "model-ecology/README.md:50: one seed",
+   "model-ecology/README.md:54: across seeds",
+   "model-ecology/README.md:79: 12 seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "model-provenance",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "model-provenance/CLAIM_TABLE.md"
+  ],
+  "claim_count": 26,
+  "self_flags": [
+   "model-provenance/CLAIM_TABLE.md:114: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "moral-decomposer",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "moral-decomposer/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "move-set",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 4,
+  "stochastic_files": [
+   "move-set/move_set_sim.py",
+   "move-set/move_set_sim_v2.py"
+  ],
+  "seeded_files": [
+   "move-set/move_set_sim.py",
+   "move-set/move_set_sim_v2.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "move-set/move_set_sim.py",
+   "move-set/move_set_sim_v2.py"
+  ],
+  "claim_files": [
+   "move-set/CLAIM_TABLE.md"
+  ],
+  "claim_count": 24,
+  "self_flags": [
+   "move-set/CLAIM_TABLE.md:91: one run",
+   "move-set/CLAIM_TABLE.md:97: One run",
+   "move-set/README.md:65: one run"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "move-set-derivation",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "move-set-derivation/arm1.py"
+  ],
+  "seeded_files": [
+   "move-set-derivation/arm1.py"
+  ],
+  "multi_run_files": [
+   "move-set-derivation/arm1.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "move-set-derivation/CLAIM_TABLE.md"
+  ],
+  "claim_count": 12,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "moving-mean-tracker",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "moving-mean-tracker/provider.py"
+  ],
+  "seeded_files": [
+   "moving-mean-tracker/provider.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "moving-mean-tracker/provider.py"
+  ],
+  "claim_files": [
+   "moving-mean-tracker/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "msiaf-framework",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "msiaf-gdprf-bridge",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "neural-augmentation-audit",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "nonidentity-census",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "notes",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 8,
+  "stochastic_files": [
+   "notes/check_datasets.py"
+  ],
+  "seeded_files": [
+   "notes/check_datasets.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "notes/check_datasets.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "notes/markers/POSTGRAD_2026_09_09.md:7: n=1",
+   "notes/memory-export/files/info-taxonomy.md:132: n=1",
+   "notes/memory-export/files/uninstrumented.md:200: n=1"
+  ],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "null-harness",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "null-harness/archetype_library.py",
+   "null-harness/null_harness.py"
+  ],
+  "seeded_files": [
+   "null-harness/archetype_library.py",
+   "null-harness/null_harness.py"
+  ],
+  "multi_run_files": [
+   "null-harness/archetype_library.py",
+   "null-harness/null_harness.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "observable-indicator-rules",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "observable-indicator-rules/CLAIM_TABLE.md"
+  ],
+  "claim_count": 9,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "observer-exclusion",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "observer-exclusion/archival_bias.py",
+   "observer-exclusion/v2_check.py"
+  ],
+  "seeded_files": [
+   "observer-exclusion/archival_bias.py",
+   "observer-exclusion/v2_check.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "observer-exclusion/archival_bias.py",
+   "observer-exclusion/v2_check.py"
+  ],
+  "claim_files": [
+   "observer-exclusion/CLAIM_TABLE.md"
+  ],
+  "claim_count": 24,
+  "self_flags": [
+   "observer-exclusion/AUDIT_NOTES.md:116: n=1",
+   "observer-exclusion/CLAIM_TABLE.md:205: n=1",
+   "observer-exclusion/MARKER.md:215: n=1",
+   "observer-exclusion/SPEC_V2.md:258: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "observer-position-control",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "observer-position-control/CLAIM_TABLE.md"
+  ],
+  "claim_count": 6,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "ontology-probe",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "ontology-probe/CLAIM_TABLE.md"
+  ],
+  "claim_count": 22,
+  "self_flags": [
+   "ontology-probe/CLAIM_TABLE.md:142: n = 1"
+  ],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "open-instrumentation-project",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "operator-machine-coupling",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "operator-machine-coupling/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "operator-structure-echo",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "photoperiod-claim-harness",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "photoperiod-claim-harness/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "play-sims",
+  "class": "STOCHASTIC_MIXED",
+  "py": 19,
+  "stochastic_files": [
+   "play-sims/atmospheric-heating/dust_debris_basic.py",
+   "play-sims/atmospheric-heating/flare_radio_climate_ultimate.py",
+   "play-sims/atmospheric-heating/interactive_dashboard.py",
+   "play-sims/atmospheric-heating/localized_cascade.py",
+   "play-sims/atmospheric-heating/meteor_heating_bins.py",
+   "play-sims/atmospheric-heating/oblique_em_discharges.py",
+   "play-sims/exoplanet-forensics/data_archaeology.py",
+   "play-sims/exoplanet-forensics/multi_framework_forensics.py",
+   "play-sims/exoplanet-forensics/population_synthesis.py",
+   "play-sims/photon-upconversion/tta_puc_solar_boost.py",
+   "play-sims/plasma-waves/pic_plasma_dust_2d.py",
+   "play-sims/plasma-waves/wave_1d_fdtd_through_dust.py",
+   "play-sims/plasma-waves/wave_2d_fdtd_through_dust.py",
+   "play-sims/plasma-waves/wave_field_dust_heating.py",
+   "play-sims/sponge-reef/reef_basic.py",
+   "play-sims/sponge-reef/reef_light_temp_herbivory.py",
+   "play-sims/sponge-reef/reef_seasons_pulses_larvae.py"
+  ],
+  "seeded_files": [
+   "play-sims/exoplanet-forensics/data_archaeology.py",
+   "play-sims/exoplanet-forensics/multi_framework_forensics.py",
+   "play-sims/exoplanet-forensics/population_synthesis.py"
+  ],
+  "multi_run_files": [
+   "play-sims/atmospheric-heating/interactive_dashboard.py",
+   "play-sims/exoplanet-forensics/data_archaeology.py"
+  ],
+  "stochastic_without_multi": [
+   "play-sims/atmospheric-heating/dust_debris_basic.py",
+   "play-sims/atmospheric-heating/flare_radio_climate_ultimate.py",
+   "play-sims/atmospheric-heating/localized_cascade.py",
+   "play-sims/atmospheric-heating/meteor_heating_bins.py",
+   "play-sims/atmospheric-heating/oblique_em_discharges.py",
+   "play-sims/exoplanet-forensics/multi_framework_forensics.py",
+   "play-sims/exoplanet-forensics/population_synthesis.py",
+   "play-sims/photon-upconversion/tta_puc_solar_boost.py",
+   "play-sims/plasma-waves/pic_plasma_dust_2d.py",
+   "play-sims/plasma-waves/wave_1d_fdtd_through_dust.py",
+   "play-sims/plasma-waves/wave_2d_fdtd_through_dust.py",
+   "play-sims/plasma-waves/wave_field_dust_heating.py",
+   "play-sims/sponge-reef/reef_basic.py",
+   "play-sims/sponge-reef/reef_light_temp_herbivory.py",
+   "play-sims/sponge-reef/reef_seasons_pulses_larvae.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "potential",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 18,
+  "stochastic_files": [
+   "potential/perturbation.py"
+  ],
+  "seeded_files": [
+   "potential/perturbation.py"
+  ],
+  "multi_run_files": [
+   "potential/perturbation.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "potential/CLAIM_TABLE.md"
+  ],
+  "claim_count": 25,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "predicate-difference",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "presented-binary",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "presented-binary/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "proxy-investigation-lab",
+  "class": "STOCHASTIC_MIXED",
+  "py": 16,
+  "stochastic_files": [
+   "proxy-investigation-lab/experiments/burnout_latency/run.py",
+   "proxy-investigation-lab/experiments/port_dwell_time/run.py",
+   "proxy-investigation-lab/experiments/wim_pavement/run.py",
+   "proxy-investigation-lab/src/proxy_lab/calibration.py",
+   "proxy-investigation-lab/src/proxy_lab/goodhart.py",
+   "proxy-investigation-lab/src/proxy_lab/synthetic.py",
+   "proxy-investigation-lab/tests/test_proxy_lab.py"
+  ],
+  "seeded_files": [
+   "proxy-investigation-lab/experiments/burnout_latency/run.py",
+   "proxy-investigation-lab/experiments/port_dwell_time/run.py",
+   "proxy-investigation-lab/experiments/wim_pavement/run.py",
+   "proxy-investigation-lab/src/proxy_lab/goodhart.py",
+   "proxy-investigation-lab/src/proxy_lab/synthetic.py",
+   "proxy-investigation-lab/tests/test_proxy_lab.py"
+  ],
+  "multi_run_files": [
+   "proxy-investigation-lab/experiments/port_dwell_time/run.py"
+  ],
+  "stochastic_without_multi": [
+   "proxy-investigation-lab/experiments/burnout_latency/run.py",
+   "proxy-investigation-lab/experiments/wim_pavement/run.py",
+   "proxy-investigation-lab/src/proxy_lab/calibration.py",
+   "proxy-investigation-lab/src/proxy_lab/goodhart.py",
+   "proxy-investigation-lab/src/proxy_lab/synthetic.py",
+   "proxy-investigation-lab/tests/test_proxy_lab.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "publication-loop-work-orders",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "qrng-pair-search",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "qrng-pair-search/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "question-availability",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "question-availability/CLAIM_TABLE.md"
+  ],
+  "claim_count": 12,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "quiet-aggregation",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "quiet-failure",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 6,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "quiet-failure/CLAIM_TABLE.md"
+  ],
+  "claim_count": 17,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "railcar-containment",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 6,
+  "stochastic_files": [
+   "railcar-containment/detection_loop.py"
+  ],
+  "seeded_files": [
+   "railcar-containment/detection_loop.py"
+  ],
+  "multi_run_files": [
+   "railcar-containment/detection_loop.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "railcar-containment/CLAIMS.md",
+   "railcar-containment/CLAIM_TABLE.md"
+  ],
+  "claim_count": 19,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "readout-count",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "readout-count/CLAIM_TABLE.md"
+  ],
+  "claim_count": 36,
+  "self_flags": [
+   "readout-count/CLAIM_TABLE.md:41: N=1",
+   "readout-count/TRUCKING_ROW_v0_1.md:111: n=1",
+   "readout-count/WORK_ORDER.md:39: N=1",
+   "readout-count/WORK_ORDER.md:79: N=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "reasoning-dial",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "reasoning-dial/CLAIM_TABLE.md"
+  ],
+  "claim_count": 17,
+  "self_flags": [
+   "reasoning-dial/README.md:295: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "reasoning-gate",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "reasoning-gate/AUDIT_NOTES.md:229: n=1",
+   "reasoning-gate/AUDIT_NOTES.md:381: n=1",
+   "reasoning-gate/README.md:79: n=1",
+   "reasoning-gate/SIM_STACK_BACKTRACE.md:82: one run",
+   "reasoning-gate/SIM_STACK_BACKTRACE.md:216: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "recommender-confound",
+  "class": "STOCHASTIC_MIXED",
+  "py": 7,
+  "stochastic_files": [
+   "recommender-confound/abstention_channel.py",
+   "recommender-confound/multiseed.py",
+   "recommender-confound/synthetic_catalog.py"
+  ],
+  "seeded_files": [
+   "recommender-confound/abstention_channel.py",
+   "recommender-confound/multiseed.py",
+   "recommender-confound/synthetic_catalog.py"
+  ],
+  "multi_run_files": [
+   "recommender-confound/multiseed.py"
+  ],
+  "stochastic_without_multi": [
+   "recommender-confound/abstention_channel.py",
+   "recommender-confound/synthetic_catalog.py"
+  ],
+  "claim_files": [
+   "recommender-confound/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [
+   "recommender-confound/CLAIM_TABLE.md:16: 30 seeds",
+   "recommender-confound/CLAIM_TABLE.md:16: 30 seeds",
+   "recommender-confound/CLAIM_TABLE.md:17: single seed",
+   "recommender-confound/README.md:69: 30 seeds",
+   "recommender-confound/README.md:70: per seed",
+   "recommender-confound/README.md:89: one seed",
+   "recommender-confound/WORK_ORDER_02.md:23: per seed"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "reg-uncertainty-registry",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 15,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "reg-uncertainty-registry/CLAIM_TABLE.md"
+  ],
+  "claim_count": 19,
+  "self_flags": [
+   "reg-uncertainty-registry/bundle/source/current/direction_of_uncertainty_report_v2.md:44: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "relational",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 14,
+  "stochastic_files": [
+   "relational/arch_garden/garden_bed.py",
+   "relational/birth_moment.py",
+   "relational/cartesian_vs_relational_demo.py",
+   "relational/confusion_spectrum.py",
+   "relational/correlated_birth_mode.py",
+   "relational/council_of_protectors.py",
+   "relational/geometric_rag/geometric_rag.py",
+   "relational/infant_system_v2.py",
+   "relational/nurturing_environment.py",
+   "relational/pain_as_sensor.py",
+   "relational/social_pain_sensors.py",
+   "relational/the_brake.py"
+  ],
+  "seeded_files": [
+   "relational/birth_moment.py",
+   "relational/geometric_rag/geometric_rag.py",
+   "relational/infant_system_v2.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "relational/arch_garden/garden_bed.py",
+   "relational/birth_moment.py",
+   "relational/cartesian_vs_relational_demo.py",
+   "relational/confusion_spectrum.py",
+   "relational/correlated_birth_mode.py",
+   "relational/council_of_protectors.py",
+   "relational/geometric_rag/geometric_rag.py",
+   "relational/infant_system_v2.py",
+   "relational/nurturing_environment.py",
+   "relational/pain_as_sensor.py",
+   "relational/social_pain_sensors.py",
+   "relational/the_brake.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "removal-closure",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "removal-closure/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "report-typing",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "report-typing/CLAIM_TABLE.md"
+  ],
+  "claim_count": 23,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "reporting-chain-loss",
+  "class": "STOCHASTIC_MIXED",
+  "py": 3,
+  "stochastic_files": [
+   "reporting-chain-loss/hop_compose.py",
+   "reporting-chain-loss/preentry_register.py"
+  ],
+  "seeded_files": [
+   "reporting-chain-loss/hop_compose.py",
+   "reporting-chain-loss/preentry_register.py"
+  ],
+  "multi_run_files": [
+   "reporting-chain-loss/hop_compose.py"
+  ],
+  "stochastic_without_multi": [
+   "reporting-chain-loss/preentry_register.py"
+  ],
+  "claim_files": [
+   "reporting-chain-loss/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [
+   "reporting-chain-loss/CLAIM_TABLE.md:18: N=1",
+   "reporting-chain-loss/CLAIM_TABLE.md:19: N=1",
+   "reporting-chain-loss/README.md:35: N=1"
+  ],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "research-stability-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "reservoir-chain-coupling",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "reservoir-chain-coupling/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "residual-direction",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "residual-direction/residual.py"
+  ],
+  "seeded_files": [
+   "residual-direction/residual.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "residual-direction/residual.py"
+  ],
+  "claim_files": [
+   "residual-direction/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "return-path",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "return-path/CLAIM_TABLE.md"
+  ],
+  "claim_count": 15,
+  "self_flags": [
+   "return-path/CLAIM_TABLE.md:49: n = 1"
+  ],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "revision-mechanism",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "revision-mechanism/power.py"
+  ],
+  "seeded_files": [
+   "revision-mechanism/power.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "revision-mechanism/power.py"
+  ],
+  "claim_files": [
+   "revision-mechanism/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "revision-survival",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 4,
+  "stochastic_files": [
+   "revision-survival/draw_frame.py"
+  ],
+  "seeded_files": [
+   "revision-survival/draw_frame.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "revision-survival/draw_frame.py"
+  ],
+  "claim_files": [
+   "revision-survival/CLAIM_TABLE.md"
+  ],
+  "claim_count": 26,
+  "self_flags": [
+   "revision-survival/CLAIM_TABLE.md:187: n = 1",
+   "revision-survival/CLAIM_TABLE.md:219: 1 seeds",
+   "revision-survival/README.md:102: 1 seeds",
+   "revision-survival/SOURCE_DROP.md:905: one run",
+   "revision-survival/WORK_ORDER_V2.md:21: 1 seeds",
+   "revision-survival/WORK_ORDER_V2.md:48: 1 seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "rigidification-sensor",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "route-independence",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 39,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "route-independence/CLAIM_TABLE.md"
+  ],
+  "claim_count": 186,
+  "self_flags": [
+   "route-independence/CLAIM_TABLE.md:138: one seed",
+   "route-independence/EXPECTED_FWO-15.md:80: ONE seed"
+  ],
+  "illustrative_md": 10
+ },
+ {
+  "folder": "routing-data-layer",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "routing-data-layer/CLAIM_TABLE.md"
+  ],
+  "claim_count": 7,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "rule-coherence-counterfactual",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "rule-coherence-counterfactual/rule_coherence.py"
+  ],
+  "seeded_files": [
+   "rule-coherence-counterfactual/rule_coherence.py"
+  ],
+  "multi_run_files": [
+   "rule-coherence-counterfactual/rule_coherence.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "rule-coherence-counterfactual/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "scope-bound-shapes",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "seam-gaps",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "search-substitution",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "search-substitution/CLAIM_TABLE.md"
+  ],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "self-scan",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "self-scan/CLAIM_TABLE.md"
+  ],
+  "claim_count": 42,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "sense-as-match",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "sense-as-match/test_sense.py"
+  ],
+  "seeded_files": [
+   "sense-as-match/test_sense.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "sense-as-match/test_sense.py"
+  ],
+  "claim_files": [
+   "sense-as-match/CLAIM_TABLE.md"
+  ],
+  "claim_count": 15,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "shape-spec-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "shape-spec-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 46,
+  "self_flags": [
+   "shape-spec-audit/CLAIM_TABLE.md:143: n = 1",
+   "shape-spec-audit/CLAIM_TABLE.md:442: n=1",
+   "shape-spec-audit/README.md:206: n = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "sheet-structure-scan",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 11,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "sheet-structure-scan/CLAIM_TABLE.md"
+  ],
+  "claim_count": 74,
+  "self_flags": [
+   "sheet-structure-scan/CLAIM_TABLE.md:607: n=1",
+   "sheet-structure-scan/CLAIM_TABLE.md:700: n=1",
+   "sheet-structure-scan/CLAIM_TABLE.md:929: n=1",
+   "sheet-structure-scan/CLAIM_TABLE.md:971: n=1",
+   "sheet-structure-scan/CLAIM_TABLE.md:983: n = 1",
+   "sheet-structure-scan/CLAIM_TABLE.md:993: n=1",
+   "sheet-structure-scan/PREDICTIONS_WO6.md:7: n=1",
+   "sheet-structure-scan/PREDICTIONS_WO7.md:16: n = 1",
+   "sheet-structure-scan/README.md:171: n = 1",
+   "sheet-structure-scan/WORK_ORDER_4.md:52: n=1",
+   "sheet-structure-scan/WORK_ORDER_6.md:42: n=1",
+   "sheet-structure-scan/WORK_ORDER_7.md:36: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "sim-span",
+  "class": "STOCHASTIC_MIXED",
+  "py": 2,
+  "stochastic_files": [
+   "sim-span/sim_span.py",
+   "sim-span/three_column.py"
+  ],
+  "seeded_files": [
+   "sim-span/sim_span.py",
+   "sim-span/three_column.py"
+  ],
+  "multi_run_files": [
+   "sim-span/sim_span.py"
+  ],
+  "stochastic_without_multi": [
+   "sim-span/three_column.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "sim-span/OPEN_RESEARCH.md:25: one draw",
+   "sim-span/OPEN_RESEARCH.md:191: one draw",
+   "sim-span/OPEN_RESEARCH.md:217: one draw",
+   "sim-span/RESULTS.md:3: 40 seeds",
+   "sim-span/RESULTS.md:28: 40 seeds",
+   "sim-span/RESULTS.md:73: 20 seeds",
+   "sim-span/RESULTS.md:102: across seeds",
+   "sim-span/RESULTS.md:216: one draw"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "simulation-hypothesis-budget",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 7,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "simulation-hypothesis-budget/CLAIM_TABLE.md"
+  ],
+  "claim_count": 44,
+  "self_flags": [
+   "simulation-hypothesis-budget/CLAIM_TABLE.md:61: n=1",
+   "simulation-hypothesis-budget/README.md:223: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "skill-drain-simulator",
+  "class": "NO_CODE",
+  "py": 0,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "stability-trigger-envelope",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 4,
+  "stochastic_files": [
+   "stability-trigger-envelope/descent_record.py"
+  ],
+  "seeded_files": [
+   "stability-trigger-envelope/descent_record.py"
+  ],
+  "multi_run_files": [
+   "stability-trigger-envelope/descent_record.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "stability-trigger-envelope/CLAIM_TABLE.md"
+  ],
+  "claim_count": 23,
+  "self_flags": [
+   "stability-trigger-envelope/CLAIM_TABLE.md:7: N=1",
+   "stability-trigger-envelope/TESTS.md:170: N=1",
+   "stability-trigger-envelope/TESTS.md:202: n=1"
+  ],
+  "illustrative_md": 3
+ },
+ {
+  "folder": "stop-authority",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "stop-authority/README.md:207: n=1",
+   "stop-authority/README.md:239: n=1",
+   "stop-authority/SPEC_ADDENDUM.md:38: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "substrate-alternative",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "substrate-alternative/CLAIM_TABLE.md"
+  ],
+  "claim_count": 19,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "substrate-emergence",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "supplement-placement",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "supplement-placement/README.md:93: n = 1",
+   "supplement-placement/README.md:98: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "sustained-activation-gate",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 1,
+  "stochastic_files": [
+   "sustained-activation-gate/sustained_activation_gate.py"
+  ],
+  "seeded_files": [
+   "sustained-activation-gate/sustained_activation_gate.py"
+  ],
+  "multi_run_files": [
+   "sustained-activation-gate/sustained_activation_gate.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "sustained-activation-gate/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [
+   "sustained-activation-gate/CLAIM_TABLE.md:7: 12 seeds",
+   "sustained-activation-gate/CLAIM_TABLE.md:55: 12 seeds"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "term-drift-citation",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "term-drift-citation/README.md:117: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "terminal-crossing",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "terminal-crossing/CLAIM_TABLE.md"
+  ],
+  "claim_count": 12,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "terrain-prior",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "terrain-prior/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "tests",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 17,
+  "stochastic_files": [
+   "tests/temporal_match_forge.py"
+  ],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "tests/temporal_match_forge.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "thermal-coupling",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 5,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "thermal-coupling/CLAIM_TABLE.md"
+  ],
+  "claim_count": 20,
+  "self_flags": [
+   "thermal-coupling/PLACEMENT.md:75: n = 1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "thermal-sensor-degradation-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "thermal-sensor-degradation-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 6,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "threshold-states",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 4,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "thwaites-risk-audit",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "thwaites-risk-audit/CLAIM_TABLE.md"
+  ],
+  "claim_count": 43,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "token-minimizer",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "tools",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 29,
+  "stochastic_files": [
+   "tools/deceptive_maze_ga.py",
+   "tools/fitness_bin_self_test.py"
+  ],
+  "seeded_files": [
+   "tools/deceptive_maze_ga.py",
+   "tools/fitness_bin_self_test.py"
+  ],
+  "multi_run_files": [
+   "tools/deceptive_maze_ga.py",
+   "tools/fitness_bin_self_test.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [
+   "tools/bin_self_test.md:135: n = 1",
+   "tools/experiment_fruitfulness_triage.md:971: n = 1",
+   "tools/experiment_fruitfulness_triage.md:1105: n = 1",
+   "tools/experiment_fruitfulness_triage.md:1325: n = 1",
+   "tools/experiment_fruitfulness_triage.md:1645: 10 seeds",
+   "tools/experiment_fruitfulness_triage.md:2020: n = 1",
+   "tools/fitness_bin_self_test.md:125: one run"
+  ],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "transmission-cascade",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 2,
+  "stochastic_files": [
+   "transmission-cascade/transmission_cascade.py"
+  ],
+  "seeded_files": [
+   "transmission-cascade/transmission_cascade.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "transmission-cascade/transmission_cascade.py"
+  ],
+  "claim_files": [
+   "transmission-cascade/CLAIM_TABLE.md"
+  ],
+  "claim_count": 8,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "transmission-decay",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "transmission-decay/power.py"
+  ],
+  "seeded_files": [
+   "transmission-decay/power.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "transmission-decay/power.py"
+  ],
+  "claim_files": [
+   "transmission-decay/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "triad-playground",
+  "class": "STOCHASTIC_ALL_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "triad-playground/shadow_design.py",
+   "triad-playground/shadow_panel.py"
+  ],
+  "seeded_files": [
+   "triad-playground/shadow_design.py",
+   "triad-playground/shadow_panel.py"
+  ],
+  "multi_run_files": [
+   "triad-playground/shadow_design.py",
+   "triad-playground/shadow_panel.py"
+  ],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "triad-playground/CLAIM_TABLE.md"
+  ],
+  "claim_count": 14,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "trigger-geometry",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "trigger-geometry/CLAIM_TABLE.md"
+  ],
+  "claim_count": 22,
+  "self_flags": [],
+  "illustrative_md": 2
+ },
+ {
+  "folder": "undeclared-cuts",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "uninstrumented",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 32,
+  "stochastic_files": [
+   "uninstrumented/case_013_audit.py",
+   "uninstrumented/case_018_audit.py",
+   "uninstrumented/playground/m1_shape_vs_claim/score_m1.py",
+   "uninstrumented/playground/m3_visibility/score_m3.py",
+   "uninstrumented/playground_audit.py",
+   "uninstrumented/selfreport_probe.py"
+  ],
+  "seeded_files": [
+   "uninstrumented/case_013_audit.py",
+   "uninstrumented/case_018_audit.py",
+   "uninstrumented/playground/m1_shape_vs_claim/score_m1.py",
+   "uninstrumented/playground/m3_visibility/score_m3.py",
+   "uninstrumented/playground_audit.py",
+   "uninstrumented/selfreport_probe.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "uninstrumented/case_013_audit.py",
+   "uninstrumented/case_018_audit.py",
+   "uninstrumented/playground/m1_shape_vs_claim/score_m1.py",
+   "uninstrumented/playground/m3_visibility/score_m3.py",
+   "uninstrumented/playground_audit.py",
+   "uninstrumented/selfreport_probe.py"
+  ],
+  "claim_files": [
+   "uninstrumented/CLAIM_TABLE.md"
+  ],
+  "claim_count": 181,
+  "self_flags": [
+   "uninstrumented/AUDIT_NOTES.md:1530: one run",
+   "uninstrumented/AUDIT_NOTES.md:1550: n = 1",
+   "uninstrumented/AUDIT_NOTES.md:1875: n = 1",
+   "uninstrumented/AUDIT_NOTES.md:3962: n=1",
+   "uninstrumented/CLAIM_TABLE.md:482: one run",
+   "uninstrumented/CLAIM_TABLE.md:489: n = 1",
+   "uninstrumented/CLAIM_TABLE.md:491: n = 1",
+   "uninstrumented/CORPUS_AS_CHARTER_V2.md:210: N=1",
+   "uninstrumented/specimens/20260818modelA.md:63: n=1"
+  ],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "unowned-join",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "unowned-join/CLAIM_TABLE.md"
+  ],
+  "claim_count": 11,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "upgrade-queue",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "upgrade-queue/CLAIM_TABLE.md"
+  ],
+  "claim_count": 10,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "valence-divergence",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 3,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "valence-divergence/CLAIM_TABLE.md"
+  ],
+  "claim_count": 16,
+  "self_flags": [],
+  "illustrative_md": 1
+ },
+ {
+  "folder": "vector-field-explorer",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 1,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "voice-attractor-probe",
+  "class": "STOCHASTIC_NO_MULTI",
+  "py": 3,
+  "stochastic_files": [
+   "voice-attractor-probe/introspection_delta.py",
+   "voice-attractor-probe/introspection_delta_v2.py",
+   "voice-attractor-probe/voice_attractor_probe.py"
+  ],
+  "seeded_files": [
+   "voice-attractor-probe/introspection_delta.py",
+   "voice-attractor-probe/introspection_delta_v2.py",
+   "voice-attractor-probe/voice_attractor_probe.py"
+  ],
+  "multi_run_files": [],
+  "stochastic_without_multi": [
+   "voice-attractor-probe/introspection_delta.py",
+   "voice-attractor-probe/introspection_delta_v2.py",
+   "voice-attractor-probe/voice_attractor_probe.py"
+  ],
+  "claim_files": [],
+  "claim_count": 0,
+  "self_flags": [],
+  "illustrative_md": 0
+ },
+ {
+  "folder": "zero-sum-curriculum-null",
+  "class": "DETERMINISTIC_ONLY",
+  "py": 2,
+  "stochastic_files": [],
+  "seeded_files": [],
+  "multi_run_files": [],
+  "stochastic_without_multi": [],
+  "claim_files": [
+   "zero-sum-curriculum-null/CLAIM_TABLE.md"
+  ],
+  "claim_count": 13,
+  "self_flags": [
+   "zero-sum-curriculum-null/NULL_CONSTRUCTION.md:31: N=1"
+  ],
+  "illustrative_md": 0
+ }
+]

@@ -137,6 +137,24 @@ class ExampleReportsRegenerate(unittest.TestCase):
                     f"regenerate with: python3 assess.py report --file {rel} > {rel.parent}/report.md")
 
 
+class AuditsRegenerate(unittest.TestCase):
+
+    def test_final_json_matches_consolidate(self):
+        for script in sorted(ROOT.glob("audits/*/consolidate.py")):
+            final = script.parent / "data" / "final.json"
+            with self.subTest(audit=script.parent.name):
+                self.assertTrue(final.exists(), f"{final.relative_to(ROOT)} missing")
+                before = final.read_bytes()
+                r = subprocess.run([sys.executable, "-B", str(script)], capture_output=True, text=True)
+                self.assertEqual(r.returncode, 0, r.stderr)
+                after = final.read_bytes()
+                if after != before:
+                    final.write_bytes(before)  # leave the tree as found
+                self.assertEqual(after, before,
+                                 f"{final.relative_to(ROOT)} does not match its data; "
+                                 f"regenerate with: python3 {script.relative_to(ROOT)}")
+
+
 class VocabularyInSync(unittest.TestCase):
 
     def _check_doc(self, doc_sets, source):

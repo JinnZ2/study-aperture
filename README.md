@@ -100,6 +100,10 @@ A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews
 
 [In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
 
+## Audits
+
+[audits/simulators-run-count](audits/simulators-run-count/README.md) — which stated results in JinnZ2/Simulators rest on a single random draw, and whether they survive re-drawing at 20 other seeds (ADDENDUM C2). Measures within-run n only; says nothing about whether a claim is true.
+
 ## Work to be done
 
 [ADDENDUM.md](ADDENDUM.md) lists open work, each item with a state: the translation layer (oral reasoning → English → code), remaining toolkit gaps, independence and testing, and repository housekeeping.

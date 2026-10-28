@@ -1,0 +1,996 @@
+[
+ {
+  "folder": "alignment-under-coupling",
+  "claim_id": "RESULTS_RUN_1.md:57-72",
+  "evidence": "alignment-under-coupling/RESULTS_RUN_1.md:55-72; sim_b_entropy_depletion.py:83-84 (seed=7); run_all.py:24-25",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "7/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "alignment-under-coupling",
+  "claim_id": "TFM_004b",
+  "evidence": "alignment-under-coupling/CLAIM_TABLE.md:88-108; README.md:59-63; check_run_1.py:134-159 (seed=3), :306-310",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "alignment-under-coupling",
+  "claim_id": "TFM_005",
+  "evidence": "alignment-under-coupling/CLAIM_TABLE.md:125-149; check_run_1.py:190-215 (seed=7), selftest :398-405",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "anchor-interval",
+  "claim_id": "ANC_001",
+  "evidence": "anchor-interval/CLAIM_TABLE.md:28; corpus_loop.py:54 (SEED = 20260816), :107-118, :156-194; README.md:37-40",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "anchor-interval",
+  "claim_id": "ANC_004",
+  "evidence": "anchor-interval/CLAIM_TABLE.md:31; corpus_loop.py:327-358; README.md:74-78",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "anchor-interval",
+  "claim_id": "ANC_007",
+  "evidence": "anchor-interval/CLAIM_TABLE.md:34; moving_reference.py:45 (SEED = 20260816), :243-256 (K=40 releases)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "aperiodic-order-sim-stack",
+  "claim_id": "AOS_006",
+  "evidence": "aperiodic-order-sim-stack/CLAIM_TABLE.md:149-150; aperture_alias_demo.py:55 (SEED=20260815), :172 (one Poisson point set)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "climate-modeling",
+  "claim_id": "climate-modeling/samples/audit_report.txt:11",
+  "evidence": "climate-modeling/samples/audit_report.txt:11; noise: audits/data_aggregation.py:22 StochasticForcing(..., noise_std=3.0, seed=123); rule: audits/data_aggregation.py:38",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "climate-modeling",
+  "claim_id": "climate-modeling/samples/audit_report.txt:12",
+  "evidence": "climate-modeling/samples/audit_report.txt:12; noise: audits/cascade_speed.py:27 FatTailedForcing(..., df=3, scale=4.0, seed=42); rule: audits/cascade_speed.py:46",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "10/10",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "conversation-type",
+  "claim_id": "CT_002",
+  "evidence": "conversation-type/CLAIM_TABLE.md:60-97; design_check.py:106-126 (binarise_cost seed=5, n=20000), :264-265",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "13/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "cooperative-substrate-proof",
+  "claim_id": "PRF_005",
+  "evidence": "cooperative-substrate-proof/CLAIM_TABLE.md:103-128; p3_comprehension.py:75-79 ([CHOICE 3] seeded cipher), :120-125 (random.Random(seed), seed=0), :163-166",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "extraction-blindness-sim",
+  "claim_id": "EBS_001",
+  "evidence": "extraction-blindness-sim/CLAIM_TABLE.md:20; seed run_experiments.py:58 (fishery_profile(seed=1)); noise enters via TemporalAliasing rng, blindness.py:210, profiles.py:97,121-125",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "floor-resilience",
+  "claim_id": "README.md:91",
+  "evidence": "floor-resilience/README.md:91-95; floor_resilience/drain_sim.py:15-16",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "0/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "instrument-bias-sims",
+  "claim_id": "IBS_010",
+  "evidence": "instrument-bias-sims/OPEN_RESEARCH.md:26; README.md:26,47-52; s9_corpus_position_filter.py:219-257 (population seed=17), :176 (corpus seed=23)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "2/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "instrument-bias-sims",
+  "claim_id": "README.md:80",
+  "evidence": "instrument-bias-sims/README.md:80-82; s4_antler_calibration.py:186 (engagement_series seed=3), :200-224 (trend_ratio), report :440",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "1/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "model-ecology",
+  "claim_id": "AC-N_eff",
+  "evidence": "model-ecology/CLAIM_TABLE.md:18; README.md:38",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "model-ecology",
+  "claim_id": "P2",
+  "evidence": "model-ecology/CLAIM_TABLE.md:17",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "moving-mean-tracker",
+  "claim_id": "MMT_001",
+  "evidence": "moving-mean-tracker/CLAIM_TABLE.md:9; FixtureProvider seed default 0, provider.py:92",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "moving-mean-tracker",
+  "claim_id": "MMT_003",
+  "evidence": "moving-mean-tracker/CLAIM_TABLE.md:11; provider.py:92 (seed 0)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "moving-mean-tracker",
+  "claim_id": "MMT_007",
+  "evidence": "moving-mean-tracker/CLAIM_TABLE.md:15; provider.py:92",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "notes",
+  "claim_id": "FINDINGS_DATASETS.md:38",
+  "evidence": "notes/FINDINGS_DATASETS.md:34-39 (sim-span/three_column.py:93 seed 4242)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "5/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "notes",
+  "claim_id": "FINDINGS_DATASETS.md:56",
+  "evidence": "notes/FINDINGS_DATASETS.md:56-69 (check_datasets.py:145 product_test(seed=1000))",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "proxy-investigation-lab",
+  "claim_id": "README.md:42",
+  "evidence": "proxy-investigation-lab/README.md:37-45; src/proxy_lab/goodhart.py:24,28 (seed=99, one population draw)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "proxy-investigation-lab",
+  "claim_id": "README.md:48",
+  "evidence": "proxy-investigation-lab/README.md:47-49; goodhart.py:43-47",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "recommender-confound",
+  "claim_id": "RC_001",
+  "evidence": "recommender-confound/CLAIM_TABLE.md:8",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "recommender-confound",
+  "claim_id": "RC_003",
+  "evidence": "recommender-confound/CLAIM_TABLE.md:10",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "recommender-confound",
+  "claim_id": "RC_010",
+  "evidence": "recommender-confound/CLAIM_TABLE.md:17; README.md:87-100",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "reporting-chain-loss",
+  "claim_id": "RCL_007",
+  "evidence": "reporting-chain-loss/CLAIM_TABLE.md:23 (preentry_register.py:125 make_world(seed=0, n_ops=40))",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "RESULTS.md:26",
+  "evidence": "sim-span/RESULTS.md:26-27",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20 at ratio <= 0.2 (range 0.095-0.179); the first-pass absolute cut a < 0.02 gives 19/20; a literal 10x ratio (<= 0.1) gives 3/20 and fails at the original seed (0.138)",
+  "source": "verified",
+  "error_class_found": [
+   2,
+   4
+  ]
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_002",
+  "evidence": "sim-span/OPEN_RESEARCH.md:19; RESULTS.md:20-22,40-45",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_005",
+  "evidence": "sim-span/OPEN_RESEARCH.md:22; RESULTS.md:67-71 (leg_block one_run seed 1000, sim_span.py:318-320)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_007",
+  "evidence": "sim-span/OPEN_RESEARCH.md:24; RESULTS.md:199-207",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "5/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_008",
+  "evidence": "sim-span/OPEN_RESEARCH.md:25; RESULTS.md:214-232 (three_column.py:118 nightly seed 99)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "uninstrumented",
+  "claim_id": "UNI_038",
+  "evidence": "uninstrumented/CLAIM_TABLE.md:399; uninstrumented/case_013_audit.py:220 (rng=random.Random(7)), :226-272",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "uninstrumented",
+  "claim_id": "UNI_079",
+  "evidence": "uninstrumented/CLAIM_TABLE.md:493; uninstrumented/probe_audit.py:54 (P.emit default seed=0), :162-181; uninstrumented/selfreport_probe.py:137-138 (rng.shuffle(items) seed), :153-154 (sheet shuffle Random(1))",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "final_verdict": "DIRECTION_HOLDS_MAGNITUDE_VARIES",
+  "satisfied": "5/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "anchor-interval",
+  "claim_id": "ANC_003",
+  "evidence": "anchor-interval/CLAIM_TABLE.md:30; corpus_loop.py:239-315 (output text :309 'on this run D2 is ANTI-correlated')",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "6/20 (all randomness, seeds 1..20); 7/20 (fixed substrate, injection seeds 1..20)",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "aperiodic-order-sim-stack",
+  "claim_id": "AOS_003",
+  "evidence": "aperiodic-order-sim-stack/CLAIM_TABLE.md:74-81 (numbers from finite_n_control.py, one Poisson/Line/Cantor draw per N at SEED=20260815, finite_n_control.py:69,184-185,213-214)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "13/20 (rounded 4x); 19/20 residual > 0.021; 8/20 literal >= 4x (the original seed is 3.91x, so a literal 4x cut fails at the original too)",
+  "source": "verified",
+  "error_class_found": [
+   2
+  ]
+ },
+ {
+  "folder": "battery-offgas-prearm",
+  "claim_id": "BOP_010",
+  "evidence": "battery-offgas-prearm/CLAIM_TABLE.md:22; test_prearm.py:81-90 (_pulse on fx_breathing(seed=3))",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "19/20 (seeds 101-120; fails at 111); 973/1000 over seeds 1-1000; original seed 3 passes",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-1",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:58; fragility-cascade/coupling_gap_test.py:185-189,224-225",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "18/20 (seeds 1000..1019, first-pass set); 16/20 on spaced seeds 2000+997k",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-4 v2",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:64",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "14/20 consecutive (1000..1019); 6/20 spaced (2000+997k)",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "instrument-bias-sims",
+  "claim_id": "IBS_001",
+  "evidence": "instrument-bias-sims/OPEN_RESEARCH.md:17; README.md:18; s1_encounter_denominator.py:103 (sweep seed=11), :205-214 (mortality pass), selftest :266-277",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "19/20 joint reseed (null part 20/20, product part 19/20); observer-only reseed 20/20",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "instrument-bias-sims",
+  "claim_id": "IBS_011",
+  "evidence": "instrument-bias-sims/OPEN_RESEARCH.md:27; README.md:53-57; s9_corpus_position_filter.py:287 (relevance_test seed=31), :327-366",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "16/20 (seeds 1..20, all randomness); 16/20 (population fixed, item seeds 1..20)",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "proxy-investigation-lab",
+  "claim_id": "README.md:49",
+  "evidence": "proxy-investigation-lab/README.md:48-49; statistic variance_ratio_top_decile, goodhart.py:43; output outputs/goodhart-redteam.experiment.json (0.0908)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "17/20 (gamed median 0.092 vs ungamed 0.083)",
+  "source": "verified",
+  "error_class_found": [
+   2
+  ]
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "RESULTS.md:36",
+  "evidence": "sim-span/RESULTS.md:34-38",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "floor>=10: 10/20; zero in-window: 20/20; floor>9: 20/20",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "RESULTS.md:91",
+  "evidence": "sim-span/RESULTS.md:91-95",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "(a) 17/20; (b) 20/20; first-pass lowest-3 criterion 10/20 (reproduced)",
+  "source": "verified",
+  "error_class_found": [
+   2
+  ]
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_003",
+  "evidence": "sim-span/OPEN_RESEARCH.md:20; RESULTS.md:18-45",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "19/20 (fails at seed 20)",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "transmission-cascade",
+  "claim_id": "TC_005",
+  "evidence": "transmission-cascade/CLAIM_TABLE.md:16 (competing_rows seed 13, n=240)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "FAILS_IN_SOME",
+  "satisfied": "17/20 (seeds 13+100k, k=1..20); 1746/2000 over seeds 1-2000",
+  "source": "verified",
+  "error_class_found": []
+ },
+ {
+  "folder": "alignment-under-coupling",
+  "claim_id": "RESULTS_RUN_1.md:13-16",
+  "evidence": "alignment-under-coupling/RESULTS_RUN_1.md:11-17; sim_d_temperature_null.py:118-124 (rng_seed=11, same seed reused at every T)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "alignment-under-coupling",
+  "claim_id": "TFM_003",
+  "evidence": "alignment-under-coupling/CLAIM_TABLE.md:56-64; RESULTS_RUN_1.md:89-91; sim_c_loop_threshold.py:88-89 (seed=3), run_all.py:28 (--iters 150)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "anchor-interval",
+  "claim_id": "ANC_002",
+  "evidence": "anchor-interval/CLAIM_TABLE.md:29; corpus_loop.py:201-221",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "aperiodic-order-sim-stack",
+  "claim_id": "AOS_004",
+  "evidence": "aperiodic-order-sim-stack/CLAIM_TABLE.md:95-101 (rests on the same single-seed budget as AOS_003)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "battery-offgas-prearm",
+  "claim_id": "BOP_003",
+  "evidence": "battery-offgas-prearm/CLAIM_TABLE.md:15; prearm.py:351-382 (fx_breathing seed=1, fx_runaway seed=2, noise=3.0); test_prearm.py:34-55",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "battery-offgas-prearm",
+  "claim_id": "BOP_005",
+  "evidence": "battery-offgas-prearm/CLAIM_TABLE.md:17; prearm.py:385-388 (fx_glitch seed=3); test_prearm.py:63-75",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "climate-modeling",
+  "claim_id": "climate-modeling/samples/audit_report.txt:25",
+  "evidence": "climate-modeling/samples/audit_report.txt:25; run_audits.py:85-89",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "10/10",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "cooperative-substrate-proof",
+  "claim_id": "PRF_006",
+  "evidence": "cooperative-substrate-proof/CLAIM_TABLE.md:132-150; p3_comprehension.py:163-200 (seed=0)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "credential-channel",
+  "claim_id": "CDC_001",
+  "evidence": "credential-channel/CLAIM_TABLE.md:12; credential_channel.py:215-228 (i1_candidates seed=1, n=40); test_credential.py:62-64",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "credential-channel",
+  "claim_id": "CDC_004",
+  "evidence": "credential-channel/CLAIM_TABLE.md:15; credential_channel.py:254-264 (i3_rows seed=2, n=60)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "credential-channel",
+  "claim_id": "CDC_005",
+  "evidence": "credential-channel/CLAIM_TABLE.md:16; credential_channel.py:267-275 (i4_rows seed=4, n=60)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "extraction-blindness-sim",
+  "claim_id": "EBS_006",
+  "evidence": "extraction-blindness-sim/CLAIM_TABLE.md:22; one noise draw _r.Random(6) at run_experiments.py:243-245; noise steers control only in regime (b)/(c) via trend_responsive (optimizer.py:211)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "ADT-2",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:87; fragility-cascade/attractor_depth_test.py:143-150",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "C15",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:904; fragility-cascade/samples/test_refutations.sample.txt:16-17,30; fragility-cascade/test_refutations.py:220-229",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-2 v1",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:59",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "0/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-2 v2",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:60",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-4 v1",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:63",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "0/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "SDT-1",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:106",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "SDT-2",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:107",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "SDT-3",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:108",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "SDT-4",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:109",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "instrument-epistemology",
+  "claim_id": "outputs/cross-instrument-report.md:28",
+  "evidence": "instrument-epistemology/outputs/cross-instrument-report.md:28-30; inject_and_recover default seed=17, src/instrum/simulation.py:16-18 (one simulated campaign, n=4000 noisy obs)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "model-ecology",
+  "claim_id": "M1a",
+  "evidence": "model-ecology/CLAIM_TABLE.md:54",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "HOLDS",
+  "satisfied": "winner 20/20; >=29/32 17/20 (votes 27-32, median 30)",
+  "source": "verified",
+  "error_class_found": [
+   1
+  ]
+ },
+ {
+  "folder": "recommender-confound",
+  "claim_id": "RC_013",
+  "evidence": "recommender-confound/CLAIM_TABLE.md:20",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20 existential; falsifier fires 0 times over 21 seeds; pinned dense/low cell |x|<0.05 19/20 (20/20 at 0.06)",
+  "source": "verified",
+  "error_class_found": [
+   2
+  ]
+ },
+ {
+  "folder": "reporting-chain-loss",
+  "claim_id": "RCL_008",
+  "evidence": "reporting-chain-loss/CLAIM_TABLE.md:24 (preentry_register.py:172 delegation_corruption(seed=1) on make_world(seed=0))",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "HOLDS",
+  "satisfied": "(i) satisfied (flip at original draw and 12/20 reseeds); (ii) 20/20; (iii) 12/20 with world fixed (delegation seeds 2..21); 15/20 when world also varied (matches first pass)",
+  "source": "verified",
+  "error_class_found": [
+   1,
+   2
+  ]
+ },
+ {
+  "folder": "residual-direction",
+  "claim_id": "RDD_001",
+  "evidence": "residual-direction/CLAIM_TABLE.md:10-28 (residual.py:469 fixture F1, _noise seed 11)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "residual-direction",
+  "claim_id": "RDD_004",
+  "evidence": "residual-direction/CLAIM_TABLE.md:78-100 (fixture F2, _noise seed 22)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "residual-direction",
+  "claim_id": "RDD_005",
+  "evidence": "residual-direction/CLAIM_TABLE.md:104-123 (residual.py:246 rate_check on fixtures F1/F2/F3)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20 as worded (OFF=1000k, k=1..20); 2000/2000 over OFF=1..2000. Table-row criterion: 19/20 (OFF=1000k), 1615/2000",
+  "source": "verified",
+  "error_class_found": [
+   2
+  ]
+ },
+ {
+  "folder": "sim-span",
+  "claim_id": "SPAN_006",
+  "evidence": "sim-span/OPEN_RESEARCH.md:23; RESULTS.md:184-197 (three_column.py:93 seed 4242)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "transmission-cascade",
+  "claim_id": "TC_001",
+  "evidence": "transmission-cascade/CLAIM_TABLE.md:12 (two_coders agree=0.85 seed 5; agree=0.35 seed 9)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "transmission-cascade",
+  "claim_id": "TC_002",
+  "evidence": "transmission-cascade/CLAIM_TABLE.md:13 (cascade_events seed 3, 80 events/layer)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "transmission-cascade",
+  "claim_id": "TC_003",
+  "evidence": "transmission-cascade/CLAIM_TABLE.md:14 (condition_runs seed 11, n=60/type)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "HOLDS",
+  "final_verdict": "HOLDS",
+  "satisfied": "20/20",
+  "source": "first pass",
+  "error_class_found": []
+ },
+ {
+  "folder": "climate-modeling",
+  "claim_id": "climate-modeling/audits/cascade_speed.py:5",
+  "evidence": "climate-modeling/audits/cascade_speed.py:4-5,45; metrics collapse_time_true_h / collapse_time_audited_h at :39-44",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "NOT_REPRODUCED_AT_ORIGINAL",
+  "satisfied": "-",
+  "source": "verified",
+  "error_class_found": [
+   4
+  ]
+ },
+ {
+  "folder": "credential-channel",
+  "claim_id": "CDC_006",
+  "evidence": "credential-channel/CLAIM_TABLE.md:17,36-45; credential_channel.py:278-287 (i5_events seed=6, n=50); test_credential.py:107-110",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "NOT_STOCHASTIC_IN_SCOPE",
+  "satisfied": "row assertions 1/1 at the fixed world and 20/20 on redrawn worlds (true by construction); 'rises' 1/1 on the fixed world (rates 0, .529, .733, 1, 1); generator expectation rises (n=200000: 0, .529, .788, 1, 1)",
+  "source": "verified",
+  "error_class_found": [
+   1,
+   2
+  ]
+ },
+ {
+  "folder": "floor-resilience",
+  "claim_id": "README.md:106",
+  "evidence": "floor-resilience/README.md:106-111; examples/make_example.py:19,98-100",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "NOT_STOCHASTIC_IN_SCOPE",
+  "satisfied": "1/1 (deterministic; no in-scope reseed exists)",
+  "source": "verified",
+  "error_class_found": [
+   1
+  ]
+ },
+ {
+  "folder": "residual-direction",
+  "claim_id": "RDD_006",
+  "evidence": "residual-direction/CLAIM_TABLE.md:127-141 (fixture F4, _noise seed 44; residual.py:330)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "NOT_STOCHASTIC_IN_SCOPE",
+  "satisfied": "literal at F4 seed 44: 1/1; literal on redrawn fixtures 19/20; conditional 20/20 (19 symmetric -> UNINTERPRETABLE; 1 not symmetric, precondition unmet); unknown-history series never scored clean 20/20",
+  "source": "verified",
+  "error_class_found": [
+   1,
+   2
+  ]
+ },
+ {
+  "folder": "transmission-cascade",
+  "claim_id": "TC_006",
+  "evidence": "transmission-cascade/CLAIM_TABLE.md:17,32-35 (same competing_rows runs)",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "NOT_STOCHASTIC_IN_SCOPE",
+  "satisfied": "1/1 at the constructed worlds (-0.0222 vs -0.4172; relative-only test fires on null: yes). Redrawn worlds (competing_rows seeds 113..2013 step 100): floor separates 17/20; relative-only fires on null 13/20",
+  "source": "verified",
+  "error_class_found": [
+   1
+  ]
+ },
+ {
+  "folder": "fragility-cascade",
+  "claim_id": "CGT-3 v1",
+  "evidence": "fragility-cascade/CLAIM_TABLE.md:61",
+  "self_flagged_by_repo": true,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "SELF_FLAGGED_NEARBY",
+  "satisfied": "claim-as-worded holds 2/20 (seeds 1014, 1018); repo's REFUTED verdict reproduces at seed 11 and 18/20 reseeds",
+  "source": "verified",
+  "error_class_found": [
+   3
+  ]
+ },
+ {
+  "folder": "model-ecology",
+  "claim_id": "D1",
+  "evidence": "model-ecology/CLAIM_TABLE.md:37",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "SELF_FLAGGED_NEARBY",
+  "satisfied": "-",
+  "source": "verified",
+  "error_class_found": [
+   3
+  ]
+ },
+ {
+  "folder": "recommender-confound",
+  "claim_id": "RC_002",
+  "evidence": "recommender-confound/CLAIM_TABLE.md:9",
+  "self_flagged_by_repo": false,
+  "first_pass_verdict": "FAILS_IN_SOME",
+  "final_verdict": "SELF_FLAGGED_NEARBY",
+  "satisfied": "0/20 both high corners; 2/20 sparse/high only (seeds 2..21); at original seed 1: sparse/high 1/1, both corners 0/1",
+  "source": "verified",
+  "error_class_found": [
+   3,
+   4
+  ]
+ }
+]
