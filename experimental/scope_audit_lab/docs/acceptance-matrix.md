@@ -112,4 +112,6 @@ These are integration-level checks, not redundant declarations that the unit-lev
 
 Before writing tests, settle identifier namespaces, reference resolution, timestamp/clock semantics, verification-to-state bindings, dependency relevance, correction rules, unit compatibility, threshold inclusivity, residual denominators, uncertainty assumptions, and execution authorization. These are open design contracts, not decisions silently added to specification 0.2.
 
+[Evidence contract proposal 0.1](evidence-contract.md) provides a separate draft for reviewing these choices, including additional proposed test cases. It does not change the requirements baseline or the NOT RUN status of this matrix.
+
 For every future result, distinguish implementation-conformance evidence from empirical validation of the audited subject. Do not mark this matrix passed until actual tests produce inspectable artifacts and their limitations are reported.
