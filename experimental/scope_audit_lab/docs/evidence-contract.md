@@ -6,6 +6,8 @@ The contract describes what a future implementation would record and what it wou
 
 The subsequent [scope decision](math-physics-focus.md) prioritizes mathematics/physics evidence and assessment, with voice work deferred. The voice provisions remain a future proposal rather than an active milestone dependency; no other design choice in this contract is approved solely by that prioritization.
 
+The later [E-01 approval](decision-checklist.md#e-01-approval-record) authorizes an independent start with Prototype 0.1 compatibility UNKNOWN. It does not establish compatibility or adopt this contract's remaining implementation choices.
+
 ## Contract boundary
 
 The instrument records evidence and explicitly specified calculations. It may establish that a declared criterion was met for an identified subject state, but it does not thereby establish general correctness, causality, truth, or suitability for an action.

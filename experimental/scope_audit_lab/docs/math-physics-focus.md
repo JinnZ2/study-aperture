@@ -15,6 +15,10 @@ Status: Active scope direction approved by the project owner; procedures and imp
 
 This decision narrows current work without deleting the voice requirements or rewriting their history. The evidence, verification, numerical, and integration design choices remain open unless separately approved.
 
+### Subsequent baseline decision
+
+The owner subsequently approved [E-01](decision-checklist.md#e-01-approval-record): “Proceed independently; mark Prototype 0.1 compatibility unknown”. Prototype inspection is no longer a prerequisite for independent work; compatibility remains UNKNOWN, and no prototype modules, interfaces, or validation results are assumed inherited.
+
 ## Proposed assessment unit
 
 Make the unit of assessment an exact mathematical or physical claim under declared conditions, not an entire paper labeled correct or incorrect. A single publication may contain a valid derivation, a numerically fragile implementation, and an empirically unresolved application; retain those findings separately.
@@ -91,4 +95,4 @@ Start with evidence capture, scope declarations, reviewed mathematical steps, pr
 
 A first bounded implementation could support structured/manual declarations and a small set of explicit, tested arithmetic and dimensional operations after the relevant design gates are settled. General symbolic simplification, theorem proving, arbitrary differential-equation solving, and live physical measurement integration remain unestablished capabilities, not promises made by this scope decision.
 
-Inspect Prototype 0.1 or explicitly approve an independent start before claiming baseline compatibility. The next active review is E-01 through E-04 and V-01 through V-03, with N-01 and N-02 prioritized as prerequisites for any numerical calculations; N-03 is needed before transition probing, and integration choices remain explicit.
+Proceed under the approved independent start; this permission does not establish baseline compatibility. The next active review is E-02 through E-04 and V-01 through V-03, with N-01 and N-02 prioritized as prerequisites for any numerical calculations; N-03 is needed before transition probing, and integration choices remain explicit.

@@ -2,7 +2,7 @@
 
 Status: Draft for review; no design decisions approved by this checklist. The [evidence contract 0.1](evidence-contract.md) is a proposal beneath [requirements 0.2](../requirements/scope-audit-lab-0.2.md), and this checklist does not change either document.
 
-Use this checklist to distinguish a recommendation from an authorized choice and a design approval from demonstrated implementation behavior. All items initially began OPEN; the owner has since prioritized mathematics/physics assessment and deferred voice work, as recorded in the [scope decision](math-physics-focus.md). W-01 through W-03 are now DEFERRED; the remaining design choices stay OPEN.
+Use this checklist to distinguish a recommendation from an authorized choice and a design approval from demonstrated implementation behavior. All items initially began OPEN; the owner has since prioritized mathematics/physics assessment, deferred voice work, and approved an independent start. E-01 is APPROVED, W-01 through W-03 are DEFERRED, and the remaining design choices stay OPEN.
 
 ## How to record a decision
 
@@ -18,10 +18,24 @@ This gate concerns the common evidence model before Stage A schemas and storage 
 
 | ID / status | Decision required | Recommended starting choice | Check before approval |
 |---|---|---|---|
-| E-01 / OPEN | What baseline is being adapted? | Inspect Prototype 0.1 before claiming compatibility. If unavailable, explicitly authorize an independent implementation with compatibility unknown. | Record prototype location/version and findings, or the independent-start decision. |
+| E-01 / APPROVED | What baseline is being adapted? | Proceed independently; Prototype 0.1 compatibility is UNKNOWN. No baseline modules or interfaces are assumed inherited. | Owner approval is recorded below; no compatibility test or implementation result is implied. |
 | E-02 / OPEN | Which types, IDs, and reference rules are required? | Typed records, ledger-scoped opaque IDs, explicit unresolved references, and no identity inferred from repeated wording. | Same wording/different sources, missing targets, duplicate-ID conflicts, and wrong target types have defined outcomes. |
 | E-03 / OPEN | How are values and missingness represented? | Separate present, missing, invalid, and not-applicable states; measured zero remains present. | Define absent fields, nulls, raw invalid values, and legacy sentinel handling without silent coercion. |
 | E-04 / OPEN | What storage, correction, and privacy policy is acceptable? | Standard-library SQLite is a candidate, not a selection; require transactional logical appends and linked corrections whichever backend is chosen. | Resolve concurrent writes, conflicting successors, consent-sensitive material, and deletion/tombstone policy without promising tamper-proof retention. |
+
+### E-01 approval record
+
+- **Status:** APPROVED.
+- **Exact decision:** “Proceed independently; mark Prototype 0.1 compatibility unknown”.
+- **Decision maker:** project owner.
+- **Approval reference:** the project-owner reply to the baseline decision question in the study-aperture planning conversation, quoted above.
+- **Rationale:** the owner selected independent development rather than waiting for Prototype 0.1 inspection.
+- **Scope:** remove Prototype 0.1 inspection as a prerequisite for independent work; do not claim inherited modules, interface compatibility, migration support, or baseline validation.
+- **Compatibility state:** UNKNOWN, not compatible and not incompatible. Revisit only after obtaining an identified prototype state and performing explicitly scoped comparisons.
+- **Affected tests:** future baseline compatibility tests are not available or run; planned requirements-conformance tests remain NOT RUN and cannot establish prototype compatibility by themselves.
+- **Supersedes:** E-01's previous OPEN state; the original specification's baseline wording is retained unchanged as historical requirements context.
+
+This approval does not choose the other evidence-contract proposals or approve an executor, storage backend, numerical method, or live voice capability.
 
 ## Verification gate
 
@@ -65,7 +79,7 @@ Review these choices before building reporting/export behavior, and execute the 
 
 ## Smallest next approval request
 
-The recommended first review is **E-01 through E-04**, plus **V-01 through V-03** for a recorder-only Stage A slice. Also settle I-01's required execution evidence and I-02's exchange envelope before making implementation claims or exposing an interchange interface.
+E-01 is resolved for an independent start. The recommended next review is **E-02 through E-04**, plus **V-01 through V-03** for a recorder-only Stage A slice. Also settle I-01's required execution evidence and I-02's exchange envelope before making implementation claims or exposing an interchange interface.
 
 Voice gates are deferred under S-02. Numerical conventions remain OPEN and are active review priorities for the mathematics/physics focus: N-01 and N-02 must be settled before implementing calculations, and N-03 before transition probing. No approval is being requested for a live voice collector, network-dependent runtime, benchmark ranking, or automatic causal diagnosis.
 
