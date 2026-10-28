@@ -1,0 +1,41 @@
+Recompute: Almudevar & Almudevar 2026, https://arxiv.org/html/2602.15697v1
+
+R1  Table 1 (alpha* = alpha = 0.05, beta = 0.1 as captioned)
+    case  PPV calc  PPV print  obs@beta*=0.10  obs@beta*=0.15  obs print
+       1     1.000      1.000           0.900           0.850      0.900
+       2     0.947      0.947           0.855           0.808      0.808
+       3     0.857      0.857           0.779           0.736      0.776
+       4     0.486      0.486           0.464           0.439      0.439
+    PPV column reproduces. PPV_obs: row 1 matches beta* = 0.10 (caption), row 3
+    is within 0.003 of it; rows 2 and 4 match beta* = 0.15, not the caption.
+    Table 1 is illustrative;
+    the Section 3.5 fit does not use its PPV_obs column.
+
+R2  Table 4: 35/97 replicated (matches 35/97); rows other than main
+    effect / interaction: 4/11 (not discussed in the text).
+
+R3  Fisher exact, main 23/49 vs interaction 8/37: p = 0.0228 (paper: 0.023)
+
+R4  Clopper-Pearson 35/97: (0.266, 0.465) (Section 3.5: 0.266-0.465; the Intro's quoted
+    OSC interval 26.6%-46.2% is not Clopper-Pearson; 0.003 apart at the top)
+    Clopper-Pearson 11/18: (0.357, 0.827) (paper: 0.357, 0.827)
+
+R5  Predictions from eq. 3:
+    main effects, pi 0.25, beta* 0.468:  0.463  (paper 0.463, observed 0.469)
+    interactions, pi 0.05, beta* 0.468:  0.284  (paper 0.284, observed 0.216)
+    Camerer, pi 0.25, beta* 0.441:       0.486  (paper 0.486, observed 0.611)
+
+R6  Prevalence pi that reproduces OSC 35/97 (CP lower, point, CP upper):
+    beta*=0.08 (OSC reported)    pi = 0.018  0.030  0.048
+    beta*=0.468 (paper)          pi = 0.043  0.092  0.255
+    Both the paper's corrected beta* and OSC's reported beta* reproduce 35/97;
+    they need different pi. pi is not measured in the paper, so the observed rate
+    does not by itself pick between 'protocol bias' and 'low prevalence'.
+
+R7  Reading ML-RP 11/13 as PPV (Section 3.6) implies pi = 0.234;
+    pi = 0.25 was labelled 'consistent with ML-RP' (Table 1), so the 0.846 vs 0.857
+    agreement in Section 3.6 is the calibration, not a separate test.
+
+R8  Camerer 11/18 with pi 0.25 and OSC's beta* 0.08 (no bias): 0.796
+    with the paper's beta* 0.441: 0.486. Both lie inside (0.357, 0.827);
+    at n = 18 the Camerer rate does not separate the two readings.

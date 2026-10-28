@@ -21,7 +21,7 @@ Working rules already in use: leave gaps instead of coining words; keep the shap
 |---|---|---|
 | A1 | **A third missing-value state.** `UNDECLARED` = no one recorded a value. `UNDETERMINED` = evidence in hand can't decide. Neither covers: *the meaning is held, but can't be carried into this language yet.* Open questions: should records represent this at all, and if so, how, without coining a word for it? Deliberately left unnamed here. | OWNER |
 | A2 | **Record translation losses instead of patching them.** Some bugs will turn out to be places where English or code cannot hold what the original reasoning holds. These need a place to be recorded as translation losses (what was lost, at which step), so they stay visible instead of being smoothed over. Where that record lives is undecided. | OPEN |
-| A3 | **Closed vocabularies force early commitment.** Every value set in `assess.py` must be fixed in advance. The sentinels (`UNDECLARED`, `UNDETERMINED`, `NODATA`) are a partial workaround. Not yet assessed: which sets push assessors into a premature choice. | UNDETERMINED |
+| A3 | **Closed vocabularies force early commitment.** Every value set in `assess.py` must be fixed in advance. The sentinels (`UNDECLARED`, `UNDETERMINED`, `NODATA`) are a partial workaround. First instances recorded in [examples/reproducibility-model](examples/reproducibility-model/FINDINGS.md) (K1-K3): no publication type for a re-analysis of published data, no measurement grade for a figure computed by the paper but not recomputed, no independence route for a calibration reused as a confirmation. One paper; not yet a survey of the sets. | OPEN |
 | A4 | **Shape as a carrier.** Relations can be kept without labels (diagrams, graphs, the provenance graph tools). Not yet worked out: how a record holds shape-only content that `check` and `report` can carry without forcing it into words. | OPEN |
 
 ## B. Toolkit
@@ -32,12 +32,13 @@ Working rules already in use: leave gaps instead of coining words; keep the shap
 | B2 | **Free-text guard.** Lab status words typed into `tool --output` are not blocked; CLAUDE.md says to use `labref` instead. Blocking it in code would also reject legitimate notes that mention a lab result. | OWNER |
 | B3 | **Review history is protected by convention only.** `reviews/<run>/` and `attempt-NN-*` directories are "preserve unchanged" in CLAUDE.md, but nothing checks it. A hash manifest test (like `vendored/SHA256SUMS`) would enforce it. | OPEN |
 | B4 | **Methods referenced but not run:** `presignal_ledger`, `rank_detector`, `grounding-layers` (needs NumPy), `frame_probe`, `observer_position_control`. Their cards describe upstream procedures; none is verified by this toolbox. | OPEN |
+| B5 | **The report's incompleteness block under-reports.** It lists UNDETERMINED claims and open decisions, but not IMPOSED grades or UNTESTED claims. In [examples/reproducibility-model](examples/reproducibility-model/FINDINGS.md) (K4) the central claim rests on an IMPOSED input and the headline block does not show it. Changing what counts as incompleteness changes every example report. | OWNER |
 
 ## C. Independence and testing
 
 | # | Item | State |
 |---|---|---|
-| C1 | **No independent run yet.** All five upstream repositories share one author, so by Card 03 the toolkit's own methods are `SHARED_UPSTREAM`: agreement between them is not independent confirmation (and not evidence against). The cheapest route to an independent test: someone else runs `AI_ENTRY_PROMPT.md` on a paper they chose themselves, and the result is recorded with its independence route. | OPEN |
+| C1 | **No independent run yet.** All five upstream repositories share one author, so by Card 03 the toolkit's own methods are `SHARED_UPSTREAM`: agreement between them is not independent confirmation (and not evidence against). The cheapest route to an independent test: someone else runs `AI_ENTRY_PROMPT.md` on a paper they chose themselves, and the result is recorded with its independence route. (`examples/reproducibility-model` does not count: the assessor chose the paper.) | OPEN |
 | C2 | **Within-run n in Simulators.** A claim that rests on a single simulation run or seed would be `UNDERPOWERED`, and simulations can raise n cheaply (more seeds, parameter sweeps). Which claims, if any, rest on one run has not been inspected. This is distinct from replication count: every new study starts at one, which is a state, not a defect. | UNDETERMINED |
 | C3 | **Popularity is not a usable signal here.** Stars and citations measure human attention; this toolkit is read mostly by AIs, which leave no such trace. Usage evidence would need a different channel. Whether and how to collect it is undecided. | OWNER |
 

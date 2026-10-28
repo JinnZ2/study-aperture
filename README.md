@@ -61,6 +61,7 @@ python3 assess.py selftest
 | `examples/power-pose/` | worked example: real contested literature — record, machine report, `FINDINGS.md` narrative with inline source citations, `false_agree.json`, two provenance graphs |
 | `examples/incomplete-input/` | failure mode: incomplete material stays visibly incomplete |
 | `examples/nonempirical-note/` | routing check: commentary returns `NOT_APPLICABLE` for quantitative cards |
+| `examples/reproducibility-model/` | run on a 2026 preprint arguing the OSC 2015 replication rate is a power artifact: record, report, `FINDINGS.md`, and `recompute.py` (stdlib recomputation of the paper's arithmetic, pinned) |
 | `examples/lab-link/` | synthetic: a Scope Audit Lab integrity report linked to a claim with `labref`; support unchanged, gaps listed as incompleteness |
 
 ## Vocabulary (the short version)
