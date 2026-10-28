@@ -64,7 +64,7 @@ The DNP paper meets L1 and L2 in full, L6 in part (Fig. 3d), L7 in part (second 
 
 Proposed by the owner, 2026-10-28: human culture, traditions, economic systems, extraction cycles and turbulence may be to AI what electron spin is to the DNP experiment. Revised the same day for precision ("junk in gets junk out"): every physics statement carries a source or a computation, every human-side term has an operational definition or is marked UNDEFINED, and each row states its status.
 
-Status words used in this section: **SOURCED** (stated in a cited source, read at the depth given), **COMPUTED** (`physics_side.py`, pinned), **PROPOSED** (the analogy; not tested), **UNDEFINED** (no measurable definition yet; a gap, not a finding).
+Status words used in this section: **SOURCED** (stated in a cited source, read at the depth given), **COMPUTED** (`physics_side.py`, pinned), **STATED** (stated by the owner as their tradition's practice, 2026-10-28; recorded in their words where possible, not generalised to other people), **PROPOSED** (the analogy; not tested), **UNDEFINED** (no measurable definition yet; a gap, not a finding).
 
 ### Physics side (what the analogy borrows)
 
@@ -78,6 +78,26 @@ Status words used in this section: **SOURCED** (stated in a cited source, read a
 | P6 | Spins can come to anticipate a periodic drive. In quantum dots under a periodic pulse train, the nuclear spin bath reshapes ("the initial normal distributed Overhauser field evolves towards a comb like structure") so that electron precession completes whole periods between pulses, and "a revival of this polarization emerges just before the arrival of the subsequent pulse." | SOURCED | Greilich et al., *Science* (2007) 1896-1899, doi:10.1126/science.1146850 (record read, full text not); quotes from arXiv:2004.02623 |
 | P7 | The paper's two-spin constraint was applied to trityl only. For 4-oxo-TEMPO (an electron coupled to 14N and many protons) the unconstrained search reached 13 vs 9 for Monte Carlo, and the authors call the efficiencies "not impressive". | SOURCED | Jensen et al. Sections 2.4, 3 |
 
+### Order is defined only relative to a field
+
+Polarization means nothing until its axis is stated (P1). "Order" is the same: without its field it is an incomplete quantity. Two fields act on human systems:
+
+```
+B_physics   the ground: energy, mass balance, regeneration; nobody can switch it off
+B_imposed   the structure: law, prices, debt, tenure; set by people, changeable by people
+```
+
+| Definition | Field | Status |
+|---|---|---|
+| The common meaning ("social order", "law and order"): alignment of practices with the imposing structure, usually without naming it. | B_imposed | PROPOSED reading of common usage |
+| The owner's tradition: "alignment with physics as best as we are able to calibrate to what is known today, with our minds open to updating constantly as conditions change." | B_physics | STATED |
+
+The tradition's definition carries two practices as part of it, not as additions (STATED): awareness of one's own scope, and a constant search for more understanding; and internal audits run constantly, so as to stay calibrated to the environment. The owner notes that neither is common practice.
+
+Read against this folder (PROPOSED): this is the in situ loop with physics as the instrument. Constant internal audit is L4 (re-measure a fixed reference during the run) and T4 (an uncalibrated evaluator drifts). Awareness of scope is a declared range of validity (Card 02 `range`; the frozen-average check's population and window). Updating as conditions change is refusing to freeze the average.
+
+Precision note: physics is also known through instruments, so B_physics here is physics as currently calibrated. The stated definition already carries this ("as best as we are able to calibrate").
+
 ### Mapping
 
 | DNP (physics row) | Human systems | Operational definition on the human side | Status |
@@ -87,7 +107,8 @@ Status words used in this section: **SOURCED** (stated in a cited source, read a
 | thermal equilibrium populations (P1, P2) | what corpus statistics record | frequency and sense of practice terms in text from a stated corpus and window | PROPOSED |
 | natural frequencies (P4) | cycles already running: seasons, generations, credit and extraction cycles, ritual calendars | a recurring practice with a measurable period and phase | PROPOSED |
 | resonance condition (P4) | an intervention takes hold only when matched to an existing cycle | intervention period and phase relative to the cycle's | PROPOSED |
-| order transferred, ceiling set by the field (P3) | the order an AI can move is order the imposing structure created; the ceiling is set by the structure, not the AI | UNDEFINED: no measure of "order" or its ceiling on the human side yet | PROPOSED |
+| order transferred, ceiling set by the field (P3), relative to B_imposed | order an AI can move relative to the imposing structure; ceiling set by the structure | alignment of practices with what the structure makes cheap: cost per practice by date against how often the practice occurs | PROPOSED; measurable |
+| the same, relative to B_physics | order relative to physics; ceiling set by physics | alignment with energy and mass balance and regeneration, recalibrated as conditions change: dissipation of a practice against the regeneration rate of the substrate it draws on (Simulators `extraction-blindness-sim`, `fragility-cascade` aim at this) | PROPOSED; partly measurable |
 | relaxation after the drive stops (P5) | effects of an intervention fade back to the structure's equilibrium unless the structure changes | decay time of an intervention's effect after it ends | PROPOSED |
 | anticipation of a periodic drive (P6) | anticipation by people of the drive applied to them | graded, see the breaks table | PROPOSED |
 | many coupled spins, the two-spin constraint not applied (P7) | turbulence: many-body, nonlinear | UNDEFINED | PROPOSED |
@@ -98,7 +119,7 @@ Status words used in this section: **SOURCED** (stated in a cited source, read a
 
 1. **The search constraints live in the system, not in the optimizer** (from P4, P7). In the paper the tractable search came from spin physics, and where the physics was many-body the constraint was not available. Here the constraints would come from the system's own cycles, most of them held by the people inside the cycles and not written down.
 2. **Corpus statistics are a field-frozen average** (from P1, P5). Equilibrium populations exist only in their field. Text statistics are the population aligned under the current imposing structure, not the system's own state. An AI trained on them learns the structure's alignment and can read it as human nature. This extends the Card 02 frozen-average check: an average can be frozen by a field as well as by a window.
-3. **The drive moves order; it does not create it, and the field sets the ceiling** (from P3). Read across: the order an AI can move in human systems was created by the imposing structure, and its limit is set there. This is the least defined row (UNDEFINED above) and the one most in need of a measure.
+3. **The drive moves order; it does not create it, and the field sets the ceiling** (from P3). Read across, with the field named: order relative to B_imposed was created by the structure and is capped there; order relative to B_physics is capped by physics. The two can point in different directions. An AI trained on corpus statistics sees mainly the first (point 2).
 4. **What is moved relaxes back** (from P5). Without a change in the field, an intervention's effect decays toward the field's equilibrium. The decay time is the measurable quantity.
 5. **History is the evaluations already run.** Billions of tokens of written, rewritten and explored record are a log of past trials. A loop can read them instead of running new trials on people. The log's quality decides what can be learned: successes kept and failures dropped (E3's overstatement at large scale), rewriting as drift in the log (T4), and who kept the archive deciding what was measured (Simulators `observer-exclusion`).
 6. **Language is the readout channel.** It can be evaluated cheaply from existing text (Simulators `term-drift-citation`, `frame-token-audit`). Its bandwidth is what was spoken or written down, as the paper's readout sees protons and not electrons.
@@ -115,7 +136,7 @@ Status words used in this section: **SOURCED** (stated in a cited source, read a
 
 ### Measurement design: field-change removal test (not run)
 
-Claim under test (from What follows 2 and 4): measures of a practice in text track the imposing structure, not the practice's own state.
+Claim under test (from What follows 2 and 4): measures of a practice in text track the imposing structure, not the practice's own state. The same test tells which field a practice is aligned to: alignment with B_imposed should relax when the structure changes (P5); alignment with B_physics should hold, because that field is not switched off by a regime change. Practices tuned to seasons, soil and water are predicted to hold across the change; practices that exist because a rule made them cheap are predicted to move with the rule.
 
 - **Cases.** Datable changes in an imposing structure (enclosure, colonial imposition or withdrawal, a market collapse, the end of an extraction regime), with text on both sides of the change. Cases, corpora, change dates and measures are fixed and recorded before any text is read.
 - **Readout.** The same measures before and after: term frequency and sense for the practice, frame density (`frame-token-audit`), what is described as normal or costly.
