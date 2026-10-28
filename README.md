@@ -92,6 +92,10 @@ The lab also includes [draft criterion-to-conclusion mappings](experimental/scop
 
 A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
 
+## Audits
+
+[audits/simulators-run-count](audits/simulators-run-count/README.md) — which stated results in JinnZ2/Simulators rest on a single random draw, and whether they survive re-drawing at 20 other seeds (ADDENDUM C2). Measures within-run n only; says nothing about whether a claim is true.
+
 ## Work to be done
 
 [ADDENDUM.md](ADDENDUM.md) lists open work, each item with a state: the translation layer (oral reasoning → English → code), remaining toolkit gaps, independence and testing, and repository housekeeping.
