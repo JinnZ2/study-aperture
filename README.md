@@ -78,6 +78,10 @@ python3 assess.py selftest
 - The upstream `method-layer` test suite runs 208 tests with 3 failures, all in an unrelated fitness-bin module (Python 3.14 environment); the modules this toolbox draws on (register map, branch set, ranking) pass.
 - Methods referenced but **not run** by this toolbox: `presignal_ledger` (prognostic-claims tool, upstream only), `rank_detector`, `grounding-layers` (needs NumPy), `frame_probe`, `observer_position_control`. Their cards describe documented upstream procedures; they are marked optional or NOT_APPLICABLE rather than presented as verified.
 
+## Experimental proposals
+
+[Scope Audit Lab](experimental/scope_audit_lab/README.md) contains a proposed requirements specification and a planned acceptance-test matrix for model, agent, and voice-event evidence auditing. It is documentation only: no Scope Audit Lab implementation, validation results, or live voice instrumentation are included.
+
 ## License
 
 CC0-1.0. The vendored files are CC0 from their upstream repositories; see `vendored/PROVENANCE.md` for exact provenance (repo, path, commit).
