@@ -1,0 +1,189 @@
+{
+  "schema": "study-aperture/1",
+  "title": "Miyoshi et al. (2026): Local Acceleration of Multi-MeV Electrons Inside Earth's Impenetrable Barrier During the May 2024 Superstorm",
+  "pub_type": "EMPIRICAL",
+  "citation": "Geophysical Research Letters 2026, doi:10.1029/2026GL125879; press release dated 2026-10-28, https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+  "materials": "Press release only (read through a fetch tool). Paper, figures, methods and supplement NOT read: Wiley and phys.org pages returned client errors. Independent check: arXiv:2602.03990 abstract page (CALET on the ISS, same storm), read through a fetch tool. Baker et al. 2014 (origin of the barrier) not read.",
+  "decision_context": "User-chosen study. Two decisions it could feed: whether spacecraft radiation planning can treat the region inside about 3 Earth radii as protected from multi-MeV electrons, and whether radiation-belt forecast models need a local acceleration source at low L. No decision owner named.",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "in 2024, Japan's Arase space probe detected these electrons well inside the barrier",
+      "evidence_location": "Press release; paper figures not read. Independently: CALET reports relativistic electrons down to L = 2.2, below the nominal L = 2.8 barrier, persisting months (https://arxiv.org/abs/2602.03990)",
+      "support": "SUPPORTED",
+      "measurand": "presence of multi-MeV (some above 3 MeV) electrons inside about 3 Earth radii",
+      "grade": "MEASURED_PRESENT",
+      "falsifiers": "Arase and CALET both report presence from different orbits and detectors. A shared contamination (for example penetrating protons counted as electrons) would have to affect both.",
+      "label": "OBSERVED",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "range": "May 2024 storm and after",
+      "instrument": "Arase particle instruments (paper); CALET on the ISS (independent, integral count rates)"
+    },
+    {
+      "id": "C2",
+      "text": "the electrons were accelerated locally rather than infiltrating from outer radiation belts",
+      "evidence_location": "Press release: a distinct local PSD peak near the barrier boundary that strengthened over time. Method not read.",
+      "support": "UNDETERMINED",
+      "measurand": "radial PSD profile at fixed adiabatic invariants; growth of a local maximum",
+      "grade": "UNDECLARED",
+      "falsifiers": "The peak disappears or moves when PSD is recomputed with a second field model; or a transport model with fast inward injection and L-dependent loss reproduces a growing peak at the same place; or the peak is absent at other first invariants where chorus acceleration predicts it.",
+      "label": "DERIVED",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "range": "one storm",
+      "instrument": "Arase electron data over several orbits, converted to PSD with a magnetic field model (model not stated in material read)"
+    },
+    {
+      "id": "C3",
+      "text": "chorus waves ... potentially providing favorable conditions",
+      "evidence_location": "Press release: intense rising/falling-tone chorus seen by Arase; plasmasphere slow to recover (about 4.3-4.7 days vs about 2 typical)",
+      "support": "UNTESTED",
+      "measurand": "energy transfer from chorus to multi-MeV electrons at about 3 Earth radii",
+      "grade": "UNDECLARED",
+      "falsifiers": "A quasi-linear or test-particle calculation with the observed chorus amplitude and density gives acceleration far too slow to build the observed peak in the observed time. Not reported in the material read.",
+      "label": "PROPOSED",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "instrument": "Arase wave measurements; link to acceleration by timing"
+    },
+    {
+      "id": "C4",
+      "text": "The so-called impenetrable barrier seemed to have been broken.",
+      "evidence_location": "Press release; C1",
+      "support": "PARTIALLY_SUPPORTED",
+      "measurand": "whether multi-MeV electrons can exist inside the empirical inner boundary first reported in 2014",
+      "grade": "UNDECLARED",
+      "falsifiers": "The 2014 boundary was characterized over storms of a range that did not include a superstorm; if so, 'broken' and 'outside the conditions it was measured in' predict the same observation.",
+      "label": "DERIVED",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "instrument": "comparison of the May 2024 observation against the boundary location"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "00",
+      "state": "RUN",
+      "output": "Type EMPIRICAL (single-event spacecraft observation plus interpretation). Material is a press release, so cards run on what the release states; method-level checks are NOT_CHECKED rather than passed.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "id": "T2",
+      "card": "01",
+      "state": "RUN",
+      "output": "4 claims. Conditional form of C2: IF the PSD peak is real in adiabatic coordinates (field-model independent) AND transport plus loss cannot build a growing peak there, THEN the electrons were accelerated locally. Neither antecedent is checkable from the release.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "id": "T3",
+      "card": "02",
+      "state": "RUN",
+      "output": "C1 graded MEASURED_PRESENT (direct detection, corroborated). C2 and C3 UNDECLARED: PSD depends on a field model not named in the material, and the chorus link is by timing. Two input averages, both FROZEN as stated: the barrier location (A1) and the typical recovery time (A2).",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "id": "T4",
+      "card": "03",
+      "state": "RUN",
+      "output": "Independent route for C1: CALET on the ISS (different orbit, detector, team) sees relativistic electrons at L 2.2-3.2 for months after the storm. Supports presence, not mechanism: CALET reports count rates, not PSD. CALET's own wording ('pushed down' from the outer belt, per its plain language summary as read) is a transport reading of the same event. So: agreement on presence, the two routes differ on mechanism wording.",
+      "source": "https://arxiv.org/abs/2602.03990"
+    },
+    {
+      "id": "T5",
+      "card": "04",
+      "state": "RUN",
+      "output": "Open branches for the growing PSD peak: (a) local acceleration by chorus (paper); (b) fast inward transport plus L-dependent loss (hiss inside the eroded plasmasphere) leaving an apparent peak; (c) the peak is produced by the field model used to compute adiabatic coordinates during an extreme storm; (d) a mixture. Cheapest discriminator: recompute PSD with a second field model, and check the peak across several first invariants. Whether the paper ran either is not in the material read.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "id": "T6",
+      "card": "05",
+      "state": "RUN",
+      "output": "Term frame: 'impenetrable barrier' names an empirical boundary from observations up to 2014 and is used in the release as if it were a property of the system ('broken'). The May 2024 storm is outside the storm range that boundary was characterized on (window and population undeclared, A1). The boundary is a reading taken under earlier conditions applied under new ones.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "error_types": [
+        "E2_STALE_CONDITIONS"
+      ]
+    },
+    {
+      "id": "T7",
+      "card": "06",
+      "state": "RUN",
+      "output": "Target: where do multi-MeV electrons inside about 3 Earth radii come from? Rendering: 'accelerated locally rather than infiltrating'. Presence is observed twice independently (C1); mechanism is an inference from one PSD profile in one storm, not checkable at press-release depth (C2).",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D1",
+      "text": "Stop treating the region inside about 3 Earth radii as protected from multi-MeV electrons in spacecraft radiation planning for superstorm conditions. Depends only on C1 (presence, two instruments), not on the mechanism.",
+      "state": "DETECTED"
+    },
+    {
+      "id": "D2",
+      "text": "Add a local acceleration source at low L to radiation-belt forecast models? Depends on C2, which is UNDETERMINED here: needs the paper's PSD method and the field-model check (T5).",
+      "state": "UNRESOLVED"
+    }
+  ],
+  "notes": "UNDECLARED",
+  "design_checks": [
+    {
+      "check": "selection",
+      "state": "CHECKED",
+      "finding": "One storm (May 2024), described as a superstorm. The release reports no other event and no generalization. n = 1 event: the result is an existence observation, not a rate.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "check": "measurement_validity",
+      "state": "NOT_CHECKED",
+      "finding": "Phase space density (PSD) against radial distance requires adiabatic coordinates computed from a magnetic field model. Which model, and whether the peak survives a second model during an extreme storm, is not in the material read.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "check": "confounding",
+      "state": "CHECKED",
+      "finding": "The release links the peak to chorus waves through co-occurrence (intense chorus; plasmasphere eroded, recovery about 4.3-4.7 days vs about 2 typical). The same erosion changes plasmaspheric hiss, which the release itself names as a shaper of the barrier through scattering loss. Loss is not carried into the 'local gain' inference in the text read.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "error_types": [
+        "E1_DROPPED_VARIABLE"
+      ]
+    },
+    {
+      "check": "uncertainty",
+      "state": "NOT_CHECKED",
+      "finding": "No uncertainties on PSD, peak height, or peak growth in the material read.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "check": "preregistration",
+      "state": "NOT_APPLICABLE",
+      "finding": "Event study of a natural storm; preregistration not expected.",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    }
+  ],
+  "averages": [
+    {
+      "id": "A1",
+      "text": "location of the impenetrable barrier (inner edge of multi-MeV electrons)",
+      "population": "UNDECLARED",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "claims": [
+        "C4"
+      ],
+      "value": "about 3 Earth radii (L about 2.8)",
+      "estimated_from": "storms observed before the 2014 discovery (Baker et al. 2014, not read); L = 2.8 is CALET's 'nominal' value",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    },
+    {
+      "id": "A2",
+      "text": "typical plasmasphere recovery time",
+      "population": "UNDECLARED",
+      "window": "UNDECLARED",
+      "stationarity": "UNDECLARED",
+      "claims": [
+        "C3"
+      ],
+      "value": "about 2 days",
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+    }
+  ]
+}
