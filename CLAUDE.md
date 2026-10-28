@@ -32,6 +32,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | `tests/test_repo_integrity.py`, `run_checks.sh`, `.github/workflows/checks.yml` | repo-level enforcement + CI | stdlib only; add new suites to `run_checks.sh` |
 | `examples/*/` | worked example + failure-mode examples | regenerate `report.md` from `assessment.json`; never hand-edit reports |
 | `experimental/scope_audit_lab/` | experimental lab | see Lab section |
+| `ADDENDUM.md` | open work list with states (OPEN / OWNER / UNDETERMINED) | update an item's state when work lands; never resolve an OWNER item without the owner; don't name the unnamed state in A1 |
 
 ## Commands (run from repo root; Python 3, stdlib only)
 
