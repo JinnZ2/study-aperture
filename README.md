@@ -76,6 +76,7 @@ python3 assess.py selftest
 - **Decision states:** DETECTED, UNRESOLVED, RESOLVED, DEFERRED, NOT_APPLICABLE
 - **Design check states:** CHECKED, NOT_CHECKED, NOT_APPLICABLE
 - **Stationarity states:** ASSESSED, ASSUMED, UNASSESSED (for an average used as a model input; see Card 02)
+- **Error types:** E1_DROPPED_VARIABLE, E2_STALE_CONDITIONS, E3_DEFAULTED_SLOT, E4_UNCHECKED_OBSERVER (classify a stated miss before repairing it; see Card 06 section 4)
 - **Lab report statuses:** NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE, INTEGRITY_GAPS_RECORDED (the lab checker's own words; not claim support)
 
 `UNDECLARED`, `NODATA`, `NOTFOUND` are values, not errors. A zero is a property of the measurement, not of the world.

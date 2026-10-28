@@ -123,14 +123,20 @@
       "card": "02",
       "state": "RUN",
       "output": "pi graded IMPOSED: 'Suppose' and 'conjecture' (Section 3.5), with a reason given for each value but no measurement. beta* 0.468 is derived from inputs not in hand (per-study p-values, replication n), so UNDECLARED here rather than checked. Toolkit fit: the measurement grades have no value for 'computed, not recomputed'; UNDECLARED was the nearest.",
-      "source": "https://arxiv.org/html/2602.15697v1"
+      "source": "https://arxiv.org/html/2602.15697v1",
+      "error_types": [
+        "E3_DEFAULTED_SLOT"
+      ]
     },
     {
       "id": "T4",
       "card": "03",
       "state": "RUN",
       "output": "ML-RP vs model: SHARED_UPSTREAM. pi = 0.25 is set from ML-RP (Table 1 label; 11/13 implies pi 0.234, R7), then ML-RP's closeness to 0.857 is reported in Section 3.6. Camerer vs model: independent data, but at n = 18 compatible with both the bias reading (0.486) and the no-bias reading (0.796), R8. Toolkit fit: 'calibration reused as confirmation' has no route of its own; SHARED_UPSTREAM fits loosely.",
-      "source": "https://arxiv.org/html/2602.15697v1"
+      "source": "https://arxiv.org/html/2602.15697v1",
+      "error_types": [
+        "E4_UNCHECKED_OBSERVER"
+      ]
     },
     {
       "id": "T5",
@@ -177,7 +183,10 @@
       "check": "selection",
       "state": "CHECKED",
       "finding": "The prevalence used for OSC (pi = 0.25) is labelled 'consistent with ML-RP' (Table 1); Klein et al. 2014 studied a hand-picked set of effects. Selection of that set is not discussed as a reason it may differ from OSC's sample.",
-      "source": "https://arxiv.org/html/2602.15697v1"
+      "source": "https://arxiv.org/html/2602.15697v1",
+      "error_types": [
+        "E3_DEFAULTED_SLOT"
+      ]
     },
     {
       "check": "measurement_validity",
@@ -207,7 +216,10 @@
       "check": "confounding",
       "state": "CHECKED",
       "finding": "The main-effect vs interaction split (23/49 vs 8/37, Fisher p 0.0228, R3) is attributed to prevalence. Whether effect type covaries with sub-field or original sample size is not examined in the passages read.",
-      "source": "https://arxiv.org/html/2602.15697v1"
+      "source": "https://arxiv.org/html/2602.15697v1",
+      "error_types": [
+        "E1_DROPPED_VARIABLE"
+      ]
     },
     {
       "check": "preregistration",

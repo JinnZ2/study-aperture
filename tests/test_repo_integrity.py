@@ -48,14 +48,16 @@ VOCAB = {
     "design check states": "DESIGN_CHECK_STATES",
     "lab report statuses": "LAB_REPORT_STATUSES",
     "stationarity states": "STATIONARITY_STATES",
+    "error types": "ERROR_TYPES",
 }
 
 # Sets AI_ENTRY_PROMPT.md must teach the model (it does not define design-check
 # states; the CLI handoff table covers those).
 PROMPT_SETS = ["PUB_TYPES", "SUPPORT", "MEASUREMENT_GRADES", "CLAIM_LABELS",
-               "TOOL_STATES", "DECISION_STATES", "STATIONARITY_STATES"]
+               "TOOL_STATES", "DECISION_STATES", "STATIONARITY_STATES",
+               "ERROR_TYPES"]
 
-TOKEN = re.compile(r"\b[A-Z][A-Z_]*[A-Z]\b")
+TOKEN = re.compile(r"\b[A-Z][A-Z0-9_]*[A-Z]\b")  # digits allowed inside (E1_DROPPED_VARIABLE)
 
 
 def _sha256(path):

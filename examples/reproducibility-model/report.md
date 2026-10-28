@@ -26,6 +26,7 @@ cards routed by DEFAULT for type THEORETICAL: 00, 01, 04, 06 (claim-level overri
 - **selection** (CHECKED)
   - finding: The prevalence used for OSC (pi = 0.25) is labelled 'consistent with ML-RP' (Table 1); Klein et al. 2014 studied a hand-picked set of effects. Selection of that set is not discussed as a reason it may differ from OSC's sample.
   - source: https://arxiv.org/html/2602.15697v1
+  - error types: E3_DEFAULTED_SLOT
 - **measurement_validity** (CHECKED)
   - finding: The model treats 'replicated' as a significant same-direction replication (35/97). OSC also reported CI containment (47%) and subjective success (39%) (Introduction); the model addresses only the significance criterion.
   - source: https://arxiv.org/html/2602.15697v1
@@ -41,6 +42,7 @@ cards routed by DEFAULT for type THEORETICAL: 00, 01, 04, 06 (claim-level overri
 - **confounding** (CHECKED)
   - finding: The main-effect vs interaction split (23/49 vs 8/37, Fisher p 0.0228, R3) is attributed to prevalence. Whether effect type covaries with sub-field or original sample size is not examined in the passages read.
   - source: https://arxiv.org/html/2602.15697v1
+  - error types: E1_DROPPED_VARIABLE
 - **preregistration** (NOT_APPLICABLE)
   - finding: Model and re-analysis paper; no preregistration stated or expected.
   - source: https://arxiv.org/html/2602.15697v1
@@ -113,9 +115,11 @@ cards routed by DEFAULT for type THEORETICAL: 00, 01, 04, 06 (claim-level overri
 - **T3** card 02 — RUN
   - output: pi graded IMPOSED: 'Suppose' and 'conjecture' (Section 3.5), with a reason given for each value but no measurement. beta* 0.468 is derived from inputs not in hand (per-study p-values, replication n), so UNDECLARED here rather than checked. Toolkit fit: the measurement grades have no value for 'computed, not recomputed'; UNDECLARED was the nearest.
   - source: https://arxiv.org/html/2602.15697v1
+  - error types: E3_DEFAULTED_SLOT
 - **T4** card 03 — RUN
   - output: ML-RP vs model: SHARED_UPSTREAM. pi = 0.25 is set from ML-RP (Table 1 label; 11/13 implies pi 0.234, R7), then ML-RP's closeness to 0.857 is reported in Section 3.6. Camerer vs model: independent data, but at n = 18 compatible with both the bias reading (0.486) and the no-bias reading (0.796), R8. Toolkit fit: 'calibration reused as confirmation' has no route of its own; SHARED_UPSTREAM fits loosely.
   - source: https://arxiv.org/html/2602.15697v1
+  - error types: E4_UNCHECKED_OBSERVER
 - **T5** card 04 — RUN
   - output: Open branches for OSC's 35/97: (a) protocol bias, inflated original effects leading to underpowered replications (paper); (b) low prevalence, pi about 0.03 with OSC's reported beta*, no bias needed (R6); (c) a mixture of (a) and (b); (d) other moderators of replication (Gilbert et al. 2016 is cited, not modelled). The observed rate alone does not separate (a) from (b). Cheapest discriminator: re-replicate a sample of the same OSC items powered on bias-corrected effect sizes. Under (a) success rises toward PPV; under (b) it stays low. Not run in the paper.
   - source: https://arxiv.org/html/2602.15697v1
@@ -125,6 +129,12 @@ cards routed by DEFAULT for type THEORETICAL: 00, 01, 04, 06 (claim-level overri
 - **T7** card 06 — RUN
   - output: Target: is OSC's low rate mostly an artifact of the replication protocol? Rendering: 'able by itself to explain'. That shows sufficiency under an imposed pi, not that the artifact is the explanation. Arithmetic recomputed (recompute.py R1-R8): the predictions in Sections 3.5 and 3.6 reproduce exactly.
   - source: https://arxiv.org/html/2602.15697v1
+
+## Misses classified (glyph E1-E4; Card 06 section 4)
+- classification of stated misses, not a score; untagged entries are unclassified, not clean
+- E1_DROPPED_VARIABLE: design:confounding
+- E3_DEFAULTED_SLOT: T3, design:selection
+- E4_UNCHECKED_OBSERVER: T4
 
 ## Input averages (Card 02 frozen-state check)
 - **A1** (PARTIAL) — effect prevalence pi, main effects = 0.25

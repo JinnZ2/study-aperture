@@ -95,6 +95,7 @@ Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted i
 | decision states | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
 | design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
 | stationarity states | ASSESSED · ASSUMED · UNASSESSED |
+| error types | E1_DROPPED_VARIABLE · E2_STALE_CONDITIONS · E3_DEFAULTED_SLOT · E4_UNCHECKED_OBSERVER |
 | lab report statuses | NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE · INTEGRITY_GAPS_RECORDED |
 
 This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.

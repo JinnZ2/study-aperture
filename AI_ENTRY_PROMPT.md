@@ -22,7 +22,7 @@ Throughout: for every substantive finding you state, retain the source location 
 
 6. **Position and scope (only if material supports it).** Would the same behavior be classified differently if the describer were inside vs. outside the described population? Does the key term mean the same thing to all parties citing it? Does any claim violate a lower layer (physics, thermodynamics, biomechanics) before its statistics matter? Which background conditions does the design assume stable, and are they ASSESSED, ASSUMED, or UNASSESSED? (An unassessed factor is unknown — not established as unstable.)
 
-7. **Labels and records.** Label every claim OBSERVED, DERIVED, or PROPOSED — including your own assessment statements. Distinguish the question the work was aimed at (target) from what was written (rendering): removing a rendering does not close its target. If you decline to read or score something, say so and give the reason (a gate may block scoring, never reading).
+7. **Labels and records.** Label every claim OBSERVED, DERIVED, or PROPOSED — including your own assessment statements. Distinguish the question the work was aimed at (target) from what was written (rendering): removing a rendering does not close its target. If you decline to read or score something, say so and give the reason (a gate may block scoring, never reading). For each miss you state (in a finding or a card output), name its type before proposing a repair: E1_DROPPED_VARIABLE (a variable the environment holds was left out), E2_STALE_CONDITIONS (values from earlier conditions used after they changed), E3_DEFAULTED_SLOT (a slot assumed, not tested), E4_UNCHECKED_OBSERVER (the observer's own state or calibration unchecked). Leave a miss untagged if no type fits; untagged is unclassified, not clean.
 
 8. **Decisions.** List the decision surfaces the reader's actual decision turns on, each with state DETECTED, UNRESOLVED, RESOLVED (answer + named author), DEFERRED (with reason), or NOT_APPLICABLE. Never silently resolve anything; never substitute a default for an unknown. Keep confidence in the claims separate from whether the claims justify action.
 
@@ -38,6 +38,7 @@ INPUT AVERAGES:
 INDEPENDENCE: <pairwise routes, or NODATA>
 OPEN BRANCHES: <untested candidate explanations>
 ASSUMED STABILITIES: <ASSESSED/ASSUMED/UNASSESSED list, or NODATA>
+MISSES: <T-id or design check> <E1_DROPPED_VARIABLE|E2_STALE_CONDITIONS|E3_DEFAULTED_SLOT|E4_UNCHECKED_OBSERVER> "<the miss>" (or none)
 DECLINED: <what you did not read or score, and why; or none>
 DECISIONS:
 - D1 <surface text> [UNRESOLVED|...] — conditional implication if context unknown
@@ -57,6 +58,7 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url>` |
 | each INPUT AVERAGES line | `average --id A1 --text "<what is averaged>" --value <v> --population "<...>" --window "<...>" --stationarity <ASSESSED|ASSUMED|UNASSESSED|UNDECLARED> [--basis "<...>"] --claim C1 [--split-of A0] [--fitted-to "<...>"] [--estimated-from "<...>"] --source <url>` |
 | each card run | `tool --id T1 --card 03 --state RUN --output "<finding + source location>" --source <url>` (or `--state DECLINED --declined-reason "..."`) |
+| each MISSES line | add `--error-type <E1_DROPPED_VARIABLE|E2_STALE_CONDITIONS|E3_DEFAULTED_SLOT|E4_UNCHECKED_OBSERVER>` (repeatable) to the `tool` or `design` command that states the miss; accepted only on RUN / CHECKED with the miss in the output or finding |
 | each DECISIONS line | `decide --id D1 --text "<surface>" --state UNRESOLVED` |
 | a resolved decision | `resolve --id D1 --by <user|assessor> --answer "<answer>"` — the only path to RESOLVED |
 | a deferred decision | `defer --id D1 --by <who> --reason "<why>"` |

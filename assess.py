@@ -20,6 +20,11 @@ Enforcement notes (the prohibitions are enforced in code, not promised in prose)
     integrity report (by SHA-256) to claims; it never touches claim support or
     decisions. A clean lab report establishes bundle integrity only. A changed
     report file is a violation; a missing one is incompleteness.
+  - A miss can be classified before it is repaired (Card 06 section 4): a RUN tool
+    or a CHECKED design check may carry error types from the glyph procedure
+    (E1 dropped variable, E2 stale conditions, E3 defaulted slot, E4 unchecked
+    observer). A tag needs the miss stated in the output or finding; a tag on a
+    tool that did not run, or a check that was not done, is rejected.
   - Averages used as inputs declare their freezing (Card 02). Each input average
     states population, window and stationarity (sentinel UNDECLARED allowed and
     kept). With none of the three stated it is FROZEN: a claim resting on it
@@ -37,7 +42,8 @@ Schema (study-aperture/1):
     "decision_context": str,    # what the assessment is FOR; may be UNDECLARED
     "claims": [ {id, text, evidence_location | NO_EVIDENCE_LOCATION,
                  support: one of SUPPORT} ],
-    "tools": [ {id, card, state: one of TOOL_STATES, output?, declined_reason?} ],
+    "tools": [ {id, card, state: one of TOOL_STATES, output?, declined_reason?,
+                error_types?: [one of ERROR_TYPES]} ],
     "decisions": [ {id, text, state: one of DECISION_STATES,
                     answer?, by?, deferred_reason?} ],
     "lab_refs": [ {id, report_path (relative to the record file), report_sha256,
@@ -56,9 +62,9 @@ Commands:
         [--measurand ...] [--grade ...] [--falsifiers ...] [--label OBSERVED|DERIVED|PROPOSED] [--source <url>]
         [--range ...] [--instrument ...] [--resolution ...]
   tool  --file s.json --id T1 --card 03 --state RUN --output "..." [--source <url>]
-        [--declined-reason ...]
+        [--declined-reason ...] [--error-type E1_DROPPED_VARIABLE ...]
   design --file s.json --check confounding --state CHECKED|NOT_CHECKED|NOT_APPLICABLE
-        [--finding "..."] [--source <url>]
+        [--finding "..."] [--source <url>] [--error-type E3_DEFAULTED_SLOT ...]
   decide --file s.json --id D1 --text "..." --state DETECTED|UNRESOLVED|NOT_APPLICABLE
   resolve --file s.json --id D1 --by user --answer "..."   # the only path to RESOLVED
   defer  --file s.json --id D1 --by user --reason "..."
@@ -155,6 +161,16 @@ STATIONARITY_STATES = frozenset([
     "UNASSESSED",   # not considered
 ])
 MEASURED_GRADES = frozenset(["MEASURED_PRESENT", "MEASURED_ABSENT", "MEASURED_DISCARDED"])
+
+# Card 06 section 4: classify a miss before repairing it. From the glyph procedure,
+# JinnZ2/Simulators tools/glyph_reasoning.md (CC0, delivered 2026-10-25): "the glyph
+# holds; the reasoning fails". Each type calls for a different repair.
+ERROR_TYPES = frozenset([
+    "E1_DROPPED_VARIABLE",     # a variable the environment holds was left out
+    "E2_STALE_CONDITIONS",     # values from earlier conditions used after they changed
+    "E3_DEFAULTED_SLOT",       # a slot assumed from history or a claim, not tested
+    "E4_UNCHECKED_OBSERVER",   # the observer's own state, frame or calibration unchecked
+])
 
 LAB_SCOPE_NOTE = ("bundle integrity only: references, version bindings, condition "
                   "coverage; not mathematical, empirical, or claim support")
@@ -256,6 +272,25 @@ def _average_gaps(a):
     return gaps
 
 
+def _check_error_types(v, label, tags, state_ok, state_name, text, text_name):
+    if tags is None:
+        return
+    if not isinstance(tags, list) or not tags:
+        v.append(f"{label}: error_types must be a non-empty list when present")
+        return
+    for e in tags:
+        if e not in ERROR_TYPES:
+            v.append(f"{label}: error type {e!r} not in vocabulary")
+    if len(set(tags)) != len(tags):
+        v.append(f"{label}: error type listed twice")
+    if not state_ok:
+        v.append(f"{label}: error types need {state_name} (a miss is classified only "
+                 f"where something was run or checked)")
+    if _is_sentinel(text):
+        v.append(f"{label}: error types need the miss stated in the {text_name} "
+                 f"(classify a stated miss, not an empty field)")
+
+
 def check(d, base_dir=None):
     """Return list of violation strings. Empty list = valid record.
     base_dir (the record file's folder) enables lab-report hash verification."""
@@ -287,9 +322,15 @@ def check(d, base_dir=None):
             v.append(f"tool {tid}: DECLINED without a reason (a decline is the headline)")
         if _is_missing(t.get("card")):
             v.append(f"tool {tid}: card missing")
+        _check_error_types(v, f"tool {tid}", t.get("error_types"),
+                           t.get("state") == "RUN", "state RUN",
+                           t.get("output"), "output")
     for k in d.get("design_checks", []):
         if k.get("state") not in DESIGN_CHECK_STATES:
             v.append(f"design check {k.get('check', '?')}: state {k.get('state')!r} not in vocabulary")
+        _check_error_types(v, f"design check {k.get('check', '?')}", k.get("error_types"),
+                           k.get("state") == "CHECKED", "state CHECKED",
+                           k.get("finding"), "finding")
     for x in d["decisions"]:
         did = x.get("id", "?")
         if x.get("state") not in DECISION_STATES:
@@ -475,6 +516,8 @@ def report(d, base_dir=None):
             lines.append(f"  - finding: {k.get('finding')}")
         if not _is_missing(k.get("source")):
             lines.append(f"  - source: {k.get('source')}")
+        if k.get("error_types"):
+            lines.append(f"  - error types: {', '.join(k['error_types'])}")
     lines.append("")
     lines.append("## Claims")
     if not d["claims"]:
@@ -516,7 +559,20 @@ def report(d, base_dir=None):
             lines.append(f"  - output: {t.get('output')}")
         if t.get("source"):
             lines.append(f"  - source: {t.get('source')}")
+        if t.get("error_types"):
+            lines.append(f"  - error types: {', '.join(t['error_types'])}")
     lines.append("")
+    tagged = [(t.get("id"), e) for t in d["tools"] for e in t.get("error_types") or []]
+    tagged += [(f"design:{k.get('check')}", e) for k in d.get("design_checks", [])
+               for e in k.get("error_types") or []]
+    if tagged:  # optional section; absent records render as before
+        lines.append("## Misses classified (glyph E1-E4; Card 06 section 4)")
+        lines.append("- classification of stated misses, not a score; untagged entries are unclassified, not clean")
+        for e in sorted(ERROR_TYPES):
+            ids = [i for i, x in tagged if x == e]
+            if ids:
+                lines.append(f"- {e}: {', '.join(ids)}")
+        lines.append("")
     if d.get("lab_refs"):  # optional section; absent records render as before
         lines.append(f"## Lab evidence references ({LAB_SCOPE_NOTE})")
         for ref in d["lab_refs"]:
@@ -600,6 +656,7 @@ def main(argv=None):
     p.add_argument("--value"); p.add_argument("--population"); p.add_argument("--window")
     p.add_argument("--stationarity"); p.add_argument("--basis")
     p.add_argument("--split-of"); p.add_argument("--fitted-to"); p.add_argument("--estimated-from")
+    p.add_argument("--error-type", dest="error_types", action="append")
     args = p.parse_args(argv)
 
     if args.cmd == "selftest":
@@ -632,6 +689,7 @@ def main(argv=None):
         if args.output: t["output"] = args.output
         if args.declined_reason: t["declined_reason"] = args.declined_reason
         if args.source: t["source"] = args.source
+        if args.error_types: t["error_types"] = list(args.error_types)
         d["tools"].append(t)
         return _commit(d, args.file, f"tool run {args.id} recorded")
     if args.cmd == "design":
@@ -642,6 +700,7 @@ def main(argv=None):
         k = {"check": args.design_check, "state": args.state}
         if args.finding: k["finding"] = args.finding
         if args.source: k["source"] = args.source
+        if args.error_types: k["error_types"] = list(args.error_types)
         d["design_checks"].append(k)
         return _commit(d, args.file, f"design check {args.design_check} recorded")
     if args.cmd == "decide":
@@ -1000,6 +1059,43 @@ def selftest():
     assert r.returncode != 0 and "already exists" in r.stderr
     d = load(f3); d["averages"][0]["stationarity"] = "PROBABLY"
     assert any("not in vocabulary" in x for x in check(d))
+    # 16. error types (glyph E1-E4): classify a stated miss, never an empty or unrun one
+    assert "## Misses classified" not in report(load(f3))  # optional section absent
+    before = open(f3).read()
+    # 16a. unknown type rejected
+    r = cli3("tool", "--id", "T1", "--card", "02", "--state", "RUN", "--output", "pi assumed",
+             "--error-type", "E5_GUESS")
+    assert r.returncode != 0 and "not in vocabulary" in r.stderr
+    # 16b. a tag on a tool that did not run is rejected
+    r = cli3("tool", "--id", "T1", "--card", "02", "--state", "NOT_APPLICABLE",
+             "--output", "x", "--error-type", "E3_DEFAULTED_SLOT")
+    assert r.returncode != 0 and "need state RUN" in r.stderr
+    # 16c. a tag with no stated miss is rejected
+    r = cli3("tool", "--id", "T1", "--card", "02", "--state", "RUN",
+             "--error-type", "E3_DEFAULTED_SLOT")
+    assert r.returncode != 0 and "miss stated" in r.stderr
+    # 16d. a tag on a design check that was not done is rejected
+    r = cli3("design", "--check", "selection", "--state", "NOT_CHECKED",
+             "--finding", "x", "--error-type", "E1_DROPPED_VARIABLE")
+    assert r.returncode != 0 and "need state CHECKED" in r.stderr
+    assert open(f3).read() == before  # every rejection left the file byte-identical
+    # 16e. valid tags render under the entry and in the classification section
+    assert cli3("tool", "--id", "T1", "--card", "02", "--state", "RUN",
+                "--output", "pi assumed from another population",
+                "--error-type", "E3_DEFAULTED_SLOT", "--error-type", "E2_STALE_CONDITIONS").returncode == 0
+    assert cli3("design", "--check", "selection", "--state", "CHECKED",
+                "--finding", "calibration set's selection not discussed",
+                "--error-type", "E3_DEFAULTED_SLOT").returncode == 0
+    rep3 = report(load(f3))
+    assert "error types: E3_DEFAULTED_SLOT, E2_STALE_CONDITIONS" in rep3
+    assert "## Misses classified" in rep3
+    assert "- E3_DEFAULTED_SLOT: T1, design:selection" in rep3 and "- E2_STALE_CONDITIONS: T1" in rep3
+    assert "E1_DROPPED_VARIABLE:" not in rep3  # an empty type is not printed as a clean count
+    # 16f. duplicate and forged tags caught in the file
+    d = load(f3); d["tools"][0]["error_types"] = ["E3_DEFAULTED_SLOT", "E3_DEFAULTED_SLOT"]
+    assert any("listed twice" in x for x in check(d))
+    d["tools"][0]["error_types"] = []
+    assert any("non-empty list" in x for x in check(d))
     print("SELFTEST OK")
     return 0
 

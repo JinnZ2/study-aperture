@@ -17,7 +17,7 @@ $A init --file $F --title "Almudevar & Almudevar (2026): Reproducibility and Sta
   --context "Whether to read the Open Science Collaboration's 36% replication rate (Nosek et al. 2015) as an estimate of how many published psychology findings are true, or as largely an artifact of how the replications were powered. Assessor-chosen paper; no decision owner named."
 
 # ---- ordinary design checks (THEORETICAL record; run anyway because the paper re-analyses data)
-$A design --file $F --check selection --state CHECKED --source "$U" \
+$A design --file $F --check selection --state CHECKED --source "$U" --error-type E3_DEFAULTED_SLOT \
   --finding "The prevalence used for OSC (pi = 0.25) is labelled 'consistent with ML-RP' (Table 1); Klein et al. 2014 studied a hand-picked set of effects. Selection of that set is not discussed as a reason it may differ from OSC's sample."
 $A design --file $F --check measurement_validity --state CHECKED --source "$U" \
   --finding "The model treats 'replicated' as a significant same-direction replication (35/97). OSC also reported CI containment (47%) and subjective success (39%) (Introduction); the model addresses only the significance criterion."
@@ -27,7 +27,7 @@ $A design --file $F --check multiplicity --state CHECKED --source "$U" \
   --finding "Two subsets (main effects, interactions) are fitted with two separately chosen prevalences (0.25, 0.05; Section 3.5). One free parameter per observed rate."
 $A design --file $F --check missing_data --state CHECKED --source "$U" \
   --finding "Type II error computed on N = 93 of 97 after bounding effect estimates below by 0 (Section 3.5); 'a number of P-values were given as 0' (Section 3.5, stated limitation). 11 studies outside the main-effect and interaction rows (4/11 replicated, R2) are not discussed."
-$A design --file $F --check confounding --state CHECKED --source "$U" \
+$A design --file $F --check confounding --state CHECKED --source "$U" --error-type E1_DROPPED_VARIABLE \
   --finding "The main-effect vs interaction split (23/49 vs 8/37, Fisher p 0.0228, R3) is attributed to prevalence. Whether effect type covaries with sub-field or original sample size is not examined in the passages read."
 $A design --file $F --check preregistration --state NOT_APPLICABLE --source "$U" \
   --finding "Model and re-analysis paper; no preregistration stated or expected."
@@ -112,9 +112,9 @@ $A tool --file $F --id T1 --card 00 --state RUN --source "$U" \
   --output "Type THEORETICAL (model, derivation, review). Defaults 00/01/04/06. Overrides: 02, because the fit rests on an imposed quantity (pi); 03, because the 'more optimistic' studies are used as agreement. Toolkit fit: no type covers a re-analysis of other studies' published data; THEORETICAL plus overrides used."
 $A tool --file $F --id T2 --card 01 --state RUN --source "$U" \
   --output "8 claims, verbatim. C1 in conditional form: IF pi for the OSC originals is about 0.25 (0.05 for interactions) AND mean beta* is about 0.468, THEN 35/97 is the expected rate. Both antecedents carry the result; neither is observed."
-$A tool --file $F --id T3 --card 02 --state RUN --source "$U" \
+$A tool --file $F --id T3 --card 02 --state RUN --source "$U" --error-type E3_DEFAULTED_SLOT \
   --output "pi graded IMPOSED: 'Suppose' and 'conjecture' (Section 3.5), with a reason given for each value but no measurement. beta* 0.468 is derived from inputs not in hand (per-study p-values, replication n), so UNDECLARED here rather than checked. Toolkit fit: the measurement grades have no value for 'computed, not recomputed'; UNDECLARED was the nearest."
-$A tool --file $F --id T4 --card 03 --state RUN --source "$U" \
+$A tool --file $F --id T4 --card 03 --state RUN --source "$U" --error-type E4_UNCHECKED_OBSERVER \
   --output "ML-RP vs model: SHARED_UPSTREAM. pi = 0.25 is set from ML-RP (Table 1 label; 11/13 implies pi 0.234, R7), then ML-RP's closeness to 0.857 is reported in Section 3.6. Camerer vs model: independent data, but at n = 18 compatible with both the bias reading (0.486) and the no-bias reading (0.796), R8. Toolkit fit: 'calibration reused as confirmation' has no route of its own; SHARED_UPSTREAM fits loosely."
 $A tool --file $F --id T5 --card 04 --state RUN --source "$U" \
   --output "Open branches for OSC's 35/97: (a) protocol bias, inflated original effects leading to underpowered replications (paper); (b) low prevalence, pi about 0.03 with OSC's reported beta*, no bias needed (R6); (c) a mixture of (a) and (b); (d) other moderators of replication (Gilbert et al. 2016 is cited, not modelled). The observed rate alone does not separate (a) from (b). Cheapest discriminator: re-replicate a sample of the same OSC items powered on bias-corrected effect sizes. Under (a) success rises toward PPV; under (b) it stays low. Not run in the paper."
