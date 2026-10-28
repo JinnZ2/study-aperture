@@ -67,6 +67,9 @@ DECLINED tool        → requires reason
 valid ≠ complete     → a record can be VALID and INCOMPLETE; incompleteness is printed FIRST in reports
 confidence in claims ≠ whether claims justify action
 NOT_APPLICABLE       → a legal output, not a failure
+lab evidence         → enters only via `labref`: hash-bound to one report, linked to claims,
+                       never changes support or decisions. Changed report = violation;
+                       missing report = incompleteness; INTEGRITY_GAPS_RECORDED = incompleteness
 no shared ancestor in declared graph ≠ independent in the world
 ```
 
@@ -81,6 +84,7 @@ Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted i
 | tool states | RUN · DECLINED · BLOCKED · NOT_APPLICABLE |
 | decision states | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
 | design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
+| lab report statuses | NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE · INTEGRITY_GAPS_RECORDED |
 
 This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.
 
@@ -88,6 +92,7 @@ This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked aga
 
 - Independent subproject. It does **not** replace or extend `assess.py`; parent ↔ lab exchange is explicit JSON.
 - An imported test pass must never promote a claim to SUPPORTED, turn an interpretation into an observation, or establish empirical validity.
+- The one implemented import path is `assess.py labref` (see `examples/lab-link/`). It reads the checker's JSON report locally and copies its own status words; lab statuses are a separate vocabulary from claim support. Don't paste lab results into `tool --output` free text instead.
 - `integrity_checker.py` reads only explicitly supplied local JSON: no URL fetching, no directory scanning, no "latest version" selection, never overwrites an existing output path (exit 2).
 - Draft schemas are **proposals**, not stable interfaces. Status lines in each README/doc state what is and is not established — keep them accurate when behavior changes.
 - Review runs under `reviews/<run>/` are records. Preserve earlier runs and `attempt-NN-*` directories unchanged; corrections go in a new run or `correction-record.json`, not by editing history. Generated `artifacts/` come from the run scripts (they refuse to overwrite); regenerate into a new directory rather than editing outputs.

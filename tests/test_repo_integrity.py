@@ -46,6 +46,7 @@ VOCAB = {
     "tool states": "TOOL_STATES",
     "decision states": "DECISION_STATES",
     "design check states": "DESIGN_CHECK_STATES",
+    "lab report statuses": "LAB_REPORT_STATUSES",
 }
 
 # Sets AI_ENTRY_PROMPT.md must teach the model (it does not define design-check

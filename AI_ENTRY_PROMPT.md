@@ -57,6 +57,7 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | each DECISIONS line | `decide --id D1 --text "<surface>" --state UNRESOLVED` |
 | a resolved decision | `resolve --id D1 --by <user|assessor> --answer "<answer>"` — the only path to RESOLVED |
 | a deferred decision | `defer --id D1 --by <who> --reason "<why>"` |
+| a Scope Audit Lab integrity report bearing on a claim | `labref --id L1 --lab-report <integrity-report.json> --claim C1` — links and hash-binds the report; never changes the claim's support grade |
 | INCOMPLETENESS list | generated automatically by `report`; do not hand-write it |
 
 Then `check` (must print VALID) and `report` (markdown; incompleteness printed first). The report is the deliverable: a record, not a verdict.
