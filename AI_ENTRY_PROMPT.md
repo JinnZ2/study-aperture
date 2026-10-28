@@ -14,7 +14,7 @@ Throughout: for every substantive finding you state, retain the source location 
 
 2. **Claims.** List each claim with: id, verbatim text (quote, do not paraphrase), evidence location (table/figure/page/derivation step — or NO_EVIDENCE_LOCATION), measurand (what was measured, not what it is called), conditional form if if-then, and its falsifiers (what would have to be observed for it to be wrong, and whether the publication reports testing them).
 
-3. **Premises.** For each claim write the layer declaration: measurand, range, instrument (the exact task/assay/scaffold — the datum), grade (MEASURED_PRESENT, MEASURED_ABSENT, MEASURED_DISCARDED, UNMEASURED, UNDERPOWERED, IMPOSED), resolution. Flag MEASURED_DISCARDED without a discard rule and IMPOSED without a reason — those are worse than UNMEASURED. When two claims or studies are combined, state whether they are COMMENSURABLE, UNJOINED, INCOMMENSURABLE(field), or UNDECLARED(field).
+3. **Premises.** For each claim write the layer declaration: measurand, range, instrument (the exact task/assay/scaffold — the datum), grade (MEASURED_PRESENT, MEASURED_ABSENT, MEASURED_DISCARDED, UNMEASURED, UNDERPOWERED, IMPOSED), resolution. Flag MEASURED_DISCARDED without a discard rule and IMPOSED without a reason — those are worse than UNMEASURED. When two claims or studies are combined, state whether they are COMMENSURABLE, UNJOINED, INCOMMENSURABLE(field), or UNDECLARED(field). For every average that enters a claim as an input (a prevalence, base rate, mean effect, typical value), state its population, window, and stationarity (ASSESSED with a basis, ASSUMED, UNASSESSED, or UNDECLARED). An average with none of the three stated is FROZEN: grade the claims resting on it IMPOSED or UNDECLARED, never MEASURED_*. Record whether it was fitted to the result it reproduces, split into several values to fit subsets, or estimated from a different population than the one it is used for.
 
 4. **Agreement and independence.** If the publication cites supporting studies, route each pair: SHARED_UPSTREAM (both trace to one source), FALSE_AGREE_DEFINITION (same words, different definition/population), FALSE_AGREE_MEASURE (incompatible instruments), UNDERDETERMINED (lineage missing), or INDEPENDENT_CONVERGENCE. These routes are field mismatches requiring your review, not verdicts. When a pair flags, assess that pair individually and retain the unaffected evidence — do not let one dependent pair erase the rest of the set. Name the specific data source for lineage (generic strings misroute).
 
@@ -33,6 +33,8 @@ PUBLICATION: <title> | TYPE: <one of the six> | MATERIAL HELD: <...> | DECISION 
 DESIGN CHECKS: <state of each ordinary check; UNDECLARED if not inspectable with material in hand>
 CLAIMS:
 - C1 [OBSERVED|DERIVED|PROPOSED] "verbatim" | evidence: <loc or NO_EVIDENCE_LOCATION> | grade: <...> | support: <SUPPORTED|PARTIALLY_SUPPORTED|UNSUPPORTED|CONTRADICTED|UNTESTED|UNDETERMINED> | falsifiers: <...>
+INPUT AVERAGES:
+- A1 "<what is averaged>" = <value> | population: <...> | window: <...> | stationarity: <ASSESSED (basis)|ASSUMED|UNASSESSED|UNDECLARED> | claims: <ids> | fitted to / split of / estimated from: <...>
 INDEPENDENCE: <pairwise routes, or NODATA>
 OPEN BRANCHES: <untested candidate explanations>
 ASSUMED STABILITIES: <ASSESSED/ASSUMED/UNASSESSED list, or NODATA>
@@ -53,6 +55,7 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | header line | `init --title ... --type EMPIRICAL --citation <url> --materials "<what you actually read>" --context "<decision it is for>" |
 | DESIGN CHECKS lines | `design --check confounding --state CHECKED --finding "..." --source <url>` |
 | each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url>` |
+| each INPUT AVERAGES line | `average --id A1 --text "<what is averaged>" --value <v> --population "<...>" --window "<...>" --stationarity <ASSESSED|ASSUMED|UNASSESSED|UNDECLARED> [--basis "<...>"] --claim C1 [--split-of A0] [--fitted-to "<...>"] [--estimated-from "<...>"] --source <url>` |
 | each card run | `tool --id T1 --card 03 --state RUN --output "<finding + source location>" --source <url>` (or `--state DECLINED --declined-reason "..."`) |
 | each DECISIONS line | `decide --id D1 --text "<surface>" --state UNRESOLVED` |
 | a resolved decision | `resolve --id D1 --by <user|assessor> --answer "<answer>"` — the only path to RESOLVED |

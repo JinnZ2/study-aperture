@@ -35,6 +35,8 @@ python3 assess.py tool --file s.json --id T1 --card 03 --state RUN --output "SHA
 python3 assess.py decide --file s.json --id D1 --text "Rely on this for training decisions?" --state UNRESOLVED
 python3 assess.py check --file s.json     # exit 1 on violations
 python3 assess.py report --file s.json    # markdown; incompleteness printed first
+python3 assess.py average --file s.json --id A1 --text "effect prevalence" --value 0.25 \
+    --population UNDECLARED --window UNDECLARED --stationarity UNDECLARED --claim C1   # an input average; all three unstated = FROZEN
 python3 assess.py labref --file s.json --id L1 --lab-report integrity-report.json --claim C1   # optional: lab evidence
 python3 assess.py selftest
 ```
@@ -43,7 +45,7 @@ python3 assess.py selftest
 
 1. **Route** (Card 00): publication type, materials in hand, decision context. Cards that don't apply return `NOT_APPLICABLE` — a legal output.
 2. **Extract claims** (Card 01): verbatim text + evidence location + conditional form + falsifiers. A claim without an evidence location is not yet a claim.
-3. **Declare premises** (Card 02): each claim as a layer with measurand, range, instrument, grade, resolution. Watch for `MEASURED_DISCARDED` without a discard rule.
+3. **Declare premises** (Card 02): each claim as a layer with measurand, range, instrument, grade, resolution. Watch for `MEASURED_DISCARDED` without a discard rule. Any average used as an input declares population, window and stationarity; with none stated it is FROZEN, and a claim resting on it cannot be graded as measured.
 4. **Check the evidence base** (Card 03): is agreement independent convergence, one source echoed, or definitional false agreement?
 5. **Keep alternatives alive** (Card 04): candidate explanations, cheapest discriminator first; each elimination is a result.
 6. **Position and scope** (Card 05): optional; observer position, term frames, grounding layers, assumed stabilities.
@@ -61,6 +63,7 @@ python3 assess.py selftest
 | `examples/power-pose/` | worked example: real contested literature — record, machine report, `FINDINGS.md` narrative with inline source citations, `false_agree.json`, two provenance graphs |
 | `examples/incomplete-input/` | failure mode: incomplete material stays visibly incomplete |
 | `examples/nonempirical-note/` | routing check: commentary returns `NOT_APPLICABLE` for quantitative cards |
+| `examples/reproducibility-model/` | run on a 2026 preprint arguing the OSC 2015 replication rate is a power artifact: record, report, `FINDINGS.md`, and `recompute.py` (stdlib recomputation of the paper's arithmetic, pinned) |
 | `examples/lab-link/` | synthetic: a Scope Audit Lab integrity report linked to a claim with `labref`; support unchanged, gaps listed as incompleteness |
 
 ## Vocabulary (the short version)
@@ -72,6 +75,7 @@ python3 assess.py selftest
 - **Tool states:** RUN, DECLINED, BLOCKED, NOT_APPLICABLE
 - **Decision states:** DETECTED, UNRESOLVED, RESOLVED, DEFERRED, NOT_APPLICABLE
 - **Design check states:** CHECKED, NOT_CHECKED, NOT_APPLICABLE
+- **Stationarity states:** ASSESSED, ASSUMED, UNASSESSED (for an average used as a model input; see Card 02)
 - **Lab report statuses:** NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE, INTEGRITY_GAPS_RECORDED (the lab checker's own words; not claim support)
 
 `UNDECLARED`, `NODATA`, `NOTFOUND` are values, not errors. A zero is a property of the measurement, not of the world.
@@ -91,6 +95,10 @@ python3 assess.py selftest
 The lab also includes [draft criterion-to-conclusion mappings](experimental/scope_audit_lab/docs/criterion-conclusion-mappings.md) and a [worked study published October 27, 2026](experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27/README.md). This bounded run keeps exact algebra, sampled numerical comparisons, a candidate internal discrepancy, and unresolved physical/empirical questions separate; it does not validate an entire publication.
 
 A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
+
+## In situ learning (experimental)
+
+[In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
 
 ## Audits
 
