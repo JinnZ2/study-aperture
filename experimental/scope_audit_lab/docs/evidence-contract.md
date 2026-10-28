@@ -170,6 +170,8 @@ Source fields record provenance assertions, not verified provenance. Artifact ha
 
 ### Proposed review gates
 
+The [pre-implementation decision checklist](decision-checklist.md) records these gates as review items with explicit approval status and scope. All choices remain proposed until separately approved; creating that checklist is not approval.
+
 - **Evidence gate:** review typed records, missingness, reference rules, immutable identity, correction semantics, and privacy requirements before implementing Stage A.
 - **Verification gate:** settle subject-state binding, relevant-change assessments, execution authorization, and per-criterion result vocabulary.
 - **Numerical gate:** settle numeric representation, units, covariance assumptions, threshold operators, and unavailable-result semantics before Stage B.

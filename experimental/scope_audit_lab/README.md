@@ -9,6 +9,7 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 - **Requirements:** [Specification 0.2](requirements/scope-audit-lab-0.2.md) preserves the specification supplied by the project owner, including its proposed baseline and implementation order.
 - **Acceptance matrix:** [Requirement-to-test mapping](docs/acceptance-matrix.md) assigns documentation identifiers to proposed checks, inputs, and inspectable artifacts. Every check is planned and not run.
 - **Evidence contract:** [Draft proposal 0.1](docs/evidence-contract.md) separates proposed design choices from unchanged specification 0.2, covering typed records, missingness, verification, amendments, numerical rules, execution authorization, and voice observability. It is not an implemented or stable interface.
+- **Decision checklist:** [Pre-implementation review](docs/decision-checklist.md) turns the contract's gates into explicit choices. Every item starts OPEN; drafting the checklist does not approve a design or authorize implementation.
 - **Parent toolkit:** [study-aperture](../../README.md) remains the publication-appraisal and decision-record layer; this folder does not replace or extend its recorder.
 
 ## Boundary decision
@@ -27,6 +28,8 @@ Initially prefer explicit JSON exchange over shared mutable state. An imported t
 ## Proposed next steps
 
 Review Prototype 0.1 before adapting its modules. Review the draft evidence contract and settle its open implementation choices before treating it as an interface commitment.
+
+Use the decision checklist to record approvals, deferrals, decision makers, and their scope. Start with the evidence and verification gates for a proposed recorder-only milestone, without silently approving numerical or live voice capabilities.
 
 Use the supplied Stage A through D order as the baseline. Run adversarial checks and report checks alongside each implementation stage rather than interpreting Stage D as permission to delay evidence-integrity tests.
 
