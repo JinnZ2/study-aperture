@@ -42,7 +42,22 @@ Two prohibitions enforced in `assess.py`'s code, not promised in prose:
 
 Missing decision context produces **conditional implications** ("if you need X, then the hormone claims matter and are unsupported"), not invented recommendations.
 
-## 4. What this card refuses to do
+## 4. Classifying a miss before repairing it (glyph E1-E4)
+
+**Provenance:** JinnZ2/Simulators `tools/glyph_reasoning.md` (CC0, co-authored, delivered 2026-10-25; blob `3f91affa` on `main` at `b2a9a1a`), section "error types". Status: four types adopted as a closed set; the six-step procedure is not adopted here. The source's own limit carries over: nothing measures how often each type occurs, and no instrument checks that a classification is right.
+
+A stated miss is tagged with the type it is, because the four call for different repairs:
+
+| Type | The miss | Repair it calls for |
+|---|---|---|
+| `E1_DROPPED_VARIABLE` | a variable the environment holds was left out | add the variable; re-run |
+| `E2_STALE_CONDITIONS` | values from earlier conditions used after they changed | re-measure under current conditions |
+| `E3_DEFAULTED_SLOT` | a slot assumed from history or a claim, not tested | test the slot |
+| `E4_UNCHECKED_OBSERVER` | the observer's own state, frame or calibration unchecked | check the observer |
+
+Enforced in `assess.py`: `--error-type` (repeatable) on `tool` and `design`. A tag is accepted only on a `RUN` tool or a `CHECKED` design check whose output or finding states the miss; an unknown type, a duplicate, an empty list, a tag on something not run, or a tag on an empty field is rejected and the file is left unchanged. The report lists tagged entries under each type. Untagged entries are **unclassified, not clean**, and an empty type is not printed as a zero.
+
+## 5. What this card refuses to do
 
 - No universal numerical quality score for publications.
 - No mixing of vocabularies: measurement grades (Card 02), tool states, claim support, and decision states are separate fields; a low support grade is not a decision, and a resolved decision is not a truth.

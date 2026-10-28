@@ -53,6 +53,7 @@
       "state": "NOT_APPLICABLE",
       "output": "the finding, with its source location",
       "declined_reason": "required if DECLINED - a decline is the headline, not a gap; a gate may block scoring, never reading",
+      "error_types_note": "optional key error_types: list of E1_DROPPED_VARIABLE | E2_STALE_CONDITIONS | E3_DEFAULTED_SLOT | E4_UNCHECKED_OBSERVER; only on a RUN tool or CHECKED design check whose output/finding states the miss",
       "source": "URL or location"
     }
   ],
