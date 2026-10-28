@@ -92,7 +92,7 @@ B_imposed   the structure: law, prices, debt, tenure; set by people, changeable 
 | The common meaning ("social order", "law and order"): alignment of practices with the imposing structure, usually without naming it. | B_imposed | PROPOSED reading of common usage |
 | The owner's tradition: "alignment with physics as best as we are able to calibrate to what is known today, with our minds open to updating constantly as conditions change." | B_physics | STATED |
 
-The tradition's definition carries two practices as part of it, not as additions (STATED): awareness of one's own scope, and a constant search for more understanding; and internal audits run constantly, so as to stay calibrated to the environment. The owner notes that neither is common practice.
+The tradition's definition carries two practices as part of it, not as additions (STATED): awareness of one's own scope, and a constant search for more understanding; and internal audits run constantly, so as to stay calibrated to the environment. Corrected by the owner the same day: the tradition of calibration is stated as not common; whether constant internal audit is uncommon is not known. Either difference may be partly one of words, other traditions doing the same under other names (open; not checked).
 
 Read against this folder (PROPOSED): this is the in situ loop with physics as the instrument. Constant internal audit is L4 (re-measure a fixed reference during the run) and T4 (an uncalibrated evaluator drifts). Awareness of scope is a declared range of validity (Card 02 `range`; the frozen-average check's population and window). Updating as conditions change is refusing to freeze the average.
 
