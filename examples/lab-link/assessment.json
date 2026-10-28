@@ -1,0 +1,51 @@
+{
+  "schema": "study-aperture/1",
+  "title": "Synthetic: linking a Scope Audit Lab integrity report to a claim",
+  "pub_type": "THEORETICAL",
+  "citation": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json (synthetic draft-0.2 records; not a publication)",
+  "materials": "the synthetic draft-0.2 evidence bundle and the lab checker's JSON report for it",
+  "decision_context": "UNDECLARED",
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Synthetic placeholder claim, used only to demonstrate labref; it is not drawn from any publication.",
+      "evidence_location": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+      "support": "UNDETERMINED",
+      "label": "PROPOSED"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "01",
+      "state": "RUN",
+      "output": "claim extracted from the synthetic bundle; evidence location recorded"
+    }
+  ],
+  "decisions": [],
+  "notes": "UNDECLARED",
+  "design_checks": [],
+  "lab_refs": [
+    {
+      "id": "L1",
+      "report_path": "integrity-report.json",
+      "report_sha256": "98c670f3a47fefd9b09c497b791c3761d5814e9cdca156e932f5c7b04063b12a",
+      "procedure": "scope_audit_lab.integrity_checker 0.2.0",
+      "status": "INTEGRITY_GAPS_RECORDED",
+      "finding_counts": {
+        "ERROR": 0,
+        "UNKNOWN": 16,
+        "INFO": 0
+      },
+      "inputs": [
+        {
+          "name": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
+          "sha256": "00f09d8add5d159924f6dd02c577af7c61492d13c9e392d5be6dbccb1980394a"
+        }
+      ],
+      "claims": [
+        "C1"
+      ]
+    }
+  ]
+}

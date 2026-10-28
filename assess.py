@@ -16,6 +16,10 @@ Enforcement notes (the prohibitions are enforced in code, not promised in prose)
   - Validity and completeness are separate. A record can be VALID and INCOMPLETE;
     incompleteness is a state, not an error. Missing evidence stays visibly
     missing; it never becomes a negative finding.
+  - Lab evidence is linked, never promoted. `labref` binds a Scope Audit Lab
+    integrity report (by SHA-256) to claims; it never touches claim support or
+    decisions. A clean lab report establishes bundle integrity only. A changed
+    report file is a violation; a missing one is incompleteness.
 
 Schema (study-aperture/1):
 
@@ -30,6 +34,9 @@ Schema (study-aperture/1):
     "tools": [ {id, card, state: one of TOOL_STATES, output?, declined_reason?} ],
     "decisions": [ {id, text, state: one of DECISION_STATES,
                     answer?, by?, deferred_reason?} ],
+    "lab_refs": [ {id, report_path (relative to the record file), report_sha256,
+                   procedure, status: one of LAB_REPORT_STATUSES, finding_counts,
+                   inputs: [{name, sha256?}], claims: [claim ids]} ],   # optional
     "notes": str
   }
 
@@ -45,11 +52,13 @@ Commands:
   decide --file s.json --id D1 --text "..." --state DETECTED|UNRESOLVED|NOT_APPLICABLE
   resolve --file s.json --id D1 --by user --answer "..."   # the only path to RESOLVED
   defer  --file s.json --id D1 --by user --reason "..."
-  check  --file s.json          # validate; exit 1 on violations; file never changed
+  labref --file s.json --id L1 --lab-report integrity-report.json --claim C1 [--claim C2]
+                                # link a lab integrity report; never changes support
+  check  --file s.json         # validate; exit 1 on violations; file never changed
   report --file s.json          # markdown report; INVALID banner if violations
   selftest
 """
-import argparse, json, sys
+import argparse, hashlib, json, os, sys
 
 SCHEMA = "study-aperture/1"
 
@@ -112,6 +121,20 @@ DESIGN_CHECK_STATES = frozenset([
     "CHECKED", "NOT_CHECKED", "NOT_APPLICABLE", "UNDECLARED",
 ])
 
+# Scope Audit Lab offline integrity checker (experimental/scope_audit_lab/
+# integrity_checker.py). These are the checker's own summary statuses, copied
+# verbatim. Neither one is a claim-support grade: NO_GAPS_DETECTED means the
+# supplied evidence bundle's references, version bindings, and condition
+# coverage showed no gaps; it says nothing about whether a claim is true.
+LAB_REPORT_KIND = "OFFLINE_EVIDENCE_INTEGRITY"
+LAB_PROCEDURE = "scope_audit_lab.integrity_checker"
+LAB_REPORT_STATUSES = frozenset([
+    "NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE",
+    "INTEGRITY_GAPS_RECORDED",
+])
+LAB_SCOPE_NOTE = ("bundle integrity only: references, version bindings, condition "
+                  "coverage; not mathematical, empirical, or claim support")
+
 
 def load(path):
     with open(path) as f:
@@ -141,8 +164,54 @@ def _is_sentinel(v):
     return _is_missing(v) or (isinstance(v, str) and v.strip() in MISSING_VALUES)
 
 
-def check(d):
-    """Return list of violation strings. Empty list = valid record."""
+def _sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 16), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def read_lab_report(path):
+    """Read a lab integrity report (local JSON only; nothing is fetched or run).
+    Return the fields a lab_ref stores. Raise ValueError if it is not one."""
+    try:
+        with open(path) as f:
+            r = json.load(f)
+    except (OSError, ValueError) as e:
+        raise ValueError(f"cannot read lab report {path!r}: {e}")
+    if not isinstance(r, dict) or r.get("report_kind") != LAB_REPORT_KIND:
+        raise ValueError(f"{path!r} is not a lab integrity report "
+                         f"(report_kind must be {LAB_REPORT_KIND})")
+    proc = r.get("procedure") or {}
+    if proc.get("identity") != LAB_PROCEDURE:
+        raise ValueError(f"{path!r}: procedure identity {proc.get('identity')!r} "
+                         f"is not {LAB_PROCEDURE}")
+    summary = r.get("summary") or {}
+    if summary.get("status") not in LAB_REPORT_STATUSES:
+        raise ValueError(f"{path!r}: summary status {summary.get('status')!r} not in vocabulary")
+    return {
+        "procedure": f"{LAB_PROCEDURE} {proc.get('version', 'UNDECLARED')}",
+        "status": summary["status"],
+        "finding_counts": dict(summary.get("finding_counts") or {}),
+        "inputs": [{k: i[k] for k in ("name", "sha256") if k in i}
+                   for i in r.get("inputs", []) if isinstance(i, dict)],
+    }
+
+
+def lab_report_state(ref, base_dir):
+    """VERIFIED | REPORT_NOT_FOUND | HASH_MISMATCH | NOT_CHECKED (no base_dir)."""
+    if base_dir is None:
+        return "NOT_CHECKED"
+    path = os.path.join(base_dir, ref.get("report_path", ""))
+    if _is_missing(ref.get("report_path")) or not os.path.isfile(path):
+        return "REPORT_NOT_FOUND"
+    return "VERIFIED" if _sha256_file(path) == ref.get("report_sha256") else "HASH_MISMATCH"
+
+
+def check(d, base_dir=None):
+    """Return list of violation strings. Empty list = valid record.
+    base_dir (the record file's folder) enables lab-report hash verification."""
     v = []
     if d["pub_type"] not in PUB_TYPES:
         v.append(f"pub_type {d['pub_type']!r} not in vocabulary")
@@ -184,10 +253,29 @@ def check(d):
                          f"(no silent resolution; sentinels are not answers)")
         if x.get("state") == "DEFERRED" and _is_missing(x.get("deferred_reason")):
             v.append(f"decision {did}: DEFERRED without a reason")
+    claim_ids = {c.get("id") for c in d["claims"]}
+    seen = set()
+    for ref in d.get("lab_refs", []):
+        lid = ref.get("id", "?")
+        if lid in seen:
+            v.append(f"lab ref {lid}: duplicate id")
+        seen.add(lid)
+        if ref.get("status") not in LAB_REPORT_STATUSES:
+            v.append(f"lab ref {lid}: status {ref.get('status')!r} not in vocabulary")
+        sha = ref.get("report_sha256") or ""
+        if len(sha) != 64 or any(ch not in "0123456789abcdef" for ch in sha):
+            v.append(f"lab ref {lid}: report_sha256 missing or malformed "
+                     f"(a lab ref binds one exact report)")
+        for cid in ref.get("claims", []):
+            if cid not in claim_ids:
+                v.append(f"lab ref {lid}: linked claim {cid!r} not in record")
+        if lab_report_state(ref, base_dir) == "HASH_MISMATCH":
+            v.append(f"lab ref {lid}: {ref.get('report_path')} no longer matches its recorded "
+                     f"SHA-256 (the bound report changed; link the new report as a new lab ref)")
     return v
 
 
-def incompleteness(d):
+def incompleteness(d, base_dir=None):
     """Everything that keeps this assessment from counting as complete.
     Incompleteness is a state, not an error: the record stays VALID."""
     out = []
@@ -224,14 +312,26 @@ def incompleteness(d):
             out.append(f"decision {x.get('id')}: DETECTED (located, nothing more known)")
         if x.get("state") == "DEFERRED":
             out.append(f"decision {x.get('id')}: DEFERRED (owned, still open)")
+    for ref in d.get("lab_refs", []):
+        lid = ref.get("id")
+        if ref.get("status") == "INTEGRITY_GAPS_RECORDED":
+            counts = ref.get("finding_counts") or {}
+            detail = ", ".join(f"{k} {counts[k]}" for k in ("ERROR", "UNKNOWN") if k in counts)
+            out.append(f"lab ref {lid}: integrity gaps recorded in the linked evidence bundle"
+                       + (f" ({detail})" if detail else ""))
+        if not ref.get("claims"):
+            out.append(f"lab ref {lid}: linked to no claim")
+        if lab_report_state(ref, base_dir) == "REPORT_NOT_FOUND":
+            out.append(f"lab ref {lid}: report file not found at {ref.get('report_path')} "
+                       f"(hash binding cannot be re-verified)")
     return out
 
 
-def report(d):
+def report(d, base_dir=None):
     lines = [f"# Assessment: {d['title']}",
              f"schema {SCHEMA} — generated by study-aperture; this report is a record, not a verdict.",
              ""]
-    v = check(d)
+    v = check(d, base_dir)
     if v:
         lines.append("## RECORD INVALID — the violations below are not findings; fix them")
         lines += [f"- {x}" for x in v]
@@ -241,7 +341,7 @@ def report(d):
               f"- materials actually held: {d['materials']}",
               f"- decision context: {d['decision_context']}",
               ""]
-    inc = incompleteness(d)
+    inc = incompleteness(d, base_dir)
     lines.append("## Incompleteness (printed first, on purpose)")
     if inc:
         lines += [f"- {x}" for x in inc]
@@ -292,6 +392,10 @@ def report(d):
             lines.append(f"  - falsifiers: {c.get('falsifiers')}")
         if c.get("source"):
             lines.append(f"  - source: {c.get('source')}")
+        linked = [r.get("id") for r in d.get("lab_refs", []) if c.get("id") in r.get("claims", [])]
+        if linked:
+            lines.append(f"  - lab refs: {', '.join(linked)} (bundle integrity only; "
+                         f"support above is the assessor's grade, unchanged by the link)")
     lines.append("")
     lines.append("## Tool runs (by card)")
     if not d["tools"]:
@@ -305,6 +409,21 @@ def report(d):
         if t.get("source"):
             lines.append(f"  - source: {t.get('source')}")
     lines.append("")
+    if d.get("lab_refs"):  # optional section; absent records render as before
+        lines.append(f"## Lab evidence references ({LAB_SCOPE_NOTE})")
+        for ref in d["lab_refs"]:
+            state = lab_report_state(ref, base_dir)
+            lines.append(f"- **{ref.get('id')}** {ref.get('status')} — {ref.get('procedure')}")
+            lines.append(f"  - report: {ref.get('report_path')} "
+                         f"(sha256 {str(ref.get('report_sha256'))[:12]}…, {state})")
+            counts = ref.get("finding_counts") or {}
+            if counts:
+                lines.append("  - findings: " + ", ".join(f"{k} {n}" for k, n in counts.items()))
+            for i in ref.get("inputs", []):
+                sha = f" (sha256 {i['sha256'][:12]}…)" if i.get("sha256") else ""
+                lines.append(f"  - input: {i.get('name')}{sha}")
+            lines.append(f"  - linked claims: {', '.join(ref.get('claims', [])) or 'none'}")
+        lines.append("")
     lines.append("## Decisions")
     if not d["decisions"]:
         lines.append("- NODATA (no decision surfaces recorded)")
@@ -320,9 +439,13 @@ def report(d):
     return "\n".join(lines)
 
 
+def _base_dir(record_path):
+    return os.path.dirname(os.path.abspath(record_path))
+
+
 def _commit(d, path, ok_msg):
     """Save only if the mutated record validates. Exit nonzero, no write, if not."""
-    v = check(d)
+    v = check(d, _base_dir(path))
     if v:
         for x in v:
             print(f"REJECTED (file unchanged): {x}", file=sys.stderr)
@@ -335,7 +458,7 @@ def _commit(d, path, ok_msg):
 def main(argv=None):
     p = argparse.ArgumentParser(description="study-aperture record validator and report generator")
     p.add_argument("cmd", choices=["init", "claim", "tool", "design", "decide", "resolve", "defer",
-                                   "check", "report", "selftest"])
+                                   "labref", "check", "report", "selftest"])
     p.add_argument("--file", default="assessment.json")
     p.add_argument("--title"); p.add_argument("--type", dest="pub_type")
     p.add_argument("--citation"); p.add_argument("--materials"); p.add_argument("--context")
@@ -349,6 +472,7 @@ def main(argv=None):
     p.add_argument("--check", dest="design_check"); p.add_argument("--finding")
     p.add_argument("--declined-reason"); p.add_argument("--answer"); p.add_argument("--by")
     p.add_argument("--reason", dest="deferred_reason")
+    p.add_argument("--lab-report"); p.add_argument("--claim", dest="link_claims", action="append")
     args = p.parse_args(argv)
 
     if args.cmd == "selftest":
@@ -432,13 +556,37 @@ def main(argv=None):
         print(f"REJECTED (file unchanged): no decision {args.id!r} in {args.file}",
               file=sys.stderr)
         return 1
+    if args.cmd == "labref":
+        if _is_missing(args.id) or _is_missing(args.lab_report):
+            print("REJECTED (file unchanged): labref requires --id and --lab-report.",
+                  file=sys.stderr)
+            return 1
+        if any(r.get("id") == args.id for r in d.get("lab_refs", [])):
+            print(f"REJECTED (file unchanged): lab ref {args.id!r} already exists; a lab ref "
+                  f"binds one report and is not overwritten. Use a new id.", file=sys.stderr)
+            return 1
+        try:
+            fields = read_lab_report(args.lab_report)
+        except ValueError as e:
+            print(f"REJECTED (file unchanged): {e}", file=sys.stderr)
+            return 1
+        ref = {"id": args.id,
+               "report_path": os.path.relpath(os.path.abspath(args.lab_report),
+                                              _base_dir(args.file)),
+               "report_sha256": _sha256_file(args.lab_report),
+               **fields,
+               "claims": list(dict.fromkeys(args.link_claims or []))}
+        d.setdefault("lab_refs", []).append(ref)
+        # Only lab_refs is touched: claim support and decisions are never changed here.
+        return _commit(d, args.file, f"lab ref {args.id} recorded ({ref['status']}; "
+                                     f"{LAB_SCOPE_NOTE})")
     if args.cmd == "check":
-        v = check(d)
+        v = check(d, _base_dir(args.file))
         for x in v: print(f"VIOLATION: {x}")
         print("VALID" if not v else f"{len(v)} violations")
         return 0 if not v else 1
     if args.cmd == "report":
-        print(report(d))
+        print(report(d, _base_dir(args.file)))
         return 0
     return 0
 
@@ -580,6 +728,64 @@ def selftest():
     # 13. COMMENTARY routes quantitative cards out by default (legal output)
     d3 = dict(d2); d3["pub_type"] = "COMMENTARY"
     assert "cards routed by DEFAULT" in report(d3)
+    # 14. lab refs: linked, hash-bound, never promoted
+    assert "## Lab evidence references" not in report(d3)  # optional section absent
+    def lab_json(name, status, counts):
+        path = os.path.join(tmp, name)
+        with open(path, "w") as fh:
+            json.dump({"report_kind": LAB_REPORT_KIND,
+                       "procedure": {"identity": LAB_PROCEDURE, "version": "0.2.0"},
+                       "inputs": [{"name": "bundle.json", "sha256": "ab" * 32}],
+                       "summary": {"status": status, "finding_counts": counts}}, fh)
+        return path
+    clean = lab_json("clean.json", "NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE",
+                     {"ERROR": 0, "UNKNOWN": 0, "INFO": 1})
+    gaps = lab_json("gaps.json", "INTEGRITY_GAPS_RECORDED", {"ERROR": 1, "UNKNOWN": 3, "INFO": 0})
+    not_lab = os.path.join(tmp, "other.json")
+    with open(not_lab, "w") as fh:
+        json.dump({"status": "PASS"}, fh)
+    before = open(f).read()
+    # 14a. a non-lab JSON is refused; file unchanged
+    r = cli("labref", "--id", "L1", "--lab-report", not_lab, "--claim", "C1")
+    assert r.returncode != 0 and "not a lab integrity report" in r.stderr
+    # 14b. link to a claim that does not exist is refused
+    r = cli("labref", "--id", "L1", "--lab-report", clean, "--claim", "NOPE")
+    assert r.returncode != 0 and "not in record" in r.stderr
+    assert open(f).read() == before
+    # 14c. a clean lab report never changes claim support or decisions
+    claims_before = json.dumps(load(f)["claims"]); decisions_before = json.dumps(load(f)["decisions"])
+    r = cli("labref", "--id", "L1", "--lab-report", clean, "--claim", "C1")
+    assert r.returncode == 0, r.stderr
+    d = load(f)
+    assert json.dumps(d["claims"]) == claims_before
+    assert json.dumps(d["decisions"]) == decisions_before
+    assert d["claims"][0]["support"] == "UNDETERMINED"
+    ref = d["lab_refs"][0]
+    assert ref["report_path"] == "clean.json" and len(ref["report_sha256"]) == 64
+    # 14d. rendered with its scope and verification state
+    rep = report(d, tmp)
+    assert "## Lab evidence references (bundle integrity only" in rep
+    assert "VERIFIED" in rep and "lab refs: L1" in rep
+    # 14e. a lab ref id is never overwritten
+    r = cli("labref", "--id", "L1", "--lab-report", gaps, "--claim", "C1")
+    assert r.returncode != 0 and "already exists" in r.stderr
+    # 14f. gaps in the bundle are incompleteness
+    r = cli("labref", "--id", "L2", "--lab-report", gaps, "--claim", "C1")
+    assert r.returncode == 0
+    assert "L2: integrity gaps recorded in the linked evidence bundle (ERROR 1, UNKNOWN 3)" \
+        in report(load(f), tmp)
+    # 14g. a missing report file is incompleteness, not a violation
+    os.remove(gaps)
+    assert check(load(f), tmp) == []
+    assert "L2: report file not found" in report(load(f), tmp)
+    # 14h. a changed report file is a violation (the binding broke)
+    with open(clean, "a") as fh:
+        fh.write(" ")
+    r = cli("check")
+    assert r.returncode != 0 and "no longer matches its recorded SHA-256" in r.stdout
+    # 14i. a forged status in the record is a violation
+    d = load(f); d["lab_refs"][0]["status"] = "SUPPORTED"
+    assert any("not in vocabulary" in x for x in check(d))
     print("SELFTEST OK")
     return 0
 

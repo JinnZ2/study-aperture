@@ -28,6 +28,8 @@ Keep this subproject in `experimental/scope_audit_lab/` with an independent futu
 
 Initially prefer explicit JSON exchange over shared mutable state. An imported test pass must not automatically promote a publication claim to supported, convert an interpretation to an observation, or establish empirical validity.
 
+The parent's `assess.py labref` command is the implemented exchange path for integrity-checker reports: it reads a report file locally, records its status, finding counts, input hashes, and the report's SHA-256, and links it to named claims without changing their support grades (see [`examples/lab-link/`](../../examples/lab-link/README.md)). Other lab outputs have no import path yet.
+
 ## What has not been established
 
 - **Prototype baseline:** independent development is authorized under E-01. Prototype 0.1 was not supplied or inspected; compatibility is UNKNOWN, and the listed baseline modules are requirements context rather than inherited or verified files.

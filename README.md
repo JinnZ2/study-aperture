@@ -35,6 +35,7 @@ python3 assess.py tool --file s.json --id T1 --card 03 --state RUN --output "SHA
 python3 assess.py decide --file s.json --id D1 --text "Rely on this for training decisions?" --state UNRESOLVED
 python3 assess.py check --file s.json     # exit 1 on violations
 python3 assess.py report --file s.json    # markdown; incompleteness printed first
+python3 assess.py labref --file s.json --id L1 --lab-report integrity-report.json --claim C1   # optional: lab evidence
 python3 assess.py selftest
 ```
 
@@ -60,6 +61,7 @@ python3 assess.py selftest
 | `examples/power-pose/` | worked example: real contested literature — record, machine report, `FINDINGS.md` narrative with inline source citations, `false_agree.json`, two provenance graphs |
 | `examples/incomplete-input/` | failure mode: incomplete material stays visibly incomplete |
 | `examples/nonempirical-note/` | routing check: commentary returns `NOT_APPLICABLE` for quantitative cards |
+| `examples/lab-link/` | synthetic: a Scope Audit Lab integrity report linked to a claim with `labref`; support unchanged, gaps listed as incompleteness |
 
 ## Vocabulary (the short version)
 
@@ -70,6 +72,7 @@ python3 assess.py selftest
 - **Tool states:** RUN, DECLINED, BLOCKED, NOT_APPLICABLE
 - **Decision states:** DETECTED, UNRESOLVED, RESOLVED, DEFERRED, NOT_APPLICABLE
 - **Design check states:** CHECKED, NOT_CHECKED, NOT_APPLICABLE
+- **Lab report statuses:** NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE, INTEGRITY_GAPS_RECORDED (the lab checker's own words; not claim support)
 
 `UNDECLARED`, `NODATA`, `NOTFOUND` are values, not errors. A zero is a property of the measurement, not of the world.
 
