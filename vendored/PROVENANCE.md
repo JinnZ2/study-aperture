@@ -10,6 +10,12 @@ These two files are vendored verbatim from the Simulators repository
 | `conditional_claims.py` | `tools/conditional_claims.py` | `0655e8b` (2026-10-25) | executable, has selftest |
 | `safe_provenance.py` | toolbox-written adapter (not upstream) | — | wraps `provenance_graph.py`; selftest |
 
+`SHA256SUMS` records the SHA-256 of the three upstream files, checked against
+Simulators `0655e8be2d090030f8e568a8b68b36afdc98fbec` (`tools/`).
+`tests/test_repo_integrity.py` fails if a vendored file changes or an
+unregistered `.py` file appears here. On a deliberate re-vendor, update this
+table and `SHA256SUMS` together (`sha256sum provenance_graph.py false_agree.py conditional_claims.py`).
+
 Run their selftests from this folder:
 
 ```sh

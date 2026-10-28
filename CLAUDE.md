@@ -28,30 +28,33 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | `AI_ENTRY_PROMPT.md` | LLM prompt + CLI handoff table | update the handoff table when CLI flags change |
 | `TEMPLATE.json` | skeleton record | keep valid against `assess.py check` |
 | `vendored/*.py` (3 upstream) | verbatim from Simulators `0655e8b` | **do not modify**; upstream oddities are data, not defects. Changes go in `safe_provenance.py` (toolbox adapter) or upstream |
-| `vendored/PROVENANCE.md` | repo / path / commit for each vendored file | update on any re-vendor |
+| `vendored/PROVENANCE.md`, `vendored/SHA256SUMS` | repo / path / commit / hash for each vendored file | update both on any re-vendor |
+| `tests/test_repo_integrity.py`, `run_checks.sh`, `.github/workflows/checks.yml` | repo-level enforcement + CI | stdlib only; add new suites to `run_checks.sh` |
 | `examples/*/` | worked example + failure-mode examples | regenerate `report.md` from `assessment.json`; never hand-edit reports |
 | `experimental/scope_audit_lab/` | experimental lab | see Lab section |
 
 ## Commands (run from repo root; Python 3, stdlib only)
 
 ```sh
-# core toolkit
+./run_checks.sh                      # EVERYTHING; must print ALL CHECKS PASSED before committing
+                                     # (same script runs in CI: .github/workflows/checks.yml, Python 3.11–3.14)
+
+# individual pieces
 python3 assess.py selftest
-(cd vendored && for f in provenance_graph false_agree conditional_claims safe_provenance; do python3 $f.py selftest; done)
-
-# example records must stay VALID and reproduce their reports
-python3 assess.py check  --file examples/power-pose/assessment.json
-python3 assess.py report --file examples/power-pose/assessment.json
-
-# lab
+python3 -m unittest discover -s tests                              # repo integrity (below)
 python3 -m unittest discover -s experimental/scope_audit_lab/tests
-python3 experimental/scope_audit_lab/integrity_checker.py \
-  experimental/scope_audit_lab/examples/schema-draft-0.2/records.json   # exit 1 is EXPECTED (incomplete bundle)
-(cd experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27     && python3 -m unittest test_case.py)
-(cd experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1 && python3 -m unittest test_trace.py)
+python3 assess.py report --file examples/<name>/assessment.json > examples/<name>/report.md   # regenerate a report
 ```
 
-Run all of the above before committing changes to code, schemas, or examples. No dependencies may be added (no pip, no NumPy) to the core toolkit or the lab runtime.
+`tests/test_repo_integrity.py` enforces three rules from this file:
+
+```
+vendored/*.py        == vendored/SHA256SUMS      re-vendor → update SHA256SUMS + PROVENANCE.md together
+examples/*/report.md == assess.py report output  edit assessment.json, then regenerate; never edit report.md
+vocabulary in README / CLAUDE.md / AI_ENTRY_PROMPT == sets in assess.py
+```
+
+The lab checker exits 1 on `examples/schema-draft-0.2/records.json` on purpose (the bundle is incomplete); `run_checks.sh` treats 1 as the pass condition there. No dependencies may be added (no pip, no NumPy) to the core toolkit or the lab runtime.
 
 ## Invariants (enforced in code; do not weaken)
 
@@ -67,18 +70,19 @@ NOT_APPLICABLE       → a legal output, not a failure
 no shared ancestor in declared graph ≠ independent in the world
 ```
 
-Vocabulary (closed sets, defined in `assess.py`):
+Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted in grades, labels, and design checks as the missing-value sentinel):
 
 | Set | Values |
 |---|---|
-| publication type | EMPIRICAL · REVIEW · THEORETICAL · SIMULATION · COMMENTARY · UNDECLARED |
+| publication types | EMPIRICAL · REVIEW · THEORETICAL · SIMULATION · COMMENTARY · UNDECLARED |
 | claim support | SUPPORTED · PARTIALLY_SUPPORTED · UNSUPPORTED · CONTRADICTED · UNTESTED · UNDETERMINED |
-| measurement grade | MEASURED_PRESENT / _ABSENT / _DISCARDED · UNMEASURED · UNDERPOWERED · IMPOSED |
-| epistemic label | OBSERVED · DERIVED · PROPOSED |
-| tool state | RUN · DECLINED · BLOCKED · NOT_APPLICABLE |
-| decision state | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
+| measurement grades | MEASURED_PRESENT · MEASURED_ABSENT · MEASURED_DISCARDED · UNMEASURED · UNDERPOWERED · IMPOSED |
+| epistemic labels | OBSERVED · DERIVED · PROPOSED |
+| tool states | RUN · DECLINED · BLOCKED · NOT_APPLICABLE |
+| decision states | DETECTED · UNRESOLVED · RESOLVED · DEFERRED · NOT_APPLICABLE |
+| design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
 
-Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, and `TEMPLATE.json`.
+This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.
 
 ## Scope Audit Lab (`experimental/scope_audit_lab/`)
 
