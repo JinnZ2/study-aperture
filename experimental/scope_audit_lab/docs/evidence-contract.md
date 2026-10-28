@@ -8,6 +8,8 @@ The subsequent [scope decision](math-physics-focus.md) prioritizes mathematics/p
 
 The later [E-01 approval](decision-checklist.md#e-01-approval-record) authorizes an independent start with Prototype 0.1 compatibility UNKNOWN. It does not establish compatibility or adopt this contract's remaining implementation choices.
 
+[Draft mathematical evidence schemas](../schemas/draft-0.1/README.md) make five proposed record shapes concrete for review. They do not by themselves close design gates or provide a runtime validator, proof checker, or empirical assessment engine.
+
 ## Contract boundary
 
 The instrument records evidence and explicitly specified calculations. It may establish that a declared criterion was met for an identified subject state, but it does not thereby establish general correctness, causality, truth, or suitability for an action.

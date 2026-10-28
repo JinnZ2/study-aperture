@@ -37,6 +37,8 @@ This gate concerns the common evidence model before Stage A schemas and storage 
 
 This approval does not choose the other evidence-contract proposals or approve an executor, storage backend, numerical method, or live voice capability.
 
+The owner subsequently requested draft schemas. [Draft 0.1](../schemas/draft-0.1/README.md) is review material for the remaining choices, not implicit approval of E-02/E-03 or implementation of a validator.
+
 ## Verification gate
 
 Review this gate before implementing verification bindings or any executor. A recorder-only milestone does not require permission to run arbitrary audited code.

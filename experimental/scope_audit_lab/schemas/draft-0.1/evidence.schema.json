@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+  "title": "Scope Audit Lab mathematical evidence records, draft 0.1",
+  "description": "Review proposal, not a stable or implemented interface. Structural validity is not mathematical or empirical validity. No URI here authorizes network retrieval.",
+  "oneOf": [
+    {"$ref": "#/$defs/equation"},
+    {"$ref": "#/$defs/assumption"},
+    {"$ref": "#/$defs/derivation"},
+    {"$ref": "#/$defs/observation"},
+    {"$ref": "#/$defs/assessment"}
+  ],
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:[A-Za-z0-9][A-Za-z0-9._-]*$",
+      "description": "Namespace:opaque-local-id. The syntax does not authenticate the namespace or establish identity."
+    },
+    "absentValue": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["MISSING", "INVALID", "NOT_APPLICABLE"]},
+        "reason": {"$ref": "#/$defs/text"},
+        "raw_text": {"$ref": "#/$defs/text"}
+      },
+      "required": ["status", "reason"],
+      "additionalProperties": false
+    },
+    "textValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "value": {"$ref": "#/$defs/text"}
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        },
+        {"$ref": "#/$defs/absentValue"}
+      ]
+    },
+    "numericValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "value": {"type": "number"},
+            "encoding": {"const": "json_number"}
+          },
+          "required": ["status", "value", "encoding"],
+          "additionalProperties": false
+        },
+        {"$ref": "#/$defs/absentValue"}
+      ],
+      "description": "Draft supports finite JSON numbers only. Representation, precision, and arithmetic conventions remain open; never substitute zero for an absent or invalid value."
+    },
+    "timestamp": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": {"const": "PRESENT"},
+            "value": {"type": "string", "format": "date-time"},
+            "clock_source": {"$ref": "#/$defs/textValue"},
+            "precision": {"$ref": "#/$defs/textValue"},
+            "uncertainty": {"$ref": "#/$defs/textValue"}
+          },
+          "required": ["status", "value", "clock_source", "precision", "uncertainty"],
+          "additionalProperties": false
+        },
+        {"$ref": "#/$defs/absentValue"}
+      ],
+      "description": "date-time format needs format checking enabled by a future validator; clock alignment and truthful timestamps are not schema properties."
+    },
+    "reference": {
+      "type": "object",
+      "properties": {
+        "record_id": {"$ref": "#/$defs/recordId"},
+        "expected_type": {"$ref": "#/$defs/text"},
+        "resolution": {"enum": ["NOT_CHECKED", "RESOLVED", "UNRESOLVED", "TYPE_MISMATCH"]}
+      },
+      "required": ["record_id", "expected_type", "resolution"],
+      "additionalProperties": false,
+      "description": "Resolution is a recorded assertion. This schema cannot look up records or confirm a resolved target."
+    },
+    "references": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/reference"},
+      "uniqueItems": true
+    },
+    "sourceReferences": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/reference"},
+          {"properties": {"expected_type": {"const": "source"}}}
+        ]
+      },
+      "uniqueItems": true
+    },
+    "artifactReferences": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/reference"},
+          {"properties": {"expected_type": {"const": "artifact"}}}
+        ]
+      },
+      "uniqueItems": true
+    },
+    "assumptionReferences": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/reference"},
+          {"properties": {"expected_type": {"const": "assumption"}}}
+        ]
+      },
+      "uniqueItems": true
+    },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "identity": {"$ref": "#/$defs/textValue"},
+        "kind": {"enum": ["PERSON", "PROCESS", "INSTRUMENT", "UNKNOWN"]},
+        "version": {"$ref": "#/$defs/textValue"}
+      },
+      "required": ["identity", "kind", "version"],
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "properties": {
+        "kind": {"enum": ["amends", "supersedes", "derived_from", "about"]},
+        "target": {"$ref": "#/$defs/reference"},
+        "reason": {"$ref": "#/$defs/text"}
+      },
+      "required": ["kind", "target", "reason"],
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "domain": {"$ref": "#/$defs/textValue"},
+        "included": {"$ref": "#/$defs/textValue"},
+        "excluded": {"$ref": "#/$defs/textValue"},
+        "regime": {"$ref": "#/$defs/textValue"},
+        "boundary_conditions": {"$ref": "#/$defs/textValue"},
+        "initial_conditions": {"$ref": "#/$defs/textValue"}
+      },
+      "required": ["domain", "included", "excluded", "regime", "boundary_conditions", "initial_conditions"],
+      "additionalProperties": false
+    },
+    "representation": {
+      "type": "object",
+      "properties": {
+        "text": {"$ref": "#/$defs/text"},
+        "notation": {"enum": ["PLAIN_TEXT", "LATEX", "SOURCE_CODE", "OTHER"]},
+        "source_location": {"$ref": "#/$defs/textValue"},
+        "transcription_status": {"enum": ["ORIGINAL_LOCAL", "UNCHECKED", "REVIEWED", "AMBIGUOUS"]},
+        "artifact_refs": {"$ref": "#/$defs/artifactReferences"}
+      },
+      "required": ["text", "notation", "source_location", "transcription_status", "artifact_refs"],
+      "additionalProperties": false
+    },
+    "symbol": {
+      "type": "object",
+      "properties": {
+        "symbol": {"$ref": "#/$defs/text"},
+        "meaning": {"$ref": "#/$defs/textValue"},
+        "mathematical_type": {"$ref": "#/$defs/textValue"},
+        "domain": {"$ref": "#/$defs/textValue"},
+        "quantity": {"$ref": "#/$defs/textValue"},
+        "dimensions": {"$ref": "#/$defs/textValue"},
+        "units": {"$ref": "#/$defs/textValue"},
+        "conventions": {"$ref": "#/$defs/textValue"}
+      },
+      "required": ["symbol", "meaning", "mathematical_type", "domain", "quantity", "dimensions", "units", "conventions"],
+      "additionalProperties": false
+    },
+    "envelope": {
+      "type": "object",
+      "properties": {
+        "schema_id": {"const": "urn:scope-audit-lab:schema:math-evidence:0.1"},
+        "schema_version": {"const": "0.1"},
+        "record_id": {"$ref": "#/$defs/recordId"},
+        "record_type": {"enum": ["equation", "assumption", "derivation", "observation", "assessment"]},
+        "record_version": {"$ref": "#/$defs/textValue"},
+        "source_refs": {"$ref": "#/$defs/sourceReferences"},
+        "recorded_at": {"$ref": "#/$defs/timestamp"},
+        "producer": {"$ref": "#/$defs/actor"},
+        "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}},
+        "payload": {"type": "object"}
+      },
+      "required": ["schema_id", "schema_version", "record_id", "record_type", "record_version", "source_refs", "recorded_at", "producer", "relations", "payload"]
+    },
+    "equation": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "equation"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "exact_statement": {"$ref": "#/$defs/text"},
+                "statement_kind": {"enum": ["DEFINITION", "IDENTITY", "THEOREM_CLAIM", "APPROXIMATION", "CONSTITUTIVE_RELATION", "BALANCE_RELATION", "EMPIRICAL_FIT", "OTHER", "UNDECLARED"]},
+                "original": {"$ref": "#/$defs/representation"},
+                "transcription": {"$ref": "#/$defs/textValue"},
+                "symbols": {"type": "array", "items": {"$ref": "#/$defs/symbol"}},
+                "scope": {"$ref": "#/$defs/scope"},
+                "assumption_refs": {"$ref": "#/$defs/assumptionReferences"},
+                "dependency_refs": {"$ref": "#/$defs/references"},
+                "ambiguities": {"type": "array", "items": {"$ref": "#/$defs/text"}}
+              },
+              "required": ["exact_statement", "statement_kind", "original", "transcription", "symbols", "scope", "assumption_refs", "dependency_refs", "ambiguities"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "assumption": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "assumption"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "exact_statement": {"$ref": "#/$defs/text"},
+                "role": {"enum": ["DOMAIN_RESTRICTION", "BOUNDARY_CONDITION", "INITIAL_CONDITION", "REGULARITY", "CLOSURE", "INDEPENDENCE", "APPROXIMATION", "OTHER", "UNDECLARED"]},
+                "declaration_basis": {"enum": ["SOURCE_EXPLICIT", "ASSESSOR_PROPOSED", "UNDECLARED"]},
+                "applies_to": {"$ref": "#/$defs/references"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "evidence_refs": {"$ref": "#/$defs/references"},
+                "assessment_refs": {"$ref": "#/$defs/references"},
+                "limitations": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1}
+              },
+              "required": ["exact_statement", "role", "declaration_basis", "applies_to", "scope", "evidence_refs", "assessment_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "derivationStep": {
+      "type": "object",
+      "properties": {
+        "step_id": {"$ref": "#/$defs/text"},
+        "premise_refs": {"$ref": "#/$defs/references"},
+        "prior_step_ids": {"type": "array", "items": {"$ref": "#/$defs/text"}, "uniqueItems": true},
+        "conclusion": {"$ref": "#/$defs/representation"},
+        "operation": {"$ref": "#/$defs/textValue"},
+        "claimed_relation": {"enum": ["EQUIVALENT", "IMPLIES", "APPROXIMATES", "UNSPECIFIED"]},
+        "assumption_refs": {"$ref": "#/$defs/assumptionReferences"},
+        "introduced_assumption_refs": {"$ref": "#/$defs/assumptionReferences"},
+        "assessment_refs": {"$ref": "#/$defs/references"}
+      },
+      "required": ["step_id", "premise_refs", "prior_step_ids", "conclusion", "operation", "claimed_relation", "assumption_refs", "introduced_assumption_refs", "assessment_refs"],
+      "additionalProperties": false
+    },
+    "derivation": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "derivation"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "target_refs": {"$ref": "#/$defs/references"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "completeness": {"enum": ["COMPLETE_AS_RECORDED", "PARTIAL", "UNKNOWN"]},
+                "steps": {"type": "array", "items": {"$ref": "#/$defs/derivationStep"}, "minItems": 1},
+                "omitted_steps": {"$ref": "#/$defs/textValue"},
+                "limitations": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1}
+              },
+              "required": ["target_refs", "scope", "completeness", "steps", "omitted_steps", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "observation": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "observation"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "observation_kind": {"enum": ["PHYSICAL_MEASUREMENT", "NUMERICAL_RUN", "REPORTED_MEASUREMENT", "SYNTHETIC_FIXTURE", "OTHER"]},
+                "quantity": {"$ref": "#/$defs/textValue"},
+                "value": {"$ref": "#/$defs/numericValue"},
+                "units": {"$ref": "#/$defs/textValue"},
+                "scope": {"$ref": "#/$defs/scope"},
+                "method": {"$ref": "#/$defs/textValue"},
+                "instrument": {"$ref": "#/$defs/textValue"},
+                "calibration": {"$ref": "#/$defs/textValue"},
+                "resolution": {"$ref": "#/$defs/textValue"},
+                "uncertainty": {"$ref": "#/$defs/textValue"},
+                "observed_at": {"$ref": "#/$defs/timestamp"},
+                "condition_refs": {"$ref": "#/$defs/references"},
+                "trial_ref": {"oneOf": [{"$ref": "#/$defs/reference"}, {"$ref": "#/$defs/absentValue"}]},
+                "artifact_refs": {"$ref": "#/$defs/artifactReferences"},
+                "execution_refs": {"$ref": "#/$defs/references"},
+                "limitations": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1}
+              },
+              "required": ["observation_kind", "quantity", "value", "units", "scope", "method", "instrument", "calibration", "resolution", "uncertainty", "observed_at", "condition_refs", "trial_ref", "artifact_refs", "execution_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "subjectBinding": {
+      "type": "object",
+      "properties": {
+        "subject": {"$ref": "#/$defs/reference"},
+        "examined_version": {"$ref": "#/$defs/textValue"},
+        "examined_state_artifact_refs": {"$ref": "#/$defs/artifactReferences"},
+        "selector": {"$ref": "#/$defs/textValue"}
+      },
+      "required": ["subject", "examined_version", "examined_state_artifact_refs", "selector"],
+      "additionalProperties": false
+    },
+    "criterion": {
+      "type": "object",
+      "properties": {
+        "criterion_id": {"$ref": "#/$defs/text"},
+        "version": {"$ref": "#/$defs/textValue"},
+        "exact_rule": {"$ref": "#/$defs/text"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "outcome": {"enum": ["MET", "NOT_MET", "INDETERMINATE", "NOT_EVALUATED"]},
+        "evidence_refs": {"$ref": "#/$defs/references"},
+        "missing_evidence": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "required": ["criterion_id", "version", "exact_rule", "scope", "outcome", "evidence_refs", "missing_evidence", "rationale"],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"outcome": {"enum": ["MET", "NOT_MET"]}}},
+          "then": {"properties": {"evidence_refs": {"minItems": 1}}}
+        }
+      ]
+    },
+    "assessment": {
+      "allOf": [
+        {"$ref": "#/$defs/envelope"},
+        {
+          "properties": {
+            "record_type": {"const": "assessment"},
+            "payload": {
+              "type": "object",
+              "properties": {
+                "assessment_kind": {"enum": ["ANALYTICAL", "NUMERICAL", "EMPIRICAL", "STRUCTURAL", "OTHER"]},
+                "subjects": {"type": "array", "items": {"$ref": "#/$defs/subjectBinding"}, "minItems": 1},
+                "property": {"$ref": "#/$defs/text"},
+                "procedure": {
+                  "type": "object",
+                  "properties": {
+                    "identity": {"$ref": "#/$defs/textValue"},
+                    "version": {"$ref": "#/$defs/textValue"},
+                    "description": {"$ref": "#/$defs/textValue"},
+                    "execution_refs": {"$ref": "#/$defs/references"},
+                    "verification_event_refs": {"$ref": "#/$defs/references"}
+                  },
+                  "required": ["identity", "version", "description", "execution_refs", "verification_event_refs"],
+                  "additionalProperties": false
+                },
+                "dependency_refs": {"$ref": "#/$defs/references"},
+                "criteria": {"type": "array", "items": {"$ref": "#/$defs/criterion"}, "minItems": 1},
+                "interpretation_refs": {"$ref": "#/$defs/references"},
+                "limitations": {"type": "array", "items": {"$ref": "#/$defs/text"}, "minItems": 1}
+              },
+              "required": ["assessment_kind", "subjects", "property", "procedure", "dependency_refs", "criteria", "interpretation_refs", "limitations"],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

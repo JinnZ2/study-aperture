@@ -1,0 +1,249 @@
+{
+  "example_status": "SYNTHETIC_REVIEW_FIXTURE",
+  "description": "Five proposed record shapes, not an executed experiment, proof check, or empirical observation. Validate individual records against the draft schema, not this illustrative container.",
+  "records": [
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "schema-demo:eq-001",
+      "record_type": "equation",
+      "record_version": {"status": "PRESENT", "value": "fixture-1"},
+      "source_refs": [],
+      "recorded_at": {"status": "MISSING", "reason": "No acquisition timestamp asserted for this synthetic fixture."},
+      "producer": {
+        "identity": {"status": "PRESENT", "value": "study-aperture schema-draft authoring"},
+        "kind": "PROCESS",
+        "version": {"status": "MISSING", "reason": "No versioned capture process exists."}
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "For real x with x != 0, x^2 / x = x.",
+        "statement_kind": "IDENTITY",
+        "original": {
+          "text": "x^2 / x = x",
+          "notation": "PLAIN_TEXT",
+          "source_location": {"status": "PRESENT", "value": "Synthetic fixture authored in this example; no external publication is cited."},
+          "transcription_status": "ORIGINAL_LOCAL",
+          "artifact_refs": []
+        },
+        "transcription": {"status": "NOT_APPLICABLE", "reason": "No separate transcription."},
+        "symbols": [
+          {
+            "symbol": "x",
+            "meaning": {"status": "PRESENT", "value": "Real-valued mathematical variable."},
+            "mathematical_type": {"status": "PRESENT", "value": "real scalar"},
+            "domain": {"status": "PRESENT", "value": "R excluding 0"},
+            "quantity": {"status": "NOT_APPLICABLE", "reason": "No physical quantity is modeled."},
+            "dimensions": {"status": "NOT_APPLICABLE", "reason": "Purely mathematical fixture."},
+            "units": {"status": "NOT_APPLICABLE", "reason": "Purely mathematical fixture."},
+            "conventions": {"status": "PRESENT", "value": "^ denotes exponentiation; / denotes ordinary real division."}
+          }
+        ],
+        "scope": {
+          "domain": {"status": "PRESENT", "value": "x is real and nonzero."},
+          "included": {"status": "PRESENT", "value": "Algebraic cancellation on the declared domain."},
+          "excluded": {"status": "PRESENT", "value": "x = 0 and empirical physical interpretation."},
+          "regime": {"status": "NOT_APPLICABLE", "reason": "No physical operating regime."},
+          "boundary_conditions": {"status": "NOT_APPLICABLE", "reason": "No boundary-value problem."},
+          "initial_conditions": {"status": "NOT_APPLICABLE", "reason": "No initial-value problem."}
+        },
+        "assumption_refs": [{"record_id": "schema-demo:assumption-001", "expected_type": "assumption", "resolution": "NOT_CHECKED"}],
+        "dependency_refs": [],
+        "ambiguities": []
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "schema-demo:assumption-001",
+      "record_type": "assumption",
+      "record_version": {"status": "PRESENT", "value": "fixture-1"},
+      "source_refs": [],
+      "recorded_at": {"status": "MISSING", "reason": "No acquisition timestamp asserted for this synthetic fixture."},
+      "producer": {
+        "identity": {"status": "PRESENT", "value": "study-aperture schema-draft authoring"},
+        "kind": "PROCESS",
+        "version": {"status": "MISSING", "reason": "No versioned capture process exists."}
+      },
+      "relations": [],
+      "payload": {
+        "exact_statement": "x != 0",
+        "role": "DOMAIN_RESTRICTION",
+        "declaration_basis": "ASSESSOR_PROPOSED",
+        "applies_to": [{"record_id": "schema-demo:eq-001", "expected_type": "equation", "resolution": "NOT_CHECKED"}],
+        "scope": {
+          "domain": {"status": "PRESENT", "value": "Real x used as a divisor."},
+          "included": {"status": "PRESENT", "value": "Prerequisite for the recorded cancellation."},
+          "excluded": {"status": "PRESENT", "value": "Any assertion that an unmeasured physical parameter is nonzero."},
+          "regime": {"status": "NOT_APPLICABLE", "reason": "Mathematical declaration."},
+          "boundary_conditions": {"status": "NOT_APPLICABLE", "reason": "No boundary-value problem."},
+          "initial_conditions": {"status": "NOT_APPLICABLE", "reason": "No initial-value problem."}
+        },
+        "evidence_refs": [],
+        "assessment_refs": [],
+        "limitations": ["This declaration limits a synthetic claim; it is not a measured fact or a completed verification event."]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "schema-demo:derivation-001",
+      "record_type": "derivation",
+      "record_version": {"status": "PRESENT", "value": "fixture-1"},
+      "source_refs": [],
+      "recorded_at": {"status": "MISSING", "reason": "No acquisition timestamp asserted for this synthetic fixture."},
+      "producer": {
+        "identity": {"status": "PRESENT", "value": "study-aperture schema-draft authoring"},
+        "kind": "PROCESS",
+        "version": {"status": "MISSING", "reason": "No versioned capture process exists."}
+      },
+      "relations": [],
+      "payload": {
+        "target_refs": [{"record_id": "schema-demo:eq-001", "expected_type": "equation", "resolution": "NOT_CHECKED"}],
+        "scope": {
+          "domain": {"status": "PRESENT", "value": "Real x with x != 0."},
+          "included": {"status": "PRESENT", "value": "A proposed algebraic simplification, not an executed proof check."},
+          "excluded": {"status": "PRESENT", "value": "Extension of the original expression to x = 0."},
+          "regime": {"status": "NOT_APPLICABLE", "reason": "Pure mathematics."},
+          "boundary_conditions": {"status": "NOT_APPLICABLE", "reason": "No boundary-value problem."},
+          "initial_conditions": {"status": "NOT_APPLICABLE", "reason": "No initial-value problem."}
+        },
+        "completeness": "PARTIAL",
+        "steps": [
+          {
+            "step_id": "s1",
+            "premise_refs": [],
+            "prior_step_ids": [],
+            "conclusion": {
+              "text": "x^2 / x",
+              "notation": "PLAIN_TEXT",
+              "source_location": {"status": "PRESENT", "value": "Initial expression in the synthetic fixture."},
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {"status": "PRESENT", "value": "Declare the starting expression, without assuming the target identity."},
+            "claimed_relation": "UNSPECIFIED",
+            "assumption_refs": [{"record_id": "schema-demo:assumption-001", "expected_type": "assumption", "resolution": "NOT_CHECKED"}],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          },
+          {
+            "step_id": "s2",
+            "premise_refs": [],
+            "prior_step_ids": ["s1"],
+            "conclusion": {
+              "text": "x",
+              "notation": "PLAIN_TEXT",
+              "source_location": {"status": "PRESENT", "value": "Proposed result of cancellation in this fixture."},
+              "transcription_status": "ORIGINAL_LOCAL",
+              "artifact_refs": []
+            },
+            "operation": {"status": "PRESENT", "value": "Claim cancellation of a factor x under the nonzero-domain restriction."},
+            "claimed_relation": "EQUIVALENT",
+            "assumption_refs": [{"record_id": "schema-demo:assumption-001", "expected_type": "assumption", "resolution": "NOT_CHECKED"}],
+            "introduced_assumption_refs": [],
+            "assessment_refs": []
+          }
+        ],
+        "omitted_steps": {"status": "PRESENT", "value": "Field axioms and factorization steps are not expanded; no formal proof certificate is supplied."},
+        "limitations": ["The step relation is declared, not established by a schema or proof checker."]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "schema-demo:observation-001",
+      "record_type": "observation",
+      "record_version": {"status": "PRESENT", "value": "fixture-1"},
+      "source_refs": [],
+      "recorded_at": {"status": "MISSING", "reason": "No acquisition timestamp asserted for this synthetic fixture."},
+      "producer": {
+        "identity": {"status": "PRESENT", "value": "study-aperture schema-draft authoring"},
+        "kind": "PROCESS",
+        "version": {"status": "MISSING", "reason": "No versioned capture process exists."}
+      },
+      "relations": [],
+      "payload": {
+        "observation_kind": "SYNTHETIC_FIXTURE",
+        "quantity": {"status": "PRESENT", "value": "Illustrative attempted evaluation of x^2/x at x = 0; not an executed run."},
+        "value": {"status": "INVALID", "reason": "The example deliberately represents an undefined original expression at zero; no usable scalar result is asserted.", "raw_text": "0^2 / 0"},
+        "units": {"status": "NOT_APPLICABLE", "reason": "Purely mathematical fixture."},
+        "scope": {
+          "domain": {"status": "PRESENT", "value": "Deliberately out-of-domain case x = 0."},
+          "included": {"status": "PRESENT", "value": "Synthetic invalid-value record shape."},
+          "excluded": {"status": "PRESENT", "value": "Actual numerical execution or empirical measurement."},
+          "regime": {"status": "NOT_APPLICABLE", "reason": "Pure mathematics."},
+          "boundary_conditions": {"status": "NOT_APPLICABLE", "reason": "No boundary-value problem."},
+          "initial_conditions": {"status": "NOT_APPLICABLE", "reason": "No initial-value problem."}
+        },
+        "method": {"status": "PRESENT", "value": "Manually specified invalid-value fixture; no evaluation procedure executed."},
+        "instrument": {"status": "NOT_APPLICABLE", "reason": "No measurement instrument or executed numerical program."},
+        "calibration": {"status": "NOT_APPLICABLE", "reason": "No instrument."},
+        "resolution": {"status": "NOT_APPLICABLE", "reason": "No acquired numeric value."},
+        "uncertainty": {"status": "NOT_APPLICABLE", "reason": "No acquired numeric value."},
+        "observed_at": {"status": "NOT_APPLICABLE", "reason": "No actual observation event occurred."},
+        "condition_refs": [],
+        "trial_ref": {"status": "NOT_APPLICABLE", "reason": "Not an executed trial."},
+        "artifact_refs": [],
+        "execution_refs": [],
+        "limitations": ["This fixture is not evidence of a physical measurement or an executed program's behavior."]
+      }
+    },
+    {
+      "schema_id": "urn:scope-audit-lab:schema:math-evidence:0.1",
+      "schema_version": "0.1",
+      "record_id": "schema-demo:assessment-001",
+      "record_type": "assessment",
+      "record_version": {"status": "PRESENT", "value": "fixture-1"},
+      "source_refs": [],
+      "recorded_at": {"status": "MISSING", "reason": "No acquisition timestamp asserted for this synthetic fixture."},
+      "producer": {
+        "identity": {"status": "PRESENT", "value": "study-aperture schema-draft authoring"},
+        "kind": "PROCESS",
+        "version": {"status": "MISSING", "reason": "No versioned capture process exists."}
+      },
+      "relations": [],
+      "payload": {
+        "assessment_kind": "ANALYTICAL",
+        "subjects": [
+          {
+            "subject": {"record_id": "schema-demo:derivation-001", "expected_type": "derivation", "resolution": "NOT_CHECKED"},
+            "examined_version": {"status": "PRESENT", "value": "fixture-1"},
+            "examined_state_artifact_refs": [],
+            "selector": {"status": "PRESENT", "value": "step_id=s2"}
+          }
+        ],
+        "property": "Whether the claimed cancellation preserves the original expression on the declared nonzero real domain.",
+        "procedure": {
+          "identity": {"status": "MISSING", "reason": "No completed checking procedure supplied."},
+          "version": {"status": "MISSING", "reason": "No checking procedure version supplied."},
+          "description": {"status": "PRESENT", "value": "Planned review of domain restrictions and the claimed equivalence; not performed as an instrument check."},
+          "execution_refs": [],
+          "verification_event_refs": []
+        },
+        "dependency_refs": [{"record_id": "schema-demo:assumption-001", "expected_type": "assumption", "resolution": "NOT_CHECKED"}],
+        "criteria": [
+          {
+            "criterion_id": "cancel-nonzero-domain",
+            "version": {"status": "PRESENT", "value": "proposed-1"},
+            "exact_rule": "Check the nonzero prerequisite and equivalence on the declared domain; do not extend the original expression to zero.",
+            "scope": {
+              "domain": {"status": "PRESENT", "value": "Real x with x != 0."},
+              "included": {"status": "PRESENT", "value": "Algebraic prerequisite and equivalence review only."},
+              "excluded": {"status": "PRESENT", "value": "Empirical adequacy or universal correctness of an audit engine."},
+              "regime": {"status": "NOT_APPLICABLE", "reason": "Pure mathematics."},
+              "boundary_conditions": {"status": "NOT_APPLICABLE", "reason": "No boundary-value problem."},
+              "initial_conditions": {"status": "NOT_APPLICABLE", "reason": "No initial-value problem."}
+            },
+            "outcome": "NOT_EVALUATED",
+            "evidence_refs": [],
+            "missing_evidence": ["Completed review procedure and its inspectable result artifact."],
+            "rationale": "A draft example must not invent a passed check merely to demonstrate the assessment shape."
+          }
+        ],
+        "interpretation_refs": [],
+        "limitations": ["Proposed assessment record only; no proof checker, numerical execution, or empirical examination is demonstrated."]
+      }
+    }
+  ]
+}

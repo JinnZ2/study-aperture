@@ -12,6 +12,7 @@ Scope Audit Lab is proposed as an experimental auditing instrument for scoped ma
 - **Acceptance matrix:** [Requirement-to-test mapping](docs/acceptance-matrix.md) assigns documentation identifiers to proposed checks, inputs, and inspectable artifacts. Every check is planned and not run.
 - **Evidence contract:** [Draft proposal 0.1](docs/evidence-contract.md) separates proposed design choices from unchanged specification 0.2, covering typed records, missingness, verification, amendments, numerical rules, execution authorization, and voice observability. It is not an implemented or stable interface.
 - **Decision checklist:** [Pre-implementation review](docs/decision-checklist.md) records E-01 APPROVED for independent development, with Prototype 0.1 compatibility UNKNOWN. Voice items are DEFERRED; other design items remain OPEN.
+- **Draft evidence schemas:** [Five mathematical evidence record types](schemas/draft-0.1/README.md) propose equations, assumptions, derivations, scalar observations, and property-specific assessments, with synthetic examples and planned review cases. These are not a runtime validator, an approved stable interface, or mathematical/empirical validation.
 - **Parent toolkit:** [study-aperture](../../README.md) remains the publication-appraisal and decision-record layer; this folder does not replace or extend its recorder.
 
 ## Boundary decision
@@ -25,7 +26,7 @@ Initially prefer explicit JSON exchange over shared mutable state. An imported t
 - **Prototype baseline:** independent development is authorized under E-01. Prototype 0.1 was not supplied or inspected; compatibility is UNKNOWN, and the listed baseline modules are requirements context rather than inherited or verified files.
 - **Research summary:** the summary referenced in section 5 was not supplied with the specification. No quantitative claims from it have been checked or reproduced.
 - **Voice access:** no audio stream, endpoint event, response-onset instrumentation, or platform-level silence control has been demonstrated.
-- **Implementation:** no runtime code, storage backend, schemas, or test framework has been selected or implemented in this folder.
+- **Implementation:** no runtime audit engine, storage backend, validator, or test framework has been selected or implemented in this folder. Declarative draft schemas are now available for review; their presence does not establish any runtime capability.
 
 ## Proposed next steps
 
