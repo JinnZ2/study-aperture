@@ -1,0 +1,40 @@
+{
+  "schema": "study-aperture/model-output-record/1",
+  "record_id": "rotl-specs-2026-11-11",
+  "record_date": "2026-11-11",
+  "status": "PROPOSED_NOT_BUILT",
+  "producer": "Kimi",
+  "producer_version": "UNDECLARED",
+  "requested_by": "Kavik (repo owner)",
+  "related_record": "audits/kimi-frontier-sweep-2026-11-11/",
+  "files": [
+    {
+      "path": "EXP-002-reversible-translation-spec.md",
+      "sha256": "c303db47cab5e9878bfd31834c73bb20d7ef8f9bd297d610386459f6ab55dd4f",
+      "bytes": 12238,
+      "verbatim": true,
+      "spec_status": "PROPOSED",
+      "built": false,
+      "runs": 0
+    },
+    {
+      "path": "organizational-mode-probe-spec-PARKED.md",
+      "sha256": "7374ca15577d31beba425330f56ab15b66504669d0c8f91fc957dc4fbf039ffe",
+      "bytes": 7423,
+      "verbatim": true,
+      "spec_status": "PARKED",
+      "built": false,
+      "runs": 0
+    }
+  ],
+  "frame_labels": "PENDING_SOURCE_CONFIRMATION (S1-S4)",
+  "citation_discrepancies": [
+    "probe [2]: SCREENED_NO_INDICATORS_FOUND tagged VERIFIED in the spec; NOT_LOCATED in the repository at filing"
+  ],
+  "not_established": [
+    "any experimental result",
+    "source-holder frame labels",
+    "producer authentication",
+    "GPT addendum content"
+  ]
+}

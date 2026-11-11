@@ -51,7 +51,7 @@ The sweep describes this repository from its brief. Where that description can b
 | Cards 07/12 | no | `cards/` holds 00..06. [DIALOGUE.md E01](../card02-framing-2026-11-11/DIALOGUE.md) records the user's mention of Cards 07/11; [PROVENANCE.md](../card02-framing-2026-11-11/PROVENANCE.md) states no Card 07-12 is established |
 | TB stratum frame taxonomy (RELATIONAL / NARRATIVE / CATEGORICAL) | no | supplied material |
 | L0-L4 architecture, "the research report" | no | supplied material (Manus). `experimental/playground` has an "L0 closure" layer; whether it is the same L0 is not assessed |
-| SCREENED_NO_INDICATORS_FOUND | no | not a value in any `assess.py` set |
+| SCREENED_NO_INDICATORS_FOUND | no | not a value in any `assess.py` set, and not found in any file on `main` or any fetched branch. The probe spec cites it as VERIFIED in `experimental/publication_provenance/README.md`; see [rotl_specs](../../experimental/rotl_specs/README.md) |
 | "E03 discipline" | partly | E03 on `main` is a dialogue excerpt (the user's self-description), not a stated labelling rule |
 | A1 owner-held unnamed state | yes | [ADDENDUM.md](../../ADDENDUM.md) A1, state unchanged; this record does not name it |
 | "assess.py already does this instinctively" (type-aware routing) | not assessed | a reading of the code, not checked here |
@@ -73,9 +73,9 @@ The constraints behind the reorder were stated chat-side and are not enumerated 
 
 Kimi's own limits on the probe are part of the record: a failed probe proves nothing (nonlinear encoding), and probes supplement behavioural measurement, never replace it.
 
-## Pending
+## Specs
 
-Two specs from Kimi are expected. When supplied, each is filed under `experimental/` with a `Status:` line reading PROPOSED, not built, and linked from here. Until then this section is the only place they exist.
+Filed 2026-11-11 under [experimental/rotl_specs/](../../experimental/rotl_specs/README.md), verbatim and hash-pinned: the EXP-002 reversible-translation spec (PROPOSED) and the organizational-mode probe spec (its own status PARKED). Neither is built. The HAIMEDA routing spec and the geometry pilot have no spec on file.
 
 ## Boundaries for future use
 
