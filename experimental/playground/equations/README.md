@@ -1,9 +1,10 @@
 # Diagnostic-gated equation substitution
 
 Status: Implemented experimental substitution infrastructure and bounded
-arithmetic adapters, with constructed tests and examples. This does not
+arithmetic and [finite-graph bond percolation](PERCOLATION.md) adapters, with
+constructed tests and examples. This does not
 establish physical adequacy, observer validity, dimensional correctness, or
-real-system applicability. Percolation and branching remain deferred.
+real-system applicability. Branching remains deferred.
 
 The equation is a replaceable instrument inside an experiment, not an
 alternative entry point around the diagnostic layers. `execute()` is the
@@ -34,10 +35,10 @@ calls that complete path again for the selected replacement.
   supplied assessments, three-axis diagnostics, dependency snapshot, actual
   inputs, all-or-nothing outputs, remaining limitations, and parent-run digest.
 
-For arbitrary model families, adapters are still future work. This first
-implementation accepts only bounded arithmetic expressions over declared
-numeric inputs. Trusted extensions must preserve the same gating contract;
-there is intentionally no unrestricted callable-plugin escape hatch.
+The registry accepts exact built-in arithmetic and finite-bond adapter types;
+arbitrary model-family plugins and subclasses are rejected. The graph backend
+is narrowly versioned and preserves the same gating contract. There is
+intentionally no unrestricted callable-plugin escape hatch.
 
 ## Execution order
 
@@ -134,3 +135,20 @@ Use `Equation`, `InputPort`, `OutputPort`, and `EquationRegistry` from
 `adapter.py`; `Experiment`, `BoundaryProtocol`, `ValidationPlan`, `execute`, and
 `substitute` from `substitution.py`. See `example.py` for an inspectable complete
 protocol. All checks are standard-library-only and run offline.
+
+## First graph family
+
+`FiniteGraph` and `BondPercolation` from `percolation.py` provide bounded,
+undirected finite-graph bond percolation through that same runner. The
+[family specification](PERCOLATION.md) documents graph/boundary selection,
+independent occupation, exact enumeration with floating-point arithmetic,
+component outputs, finite-grid criterion brackets, and physical limits.
+
+```sh
+python3 -m playground.equations.percolation_example
+python3 -m unittest playground.validation.test_percolation
+```
+
+The example accounts for a mathematical node universe, not physical energy.
+Its successful graph calculations remain provisional. A missing edge or
+nonspanning realization does not become a physical absence determination.

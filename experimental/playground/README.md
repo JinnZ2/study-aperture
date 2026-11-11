@@ -166,11 +166,33 @@ Successful computation without adequacy evidence remains provisional, with
 applicability UNKNOWN and the physical axis UNTESTED. NaN, infinity, missing
 criteria, stale context bindings, or unresolved prerequisites cannot silently
 qualify a run. Outputs retain UNKNOWN uncertainty because propagation is not
-implemented. Percolation and branching are still separate future families.
+implemented. The first finite-graph bond family now uses that same path;
+branching remains separate and deferred.
 
 ```sh
 # from experimental/
 python3 -m playground.equations.example
+```
+
+## Finite-graph percolation
+
+[Finite bond percolation](equations/PERCOLATION.md) is the first graph-backed
+family, not an alternate laboratory entry point. A selected, provenance-bound
+undirected graph and its source/target sets produce component and spanning
+results for a supplied mask, alongside exhaustive independent-bond ensemble
+metrics. The graph engine is versioned and bounded; arbitrary callbacks and
+subclass plugins are not accepted.
+
+Finite-grid reports bracket a selected spanning-probability criterion while
+keeping every experimental condition except nominal `p` fixed. They do not
+infer a physical transition or universal critical threshold. Disconnection is
+not physical absence, diagnostic success is not empirical support, and the
+example's mathematical node-count ledger does not establish physical energy
+closure. Input uncertainty is retained but not propagated.
+
+```sh
+# from experimental/
+python3 -m playground.equations.percolation_example
 ```
 
 ## Self-check
@@ -183,7 +205,8 @@ python3 -m playground.self_check
 Runs the planted-defect suite (the lab testing its own determinations), the
 design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
-runs applicability and equation-substitution adversarial/unit suites. All
+runs applicability, equation-substitution, and finite-percolation
+adversarial/unit suites. All
 parts must pass.
 
 ## Module map
@@ -198,7 +221,7 @@ playground/
 ├── observation/           passive / perturbative / strategic regimes (stub)
 ├── detection/             sensitivity / non-detection / scoped absence
 ├── applicability/         scoped matching, evidence binding, context maps
-├── equations/             gated substitution; percolation / branching still stubs
+├── equations/             gated arithmetic + finite bond percolation; branching stub
 └── lifecycle/             UNKNOWN expiry / reevaluation / state transitions
 ```
 
@@ -208,9 +231,10 @@ playground/
 2. Continuity, transition, return, and misclosure (done — milestone 2, the system track).
 3. Sensitivity-qualified absence and UNKNOWN expiry (done — milestone 3, the determination track).
 4. Context-dependent applicability mapping (implemented, milestone 4; synthetic tests).
-5. Equation substitution (implemented with arithmetic adapters and synthetic tests);
-   percolation and branching families remain deferred.
-6. Cross-system-class testing.
+5. Equation substitution (implemented with arithmetic adapters and synthetic tests).
+6. Finite-graph bond percolation (implemented with exact-oracle and diagnostic tests);
+   branching remains a separate deferred family.
+7. Cross-system-class testing.
 
 The first implementation milestone is the diagnostic infrastructure, not the
 equation library — otherwise we risk building a sophisticated mathematical

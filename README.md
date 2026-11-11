@@ -97,7 +97,7 @@ The lab also includes [draft criterion-to-conclusion mappings](experimental/scop
 
 A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
 
-[Playground](experimental/playground/README.md): an experimental determination laboratory organized around experimental questions rather than equation families. Implemented layers include diagnostic infrastructure with three separate failure axes (physical / instrument / determination), L0 closure, known-answer and null harnesses, evidence bindings that do not promote claims, return/misclosure and continuity tests, and sensitivity-qualified absence with UNKNOWN expiry. These are experimental recording and diagnostic tools, not physical validation. The equation library remains deferred. Offline, Python 3 stdlib only; run `python3 -m playground.self_check` from `experimental/`, or `./run_checks.sh` at the repo root.
+[Playground](experimental/playground/README.md): an experimental determination laboratory organized around experimental questions rather than equation families. Implemented layers include diagnostic infrastructure with three separate failure axes (physical / instrument / determination), L0 closure, known-answer and null harnesses, evidence bindings that do not promote claims, return/misclosure and continuity tests, and sensitivity-qualified absence with UNKNOWN expiry. These are experimental recording and diagnostic tools, not physical validation. Gated arithmetic and finite-graph bond adapters now exercise that infrastructure. Offline, Python 3 stdlib only; run `python3 -m playground.self_check` from `experimental/`, or `./run_checks.sh` at the repo root.
 
 The playground's [context-dependent applicability mapper](experimental/playground/applicability/README.md)
 records property-specific scope membership separately from explicit evidence
@@ -113,8 +113,14 @@ now runs versioned arithmetic adapters through fresh boundary, applicability,
 known-answer, and null checks. A replacement retains the fixed experiment's
 measurement/design failures but cannot inherit the previous equation's
 certificates or physical support. The example and bypass tests are constructed;
-successful computation is not physical validation. Percolation and branching
-families remain deferred.
+successful computation is not physical validation.
+
+The first [finite-graph bond percolation family](experimental/playground/equations/PERCOLATION.md)
+uses that same diagnostic path for a selected graph, declared boundary sets,
+component results, and exhaustive independent-bond ensemble metrics.
+Finite-grid probability brackets are not universal critical thresholds;
+disconnection is not physical absence. Branching remains a distinct future
+family.
 
 ## In situ learning (experimental)
 
