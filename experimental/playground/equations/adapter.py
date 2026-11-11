@@ -19,6 +19,7 @@ from typing import TYPE_CHECKING, Mapping
 from ..applicability.mapping import Constraint, Decision, Description
 from ..failures import EvidenceRef
 from ..validation.numeric_contract import finite_number, finite_outputs
+from .measurand import Measurand
 
 if TYPE_CHECKING:
     from .branching import FiniteBranching
@@ -95,11 +96,14 @@ class OutputPort:
     name: str
     expression: str
     unit: str
+    measurand: Measurand | None = None
 
     def __post_init__(self):
         _name(self.name)
         _text(self.expression)
         _text(self.unit)
+        if self.measurand is not None and type(self.measurand) is not Measurand:
+            raise ValueError("typed immutable measurand declaration required")
 
 
 @dataclass(frozen=True)

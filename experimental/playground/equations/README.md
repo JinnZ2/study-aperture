@@ -137,6 +137,30 @@ Use `Equation`, `InputPort`, `OutputPort`, and `EquationRegistry` from
 `substitute` from `substitution.py`. See `example.py` for an inspectable complete
 protocol. All checks are standard-library-only and run offline.
 
+## Measurand identity under substitution
+
+An optional `Measurand` on an arithmetic `OutputPort` records quantity,
+object-of, normalizer, population, time window, spatial scope, reference
+state, declared route, selection decision and evidence references. These
+declarations enter the equation's content digest and physical-assessment
+binding. Legacy undeclared ports remain calculable, not silently comparable.
+
+`compare_substitution()` examines the two retained gated runs and their
+lineage, not raw numbers or caller-supplied PASS flags. Known differences in
+identity make comparison void on the DETERMINATION axis without changing
+either calculation. Missing identity is UNKNOWN, not equality; matching
+identity with a different declared route is not automatically a different
+quantity. Even an eligible result is only a nominal point difference, not
+physical agreement or calibrated compatibility.
+
+See [MEASURAND.md](MEASURAND.md) for the precise scope and limitations.
+
+```sh
+python3 -m unittest playground.validation.test_measurand
+python3 -m playground.equations.measurand_example \
+    --output-dir /tmp/fresh-measurand-substitution-probe
+```
+
 ## First graph family
 
 `FiniteGraph` and `BondPercolation` from `percolation.py` provide bounded,

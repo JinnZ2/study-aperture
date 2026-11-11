@@ -54,3 +54,14 @@ jobs:
           name: measurement-boundary-audit-process-python-${{ matrix.python }}
           path: ${{ runner.temp }}/measurement-boundary-audit-process
           if-no-files-found: error
+      - name: Capture constructed measurand-identity substitution evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.equations.measurand_example \
+            --output-dir "$RUNNER_TEMP/measurand-substitution-probe"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: measurand-substitution-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/measurand-substitution-probe
+          if-no-files-found: error
