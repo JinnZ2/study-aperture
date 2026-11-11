@@ -224,5 +224,81 @@ class SupplementalPromptProvenance(unittest.TestCase):
         ).read_text(encoding="utf-8"))
 
 
+class EarlierPromptProvenance(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.addendum = json.loads(
+            (COLLECTION / "evidence/prompt-context-02.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+    def test_two_original_images_are_preserved(self):
+        pins = {
+            "earlier-audit-request.jpeg": (
+                "a3f19e47f43bc0133c53d52751cf8f5321b906389f09ffbdd0aff83bc31b183f",
+                347106,
+            ),
+            "workflow-accommodation.jpeg": (
+                "001919b7c119560a59b451c93dd8153688da0b7eb3dd33376e0b9a374fbb76b3",
+                336811,
+            ),
+        }
+        images = self.addendum["screenshots_in_supplied_order"]
+        self.assertEqual({s["path"] for s in images}, set(pins))
+        for image in images:
+            with self.subTest(image=image["path"]):
+                digest, size = pins[image["path"]]
+                raw = (COLLECTION / "evidence" / image["path"]).read_bytes()
+                self.assertEqual(hashlib.sha256(raw).hexdigest(), digest)
+                self.assertEqual(image["sha256"], digest)
+                self.assertEqual(len(raw), size)
+                self.assertEqual(image["bytes"], size)
+                self.assertFalse(image["modified"])
+
+    def test_visible_prompts_and_recommendations_remain_distinct(self):
+        request, workflow = self.addendum["screenshots_in_supplied_order"]
+        self.assertEqual(
+            request["visible_user_message"],
+            "Any recent studies on AI you want to audit with me??",
+        )
+        self.assertIn("best accomodate for you specifically?",
+                      workflow["visible_user_message"])
+        self.assertEqual(len(workflow["visible_assistant_recommendations"]), 3)
+        self.assertFalse(workflow["recommendations_are_architecture_evidence"])
+        self.assertFalse(workflow["prompt_premise_is_verified_architecture_fact"])
+        self.assertFalse(request["candidate_table_transcribed"])
+
+    def test_partial_context_does_not_establish_access_or_execution(self):
+        link = self.addendum["repository_link_delivery"]
+        self.assertEqual(link["basis"], "USER_REPORT")
+        self.assertFalse(link["exact_link_visible_in_screenshots"])
+        self.assertFalse(link["model_retrieval_established"])
+        self.assertFalse(link["repository_execution_established"])
+        coverage = self.addendum["coverage"]
+        self.assertEqual(coverage["prompt_history"], "PARTIALLY_VISIBLE")
+        self.assertEqual(coverage["global_cross_screenshot_turn_order"],
+                         "UNDECLARED")
+        self.assertFalse(coverage["phone_clock_is_conversation_timestamp"])
+        self.assertEqual(coverage["full_correction_instructions"], "UNDECLARED")
+        self.assertEqual(coverage["repository_execution"], "UNDECLARED")
+        self.assertEqual(self.addendum["underlying_model_version"], "UNDECLARED")
+        self.assertTrue(all(value is False for value in
+                            self.addendum["limits"].values()))
+
+    def test_new_context_supplements_rather_than_replaces_previous_records(self):
+        self.assertTrue(self.addendum["does_not_replace_initial_capture"])
+        self.assertTrue(self.addendum["does_not_replace_prior_addendum"])
+        self.assertEqual(self.addendum["supplements"],
+                         ["../manifest.json", "prompt-context-01.json"])
+        text = (COLLECTION / "PROVENANCE-ADDENDUM-02.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertTrue(text.startswith("Status:"))
+        self.assertIn("PROVENANCE-ADDENDUM-02.md", (
+            COLLECTION / "README.md"
+        ).read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()

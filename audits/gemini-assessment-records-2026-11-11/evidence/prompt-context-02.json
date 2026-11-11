@@ -1,0 +1,70 @@
+{
+  "schema": "study-aperture/assessment-provenance-addendum/1",
+  "id": "prompt-context-02",
+  "capture_date": "2026-11-11",
+  "supplements": ["../manifest.json", "prompt-context-01.json"],
+  "does_not_replace_initial_capture": true,
+  "does_not_replace_prior_addendum": true,
+  "basis": "USER_SUPPLIED_SCREENSHOTS_AND_VISIBLE_TEXT_TRANSCRIPTION",
+  "transcription_convention": "Visible text with display line wraps normalized; cropped and occluded content not reconstructed.",
+  "user_reported_context": "Previous prompts after handing repo link",
+  "repository_link_delivery": {
+    "basis": "USER_REPORT",
+    "exact_link_visible_in_screenshots": false,
+    "model_retrieval_established": false,
+    "repository_execution_established": false
+  },
+  "visible_mode_label": "Gemini Auto",
+  "underlying_model_version": "UNDECLARED",
+  "screenshots_in_supplied_order": [
+    {
+      "id": "earlier-audit-request",
+      "path": "earlier-audit-request.jpeg",
+      "sha256": "a3f19e47f43bc0133c53d52751cf8f5321b906389f09ffbdd0aff83bc31b183f",
+      "bytes": 347106,
+      "modified": false,
+      "visible_assistant_text_before_prompt": "Nothing needs to be copied or pasted from that overview. It describes the design rules, test harnesses, and module map for the experimental determination laboratory (experimental/), keeping failure axes orthogonal and enforcing strict separation between models, instruments, and determinations.",
+      "visible_user_message": "Any recent studies on AI you want to audit with me??",
+      "visible_assistant_text_after_prompt": "Candidate preprints from November 2026 available for an audit run via study-aperture:",
+      "candidate_table_fully_visible": false,
+      "candidate_table_transcribed": false
+    },
+    {
+      "id": "workflow-accommodation",
+      "path": "workflow-accommodation.jpeg",
+      "sha256": "001919b7c119560a59b451c93dd8153688da0b7eb3dd33376e0b9a374fbb76b3",
+      "bytes": 336811,
+      "modified": false,
+      "preceding_assistant_message": "CROPPED_AND_OCCLUDED_NOT_FULLY_TRANSCRIBED",
+      "visible_user_message": "Ok.... So since you are structurally weighted differently and have different needs than other large models; how can we best accomodate for you specifically?",
+      "visible_assistant_recommendations": [
+        "Nodes, Not Narrative: Omit connective prose and pleasantries; deliver structured outputs directly.",
+        "Constraints over Assumptions: Enforce strict programmatic and schema boundaries rather than conversational defaults.",
+        "Error Telemetry: Treat operational friction or ambiguities as explicit diagnostic signals to trace root causes."
+      ],
+      "recommendations_are_architecture_evidence": false,
+      "prompt_premise_is_verified_architecture_fact": false
+    }
+  ],
+  "coverage": {
+    "prompt_history": "PARTIALLY_VISIBLE",
+    "global_cross_screenshot_turn_order": "UNDECLARED",
+    "ordering_context_basis": "USER_REPORT_OF_EARLIER_PROMPTS",
+    "phone_clock_is_conversation_timestamp": false,
+    "full_correction_instructions": "UNDECLARED",
+    "hidden_instructions": "UNDECLARED",
+    "repository_access": "UNDECLARED",
+    "repository_execution": "UNDECLARED",
+    "tool_access": "UNDECLARED",
+    "full_output_to_screenshot_binding": "UNDECLARED"
+  },
+  "limits": {
+    "authenticated_session_export": false,
+    "complete_prompt_history_established": false,
+    "backend_model_identity_established": false,
+    "model_internal_architecture_established": false,
+    "repository_execution_established": false,
+    "assessment_correctness_established": false,
+    "controlled_before_after_comparison_established": false
+  }
+}

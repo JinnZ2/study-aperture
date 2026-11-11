@@ -16,6 +16,10 @@ visible prompts associated with attempt 02. See
 [the provenance addendum](PROVENANCE-ADDENDUM-01.md); the original manifest is
 retained as the initial knowledge state, not silently rewritten.
 
+Two further screenshots supply earlier audit and workflow-accommodation
+prompts. See [the second addendum](PROVENANCE-ADDENDUM-02.md); their partial
+coverage is retained without inventing a complete conversation timeline.
+
 ## Files and capture boundary
 
 | File | Role |
@@ -27,6 +31,9 @@ retained as the initial knowledge state, not silently rewritten.
 | `PROVENANCE-ADDENDUM-01.md` | Later prompt-context evidence, association, and remaining gaps |
 | `evidence/gemini-auto-prompts.jpeg` | Unmodified user-supplied screenshot |
 | `evidence/prompt-context-01.json` | Screenshot hash, visible-text transcription, and explicit limits |
+| `PROVENANCE-ADDENDUM-02.md` | Additional earlier prompts, user-reported link delivery, and remaining gaps |
+| `evidence/earlier-audit-request.jpeg`, `evidence/workflow-accommodation.jpeg` | Two further unmodified user-supplied screenshots |
+| `evidence/prompt-context-02.json` | Their hashes and bounded transcriptions; no architecture or execution inference |
 
 The capture starts at `PUBLICATION:` and ends at the final `INCOMPLETENESS:`
 line of each supplied payload. Conversational prefaces are outside the capture.
