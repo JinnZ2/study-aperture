@@ -261,9 +261,10 @@ class DefectCheck:
     actual: FailureRecord
 
 
-def verify_planted_defects() -> tuple[DefectCheck, ...]:
+def verify_defects(defects: tuple[PlantedDefect, ...]) -> tuple[DefectCheck, ...]:
+    """Run the machinery against every planted defect; require correct classification."""
     checks: list[DefectCheck] = []
-    for defect in DEFECTS:
+    for defect in defects:
         actual = defect.exercise()
         mismatches: list[str] = []
         for axis, status in defect.expected:
@@ -289,6 +290,11 @@ def verify_planted_defects() -> tuple[DefectCheck, ...]:
             )
         )
     return tuple(checks)
+
+
+def verify_planted_defects() -> tuple[DefectCheck, ...]:
+    """The milestone-1 (L0 / harness) defect suite."""
+    return verify_defects(DEFECTS)
 
 
 @dataclass(frozen=True)
