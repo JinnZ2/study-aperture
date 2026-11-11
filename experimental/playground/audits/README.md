@@ -120,3 +120,11 @@ conclusions. The preserved artifacts and their reference hashes are unchanged.
 CI retains a report and replay bundle for each Python runtime; the CLI also
 prints the artifact comparisons, including every accepted numerical difference,
 so the same comparison evidence is inspectable in the run logs.
+
+## Second case
+
+The [pendulum audit-process pilot](pendulum-README.md) tests a different
+inference boundary: metric definition, zero denominators, reference validity,
+and unauthorized transfer from restoring-term error to period error. Its
+synthetic inputs are not observations and its unresolved source interpretation
+does not become a physical finding.

@@ -254,6 +254,17 @@ python3 -m playground.audits.tolman_process --output-dir /tmp/tolman-audit-proce
 python3 -m unittest playground.validation.test_audit_process
 ```
 
+The [second audit-process pilot](audits/pendulum-README.md) examines the
+pendulum approximation review: explicit error denominators, undefined relative
+error at zero, independent sine-reference bounds, and prohibited transfer to
+period error. It retains source ambiguity instead of promoting a selected metric
+into a source-wide or physical verdict.
+
+```sh
+python3 -m playground.audits.pendulum_process --output-dir /tmp/pendulum-audit-process-new
+python3 -m unittest playground.validation.test_pendulum_audit
+```
+
 ## Self-check
 
 ```
