@@ -121,6 +121,12 @@ IDs and equation inputs. Coincident values and shared false declarations cannot
 substitute for that procedure check. Missing membership, zero denominators and
 inconsistent source records remain distinct; no empirical support is promoted.
 
+The [distribution-to-mean substitution test](experimental/playground/audits/distribution-mean-README.md)
+examines whether a mean-only representation preserves a selected finite-sum
+target. Constructed linear controls and second-moment counterexamples keep
+arithmetic correctness separate from purpose-specific information loss,
+without inferring stationarity, ergodicity, equilibrium or physical adequacy.
+
 The first [finite-graph bond percolation family](experimental/playground/equations/PERCOLATION.md)
 uses that same diagnostic path for a selected graph, declared boundary sets,
 component results, and exhaustive independent-bond ensemble metrics.

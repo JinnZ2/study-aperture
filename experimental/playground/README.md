@@ -61,6 +61,12 @@ interchangeability. Unknown membership, empty denominators and inconsistent
 source records remain distinct; both policies have scoped positive controls.
 This is constructed procedure evidence, not independently observed membership.
 
+The [distribution-to-mean substitution test](audits/distribution-mean-README.md)
+holds the target fixed while replacing a constructed weighted distribution by
+its mean. Linear controls and second-moment counterexamples distinguish
+arithmetic fidelity from purpose-specific information loss. Scope is explicit;
+stationarity, ergodicity, equilibrium and missing dependencies are not inferred.
+
 ## L0: accounting closure
 
 L0 runs before any physics. Its question: does the boundary accounting
