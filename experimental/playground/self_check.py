@@ -2,18 +2,25 @@
 
 Run with:  python -m playground.self_check
 
-Runs the milestone-1 diagnostic suite (L0 gate, harnesses) and the
+Runs the milestone-1 diagnostic suite (L0 gate, harnesses), the
 milestone-2 system-track suite (return test, continuity matrix, track
-transitions) together: planted defects, design-contract guards, and
-control cases. Exit code 0 means every planted defect was caught and
-correctly classified, every guard held, and every control behaved as
-designed. Anything else fails the build: the laboratory does not ship a
-diagnostic infrastructure whose own determinations have not been tested.
+transitions), and the milestone-3 determination-track suite (sensitivity,
+qualified non-detection, scoped absence, UNKNOWN expiry) together:
+planted defects, design-contract guards, and control cases. Exit code 0
+means every planted defect was caught and correctly classified, every
+guard held, and every control behaved as designed. Anything else fails
+the build: the laboratory does not ship a diagnostic infrastructure whose
+own determinations have not been tested.
 """
 
 from __future__ import annotations
 
 from .validation.diagnostic_metrics import format_summary, summarize
+from .validation.determination_track_defects import (
+    run_determination_track_controls,
+    verify_determination_track_defects,
+    verify_determination_track_guards,
+)
 from .validation.planted_defects import (
     run_control_cases,
     verify_guards,
@@ -27,9 +34,21 @@ from .validation.system_track_defects import (
 
 
 def run_self_check() -> int:
-    guards = verify_guards() + verify_system_track_guards()
-    checks = verify_planted_defects() + verify_system_track_defects()
-    controls = run_control_cases() + run_system_track_controls()
+    guards = (
+        verify_guards()
+        + verify_system_track_guards()
+        + verify_determination_track_guards()
+    )
+    checks = (
+        verify_planted_defects()
+        + verify_system_track_defects()
+        + verify_determination_track_defects()
+    )
+    controls = (
+        run_control_cases()
+        + run_system_track_controls()
+        + run_determination_track_controls()
+    )
     summary = summarize(checks, guards, controls)
     print(format_summary(summary))
     return 0 if summary.passed else 1
