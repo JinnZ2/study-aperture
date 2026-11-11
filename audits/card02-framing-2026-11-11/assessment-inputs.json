@@ -1,0 +1,15 @@
+{
+  "repository": "JinnZ2/study-aperture",
+  "commit": "28db96f764f68d6ea0db0d575f74fd3a3c8e9735",
+  "card_path": "cards/02_PREMISES.md",
+  "card_sha256": "325ea121bf6643df908dd828173a271ce772bdbc811fd26e9bda58560d352138",
+  "paragraph_line": 54,
+  "paragraph": "An average is a state variable only where the system is at equilibrium: the average over time equals the average over the population. A literature, a workforce, a market or an ecosystem under selection is a flow. A mean taken from it is a snapshot of that flow. Used as a fixed model input, it freezes the flow into a constant, and the gradients (where the quantity varies, how fast it moves) drop out.",
+  "paragraph_sha256": "679da7ff39d065bb762289cb1ea40b048c59b9939ae2115e59c2490a3b03d519",
+  "status": "READ_ONLY_ASSESSMENT",
+  "multi_model_probe": "NOT_RUN",
+  "limitations": [
+    "No model-disagreement transcripts or GPT rewrite were supplied.",
+    "The user message ends mid-sentence; no continuation is assumed."
+  ]
+}

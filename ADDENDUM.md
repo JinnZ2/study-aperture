@@ -24,6 +24,8 @@ Working rules already in use: leave gaps instead of coining words; keep the shap
 | A3 | **Closed vocabularies force early commitment.** Every value set in `assess.py` must be fixed in advance. The sentinels (`UNDECLARED`, `UNDETERMINED`, `NODATA`) are a partial workaround. First instances recorded in [examples/reproducibility-model](examples/reproducibility-model/FINDINGS.md) (K1-K3): no publication type for a re-analysis of published data, no measurement grade for a figure computed by the paper but not recomputed, no independence route for a calibration reused as a confirmation. One paper; not yet a survey of the sets. | OPEN |
 | A4 | **Shape as a carrier.** Relations can be kept without labels (diagrams, graphs, the provenance graph tools). Not yet worked out: how a record holds shape-only content that `check` and `report` can carry without forcing it into words. | OPEN |
 
+A dated [Card 02 framing-provenance case](audits/card02-framing-2026-11-11/README.md) preserves one assessment, the user's self-reported relational standpoint/blind spot, and possible assessor blind spots. It records a proposed relational-frame-to-technical-wording translation loss without establishing its historical cause or generalizing it to a culture/model family. A2 remains OPEN: this case archive does not settle a general translation-ledger architecture, run the multi-model framing probe, change Card 02, or name/resolve A1.
+
 ## B. Toolkit
 
 | # | Item | State |

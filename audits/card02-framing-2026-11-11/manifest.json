@@ -1,0 +1,132 @@
+{
+  "schema": "study-aperture/card02-framing-provenance/1",
+  "record_id": "card02-framing-2026-11-11",
+  "record_date": "2026-11-11",
+  "status": "PRESERVED_ASSESSMENT_AND_DISCUSSION_WITH_PROPOSED_BLIND_SPOTS",
+  "assessed_repository_commit": "28db96f764f68d6ea0db0d575f74fd3a3c8e9735",
+  "unchanged_core_baseline_commit": "b9dbdeff48c23c44b20dff3c01b4304d3face54a",
+  "source_card": {
+    "path": "cards/02_PREMISES.md",
+    "sha256": "325ea121bf6643df908dd828173a271ce772bdbc811fd26e9bda58560d352138",
+    "paragraph_line": 54,
+    "paragraph_sha256_without_trailing_newline": "679da7ff39d065bb762289cb1ea40b048c59b9939ae2115e59c2490a3b03d519"
+  },
+  "files": [
+    {
+      "path": "ASSESSMENT.md",
+      "sha256": "562ae2a69e92fc2f77033eda3af3ceabced22155c3a453cbdb364f45cfa92c58",
+      "bytes": 17261
+    },
+    {
+      "path": "DIALOGUE.md",
+      "sha256": "d36c23bb5f0515ae81fe1118e0c8e619cd07db3bf608b708ed6935b00469a7b7",
+      "bytes": 7974
+    },
+    {
+      "path": "PROVENANCE.md",
+      "sha256": "a505944df69e8f75ca5a191df4e038152965c328f9b21a009a62e5e7c1391d85",
+      "bytes": 11286
+    },
+    {
+      "path": "README.md",
+      "sha256": "c105d2306c0f9af9f1a04b4ae8e20ab078ea1fb09e5adf08bd9c2fb0699b650e",
+      "bytes": 4149
+    },
+    {
+      "path": "assessment-inputs.json",
+      "sha256": "73685e397df15734f860655111f2f5182279743ec49443638fd8c2bf3b39ac29",
+      "bytes": 994
+    },
+    {
+      "path": "frozen-state-verbatim.txt",
+      "sha256": "d57c8d5a765d37c7ffe63df51b17fdf67c94f9a198aa0933dc3bd4ad6c61eeee",
+      "bytes": 403
+    }
+  ],
+  "records": {
+    "ASSESSMENT.md": {
+      "role": "PRESERVED_ASSESSMENT",
+      "preserved_byte_for_byte": true,
+      "timing": "PRECEDES_USER_STANDPOINT_CLARIFICATION",
+      "authority": "SOURCE_GROUNDED_ASSISTANT_ASSESSMENT_NOT_AUTOMATIC_AUTHORITY"
+    },
+    "DIALOGUE.md": {
+      "role": "SELECTED_VISIBLE_MESSAGE_TRANSCRIPTION",
+      "capture": "TRANSCRIBED_NOT_PLATFORM_EXPORT",
+      "user_timestamps": "SUPPLIED",
+      "assistant_timestamps": "UNDECLARED",
+      "transformation": [
+        "Blockquote formatting and source labels added.",
+        "E02 assessment download link redirected to unchanged local archive with original destination disclosed.",
+        "E01 unfinished message ending retained; no continuation inferred."
+      ]
+    },
+    "PROVENANCE.md": {
+      "role": "DATED_INTERPRETATION_AND_HYPOTHESES",
+      "later_context": "NOT_RETROACTIVELY_ATTRIBUTED_TO_EARLIER_ASSESSMENT"
+    }
+  },
+  "user_standpoint": {
+    "status": "SELF_REPORTED",
+    "source": "DIALOGUE.md E03",
+    "culture_identity": "UNDECLARED",
+    "population_generalization": "NOT_ESTABLISHED",
+    "blind_spot_attribution": "USER_SELF_ATTRIBUTION_NOT_ASSISTANT_DIAGNOSIS"
+  },
+  "assessor_blind_spots": [
+    {
+      "id": "H1",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H2",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H3",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H4",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H5",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H6",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    },
+    {
+      "id": "H7",
+      "status": "PROPOSED_NOT_MODEL_FAMILY_FINDING"
+    }
+  ],
+  "model_provenance": {
+    "assistant_label": "Manus assistant",
+    "underlying_model_name": "UNDECLARED",
+    "underlying_model_version": "UNDECLARED",
+    "earlier_GPT_rewrite_and_model_records": "NOT_SUPPLIED",
+    "training_origin": "NOT_INFERRED"
+  },
+  "publication_authorization": {
+    "source": "DIALOGUE.md E05",
+    "timestamp": "2026-11-11T13:23:33-06:00",
+    "scope": "Post assessment, user self-described blind spot and possible model blind spots as provenance in Study Aperture."
+  },
+  "framing_probe": {
+    "status": "PROPOSED_NOT_RUN",
+    "N": "UNDECLARED",
+    "models": "UNDECLARED",
+    "repeated_run_results": "NOT_COLLECTED",
+    "binary_flag_answer_key": "NOT_ESTABLISHED"
+  },
+  "limits": [
+    "Hashes record byte consistency, not participant/culture/model authentication or correctness.",
+    "No culture-specific study or model-family comparison was performed.",
+    "No underlying GPT rewrite or historical model-disagreement transcripts were supplied.",
+    "No new core card, schema, validation or automatic promotion rule is introduced.",
+    "ADDENDUM A2 remains OPEN and A1 remains owner-held and unnamed."
+  ]
+}
