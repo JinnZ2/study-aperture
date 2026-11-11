@@ -21,6 +21,15 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Run all checks (stdlib only, no installs)
         run: ./run_checks.sh
+      - name: Capture bounded publication-claim provenance evidence
+        run: |
+          python3 -m experimental.publication_provenance.demo \
+            --output-dir "$RUNNER_TEMP/publication-provenance"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-provenance-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/publication-provenance
+          if-no-files-found: error
       - name: Capture audit-process replay evidence
         if: always()
         run: |
