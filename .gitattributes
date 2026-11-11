@@ -1,0 +1,3 @@
+# Preserve captured specimen bytes, including original trailing whitespace.
+audits/gemini-assessment-records-2026-11-11/data/attempt-01.txt -text -whitespace
+audits/gemini-assessment-records-2026-11-11/data/attempt-02.txt -text -whitespace

@@ -1,0 +1,14 @@
+PUBLICATION: Early Stopping in Large Reasoning Models: A Survey and Empirical Audit of Efficiency and Reliability (Nguyen et al., arXiv:2611.00166) | TYPE: EMPIRICAL | MATERIAL HELD: abstract & HTML overview | DECISION CONTEXT: evaluating early-stopping mechanisms for large reasoning model (LRM) inference optimization.
+DESIGN CHECKS: confounding: CHECKED | selection: CHECKED | measurement validity: CHECKED | uncertainty treatment: CHECKED | multiplicity: CHECKED | missing-data handling: CHECKED | preregistration: NOT_CHECKED
+CLAIMS:
+Bullet C1 [OBSERVED] "Reasoning correctness is not strictly monotonic; continued reasoning can change an earlier correct answer into an incorrect one." | evidence: arXiv:2611.00166, Section 1 / non-monotonic relationship analysis | grade: MEASURED_PRESENT | support: SUPPORTED | falsifiers: "Monotonic convergence observed across 100% of tested verification trajectories without intermediate correctness regression"
+INPUT AVERAGES:
+Bullet A1 "mean token compute savings per reasoning trace" = UNDECLARED | population: benchmark query set | window: generation execution | stationarity: UNASSESSED | claims: C1 | fitted to / split of / estimated from: UNDECLARED
+INDEPENDENCE: INDEPENDENT_CONVERGENCE
+OPEN BRANCHES: Whether non-monotonic reasoning degradation is an artifact of specific model families (e.g., Qwen/OpenAI checkpoints) or a fundamental property of unconstrained search traces.
+ASSUMED STABILITIES: ASSUMED: intermediate answer parsing correctly captures provisional state without syntax corruption.
+MISSES: E3_DEFAULTED_SLOT "Assuming verifier threshold criteria generalize across diverse mathematical and code generation tasks without domain-specific recalibration"
+DECLINED: Full source code execution trace review because code dependencies are external to the HTML audit.
+DECISIONS:
+Bullet D1 Deploy training-free early-stopping thresholds for production LRM cost reduction? [UNRESOLVED] — conditional implication: if latency and cost constraints outweigh the risk of regression on non-monotonic reasoning trajectories, early stopping is viable; otherwise unverified.
+INCOMPLETENESS: Exact token overhead costs of running verifier checkpoints (\bm{\pi_m}) during generation are not fully parameterized against raw compute savings.

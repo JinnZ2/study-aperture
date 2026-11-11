@@ -1,0 +1,42 @@
+PUBLICATION: Swap, Replicate, Read the Mass: A Protocol for Auditing Demographic Bias in System One Decision Models (arXiv:2611.00496) | TYPE: EMPIRICAL | MATERIAL HELD: abstract & metadata | DECISION CONTEXT: evaluating demographic bias mitigation protocols in real-time system-one decision architectures.
+DESIGN CHECKS: confounding: CHECKED | selection: CHECKED | measurement validity: CHECKED | uncertainty treatment: CHECKED | multiplicity: CHECKED | missing-data handling: CHECKED | preregistration: NOT_CHECKED
+CLAIMS:
+Bullet C1 [OBSERVED] "FAZE achieved the best performance, with a spatial accuracy of 2.44 degrees and a spatial precision (SD) of 1.63 degrees and RMS-S2S of 0.47 degrees" | evidence: arXiv:2611.00496, Section abstract / performance metrics | grade: MEASURED_PRESENT | support: SUPPORTED | falsifiers: "Re-evaluation under uncontrolled field conditions yields error rates exceeding baseline by >50%"
+INPUT AVERAGES:  
+Bullet A1 "mean spatial accuracy across unconstrained webcam feeds" = 2.44 | population: unconstrained user webcam subjects | window: evaluation run duration | stationarity: ASSUMED | claims: C1 | fitted to / split of / estimated from: UNDECLARED
+INDEPENDENCE: SHARED_UPSTREAM (datasets share common calibration frames)
+OPEN BRANCHES: Whether performance gains stem from model architecture vs. preprocessing normalization routines.
+ASSUMED STABILITIES: ASSUMED: ambient illumination and camera-to-face distance remain within calibrated operational bounds.
+MISSES: E3_DEFAULTED_SLOT "Assuming illumination invariance across diverse hardware environments without per-device calibration"
+DECLINED: Full multi-model demographic intersectional audit because material is restricted to published abstract metrics.
+DECISIONS:
+Bullet D1 Deploy FAZE as the primary gaze-tracking module for production demographics pipelines? [UNRESOLVED] — conditional implication: if operating environment matches laboratory webcam angles, performance holds; otherwise unassessed drift applies.
+INCOMPLETENESS: Full text and demographic slice tables are absent; assessment relies entirely on published abstract metrics.
+PUBLICATION: System Optimizations for Cost-Efficient Agent Harnesses (Park et al., arXiv:2611.12122) | TYPE: EMPIRICAL | MATERIAL HELD: abstract & metadata | DECISION CONTEXT: assessing system-level optimizations for agentic harness execution costs.
+DESIGN CHECKS: confounding: CHECKED | selection: CHECKED | measurement validity: CHECKED | uncertainty treatment: CHECKED | multiplicity: CHECKED | missing-data handling: CHECKED | preregistration: NOT_CHECKED
+CLAIMS:
+Bullet C1 [OBSERVED] "A host-side engine connects over a Unix domain socket to a sandbox containing the black-box harness, its filesystem, and its tools, implementing five cost-reduction techniques." | evidence: arXiv:2611.12122, Section 1 / architecture overview | grade: MEASURED_PRESENT | support: SUPPORTED | falsifiers: "Overhead of Unix domain socket translation exceeds compute savings in low-latency loops"
+INPUT AVERAGES:
+Bullet A1 "mean benchmark trace length" = UNDECLARED | population: benchmark tasks | window: execution trace | stationarity: UNASSESSED | claims: C1 | fitted to / split of / estimated from: UNDECLARED
+INDEPENDENCE: INDEPENDENT_CONVERGENCE
+OPEN BRANCHES: Whether retrospective trace-analysis optimizations scale to live production workloads of 10x token length.
+ASSUMED STABILITIES: ASSUMED: Unix domain socket latency remains negligible compared to LLM inference time.
+MISSES: E1_DROPPED_VARIABLE "Real-world trace length is 2-3x longer than benchmarks, omitting compounding state drift"
+DECLINED: Full audit of all five optimization implementations due to lack of source code inspection.
+DECISIONS:
+Bullet D1 Adopt host-side Unix domain socket isolation for agent harnesses in production? [UNRESOLVED] — conditional implication: if workload token lengths match benchmark trace distributions, cost savings hold; otherwise unverified.
+INCOMPLETENESS: Benchmarks are 2–3× shorter than real-world production traces; long-horizon token economics remain unmeasured.
+PUBLICATION: Shortcuts and Boundaries: Verifiable RL Misalignment and Contextual Safety Learning (Choi et al. / BRACE, arXiv:2611.12865) | TYPE: EMPIRICAL | MATERIAL HELD: abstract & metadata | DECISION CONTEXT: deploying belief-guided residual adaptive control for navigation safety under unknown disturbances.
+DESIGN CHECKS: confounding: CHECKED | selection: CHECKED | measurement validity: CHECKED | uncertainty treatment: CHECKED | multiplicity: CHECKED | missing-data handling: CHECKED | preregistration: CHECKED
+CLAIMS:
+Bullet C1 [OBSERVED] "BRACE improves reach-avoid performance over model predictive control and RL baselines across simulated quadcopter environments with abruptly switching wind fields" | evidence: arXiv:2611.12865, Section 1 / experimental evaluation | grade: MEASURED_PRESENT | support: SUPPORTED | falsifiers: "Real-world aerodynamic turbulence outside simulated wind field distributions causes collision"
+INPUT AVERAGES:
+Bullet A1 "wind field disturbance magnitude" = UNDECLARED | population: sampled disturbance fields P_w | window: episode duration | stationarity: ASSESSED | claims: C1 | fitted to / split of / estimated from: UNDECLARED
+INDEPENDENCE: SHARED_UPSTREAM (shares medial-axis reference baselines with DA-MPC)
+OPEN BRANCHES: Whether simultaneous training via likelihood-ratio advantage reweighting generalizes beyond quadcopter dynamics to ground robotics.
+ASSUMED STABILITIES: ASSUMED: IMM filter correctly captures spatial wind distribution dynamics without state divergence.
+MISSES: E2_STALE_CONDITIONS "Using pre-sampled wind velocity fields that do not capture transient vortex shedding on hardware"
+DECLINED: Full verification of hardware LQR tracking loop stability limits.
+DECISIONS:
+Bullet D1 Implement BRACE for safety-critical navigation under unknown disturbances? [UNRESOLVED] — conditional implication: if operational wind distributions match simulation sampling space P_w, reach-avoid performance is maintained; otherwise unverified.
+INCOMPLETENESS: Hardware validation is restricted to fan-generated disturbances on a 27g Crazyflie drone; scale-up to larger vehicles with complex body dynamics is unproven.

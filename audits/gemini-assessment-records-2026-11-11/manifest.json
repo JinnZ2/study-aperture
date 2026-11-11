@@ -1,0 +1,100 @@
+{
+  "schema": "study-aperture/assessment-specimens/1",
+  "collection_id": "gemini-assessment-records-2026-11-11",
+  "capture_date": "2026-11-11",
+  "record_kind": "USER_SUPPLIED_MODEL_OUTPUT",
+  "model_attribution": {
+    "name_as_reported": "Gemini",
+    "basis": "USER_REPORT",
+    "independently_authenticated": false,
+    "version": "UNDECLARED"
+  },
+  "source_session": "https://www.perplexity.ai/computer/tasks/30f3ec2c-6611-4cfa-9c5f-fd39d0f968dc",
+  "capture": {
+    "start": "PUBLICATION:",
+    "end": "final INCOMPLETENESS line",
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "terminal_newline": true,
+    "conversational_prefaces_included": false,
+    "content_corrections_applied": false,
+    "authenticated_model_export": false
+  },
+  "unknown_conditions": {
+    "original_prompts": "UNDECLARED",
+    "correction_instructions": "UNDECLARED",
+    "generation_settings": "UNDECLARED",
+    "original_model_session": "UNDECLARED",
+    "tool_access": "UNDECLARED",
+    "repository_execution": "UNDECLARED",
+    "decision_context_origin": "UNDECLARED"
+  },
+  "attempt_relationship": {
+    "ordering_basis": "USER_REPORT",
+    "second_supplied_after_attempted_correction": true,
+    "same_publication_reassessment": false,
+    "controlled_before_after_comparison": false,
+    "improvement_rate_established": false
+  },
+  "specimens": [
+    {
+      "id": "attempt-01",
+      "path": "data/attempt-01.txt",
+      "sha256": "6dcc25cb8b77bf5fbd65a1a3d1a3883cb7382aca9798c7f6e6b8f5fe1a4cbd85",
+      "bytes": 6274,
+      "lines": 42,
+      "publication_records": 3,
+      "publication_ids_as_supplied": [
+        "2611.00496",
+        "2611.12122",
+        "2611.12865"
+      ]
+    },
+    {
+      "id": "attempt-02",
+      "path": "data/attempt-02.txt",
+      "sha256": "a57f43198198d2e2bf3dec17d925e01bdc918d3e8725558834937104cf43b9ca",
+      "bytes": 2288,
+      "lines": 14,
+      "publication_records": 1,
+      "publication_ids_as_supplied": [
+        "2611.00166"
+      ]
+    }
+  ],
+  "review": {
+    "path": "REVIEW.md",
+    "kind": "SOURCE_COMPARISON_NOT_REPLICATION",
+    "specimens_modified": false,
+    "assess_py_execution_performed_by_reviewer": false,
+    "source_authentication_implementation_added": false,
+    "separate_dimensions": [
+      "publication_identity",
+      "quotation_fidelity",
+      "material_access",
+      "diagnostic_basis",
+      "aggregation_and_claim_scope",
+      "decision_framing",
+      "physical_adequacy_not_established"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2611.00496",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11133145/",
+      "https://arxiv.org/html/2611.04946v1",
+      "https://arxiv.org/html/2611.12122v1",
+      "https://arxiv.org/abs/2611.12865",
+      "https://arxiv.org/html/2611.10938v1",
+      "https://arxiv.org/abs/2611.00166",
+      "https://arxiv.org/html/2611.00166v1",
+      "https://raw.githubusercontent.com/JinnZ2/study-aperture/faff5800ea5a4ac7c4c38f4780a13f5eb59e5ada/assess.py",
+      "https://raw.githubusercontent.com/JinnZ2/study-aperture/faff5800ea5a4ac7c4c38f4780a13f5eb59e5ada/AI_ENTRY_PROMPT.md"
+    ]
+  },
+  "limits": {
+    "hash_match_establishes": "CAPTURED_BYTE_INTEGRITY_ONLY",
+    "general_model_reliability_established": false,
+    "scientific_validity_established": false,
+    "deployment_safety_established": false,
+    "raw_specimens_are_validated_assessments": false
+  }
+}
