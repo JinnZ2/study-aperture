@@ -92,6 +92,37 @@ A transition in one track is never mapped onto the other.
   (reorganizes, accumulates energy, loses connectivity, crosses threshold,
   adapts, changes relationships). Track crossing is refused by design.
 
+## Determination track (milestone 3)
+
+- **Sensitivity** (`detection/sensitivity.py`): the detection limit,
+  established per instrument and per condition set from a ladder of known
+  effect sizes. Not transferable between conditions. A miss on an
+  expected-detectable rung, or a detection where none should be possible,
+  is an INSTRUMENT failure; an empty or undetectable ladder is a
+  DETERMINATION indeterminacy — no limit established is not zero sensitivity.
+- **Non-detection** (`detection/non_detection.py`): a non-detection is
+  recorded as a non-detection. It becomes evidence of absence only when an
+  established sensitivity covers the effect size of interest; without
+  sensitivity, without an effect size, or below the detection limit, it is
+  DETERMINATION INDETERMINATE — it establishes nothing.
+- **Scoped absence** (`detection/scoped_absence.py`): an absence claim
+  carries what is absent, at what magnitude floor, within which scope, and
+  up to which detection limit. The sensitivity's conditions must cover the
+  observation's conditions; a mismatch or an undeclared condition yields
+  INDETERMINATE, never a qualified claim. Outside the recorded scope, the
+  claim says nothing.
+- **UNKNOWN expiry** (`lifecycle/unknown_expiry.py`): UNKNOWN determinations
+  carry expiry triggers (new evidence, condition change, instrument change,
+  revision dependency). Expiry is a revision trigger, not a negative
+  result — there is deliberately no REFUTED state. An expired UNKNOWN
+  produces a determination-track transition and no failure findings.
+- **Reevaluation** (`lifecycle/reevaluation.py`): reevaluation reopens the
+  determination; it does not overturn it by default. The original is
+  preserved as REEVALUATED and the successor is issued alongside it, never
+  in its place. A determination resting on an expired or superseded UNKNOWN
+  is stale (DETERMINATION failure); resting on an open UNKNOWN is allowed
+  and is not a failure.
+
 ## Self-check
 
 ```
@@ -121,7 +152,7 @@ playground/
 
 1. Diagnostic infrastructure (done — milestone 1).
 2. Continuity, transition, return, and misclosure (done — milestone 2, the system track).
-3. Sensitivity-qualified absence and UNKNOWN expiry.
+3. Sensitivity-qualified absence and UNKNOWN expiry (done — milestone 3, the determination track).
 4. Context-dependent applicability mapping.
 5. Equation families as validated instruments.
 6. Cross-system-class testing.
