@@ -33,6 +33,7 @@ from dataclasses import dataclass
 from typing import Mapping
 
 from ..failures import Axis, EvidenceRef, FailureRecord, Finding, Status
+from ..validation.numeric_contract import finite_number
 from .sensitivity import SensitivityDetermination
 
 
@@ -122,6 +123,14 @@ def record_non_detection(
         return NonDetectionRecord(observation, sensitivity, False, record, tuple(notes))
 
     effect_size = observation.effect_size_of_interest
+    if not finite_number(effect_size) or effect_size < 0:
+        record = record.with_finding(Finding(
+            Axis.DETERMINATION, Status.FAILED, "ND_INVALID_EFFECT_SIZE",
+            "An absence threshold must be a finite nonnegative real magnitude.",
+            "detection.non_detection", evidence,
+        ))
+        return NonDetectionRecord(observation, sensitivity, False, record, tuple(notes))
+
     if sensitivity.detection_limit > effect_size:
         record = record.with_finding(
             Finding(

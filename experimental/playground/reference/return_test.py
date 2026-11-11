@@ -41,6 +41,7 @@ from typing import Mapping
 
 from ..failures import Axis, EvidenceRef, FailureRecord, Finding, Status
 from ..gates.l0_closure import ValueProvenance
+from ..validation.numeric_contract import finite_outputs, pair_map
 from .anchor import AnchorState
 from .continuity import SystemPersistence
 from .misclosure import Misclosure, compute_misclosure
@@ -121,6 +122,8 @@ def return_test(spec: ReturnTestSpec) -> ReturnTestResult:
     # name an anchor quantity and have an observation; every observation
     # must have a tolerance.
     missing: list[str] = []
+    if not tolerance_map:
+        missing.append("no return quantities/tolerances declared; no persistence was tested")
     for quantity in tolerance_map:
         if quantity not in anchor_map:
             missing.append(
@@ -147,6 +150,34 @@ def return_test(spec: ReturnTestSpec) -> ReturnTestResult:
             )
         )
         notes.extend(missing)
+        return ReturnTestResult(ReturnOutcome.INDETERMINATE, record, notes=tuple(notes))
+
+    # A nonempty but invalid criterion is not evidence of physical nonreturn.
+    try:
+        pair_map(spec.anchor.quantities)
+        tolerances = pair_map(spec.tolerances)
+        if any(t < 0 for t in tolerances.values()) or type(spec.expected_return) is not bool:
+            raise ValueError("nonnegative finite tolerances and a boolean return expectation required")
+        if len(returned_map) != len(spec.returned):
+            raise ValueError("duplicate return observations")
+        if any(not isinstance(r.provenance, ValueProvenance) for r in spec.returned):
+            raise ValueError("typed return-value provenance required")
+    except (ValueError, TypeError) as exc:
+        record = record.with_finding(Finding(
+            Axis.DETERMINATION, Status.FAILED, "RT_INVALID_PROTOCOL",
+            f"Invalid return protocol: {exc}", "reference.return_test",
+            (EvidenceRef("anchor", spec.anchor.label),),
+        ))
+        return ReturnTestResult(ReturnOutcome.INDETERMINATE, record, notes=tuple(notes))
+
+    try:
+        finite_outputs({q: r.returned for q, r in returned_map.items()})
+    except (ValueError, TypeError) as exc:
+        record = record.with_finding(Finding(
+            Axis.INSTRUMENT, Status.FAILED, "RT_INVALID_RETURN_DATA",
+            f"Invalid return readout: {exc}", "reference.return_test",
+            tuple(EvidenceRef("return-observation", q) for q in sorted(returned_map)),
+        ))
         return ReturnTestResult(ReturnOutcome.INDETERMINATE, record, notes=tuple(notes))
 
     record = record.with_finding(

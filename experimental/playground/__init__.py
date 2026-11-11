@@ -16,6 +16,8 @@ its checks establish empirical adequacy. Diagnostic-gated equation substitution
 adds arithmetic adapters; finite-graph bonds and finite-generation branching
 now use the same gates. These are selected mathematical models, not physically
 validated networks or reproduction processes.
+Cross-system-class constructed fixtures exercise the same diagnostics across
+selected thermal, electrical, mechanical, connectivity and lineage scopes.
 """
 
-__version__ = "0.7.0-experimental"
+__version__ = "0.8.0-experimental"
