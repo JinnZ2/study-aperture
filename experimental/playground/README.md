@@ -218,6 +218,27 @@ universal ranking.
 python3 -m playground.equations.branching_example
 ```
 
+## Cross-system-class diagnostics
+
+[Cross-system diagnostics](validation/CROSS_SYSTEM.md) exercise the same layers
+against five constructed classes: thermal storage, electrical storage,
+mechanical storage, finite porous-connectivity and lineage-reproduction
+surrogates. These are explicitly selected scopes, not empirical validations
+or an equation-family hierarchy.
+
+Each native run passes through protocol binding, fresh L0, applicability,
+unit/plan binding, known-answer and null harnesses before calculation. Tests
+also cover return/misclosure, independent configuration continuity, scoped
+sensitivity/absence, and UNKNOWN expiry. Deliberate cross-context transfers
+must not carry plans, adequacy evidence or calibration into a different class.
+A runnable report retains the five full run records and their 25-cell map.
+
+```sh
+# from experimental/
+python3 -m playground.validation.cross_system
+python3 -m unittest playground.validation.test_cross_system
+```
+
 ## Self-check
 
 ```
@@ -228,7 +249,8 @@ python3 -m playground.self_check
 Runs the planted-defect suite (the lab testing its own determinations), the
 design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
-runs applicability, equation-substitution, finite-percolation and finite-branching
+runs applicability, equation-substitution, finite-percolation, finite-branching
+and cross-system-class
 adversarial/unit suites. All
 parts must pass.
 
@@ -257,7 +279,7 @@ playground/
 5. Equation substitution (implemented with arithmetic adapters and synthetic tests).
 6. Finite-graph bond percolation (implemented with exact-oracle and diagnostic tests).
 7. Finite-generation branching (implemented separately with exact-oracle and diagnostic tests).
-8. Cross-system-class testing.
+8. Cross-system-class testing (implemented with five constructed scopes and cross-context guards).
 
 The first implementation milestone is the diagnostic infrastructure, not the
 equation library — otherwise we risk building a sophisticated mathematical

@@ -28,6 +28,7 @@ from dataclasses import dataclass
 from typing import Mapping, Protocol
 
 from ..failures import Axis, EvidenceRef, FailureRecord, Finding, Status
+from ..validation.numeric_contract import finite_number, finite_outputs, validate_case_data
 
 
 class DetectingInstrument(Protocol):
@@ -96,7 +97,9 @@ class SensitivityDetermination:
     @property
     def established(self) -> bool:
         """True only when a detection limit was established within the tested scope."""
-        return self.detection_limit is not None
+        return (finite_number(self.detection_limit) and self.detection_limit > 0
+                and self.record.instrument is Status.OK
+                and self.record.determination not in (Status.FAILED, Status.INDETERMINATE))
 
     def describes(self) -> str:
         limit = f"{self.detection_limit:g}" if self.detection_limit is not None else "none"
@@ -141,10 +144,34 @@ def establish_sensitivity(
             instrument.instrument_id, None, scope, record, ("no cases",)
         )
 
+    # Invalid criteria are an experimental-design defect, not a defect of
+    # an instrument which has not yet run. Preflight the entire ladder.
+    try:
+        ids = tuple(c.case_id for c in cases)
+        if len(set(ids)) != len(ids) or any(not isinstance(i, str) or not i.strip() for i in ids):
+            raise ValueError("sensitivity case IDs must be nonempty and unique")
+        for case in cases:
+            validate_case_data(case.inputs, case.null_outputs, case.tolerances)
+            if (not finite_number(case.effect_size) or case.effect_size < 0
+                    or type(case.expected_detectable) is not bool
+                    or (case.expected_detectable and case.effect_size == 0)):
+                raise ValueError(
+                    "finite nonnegative effect sizes and boolean expectations required; "
+                    "zero is not a detectable effect"
+                )
+    except (ValueError, TypeError, AttributeError) as exc:
+        record = record.with_finding(Finding(
+            Axis.DETERMINATION, Status.FAILED, "SENSITIVITY_INVALID_CASES",
+            f"Sensitivity protocol is invalid: {exc}", "detection.sensitivity", evidence,
+        ))
+        return SensitivityDetermination(instrument.instrument_id, None, scope, record)
+
     detected_sizes: list[float] = []
     for case in cases:
         try:
-            got = dict(instrument.run(case.input_map))
+            got = finite_outputs(instrument.run(case.input_map))
+            if not set(case.null_map).issubset(got):
+                raise ValueError("instrument omitted an asserted sensitivity output")
         except Exception as exc:  # an instrument that crashes fails as an instrument
             record = record.with_finding(
                 Finding(
