@@ -1,0 +1,1 @@
+The host and sandbox engines are bridged using a Unix Domain Socket (UDS) without involving the container daemon.

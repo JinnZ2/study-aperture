@@ -66,6 +66,7 @@ python3 assess.py selftest
 | `examples/reproducibility-model/` | run on a 2026 preprint arguing the OSC 2015 replication rate is a power artifact: record, report, `FINDINGS.md`, and `recompute.py` (stdlib recomputation of the paper's arithmetic, pinned) |
 | `examples/lab-link/` | synthetic: a Scope Audit Lab integrity report linked to a claim with `labref`; support unchanged, gaps listed as incompleteness |
 | `audits/gemini-assessment-records-2026-11-11/` | preserved user-supplied assessment specimens: two attempts, four publication records, separate source review and capture hashes; not a model benchmark or a source-authentication implementation |
+| `experimental/publication_provenance/` | offline publication/claim capture-binding audit: separate identity declarations, access, byte integrity, location and rendering; no automatic support promotion or publisher authentication |
 
 ## Vocabulary (the short version)
 
