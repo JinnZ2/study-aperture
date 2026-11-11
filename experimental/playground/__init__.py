@@ -12,8 +12,8 @@ never trusted by construction.
 Milestones 1-4 implement diagnostic infrastructure, the system track,
 sensitivity-qualified absence and UNKNOWN expiry, and context-dependent
 applicability mapping. Tests use constructed cases; neither the package nor
-its checks establish empirical adequacy. The equation library remains
-deliberately absent.
+its checks establish empirical adequacy. Diagnostic-gated equation substitution
+adds arithmetic adapters, while physical equation families remain deferred.
 """
 
-__version__ = "0.4.0-experimental"
+__version__ = "0.5.0-experimental"

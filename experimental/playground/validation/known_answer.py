@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from typing import Mapping, Protocol
 
 from ..failures import Axis, EvidenceRef, FailureRecord, Finding, Status
+from .numeric_contract import finite_outputs, pair_map, validate_case_data
 
 
 class Instrument(Protocol):
@@ -57,15 +58,15 @@ class KnownAnswerCase:
 
     @property
     def input_map(self) -> dict[str, float]:
-        return dict(self.inputs)
+        return pair_map(self.inputs)
 
     @property
     def expected_map(self) -> dict[str, float]:
-        return dict(self.expected)
+        return pair_map(self.expected)
 
     @property
     def tolerance_map(self) -> dict[str, float]:
-        return dict(self.tolerances)
+        return pair_map(self.tolerances)
 
 
 @dataclass(frozen=True)
@@ -107,9 +108,23 @@ def validate_known_answers(
         )
         return InstrumentValidation(instrument.instrument_id, record)
 
+    # Preflight the entire case set before running the instrument. Invalid
+    # experimental criteria are a determination failure, not instrument failure.
+    try:
+        if len(case_ids) != len(set(case_ids)) or any(not c.strip() for c in case_ids):
+            raise ValueError("case IDs must be nonempty and unique")
+        for case in cases:
+            validate_case_data(case.inputs, case.expected, case.tolerances)
+    except (ValueError, TypeError, AttributeError) as exc:
+        record = record.with_finding(Finding(
+            Axis.DETERMINATION, Status.FAILED, "KA_INVALID_CASES",
+            f"Known-answer protocol is invalid: {exc}", "validation.known_answer",
+        ))
+        return InstrumentValidation(instrument.instrument_id, record)
+
     for case in cases:
         try:
-            got = dict(instrument.run(case.input_map))
+            got = finite_outputs(instrument.run(case.input_map))
         except Exception as exc:  # an instrument that crashes fails as an instrument
             failed.append(case.case_id)
             record = record.with_finding(

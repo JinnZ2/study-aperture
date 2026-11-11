@@ -1,7 +1,8 @@
 # Playground — experimental determination laboratory
 
 Status: Milestones 1-4 implement diagnostic infrastructure, system and
-determination tracks, and context-dependent applicability records. Tests and
+determination tracks, and context-dependent applicability records. Equation
+substitution now adds diagnostic-gated arithmetic adapters. Tests and
 examples are synthetic; real-system applicability and physical validation
 are not established. Equation families and observer regimes remain deferred.
 
@@ -19,8 +20,8 @@ never trusted by construction.
 Milestone 1 established the **diagnostic infrastructure**: typed
 failure records, the L0 accounting-closure gate, known-answer and null
 harnesses, planted-defect self-tests, and the provenance skeleton. The
-equation library is deliberately absent — the laboratory tests its own
-determinations before it owns any equations.
+physical equation-family library remains deferred. The laboratory tests its
+own determinations before extending its mathematical instruments.
 
 ## Three kinds of failure, never merged
 
@@ -151,6 +152,27 @@ Run the constructed, non-empirical example from `experimental/`:
 python3 -m playground.applicability.example
 ```
 
+## Equation substitution
+
+[Equation substitution](equations/README.md) keeps explicit adapter
+identity/revisions, context-bound inputs, actual frozen anchors, boundary
+accounting, independently stated diagnostic cases, and selection provenance.
+Each execution reruns L0, applicability preflight, and nonempty known-answer
+and null harnesses before the nominal calculation. A different formula cannot
+inherit old tests or physical support; context-bound measurement/design
+failures remain with the experiment during substitution.
+
+Successful computation without adequacy evidence remains provisional, with
+applicability UNKNOWN and the physical axis UNTESTED. NaN, infinity, missing
+criteria, stale context bindings, or unresolved prerequisites cannot silently
+qualify a run. Outputs retain UNKNOWN uncertainty because propagation is not
+implemented. Percolation and branching are still separate future families.
+
+```sh
+# from experimental/
+python3 -m playground.equations.example
+```
+
 ## Self-check
 
 ```
@@ -161,7 +183,8 @@ python3 -m playground.self_check
 Runs the planted-defect suite (the lab testing its own determinations), the
 design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
-runs the applicability adversarial/unit suite; both parts must pass.
+runs applicability and equation-substitution adversarial/unit suites. All
+parts must pass.
 
 ## Module map
 
@@ -175,7 +198,7 @@ playground/
 ├── observation/           passive / perturbative / strategic regimes (stub)
 ├── detection/             sensitivity / non-detection / scoped absence
 ├── applicability/         scoped matching, evidence binding, context maps
-├── equations/             percolation / branching families (stub — later)
+├── equations/             gated substitution; percolation / branching still stubs
 └── lifecycle/             UNKNOWN expiry / reevaluation / state transitions
 ```
 
@@ -185,7 +208,8 @@ playground/
 2. Continuity, transition, return, and misclosure (done — milestone 2, the system track).
 3. Sensitivity-qualified absence and UNKNOWN expiry (done — milestone 3, the determination track).
 4. Context-dependent applicability mapping (implemented, milestone 4; synthetic tests).
-5. Equation families as validated instruments.
+5. Equation substitution (implemented with arithmetic adapters and synthetic tests);
+   percolation and branching families remain deferred.
 6. Cross-system-class testing.
 
 The first implementation milestone is the diagnostic infrastructure, not the
