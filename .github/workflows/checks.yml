@@ -21,3 +21,14 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Run all checks (stdlib only, no installs)
         run: ./run_checks.sh
+      - name: Capture audit-process replay evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.audits.tolman_process \
+            --output-dir "$RUNNER_TEMP/tolman-audit-process"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tolman-audit-process-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/tolman-audit-process
+          if-no-files-found: error
