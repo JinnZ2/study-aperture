@@ -1,0 +1,48 @@
+{
+  "schema": "study-aperture/assessment-provenance-addendum/1",
+  "id": "prompt-context-01",
+  "capture_date": "2026-11-11",
+  "supplements": "../manifest.json",
+  "does_not_replace_initial_capture": true,
+  "basis": "USER_SUPPLIED_SCREENSHOT_AND_VISIBLE_TEXT_TRANSCRIPTION",
+  "screenshot": {
+    "path": "gemini-auto-prompts.jpeg",
+    "sha256": "f4eaa8603616ff0e6de40f0897de98a7b1258650b82731fdcaf2ee408b4d7ff5",
+    "bytes": 348823,
+    "modified": false,
+    "authenticated_session_export": false
+  },
+  "visible_mode_label": "Gemini Auto",
+  "underlying_model_version": "UNDECLARED",
+  "visible_user_messages_in_order": [
+    "Pick a new study on AI",
+    "Perfect, let’s audit"
+  ],
+  "visible_selected_publication": {
+    "title": "Early Stopping in Large Reasoning Models: A Survey and Empirical Audit of Efficiency and Reliability",
+    "arxiv_id": "2611.00166"
+  },
+  "association": {
+    "specimen": "attempt-02",
+    "basis": "USER_CONTEXT_AND_MATCHING_VISIBLE_PUBLICATION_TITLE_AND_IDENTIFIER",
+    "full_assessment_visible": false,
+    "continuous_export_binding_screenshot_to_specimen": false
+  },
+  "coverage": {
+    "prompt_history": "PARTIALLY_VISIBLE",
+    "initial_three_record_attempt_prompts": "UNDECLARED",
+    "correction_instructions": "UNDECLARED",
+    "earlier_conversation": "UNDECLARED",
+    "hidden_instructions": "UNDECLARED",
+    "repository_access": "UNDECLARED",
+    "repository_execution": "UNDECLARED",
+    "tool_access": "UNDECLARED"
+  },
+  "limits": {
+    "complete_prompt_history_established": false,
+    "backend_model_identity_established": false,
+    "repository_execution_established": false,
+    "assessment_correctness_established": false,
+    "controlled_before_after_comparison_established": false
+  }
+}
