@@ -10,7 +10,7 @@ applicability suite and diagnostic-gated equation substitution: planted
 defects, design-contract guards, control cases, and adversarial scoped-mapping
 and bypass tests, plus finite-bond and finite-branching oracles and planted
 backend defects, plus cross-system-class diagnostic and evidence-transfer
-contracts and two preserved-review process pilots. Exit code 0
+contracts and three bounded audit-process pilots. Exit code 0
 means every planted defect was caught and correctly classified, every
 guard held, and every control behaved as designed. Anything else fails
 the build: the laboratory does not ship a diagnostic infrastructure whose
@@ -39,7 +39,7 @@ from .validation.system_track_defects import (
 )
 from .validation import (
     test_applicability, test_audit_process, test_branching, test_cross_system,
-    test_percolation, test_substitution, test_pendulum_audit,
+    test_percolation, test_substitution, test_pendulum_audit, test_measurement_audit,
 )
 
 
@@ -82,10 +82,14 @@ def run_self_check() -> int:
     print("\nSECOND AUDIT PILOT: pendulum metric scope and independent reference", flush=True)
     suite = unittest.defaultTestLoader.loadTestsFromModule(test_pendulum_audit)
     pendulum_audit_result = unittest.TextTestRunner(verbosity=1).run(suite)
+    print("\nTHIRD AUDIT PILOT: measurement-to-conclusion scope and covariance", flush=True)
+    suite = unittest.defaultTestLoader.loadTestsFromModule(test_measurement_audit)
+    measurement_audit_result = unittest.TextTestRunner(verbosity=1).run(suite)
     passed = (summary.passed and mapping_result.wasSuccessful()
               and equation_result.wasSuccessful() and percolation_result.wasSuccessful()
               and branching_result.wasSuccessful() and cross_system_result.wasSuccessful()
-              and audit_process_result.wasSuccessful() and pendulum_audit_result.wasSuccessful())
+              and audit_process_result.wasSuccessful() and pendulum_audit_result.wasSuccessful()
+              and measurement_audit_result.wasSuccessful())
     print("COMBINED SELF-CHECK PASSED" if passed else "COMBINED SELF-CHECK FAILED")
     return 0 if passed else 1
 

@@ -128,3 +128,11 @@ inference boundary: metric definition, zero denominators, reference validity,
 and unauthorized transfer from restoring-term error to period error. Its
 synthetic inputs are not observations and its unresolved source interpretation
 does not become a physical finding.
+
+## Third case
+
+The [measurement-to-conclusion pilot](measurement-README.md) preserves paired
+GUM illustrative indications and distinguishes random-only uncertainty,
+calibration scope, boundary inventory and empirical provenance. Its planted
+prediction, calibration bound and boundary assumptions can license a conditional
+numerical rule, never actual sensor calibration or physical validation.
