@@ -1,10 +1,11 @@
 # Diagnostic-gated equation substitution
 
 Status: Implemented experimental substitution infrastructure and bounded
-arithmetic and [finite-graph bond percolation](PERCOLATION.md) adapters, with
+arithmetic, [finite-graph bond percolation](PERCOLATION.md), and
+[finite-horizon branching](BRANCHING.md) adapters, with
 constructed tests and examples. This does not
 establish physical adequacy, observer validity, dimensional correctness, or
-real-system applicability. Branching remains deferred.
+real-system applicability. The families remain distinct, without a hierarchy.
 
 The equation is a replaceable instrument inside an experiment, not an
 alternative entry point around the diagnostic layers. `execute()` is the
@@ -35,9 +36,9 @@ calls that complete path again for the selected replacement.
   supplied assessments, three-axis diagnostics, dependency snapshot, actual
   inputs, all-or-nothing outputs, remaining limitations, and parent-run digest.
 
-The registry accepts exact built-in arithmetic and finite-bond adapter types;
-arbitrary model-family plugins and subclasses are rejected. The graph backend
-is narrowly versioned and preserves the same gating contract. There is
+The registry accepts exact built-in arithmetic, finite-bond and finite-branching
+adapter types; arbitrary model-family plugins and subclasses are rejected.
+Family backends are narrowly versioned and preserve the same gating contract. There is
 intentionally no unrestricted callable-plugin escape hatch.
 
 ## Execution order
@@ -152,3 +153,23 @@ python3 -m unittest playground.validation.test_percolation
 The example accounts for a mathematical node universe, not physical energy.
 Its successful graph calculations remain provisional. A missing edge or
 nonspanning realization does not become a physical absence determination.
+
+## Separate branching family
+
+`OffspringLaw` and `FiniteBranching` from `branching.py` define a selected
+single-type iid process with no immigration/interaction and a finite generation
+horizon. A stricter protocol binds the initial population to an actual frozen
+founder cohort. Full finite distributions use exact internal integer ratios;
+oversized support is rejected rather than truncated, and positive float-export
+underflow is an instrument failure rather than silent zero.
+
+```sh
+python3 -m playground.equations.branching_example
+python3 -m unittest playground.validation.test_branching
+```
+
+The [family specification](BRANCHING.md) distinguishes stochastic variance from
+determination uncertainty, finite ensemble survival from permanent
+organization, and model extinction from physical absence. Reports and
+consecutive-horizon profiles use completed gated outputs, not an alternate
+execution path or an infinite-horizon extrapolation.

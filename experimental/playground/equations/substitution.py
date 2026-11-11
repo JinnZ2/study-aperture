@@ -30,10 +30,11 @@ from ..validation.known_answer import (
 from ..validation.null_harness import NullCase, NullValidation, validate_nulls
 from ..validation.numeric_contract import finite_number, validate_case_data
 from .adapter import Equation, EquationRegistry, _calculate, _input_problems, digest_record
+from .branching import FiniteBranching
 from .percolation import BondPercolation
 
 
-Adapter = Equation | BondPercolation
+Adapter = Equation | BondPercolation | FiniteBranching
 
 
 def _pairs(values: tuple, name: str) -> dict:
@@ -332,6 +333,22 @@ def _plan_problems(equation: Adapter, context: Context, plan: ValidationPlan) ->
     return problems
 
 
+def _branch_cohort_problems(experiment: Experiment) -> list[str]:
+    """The initial founder cohort must be anchored, not a free scalar override."""
+    initial = next((c.value for c in experiment.context.conditions
+                    if c.key == "initial_population"), None)
+    account = next((a for a in experiment.boundary.accounting.accounts
+                    if a.quantity == "founder_count"), None)
+    if (not finite_number(initial) or account is None
+            or experiment.anchor.as_dict().get("founder_count") != initial
+            or account.initial != initial or account.final != initial
+            or dict(experiment.boundary.quantity_units).get("founder_count") != "1"
+            or any(e.magnitude != 0 for e in account.exchanges)):
+        return ["branching requires an anchored founder_count ledger matching initial_population, "
+                "with dimensionless units and zero founder exchanges"]
+    return []
+
+
 class _HarnessAdapter:
     """Only supplied internally after boundary and applicability preflight."""
 
@@ -396,6 +413,8 @@ def execute(
         )
 
     problems = _protocol_problems(experiment)
+    if type(equation) is FiniteBranching:
+        problems.extend(_branch_cohort_problems(experiment))
     for d in experiment.diagnostics:
         if d.context_digest == context.digest():
             record = record.merge(d.record)
@@ -447,6 +466,11 @@ def execute(
         mask = values.get("occupation_mask")
         if mask is not None and mask.uncertainty != 0:
             problems.append("a selected discrete occupation mask requires zero declared uncertainty")
+    if type(equation) is FiniteBranching:
+        for key in ("initial_population", "generation_horizon"):
+            condition = values.get(key)
+            if condition is not None and condition.uncertainty != 0:
+                problems.append(f"{key}: selected discrete branching input requires zero declared uncertainty")
     if problems:
         record = record.with_finding(_determination("EQ_PLAN_OR_INPUT_BINDING", "; ".join(problems)))
         app = assess(description, context, assessments, record, states)

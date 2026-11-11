@@ -167,7 +167,7 @@ applicability UNKNOWN and the physical axis UNTESTED. NaN, infinity, missing
 criteria, stale context bindings, or unresolved prerequisites cannot silently
 qualify a run. Outputs retain UNKNOWN uncertainty because propagation is not
 implemented. The first finite-graph bond family now uses that same path;
-branching remains separate and deferred.
+branching uses a separate bounded backend through the same gates.
 
 ```sh
 # from experimental/
@@ -195,6 +195,29 @@ closure. Input uncertainty is retained but not propagated.
 python3 -m playground.equations.percolation_example
 ```
 
+## Finite-generation branching
+
+[Finite branching](equations/BRANCHING.md) examines selected single-type iid
+offspring laws without immigration or interaction. Its initial cohort is bound
+to a frozen anchor and fixed-founder ledger. The backend computes complete
+finite-generation population distributions and conditional moments using exact
+integer ratios internally; it rejects oversized support rather than dropping
+a tail, and fails as an instrument if a positive probability underflows on
+float export.
+
+Generation profiles keep all conditions except the finite horizon fixed and
+retain each point's diagnostic and applicability record. A stable mean does
+not establish organization, finite survival does not establish permanence,
+and model extinction does not establish physical absence. Conditional
+stochastic variance is not propagated determination uncertainty. Branching
+and percolation remain distinct families with no automatic equivalence or
+universal ranking.
+
+```sh
+# from experimental/
+python3 -m playground.equations.branching_example
+```
+
 ## Self-check
 
 ```
@@ -205,7 +228,7 @@ python3 -m playground.self_check
 Runs the planted-defect suite (the lab testing its own determinations), the
 design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
-runs applicability, equation-substitution, and finite-percolation
+runs applicability, equation-substitution, finite-percolation and finite-branching
 adversarial/unit suites. All
 parts must pass.
 
@@ -221,7 +244,7 @@ playground/
 ├── observation/           passive / perturbative / strategic regimes (stub)
 ├── detection/             sensitivity / non-detection / scoped absence
 ├── applicability/         scoped matching, evidence binding, context maps
-├── equations/             gated arithmetic + finite bond percolation; branching stub
+├── equations/             gated arithmetic + finite bonds + finite branching
 └── lifecycle/             UNKNOWN expiry / reevaluation / state transitions
 ```
 
@@ -232,9 +255,9 @@ playground/
 3. Sensitivity-qualified absence and UNKNOWN expiry (done — milestone 3, the determination track).
 4. Context-dependent applicability mapping (implemented, milestone 4; synthetic tests).
 5. Equation substitution (implemented with arithmetic adapters and synthetic tests).
-6. Finite-graph bond percolation (implemented with exact-oracle and diagnostic tests);
-   branching remains a separate deferred family.
-7. Cross-system-class testing.
+6. Finite-graph bond percolation (implemented with exact-oracle and diagnostic tests).
+7. Finite-generation branching (implemented separately with exact-oracle and diagnostic tests).
+8. Cross-system-class testing.
 
 The first implementation milestone is the diagnostic infrastructure, not the
 equation library — otherwise we risk building a sophisticated mathematical

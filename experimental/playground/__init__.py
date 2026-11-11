@@ -13,8 +13,9 @@ Milestones 1-4 implement diagnostic infrastructure, the system track,
 sensitivity-qualified absence and UNKNOWN expiry, and context-dependent
 applicability mapping. Tests use constructed cases; neither the package nor
 its checks establish empirical adequacy. Diagnostic-gated equation substitution
-adds arithmetic adapters; the first finite-graph bond family now uses the same
-gates. It is a selected mathematical model, not a physically validated network.
+adds arithmetic adapters; finite-graph bonds and finite-generation branching
+now use the same gates. These are selected mathematical models, not physically
+validated networks or reproduction processes.
 """
 
-__version__ = "0.6.0-experimental"
+__version__ = "0.7.0-experimental"

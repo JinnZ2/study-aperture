@@ -119,8 +119,15 @@ The first [finite-graph bond percolation family](experimental/playground/equatio
 uses that same diagnostic path for a selected graph, declared boundary sets,
 component results, and exhaustive independent-bond ensemble metrics.
 Finite-grid probability brackets are not universal critical thresholds;
-disconnection is not physical absence. Branching remains a distinct future
-family.
+disconnection is not physical absence.
+
+The separate [finite-generation branching family](experimental/playground/equations/BRANCHING.md)
+uses anchored founder cohorts and explicit offspring laws to compute full
+finite population distributions. Oversized support is rejected rather than
+truncated; exact internal ratios are checked before float export. Conditional
+variance is not determination uncertainty, finite survival is not permanent
+organization, and model extinction is not physical absence. The same diagnostic
+runner qualifies every calculation without ranking branching above percolation.
 
 ## In situ learning (experimental)
 

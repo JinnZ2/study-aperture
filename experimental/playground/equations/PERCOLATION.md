@@ -3,7 +3,8 @@
 Status: implemented experimental mathematical instrument, with constructed
 diagnostic tests. This is not a validated physical network model, a calibrated
 physical observer, or a determination of an infinite-system critical threshold.
-Branching remains a separate, deferred family.
+[Finite-horizon branching](BRANCHING.md) is a separate implemented family,
+not an equivalent model or replacement for percolation.
 
 ## Investigated questions
 
