@@ -1,0 +1,36 @@
+{
+  "record_kind": "ATTRIBUTED_PUBLISHED_WORKED_EXAMPLE_NOT_INDEPENDENT_RAW_MEASUREMENTS",
+  "source_url": "https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e_FILES/MAIN_C045315e/AH_e.html",
+  "title": "GUM Annex H, examples; H.2 simultaneous resistance and reactance measurement",
+  "checked_on_utc": "2026-11-11",
+  "retrieval": "Cached fetch_url page inspected directly, including the Annex H introduction, Table H.2 and Tables H.3-H.5; not a full source archive.",
+  "reviewer": "Perplexity-assisted third audit-process pilot",
+  "provenance_warning_excerpt": "neither they nor the data should necessarily be interpreted as describing real measurements",
+  "uncertainty_warning_excerpt": "only the random variations of the observations",
+  "source_conditions": "Five independent sets of simultaneous V, I and phase observations under similar conditions; independence of sets does not imply independence of quantities within a set.",
+  "source_units": {"voltage": "V", "current": "mA", "phase": "rad"},
+  "normalization": "Decimal commas transcribed as decimal points; current is explicitly divided by 1000 to obtain A. Pair IDs preserve source table rows.",
+  "rows": [
+    {"pair_id": "H2-1", "voltage": "5.007", "current": "19.663", "phase": "1.0456"},
+    {"pair_id": "H2-2", "voltage": "4.994", "current": "19.639", "phase": "1.0438"},
+    {"pair_id": "H2-3", "voltage": "5.005", "current": "19.640", "phase": "1.0468"},
+    {"pair_id": "H2-4", "voltage": "4.990", "current": "19.685", "phase": "1.0428"},
+    {"pair_id": "H2-5", "voltage": "4.999", "current": "19.678", "phase": "1.0433"}
+  ],
+  "selected_output": "Impedance magnitude Z=mean(V)/mean(I), not resistance R and not all three source outputs.",
+  "reported_rounded_checks": {
+    "mean_voltage_V": "4.9990",
+    "mean_current_A": "0.0196610",
+    "impedance_ohm": "254.260",
+    "standard_uncertainty_with_covariance_ohm": "0.236",
+    "standard_uncertainty_zero_covariance_assumption_ohm": "0.204"
+  },
+  "zero_covariance_check_scope": "Table H.5 reinterprets the data as a different, sequential measurement procedure and assumes absent correlations. It does not license deleting observed covariance from simultaneous pairs.",
+  "scope_limits": [
+    "Published worked-example indications, not newly acquired or independently authenticated measurements.",
+    "Systematic correction and calibration uncertainties are not supplied by this example.",
+    "The source describes terminal voltage and component current, but those physical placements are not independently established by the numeric table.",
+    "Added prediction, cross-covariance, output-equivalent calibration bound and boundary inventory are explicitly planted conditional test fixtures.",
+    "No physical adequacy, source authentication, absence claim, general audit accuracy or empirical replication follows."
+  ]
+}

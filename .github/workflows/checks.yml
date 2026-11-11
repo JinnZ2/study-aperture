@@ -43,3 +43,14 @@ jobs:
           name: pendulum-audit-process-python-${{ matrix.python }}
           path: ${{ runner.temp }}/pendulum-audit-process
           if-no-files-found: error
+      - name: Capture third audit-process measurement boundary evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.audits.measurement_process \
+            --output-dir "$RUNNER_TEMP/measurement-boundary-audit-process"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: measurement-boundary-audit-process-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/measurement-boundary-audit-process
+          if-no-files-found: error

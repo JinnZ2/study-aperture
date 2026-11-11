@@ -265,6 +265,17 @@ python3 -m playground.audits.pendulum_process --output-dir /tmp/pendulum-audit-p
 python3 -m unittest playground.validation.test_pendulum_audit
 ```
 
+The [third audit-process pilot](audits/measurement-README.md) inspects the
+measurement-to-conclusion boundary using attributed GUM illustrative data:
+paired covariance, calibration scope, a missing boundary term and explicitly
+planted prediction probes. Restored numerical comparability cannot promote
+worked-example provenance into empirical validation.
+
+```sh
+python3 -m playground.audits.measurement_process --output-dir /tmp/measurement-boundary-audit-new
+python3 -m unittest playground.validation.test_measurement_audit
+```
+
 ## Self-check
 
 ```
@@ -277,7 +288,7 @@ design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
 runs applicability, equation-substitution, finite-percolation, finite-branching
 and cross-system-class
-adversarial/unit suites, plus the preserved-audit process pilot. All
+adversarial/unit suites, plus all three bounded audit-process pilots. All
 parts must pass.
 
 ## Module map
