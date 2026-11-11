@@ -76,3 +76,14 @@ jobs:
           name: denominator-change-audit-python-${{ matrix.python }}
           path: ${{ runner.temp }}/denominator-change-audit
           if-no-files-found: error
+      - name: Capture constructed distribution-to-mean substitution evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.audits.distribution_mean_process \
+            --output-dir "$RUNNER_TEMP/distribution-to-mean-audit"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: distribution-to-mean-audit-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/distribution-to-mean-audit
+          if-no-files-found: error

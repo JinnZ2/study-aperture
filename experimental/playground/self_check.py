@@ -41,7 +41,7 @@ from .validation.system_track_defects import (
 from .validation import (
     test_applicability, test_audit_process, test_branching, test_cross_system,
     test_percolation, test_substitution, test_pendulum_audit, test_measurement_audit,
-    test_measurand, test_denominator_audit,
+    test_measurand, test_denominator_audit, test_distribution_mean_audit,
 )
 
 
@@ -75,6 +75,9 @@ def run_self_check() -> int:
     print("\nDENOMINATOR CHANGE: declaration-to-procedure and cohort guards", flush=True)
     suite = unittest.defaultTestLoader.loadTestsFromModule(test_denominator_audit)
     denominator_result = unittest.TextTestRunner(verbosity=1).run(suite)
+    print("\nDISTRIBUTION TO MEAN: selected-target preservation and information-loss guards", flush=True)
+    suite = unittest.defaultTestLoader.loadTestsFromModule(test_distribution_mean_audit)
+    distribution_mean_result = unittest.TextTestRunner(verbosity=1).run(suite)
     print("\nFINITE BOND PERCOLATION: exact oracles and diagnostic guards", flush=True)
     suite = unittest.defaultTestLoader.loadTestsFromModule(test_percolation)
     percolation_result = unittest.TextTestRunner(verbosity=1).run(suite)
@@ -98,7 +101,8 @@ def run_self_check() -> int:
               and branching_result.wasSuccessful() and cross_system_result.wasSuccessful()
               and audit_process_result.wasSuccessful() and pendulum_audit_result.wasSuccessful()
               and measurement_audit_result.wasSuccessful()
-              and measurand_result.wasSuccessful() and denominator_result.wasSuccessful())
+              and measurand_result.wasSuccessful() and denominator_result.wasSuccessful()
+              and distribution_mean_result.wasSuccessful())
     print("COMBINED SELF-CHECK PASSED" if passed else "COMBINED SELF-CHECK FAILED")
     return 0 if passed else 1
 
