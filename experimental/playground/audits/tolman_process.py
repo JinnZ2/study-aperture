@@ -469,6 +469,7 @@ if __name__ == "__main__":
         "report": str(args.output_dir / "tolman-vi-audit-process-report.json"),
         "legacy_outputs_byte_identical": all(
             c["byte_identical"] for c in result["legacy_artifact_comparisons"].values()),
+        "legacy_artifact_comparisons": result["legacy_artifact_comparisons"],
         "formal_comparison": result["inspection"]["formal_comparison"],
         "physical_experiment": result["inspection"]["physical_experiment"],
     }, indent=2))

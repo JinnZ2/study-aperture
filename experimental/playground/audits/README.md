@@ -117,3 +117,6 @@ at the computed-output hash check. Pilot 0.2 therefore distinguishes
 byte identity from an explicit numerical comparison, records every accepted
 float difference, and continues rejecting structural changes or altered
 conclusions. The preserved artifacts and their reference hashes are unchanged.
+CI retains a report and replay bundle for each Python runtime; the CLI also
+prints the artifact comparisons, including every accepted numerical difference,
+so the same comparison evidence is inspectable in the run logs.
