@@ -127,6 +127,11 @@ target. Constructed linear controls and second-moment counterexamples keep
 arithmetic correctness separate from purpose-specific information loss,
 without inferring stationarity, ergodicity, equilibrium or physical adequacy.
 
+The [cross-audit regression pass](experimental/playground/audits/cross-regression-README.md)
+checks denominator changes, mean substitutions and missing scope in a shared
+constructed context. It preserves separate findings, lineage and instrument
+certificates without asserting a joint physical population or a new estimator.
+
 The first [finite-graph bond percolation family](experimental/playground/equations/PERCOLATION.md)
 uses that same diagnostic path for a selected graph, declared boundary sets,
 component results, and exhaustive independent-bond ensemble metrics.
