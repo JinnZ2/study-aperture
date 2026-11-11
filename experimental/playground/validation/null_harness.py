@@ -5,7 +5,7 @@ effect is absent. A detection is an INSTRUMENT failure (false positive).
 A clean null is recorded as such, and the record states the limit of what
 that means: a clean null does not establish detection sensitivity.
 Sensitivity and scoped absence are separate determinations
-(detection.sensitivity, later milestone).
+(detection.sensitivity).
 """
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ from typing import Mapping
 
 from ..failures import Axis, EvidenceRef, FailureRecord, Finding, Status
 from .known_answer import Instrument, _pairs
+from .numeric_contract import finite_outputs, pair_map, validate_case_data
 
 
 @dataclass(frozen=True)
@@ -44,15 +45,15 @@ class NullCase:
 
     @property
     def input_map(self) -> dict[str, float]:
-        return dict(self.inputs)
+        return pair_map(self.inputs)
 
     @property
     def null_map(self) -> dict[str, float]:
-        return dict(self.null_outputs)
+        return pair_map(self.null_outputs)
 
     @property
     def tolerance_map(self) -> dict[str, float]:
-        return dict(self.tolerances)
+        return pair_map(self.tolerances)
 
 
 @dataclass(frozen=True)
@@ -94,9 +95,21 @@ def validate_nulls(
         )
         return NullValidation(instrument.instrument_id, record)
 
+    try:
+        if len(case_ids) != len(set(case_ids)) or any(not c.strip() for c in case_ids):
+            raise ValueError("case IDs must be nonempty and unique")
+        for case in cases:
+            validate_case_data(case.inputs, case.null_outputs, case.tolerances)
+    except (ValueError, TypeError, AttributeError) as exc:
+        record = record.with_finding(Finding(
+            Axis.DETERMINATION, Status.FAILED, "NULL_INVALID_CASES",
+            f"Null protocol is invalid: {exc}", "validation.null_harness",
+        ))
+        return NullValidation(instrument.instrument_id, record)
+
     for case in cases:
         try:
-            got = dict(instrument.run(case.input_map))
+            got = finite_outputs(instrument.run(case.input_map))
         except Exception as exc:
             flagged.append(case.case_id)
             record = record.with_finding(

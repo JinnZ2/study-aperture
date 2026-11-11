@@ -108,6 +108,14 @@ contexts; the example and adversarial tests are synthetic, not physical
 validation. The combined diagnostic, system-track, determination-track, and
 applicability checks run with `./run_checks.sh`.
 
+The [equation-substitution layer](experimental/playground/equations/README.md)
+now runs versioned arithmetic adapters through fresh boundary, applicability,
+known-answer, and null checks. A replacement retains the fixed experiment's
+measurement/design failures but cannot inherit the previous equation's
+certificates or physical support. The example and bypass tests are constructed;
+successful computation is not physical validation. Percolation and branching
+families remain deferred.
+
 ## In situ learning (experimental)
 
 [In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
