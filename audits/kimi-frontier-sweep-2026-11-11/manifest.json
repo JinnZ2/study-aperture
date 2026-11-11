@@ -1,0 +1,70 @@
+{
+  "schema": "study-aperture/model-output-record/1",
+  "record_id": "kimi-frontier-sweep-2026-11-11",
+  "record_date": "2026-11-11",
+  "status": "PRESERVED_MODEL_OUTPUT_NOT_BUILT",
+  "producer": "Kimi",
+  "producer_version": "UNDECLARED",
+  "input_brief": "study-aperture repo state + prior Card 02 / GPT addendum / Manus material, as supplied by Kavik",
+  "input_brief_bytes": "UNDECLARED",
+  "baseline_commit": "c26fbd2",
+  "files": [
+    {
+      "path": "SWEEP.md",
+      "sha256": "26dc9c7521a4b3f785beb3bce1b021ec0d9aebef5e7c749957d91f5ece1b4412",
+      "bytes": 6910,
+      "verbatim": true
+    }
+  ],
+  "capture_transformations": [
+    "chat paste; inline citations arrived as U+200B U+FFFC U+200B with no reference text; 9 markers preserved; targets NOT_RECOVERED"
+  ],
+  "citations": [
+    {
+      "source": "arXiv 2510.02917 (SAE code correctness)",
+      "source_state": "EXISTS",
+      "figure": "F1 0.821 / 0.504",
+      "figure_state": "UNCHECKED"
+    },
+    {
+      "source": "arXiv 2505.09595 / JAIR (WorldView-Bench)",
+      "source_state": "EXISTS",
+      "figure": "entropy 0.13",
+      "figure_state": "UNCHECKED"
+    },
+    {
+      "source": "arXiv 2605.26942 (HAIMEDA)",
+      "source_state": "EXISTS",
+      "figure": ">83% / 72%",
+      "figure_state": "UNCHECKED"
+    },
+    {
+      "source": "30-language degeneration study",
+      "source_state": "NOT_CHECKED",
+      "figure": "monotone degeneration",
+      "figure_state": "NOT_CHECKED"
+    },
+    {
+      "source": "Frontiers 2026 analysis",
+      "source_state": "NOT_CHECKED",
+      "figure": "quoted phrase",
+      "figure_state": "NOT_CHECKED"
+    },
+    {
+      "source": "G-SPEC",
+      "source_state": "NOT_CHECKED",
+      "figure": "0.2%",
+      "figure_state": "NOT_CHECKED"
+    }
+  ],
+  "existence_checked_by": "chat-side before filing; not re-verified in this session",
+  "pending": [
+    "two Kimi experiment specs -> experimental/, PROPOSED, not built"
+  ],
+  "not_established": [
+    "correctness of any cited figure",
+    "producer authentication",
+    "any pilot result",
+    "independence from earlier Card 02 / GPT / Manus material"
+  ]
+}

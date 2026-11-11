@@ -158,6 +158,8 @@ runner qualifies every calculation without ranking branching above percolation.
 
 [Card 02 framing provenance](audits/card02-framing-2026-11-11/README.md) preserves a read-only assessment, the user's self-described relational standpoint and blind spot, the assistant's response, and candidate assessor blind spots. Cultural descriptions remain self-report and model/framing explanations remain hypotheses; no multi-model probe, new core card or physical-validity certification is claimed.
 
+[Kimi frontier sweep](audits/kimi-frontier-sweep-2026-11-11/README.md) preserves one model's literature sweep (probes, representational geometry, epistemic-justice literature, neuro-symbolic verification) verbatim, with a citation ledger: three sources located, their figures unchecked, the rest not checked. Four pilots proposed; none built or run.
+
 ## Work to be done
 
 [ADDENDUM.md](ADDENDUM.md) lists open work, each item with a state: the translation layer (oral reasoning → English → code), remaining toolkit gaps, independence and testing, and repository housekeeping.
