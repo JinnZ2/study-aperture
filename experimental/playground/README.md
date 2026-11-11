@@ -71,6 +71,27 @@ close? Classification follows what is *established*, not convenience:
 Misclosure is to the system what UNKNOWN expiry is to the determination.
 A transition in one track is never mapped onto the other.
 
+## System track (milestone 2)
+
+- **Return test** (`reference/return_test.py`): does the system return to
+  the frozen anchor within declared tolerances? Classification mirrors the
+  L0 gate: an asserted return violated by measured values is INDETERMINATE
+  on the physical and instrument axes; violated by the description's own
+  values it is a PHYSICAL failure; a non-return with no assertion is an
+  observed transition, not a failure; an incomplete record is a DETERMINATION
+  indeterminacy.
+- **Misclosure** (`reference/misclosure.py`): per-quantity residuals of the
+  return loop, pure computation; classification lives in the return test.
+- **Continuity matrix** (`reference/continuity.py`): system persistence and
+  configuration persistence answered separately. Four distinct cells —
+  CONTINUOUS, RETURN_WITH_RECONFIGURATION, DRIFT_WITH_STABLE_CONFIGURATION,
+  DISCONTINUOUS — plus INDETERMINATE. A system can return to its anchor
+  state while its configuration changed, and vice versa.
+- **State transitions** (`lifecycle/state_transitions.py`): typed
+  transitions on either track, with the six system-change types
+  (reorganizes, accumulates energy, loses connectivity, crosses threshold,
+  adapts, changes relationships). Track crossing is refused by design.
+
 ## Self-check
 
 ```
@@ -98,8 +119,8 @@ playground/
 
 ## Roadmap
 
-1. Diagnostic infrastructure (this milestone).
-2. Continuity, transition, return, and misclosure (system track).
+1. Diagnostic infrastructure (done — milestone 1).
+2. Continuity, transition, return, and misclosure (done — milestone 2, the system track).
 3. Sensitivity-qualified absence and UNKNOWN expiry.
 4. Context-dependent applicability mapping.
 5. Equation families as validated instruments.

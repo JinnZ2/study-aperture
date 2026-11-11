@@ -68,7 +68,7 @@ def summarize(
 
 def format_summary(summary: SelfCheckSummary) -> str:
     lines = [
-        "PLAYGROUND SELF-CHECK (milestone 1: diagnostic infrastructure)",
+        "PLAYGROUND SELF-CHECK (diagnostic infrastructure + system track)",
         "",
         f"guards:   {summary.guards_passed}/{summary.guards_run} passed",
         f"defects:  {summary.defects_caught}/{summary.defects_planted} caught, "
