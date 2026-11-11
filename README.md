@@ -97,7 +97,16 @@ The lab also includes [draft criterion-to-conclusion mappings](experimental/scop
 
 A separate [phase-to-probability follow-up](experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md) traces whole-phase versus partial-phase sign changes, retained quartic terms, mixing-angle-dependent phase averaging, and the need for an explicit response kernel. It preserves the earlier study run unchanged and does not select a corrected physical prediction.
 
-[Playground](experimental/playground/README.md) — the experimental determination laboratory: an instrument for examining the relationship between physical system, experimental determination, mathematical representation, observed result, and revised determination. Organized around experimental questions rather than equation families, with equations entering later as replaceable instruments validated by harnesses. Milestone 1 is the diagnostic infrastructure: three orthogonal failure axes (physical / instrument / determination, never merged into a generic MODEL_FAILED), the L0 accounting-closure gate, known-answer and null harnesses, a planted-defect self-check (the lab testing its own determinations — every planted defect must be caught and correctly classified or the build fails), and a provenance skeleton that binds evidence without promoting claims. The equation library is deliberately absent. Offline, Python 3 stdlib only; run `python3 -m playground.self_check` from that directory, or `./run_checks.sh` at the repo root.
+[Playground](experimental/playground/README.md): an experimental determination laboratory organized around experimental questions rather than equation families. Implemented layers include diagnostic infrastructure with three separate failure axes (physical / instrument / determination), L0 closure, known-answer and null harnesses, evidence bindings that do not promote claims, return/misclosure and continuity tests, and sensitivity-qualified absence with UNKNOWN expiry. These are experimental recording and diagnostic tools, not physical validation. The equation library remains deferred. Offline, Python 3 stdlib only; run `python3 -m playground.self_check` from `experimental/`, or `./run_checks.sh` at the repo root.
+
+The playground's [context-dependent applicability mapper](experimental/playground/applicability/README.md)
+records property-specific scope membership separately from explicit evidence
+assessments, retaining selection provenance, uncertainty, dependencies, and
+conditions requiring reassessment. Overlapping descriptions remain separate
+map entries with no universal ranking or inferred support outside tested
+contexts; the example and adversarial tests are synthetic, not physical
+validation. The combined diagnostic, system-track, determination-track, and
+applicability checks run with `./run_checks.sh`.
 
 ## In situ learning (experimental)
 

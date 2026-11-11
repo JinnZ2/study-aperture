@@ -9,11 +9,11 @@ The software is organized around experimental questions, not equation
 families. Equations enter as replaceable instruments validated by harnesses,
 never trusted by construction.
 
-Milestone 1 (this package): the diagnostic infrastructure. Typed failure
-records, the L0 accounting-closure gate, known-answer and null harnesses,
-planted-defect self-tests, and the provenance skeleton. The equation library
-is deliberately absent: the laboratory tests its own determinations before
-it owns any equations.
+Milestones 1-4 implement diagnostic infrastructure, the system track,
+sensitivity-qualified absence and UNKNOWN expiry, and context-dependent
+applicability mapping. Tests use constructed cases; neither the package nor
+its checks establish empirical adequacy. The equation library remains
+deliberately absent.
 """
 
-__version__ = "0.1.0-milestone1"
+__version__ = "0.4.0-experimental"

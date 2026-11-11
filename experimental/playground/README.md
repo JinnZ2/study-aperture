@@ -1,5 +1,10 @@
 # Playground — experimental determination laboratory
 
+Status: Milestones 1-4 implement diagnostic infrastructure, system and
+determination tracks, and context-dependent applicability records. Tests and
+examples are synthetic; real-system applicability and physical validation
+are not established. Equation families and observer regimes remain deferred.
+
 An instrument for examining the relationship between:
 
 ```
@@ -11,7 +16,7 @@ The software is organized around **experimental questions**, not equation
 families. Equations enter as replaceable instruments validated by harnesses,
 never trusted by construction.
 
-Milestone 1 (this package) is the **diagnostic infrastructure**: typed
+Milestone 1 established the **diagnostic infrastructure**: typed
 failure records, the L0 accounting-closure gate, known-answer and null
 harnesses, planted-defect self-tests, and the provenance skeleton. The
 equation library is deliberately absent — the laboratory tests its own
@@ -123,15 +128,40 @@ A transition in one track is never mapped onto the other.
   is stale (DETERMINATION failure); resting on an open UNKNOWN is allowed
   and is not a failure.
 
+## Context-dependent applicability (milestone 4)
+
+[Applicability mapping](applicability/README.md) keeps declared-domain membership
+separate from evidence of physical adequacy. Contexts retain all seven
+determination coordinates, selection provenance, uncertainty, and anchor
+bindings. Descriptions retain their property-specific scope criteria and
+dependencies; evidence assessments bind to exact context/description digests.
+Matching a scope, mathematical consistency, or a diagnostic PASS cannot supply
+physical support.
+
+Numeric uncertainty intervals crossing a scope boundary remain unresolved.
+Missing information and open UNKNOWN dependencies remain UNKNOWN; stale
+dependencies or failed instruments/determinations block conclusions without
+declaring a model false. Multiple descriptions may overlap without a winner.
+Maps report independent cells, evidence, unresolved questions, and conditions
+that require reassessment, with no interpolation or extrapolation.
+
+Run the constructed, non-empirical example from `experimental/`:
+
+```sh
+python3 -m playground.applicability.example
+```
+
 ## Self-check
 
 ```
-python -m playground.self_check
+cd experimental  # from repository root
+python3 -m playground.self_check
 ```
 
 Runs the planted-defect suite (the lab testing its own determinations), the
 design-contract guards, and the control cases. Every planted defect must be
-caught **and correctly classified**, or the build fails.
+caught **and correctly classified**, or the build fails. The self-check also
+runs the applicability adversarial/unit suite; both parts must pass.
 
 ## Module map
 
@@ -139,13 +169,14 @@ caught **and correctly classified**, or the build fails.
 playground/
 ├── failures.py            typed failure records (three orthogonal axes)
 ├── gates/                 L0 closure gate, gate registry, typed gate results
-├── reference/             anchor states (system track); return/misclosure stubs
+├── reference/             anchors, return tests, misclosure, continuity
 ├── validation/            known-answer + null harnesses, planted defects, metrics
 ├── provenance/            claim status, derivations, hash-bound evidence chain
 ├── observation/           passive / perturbative / strategic regimes (stub)
-├── detection/             sensitivity / non-detection / scoped absence (stub)
+├── detection/             sensitivity / non-detection / scoped absence
+├── applicability/         scoped matching, evidence binding, context maps
 ├── equations/             percolation / branching families (stub — later)
-└── lifecycle/             UNKNOWN expiry / reevaluation / state transitions (stub)
+└── lifecycle/             UNKNOWN expiry / reevaluation / state transitions
 ```
 
 ## Roadmap
@@ -153,7 +184,7 @@ playground/
 1. Diagnostic infrastructure (done — milestone 1).
 2. Continuity, transition, return, and misclosure (done — milestone 2, the system track).
 3. Sensitivity-qualified absence and UNKNOWN expiry (done — milestone 3, the determination track).
-4. Context-dependent applicability mapping.
+4. Context-dependent applicability mapping (implemented, milestone 4; synthetic tests).
 5. Equation families as validated instruments.
 6. Cross-system-class testing.
 
