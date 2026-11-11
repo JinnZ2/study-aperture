@@ -1,6 +1,6 @@
 """Versioned closed adapters; no eval, subclass plugins, or arbitrary callbacks.
 
-Bounded arithmetic and the built-in finite-bond backend are separately versioned.
+Bounded arithmetic, finite bonds and finite branching are separately versioned.
 This is not a dimensional-analysis engine.
 Declared units and evidence references are recorded, not proved correct.
 Only the substitution runner is the supported experimental execution API.
@@ -21,6 +21,7 @@ from ..failures import EvidenceRef
 from ..validation.numeric_contract import finite_number, finite_outputs
 
 if TYPE_CHECKING:
+    from .branching import FiniteBranching
     from .percolation import BondPercolation
 
 
@@ -157,26 +158,32 @@ class EquationRegistry:
     """Explicit selection only; no latest-version resolution or in-place replacement."""
 
     def __init__(self):
-        self._equations: dict[tuple[str, str], Equation | BondPercolation] = {}
+        self._equations: dict[tuple[str, str], Equation | BondPercolation | FiniteBranching] = {}
 
-    def register(self, equation: Equation | BondPercolation) -> None:
+    def register(self, equation: Equation | BondPercolation | FiniteBranching) -> None:
+        from .branching import FiniteBranching
         from .percolation import BondPercolation
 
-        if type(equation) not in (Equation, BondPercolation):
+        if type(equation) not in (Equation, BondPercolation, FiniteBranching):
             raise ValueError("only exact built-in declarative adapter types can be registered")
         key = (equation.equation_id, equation.revision)
         if key in self._equations:
             raise ValueError("equation identity/revision already registered; issue a new revision")
         self._equations[key] = equation
 
-    def select(self, equation_id: str, revision: str) -> Equation | BondPercolation:
+    def select(self, equation_id: str, revision: str) -> Equation | BondPercolation | FiniteBranching:
         return self._equations[(equation_id, revision)]
 
 
-def _input_problems(equation: Equation | BondPercolation, inputs: Mapping[str, float]) -> list[str]:
+def _input_problems(
+    equation: Equation | BondPercolation | FiniteBranching, inputs: Mapping[str, float],
+) -> list[str]:
     """Additional closed-backend design criteria, checked before any evaluation."""
+    from .branching import FiniteBranching, _branch_input_problems
     from .percolation import BondPercolation, _bond_input_problems
 
+    if type(equation) is FiniteBranching:
+        return _branch_input_problems(equation, inputs)
     if type(equation) is BondPercolation:
         return _bond_input_problems(equation, inputs)
     if type(equation) is not Equation:
@@ -184,10 +191,18 @@ def _input_problems(equation: Equation | BondPercolation, inputs: Mapping[str, f
     return []
 
 
-def _calculate(equation: Equation | BondPercolation, inputs: Mapping[str, float]) -> dict[str, float]:
+def _calculate(
+    equation: Equation | BondPercolation | FiniteBranching, inputs: Mapping[str, float],
+) -> dict[str, float]:
     """Private numerical primitive, not an alternate experimental execution path."""
+    from .branching import FiniteBranching, _calculate_branching
     from .percolation import BondPercolation, _calculate_bonds
 
+    if type(equation) is FiniteBranching:
+        result = finite_outputs(_calculate_branching(equation, inputs))
+        if set(result) != {p.name for p in equation.outputs}:
+            raise ValueError("branching backend output names do not exactly cover its metric ports")
+        return result
     if type(equation) is BondPercolation:
         result = finite_outputs(_calculate_bonds(equation, inputs))
         if set(result) != {p.name for p in equation.outputs}:
