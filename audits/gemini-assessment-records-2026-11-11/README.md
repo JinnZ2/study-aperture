@@ -4,11 +4,17 @@ Status: user-supplied assessment-output specimens preserved as data with a separ
 
 This collection preserves two user-reported Gemini attempts: the first contains
 three publication records; the second contains one record about a different
-publication, supplied after an attempted correction. The exact prompts,
+publication, supplied after an attempted correction. At the initial capture,
+the exact prompts,
 correction instructions, model version, generation settings, original model
 session, tool access, and any repository execution logs were not supplied.
 Attribution to Gemini and the ordering come from the user's report, not an
 independently inspected model session.
+
+A later user-supplied screenshot shows the `Gemini Auto` mode label and two
+visible prompts associated with attempt 02. See
+[the provenance addendum](PROVENANCE-ADDENDUM-01.md); the original manifest is
+retained as the initial knowledge state, not silently rewritten.
 
 ## Files and capture boundary
 
@@ -18,6 +24,9 @@ independently inspected model session.
 | `data/attempt-02.txt` | Second supplied structured payload, one record, unchanged after capture |
 | `manifest.json` | Explicit capture conditions, attempt relationship, byte counts, and SHA-256 hashes |
 | `REVIEW.md` | Reviewer findings, source locations, uncertainty, and what this does not establish |
+| `PROVENANCE-ADDENDUM-01.md` | Later prompt-context evidence, association, and remaining gaps |
+| `evidence/gemini-auto-prompts.jpeg` | Unmodified user-supplied screenshot |
+| `evidence/prompt-context-01.json` | Screenshot hash, visible-text transcription, and explicit limits |
 
 The capture starts at `PUBLICATION:` and ends at the final `INCOMPLETENESS:`
 line of each supplied payload. Conversational prefaces are outside the capture.
@@ -67,8 +76,8 @@ python3 -m unittest discover -s tests -p 'test_assessment_specimens.py' -v
 ./run_checks.sh
 ```
 
-The offline tests pin the captured bytes, check manifest coverage, retain the
+The offline tests pin the captured text and image bytes, check manifest coverage, retain the
 three-plus-one record boundaries and independent-review status, and confirm
-that source locations remain recorded. They do not fetch publications,
+that source locations and partial prompt coverage remain recorded. They do not fetch publications,
 authenticate a model session, reproduce the studies, or run these specimens
 through `assess.py`. The existing `run_checks.sh` already discovers this suite.

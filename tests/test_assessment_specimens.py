@@ -153,5 +153,76 @@ class AssessmentSpecimenIntegrity(unittest.TestCase):
         ).read_text(encoding="utf-8"))
 
 
+class SupplementalPromptProvenance(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.addendum = json.loads(
+            (COLLECTION / "evidence/prompt-context-01.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+    def test_original_screenshot_bytes_are_preserved(self):
+        screenshot = self.addendum["screenshot"]
+        raw = (COLLECTION / "evidence" / screenshot["path"]).read_bytes()
+        digest = "f4eaa8603616ff0e6de40f0897de98a7b1258650b82731fdcaf2ee408b4d7ff5"
+        self.assertEqual(hashlib.sha256(raw).hexdigest(), digest)
+        self.assertEqual(screenshot["sha256"], digest)
+        self.assertEqual(len(raw), 348823)
+        self.assertEqual(screenshot["bytes"], 348823)
+        self.assertTrue(raw.startswith(b"\xff\xd8"))
+        self.assertFalse(screenshot["modified"])
+        self.assertFalse(screenshot["authenticated_session_export"])
+
+    def test_visible_mode_is_not_promoted_to_backend_model_version(self):
+        self.assertEqual(self.addendum["visible_mode_label"], "Gemini Auto")
+        self.assertEqual(
+            self.addendum["underlying_model_version"], "UNDECLARED"
+        )
+        self.assertTrue(all(value is False for value in
+                            self.addendum["limits"].values()))
+
+    def test_partial_prompts_are_retained_without_inventing_the_rest(self):
+        self.assertEqual(self.addendum["visible_user_messages_in_order"], [
+            "Pick a new study on AI", "Perfect, let’s audit"
+        ])
+        coverage = self.addendum["coverage"]
+        self.assertEqual(coverage["prompt_history"], "PARTIALLY_VISIBLE")
+        for key, value in coverage.items():
+            if key != "prompt_history":
+                self.assertEqual(value, "UNDECLARED", key)
+        self.assertEqual(
+            self.addendum["visible_selected_publication"]["arxiv_id"],
+            "2611.00166",
+        )
+        association = self.addendum["association"]
+        self.assertEqual(association["specimen"], "attempt-02")
+        self.assertFalse(association["full_assessment_visible"])
+        self.assertFalse(
+            association["continuous_export_binding_screenshot_to_specimen"]
+        )
+
+    def test_supplement_does_not_rewrite_the_initial_knowledge_state(self):
+        self.assertEqual(
+            self.addendum["schema"],
+            "study-aperture/assessment-provenance-addendum/1",
+        )
+        self.assertTrue(self.addendum["does_not_replace_initial_capture"])
+        self.assertEqual(self.addendum["supplements"], "../manifest.json")
+        manifest = json.loads(
+            (COLLECTION / "manifest.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            manifest["unknown_conditions"]["original_prompts"], "UNDECLARED"
+        )
+        text = (COLLECTION / "PROVENANCE-ADDENDUM-01.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertTrue(text.startswith("Status:"))
+        self.assertIn("initial knowledge state", (
+            COLLECTION / "README.md"
+        ).read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()
