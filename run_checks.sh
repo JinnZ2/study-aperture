@@ -36,6 +36,7 @@ step 0 "lab: tolman-vi-2026-10-27 tests"     bash -c "cd experimental/scope_audi
 step 0 "in_situ_learning: toy tests"         bash -c "cd experimental/in_situ_learning && '$PY' -m unittest test_loop.py"
 step 0 "lab: tolman-vi-phase-trace-0.1 tests" bash -c "cd experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1 && '$PY' -m unittest test_trace.py"
 step 0 "playground: self-check" bash -c "cd experimental && '$PY' -m playground.self_check"
+step 0 "assessor_reliability: isolated pilot tests" "$PY" -m unittest discover -s experimental/assessor_reliability/tests
 
 if [ "$fail" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "CHECKS FAILED"; fi
 exit "$fail"
