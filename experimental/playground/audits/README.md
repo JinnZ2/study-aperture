@@ -29,8 +29,14 @@ locks are not refreshed automatically. The original trace runs in a fresh
 directory through Python's isolated mode, using only its pinned, locally
 authored code. No code from the publication is executed.
 
-Four deterministic outputs must reproduce byte-for-byte: calculations,
-evidence bundle, integrity JSON and integrity Markdown. Execution time is
+Four outputs are compared against preserved hashes: calculations,
+evidence bundle, integrity JSON and integrity Markdown. Byte identity is
+reported separately from numerical agreement. Only finite float leaves in
+the calculations and evidence bundle may differ within declared absolute
+and relative replay tolerances of 1e-12; all accepted changes are retained.
+Keys, shape, types, strings, booleans and integers must match exactly, and
+both integrity reports must remain byte-identical. These tolerances are
+not physical uncertainty, sensitivity or detectability. Execution time is
 recorded anew, not forced to match the historical manifest. The original
 snapshot is checked again after the run. The pilot records its own Python
 version and the playground's Python-code hashes, but hash identity is not
@@ -101,3 +107,13 @@ The tests are mandatory in `playground.self_check`. They test one bounded
 existing audit and explicitly planted failure opportunities, not general
 improvement in audit accuracy, empirical validation or completeness of all
 possible inference failure modes.
+
+## Portability correction
+
+Pilot 0.1 reproduced all four outputs byte-for-byte on the local Python 3.12
+and 3.14 runtimes, but requiring that on every runtime blocked the
+[first CI run](https://github.com/JinnZ2/study-aperture/actions/runs/42995494254)
+at the computed-output hash check. Pilot 0.2 therefore distinguishes
+byte identity from an explicit numerical comparison, records every accepted
+float difference, and continues rejecting structural changes or altered
+conclusions. The preserved artifacts and their reference hashes are unchanged.

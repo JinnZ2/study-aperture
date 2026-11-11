@@ -10,7 +10,7 @@ from unittest.mock import patch
 from ..applicability.mapping import Domain
 from ..audits.tolman_process import (
     CASE, PINNED, ROOT, execute_formal, formal_models, mathematical_experiment,
-    replay_legacy, run_pilot, sha, verify_snapshot,
+    numeric_differences, replay_legacy, run_pilot, sha, verify_snapshot,
 )
 from ..equations.substitution import RunState
 from ..failures import Status
@@ -25,12 +25,15 @@ class AuditProcessTests(unittest.TestCase):
         cls.report = run_pilot(cls.output)
         cls.inspection = cls.report["inspection"]
 
-    def test_existing_audit_reruns_byte_identically_not_just_successfully(self):
+    def test_existing_audit_compares_hashes_and_declared_numeric_policy(self):
         comparisons = self.report["legacy_artifact_comparisons"]
         self.assertEqual(len(comparisons), 4)
         for comparison in comparisons.values():
-            self.assertTrue(comparison["byte_identical"])
-            self.assertEqual(comparison["fresh_sha256"], comparison["preserved_sha256"])
+            self.assertTrue(comparison["within_declared_numeric_policy"])
+            self.assertEqual(comparison["byte_identical"],
+                             comparison["fresh_sha256"] == comparison["preserved_sha256"])
+        for name in ("integrity-report.json", "integrity-report.md"):
+            self.assertTrue(comparisons[name]["byte_identical"])
 
     def test_original_snapshot_and_publication_claim_records_unchanged(self):
         self.assertTrue(self.report["original_snapshot_unchanged"])
@@ -175,7 +178,7 @@ class AuditProcessTests(unittest.TestCase):
 
     def test_strict_json_and_human_report_are_delivered_together(self):
         payload = json.loads((self.output / "tolman-vi-audit-process-report.json").read_text())
-        self.assertEqual(payload["schema"], "audit-process-pilot/0.1")
+        self.assertEqual(payload["schema"], "audit-process-pilot/0.2")
         json.dumps(payload, allow_nan=False)
         text = (self.output / "tolman-vi-audit-process-report.md").read_text()
         self.assertIn("https://link.springer.com/", text)
@@ -226,6 +229,27 @@ class AuditProcessTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Replay differs"):
                     replay_legacy(Path(temp) / "replay")
 
+    def test_small_float_difference_is_recorded_not_called_byte_identity(self):
+        changes = numeric_differences({"x": [0.625]}, {"x": [0.625 + 1e-15]})
+        self.assertEqual(len(changes), 1)
+        self.assertEqual(changes[0]["path"], "$.x[0]")
+        self.assertGreater(changes[0]["absolute_difference"], 0)
+        self.assertNotEqual(changes[0]["preserved"], changes[0]["fresh"])
+        self.assertEqual(len(numeric_differences(0.0, -0.0)), 1)
+
+    def test_replay_policy_rejects_large_or_nonfinite_numeric_changes(self):
+        for changed in (0.63, float("nan"), float("inf")):
+            with self.subTest(changed=changed), self.assertRaises(ValueError):
+                numeric_differences(0.625, changed)
+
+    def test_replay_policy_never_tolerates_changed_conclusions_shape_or_types(self):
+        for original, changed in (
+            ({"outcome": "NOT_MET"}, {"outcome": "MET"}),
+            ({"x": 1.0}, {"y": 1.0}), ([1.0], [1.0, 2.0]),
+            (0, False), (1.0, 1), (24, 23), (False, True),
+        ):
+            with self.subTest(original=original, changed=changed), self.assertRaises(ValueError):
+                numeric_differences(original, changed)
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,6 +11,7 @@ import argparse
 import enum
 import hashlib
 import json
+import math
 import platform
 import subprocess
 import sys
@@ -44,7 +45,9 @@ CASE = "experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1"
 PARENT = "experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27"
 ARTICLE = "https://link.springer.com/article/10.1140/epjc/s10052-026-16462-w"
 AUDIT_URL = "https://github.com/JinnZ2/study-aperture/blob/main/experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1/README.md"
-VERSION = "audit-process-pilot/0.1"
+VERSION = "audit-process-pilot/0.2"
+REPLAY_ABS_TOL = 1e-12
+REPLAY_REL_TOL = 1e-12
 # Newly inspected snapshot, not an automatically refreshed lock. Hashes establish
 # byte identity, not scientific truth, source authenticity or independence.
 PINNED = {
@@ -181,6 +184,39 @@ def execute_formal(model, experiment):
                    plan(model, experiment), DECISION)
 
 
+def numeric_differences(expected, actual, path="$"):
+    """Fixed comparison policy, never reference replacement or physical error bars.
+
+    Keys, shape, types, strings, booleans and integers must match exactly.
+    Only finite float leaves may differ, within declared replay tolerances.
+    Every such difference is retained, even when accepted.
+    """
+    if type(expected) is not type(actual):
+        raise ValueError(f"Replay differs in type at {path}")
+    differences = []
+    if isinstance(expected, dict):
+        if expected.keys() != actual.keys():
+            raise ValueError(f"Replay differs in keys at {path}")
+        for key in expected:
+            differences.extend(numeric_differences(expected[key], actual[key], f"{path}.{key}"))
+    elif isinstance(expected, list):
+        if len(expected) != len(actual):
+            raise ValueError(f"Replay differs in length at {path}")
+        for i, (a, b) in enumerate(zip(expected, actual)):
+            differences.extend(numeric_differences(a, b, f"{path}[{i}]"))
+    elif type(expected) is float:
+        if not all(math.isfinite(v) for v in (expected, actual)):
+            raise ValueError(f"Replay differs or is nonfinite at {path}")
+        if expected != actual or math.copysign(1.0, expected) != math.copysign(1.0, actual):
+            if not math.isclose(expected, actual, rel_tol=REPLAY_REL_TOL, abs_tol=REPLAY_ABS_TOL):
+                raise ValueError(f"Replay differs beyond declared float tolerance at {path}: {expected!r} versus {actual!r}")
+            differences.append(dict(path=path, preserved=expected, fresh=actual,
+                                    absolute_difference=abs(expected - actual)))
+    elif expected != actual:
+        raise ValueError(f"Replay differs in exact value at {path}")
+    return differences
+
+
 def replay_legacy(output_dir, root=ROOT):
     """Verify before execution and compare deterministic outputs, not timestamps."""
     examined = verify_snapshot(root)
@@ -193,9 +229,18 @@ def replay_legacy(output_dir, root=ROOT):
     for name in ("computed.json", "evidence-bundle.json", "integrity-report.json", "integrity-report.md"):
         fresh = sha(output_dir / name)
         frozen = PINNED[f"{CASE}/artifacts/{name}"]
+        differences = []
         if fresh != frozen:
-            raise ValueError(f"Replay differs from preserved artifact: {name}")
-        comparisons[name] = {"fresh_sha256": fresh, "preserved_sha256": frozen, "byte_identical": True}
+            if name not in ("computed.json", "evidence-bundle.json"):
+                raise ValueError(f"Replay differs from exact integrity artifact: {name}")
+            differences = numeric_differences(
+                json.loads((root / CASE / "artifacts" / name).read_text()),
+                json.loads((output_dir / name).read_text()),
+            )
+        comparisons[name] = {
+            "fresh_sha256": fresh, "preserved_sha256": frozen, "byte_identical": fresh == frozen,
+            "within_declared_numeric_policy": True, "numeric_differences": differences,
+        }
     return examined, comparisons
 
 
@@ -290,6 +335,9 @@ def markdown_report(report):
     comparison = inspection["formal_comparison"]
     counts = inspection["original_integrity_summary"]["finding_counts"]
     claim = inspection["original_claim_and_decisions"]["claims"][0]
+    comparisons = report["legacy_artifact_comparisons"]
+    identical = sum(c["byte_identical"] for c in comparisons.values())
+    changed_floats = sum(len(c["numeric_differences"]) for c in comparisons.values())
     return f"""# Tolman VI audit-process pilot
 
 This is a fresh offline replay of a preserved audit, followed by an inspection
@@ -298,7 +346,13 @@ new detector experiment, corrected physical prediction or whole-paper verdict.
 
 ## What was reproduced
 
-The preserved trace's four deterministic artifacts reproduced byte-for-byte.
+The preserved trace's four artifacts were compared against their frozen hashes.
+On this run, {identical}/4 are byte-identical, with {changed_floats} accepted
+float-leaf differences. Numerical replay uses declared absolute and relative
+tolerances of 1e-12; every changed float is retained in the JSON.
+Structure, types, text, booleans and integers must match exactly, and both
+integrity reports must remain byte-identical. These tolerances are not
+physical uncertainty, instrument sensitivity or a detection threshold.
 Its integrity report still records {counts["ERROR"]} ERROR and
 {counts["UNKNOWN"]} UNKNOWN findings; those unknowns were neither repaired
 with invented registry records nor treated as physical refutation.
@@ -383,6 +437,13 @@ def run_pilot(output_dir, root=ROOT):
         "article": ARTICLE, "selection": plain(DECISION),
         "pinned_sha256": examined, "legacy_artifact_comparisons": comparisons,
         "python_version": platform.python_version(), "diagnostic_code_sha256": code_snapshot,
+        "numeric_replay_policy": {
+            "version": "float-replay/1", "absolute_tolerance": REPLAY_ABS_TOL,
+            "relative_tolerance": REPLAY_REL_TOL,
+            "allowed_artifacts": ["computed.json", "evidence-bundle.json"],
+            "exact": "JSON shape/types/text/bools/ints and both integrity-report bytes",
+            "meaning": "Numerical replay comparison only, not physical uncertainty or detection sensitivity.",
+        },
         "original_snapshot_unchanged": unchanged == examined,
         "pilot_code_sha256": sha(Path(__file__)),
         "inspection": inspection,
