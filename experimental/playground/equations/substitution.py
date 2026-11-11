@@ -29,7 +29,11 @@ from ..validation.known_answer import (
 )
 from ..validation.null_harness import NullCase, NullValidation, validate_nulls
 from ..validation.numeric_contract import finite_number, validate_case_data
-from .adapter import Equation, EquationRegistry, _calculate, digest_record
+from .adapter import Equation, EquationRegistry, _calculate, _input_problems, digest_record
+from .percolation import BondPercolation
+
+
+Adapter = Equation | BondPercolation
 
 
 def _pairs(values: tuple, name: str) -> dict:
@@ -224,7 +228,7 @@ class CalculatedValue:
 @dataclass(frozen=True)
 class EquationRun:
     state: RunState
-    equation: Equation
+    equation: Adapter
     experiment: Experiment
     plan: ValidationPlan
     selection: Decision
@@ -307,7 +311,7 @@ def _protocol_problems(experiment: Experiment) -> list[str]:
     return problems
 
 
-def _plan_problems(equation: Equation, context: Context, plan: ValidationPlan) -> list[str]:
+def _plan_problems(equation: Adapter, context: Context, plan: ValidationPlan) -> list[str]:
     problems = []
     if plan.equation_digest != equation.digest() or plan.context_digest != context.digest():
         problems.append("validation plan belongs to a different equation/context")
@@ -319,6 +323,7 @@ def _plan_problems(equation: Equation, context: Context, plan: ValidationPlan) -
         asserted = c.expected if isinstance(c, KnownAnswerCase) else c.null_outputs
         if set(dict(c.inputs)) != set(inputs) or set(dict(asserted)) != set(outputs):
             problems.append(f"{c.case_id}: case does not cover exactly the adapter ports")
+        problems.extend(f"{c.case_id}: {p}" for p in _input_problems(equation, dict(c.inputs)))
     rules = {r.key: r for r in equation.constraints}
     for port in equation.inputs:
         rule = rules.get(port.context_key)
@@ -330,7 +335,7 @@ def _plan_problems(equation: Equation, context: Context, plan: ValidationPlan) -
 class _HarnessAdapter:
     """Only supplied internally after boundary and applicability preflight."""
 
-    def __init__(self, equation: Equation):
+    def __init__(self, equation: Adapter):
         self._equation = equation
         self.instrument_id = f"{equation.equation_id}@{equation.digest()}"
 
@@ -437,6 +442,11 @@ def execute(
             problems.append(f"{port.name}: context-bound numeric input/unit/uncertainty missing")
         else:
             inputs[port.name] = condition.value
+    problems.extend(_input_problems(equation, inputs))
+    if type(equation) is BondPercolation:
+        mask = values.get("occupation_mask")
+        if mask is not None and mask.uncertainty != 0:
+            problems.append("a selected discrete occupation mask requires zero declared uncertainty")
     if problems:
         record = record.with_finding(_determination("EQ_PLAN_OR_INPUT_BINDING", "; ".join(problems)))
         app = assess(description, context, assessments, record, states)

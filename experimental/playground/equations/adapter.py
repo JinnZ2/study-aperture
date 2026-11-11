@@ -1,6 +1,7 @@
-"""Versioned declarative arithmetic adapters; no eval or arbitrary Python plugins.
+"""Versioned closed adapters; no eval, subclass plugins, or arbitrary callbacks.
 
-This is a bounded arithmetic language, not a dimensional-analysis engine.
+Bounded arithmetic and the built-in finite-bond backend are separately versioned.
+This is not a dimensional-analysis engine.
 Declared units and evidence references are recorded, not proved correct.
 Only the substitution runner is the supported experimental execution API.
 """
@@ -13,11 +14,14 @@ import hashlib
 import json
 import operator
 from dataclasses import asdict, dataclass
-from typing import Mapping
+from typing import TYPE_CHECKING, Mapping
 
 from ..applicability.mapping import Constraint, Decision, Description
 from ..failures import EvidenceRef
 from ..validation.numeric_contract import finite_number, finite_outputs
+
+if TYPE_CHECKING:
+    from .percolation import BondPercolation
 
 
 ENGINE_VERSION = "bounded-arithmetic/1"
@@ -153,22 +157,44 @@ class EquationRegistry:
     """Explicit selection only; no latest-version resolution or in-place replacement."""
 
     def __init__(self):
-        self._equations: dict[tuple[str, str], Equation] = {}
+        self._equations: dict[tuple[str, str], Equation | BondPercolation] = {}
 
-    def register(self, equation: Equation) -> None:
-        if not isinstance(equation, Equation):
-            raise ValueError("only declarative Equation adapters can be registered")
+    def register(self, equation: Equation | BondPercolation) -> None:
+        from .percolation import BondPercolation
+
+        if type(equation) not in (Equation, BondPercolation):
+            raise ValueError("only exact built-in declarative adapter types can be registered")
         key = (equation.equation_id, equation.revision)
         if key in self._equations:
             raise ValueError("equation identity/revision already registered; issue a new revision")
         self._equations[key] = equation
 
-    def select(self, equation_id: str, revision: str) -> Equation:
+    def select(self, equation_id: str, revision: str) -> Equation | BondPercolation:
         return self._equations[(equation_id, revision)]
 
 
-def _calculate(equation: Equation, inputs: Mapping[str, float]) -> dict[str, float]:
+def _input_problems(equation: Equation | BondPercolation, inputs: Mapping[str, float]) -> list[str]:
+    """Additional closed-backend design criteria, checked before any evaluation."""
+    from .percolation import BondPercolation, _bond_input_problems
+
+    if type(equation) is BondPercolation:
+        return _bond_input_problems(equation, inputs)
+    if type(equation) is not Equation:
+        return ["unsupported adapter type"]
+    return []
+
+
+def _calculate(equation: Equation | BondPercolation, inputs: Mapping[str, float]) -> dict[str, float]:
     """Private numerical primitive, not an alternate experimental execution path."""
+    from .percolation import BondPercolation, _calculate_bonds
+
+    if type(equation) is BondPercolation:
+        result = finite_outputs(_calculate_bonds(equation, inputs))
+        if set(result) != {p.name for p in equation.outputs}:
+            raise ValueError("graph backend output names do not exactly cover its metric ports")
+        return result
+    if type(equation) is not Equation:
+        raise ValueError("unsupported adapter type")
     if set(inputs) != {p.name for p in equation.inputs}:
         raise ValueError("input names do not exactly cover the adapter ports")
     if any(not finite_number(value) for value in inputs.values()):

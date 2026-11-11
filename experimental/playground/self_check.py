@@ -8,7 +8,7 @@ transitions), and the milestone-3 determination-track suite (sensitivity,
 qualified non-detection, scoped absence, UNKNOWN expiry), plus the milestone-4
 applicability suite and diagnostic-gated equation substitution: planted
 defects, design-contract guards, control cases, and adversarial scoped-mapping
-and bypass tests. Exit code 0
+and bypass tests, plus finite-bond graph oracles and planted backend defects. Exit code 0
 means every planted defect was caught and correctly classified, every
 guard held, and every control behaved as designed. Anything else fails
 the build: the laboratory does not ship a diagnostic infrastructure whose
@@ -35,7 +35,7 @@ from .validation.system_track_defects import (
     verify_system_track_defects,
     verify_system_track_guards,
 )
-from .validation import test_applicability, test_substitution
+from .validation import test_applicability, test_percolation, test_substitution
 
 
 def run_self_check() -> int:
@@ -62,7 +62,11 @@ def run_self_check() -> int:
     print("\nEQUATION SUBSTITUTION: diagnostic bypass and numeric-contract tests", flush=True)
     suite = unittest.defaultTestLoader.loadTestsFromModule(test_substitution)
     equation_result = unittest.TextTestRunner(verbosity=1).run(suite)
-    passed = summary.passed and mapping_result.wasSuccessful() and equation_result.wasSuccessful()
+    print("\nFINITE BOND PERCOLATION: exact oracles and diagnostic guards", flush=True)
+    suite = unittest.defaultTestLoader.loadTestsFromModule(test_percolation)
+    percolation_result = unittest.TextTestRunner(verbosity=1).run(suite)
+    passed = (summary.passed and mapping_result.wasSuccessful()
+              and equation_result.wasSuccessful() and percolation_result.wasSuccessful())
     print("COMBINED SELF-CHECK PASSED" if passed else "COMBINED SELF-CHECK FAILED")
     return 0 if passed else 1
 
