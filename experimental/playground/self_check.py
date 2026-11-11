@@ -10,7 +10,7 @@ applicability suite and diagnostic-gated equation substitution: planted
 defects, design-contract guards, control cases, and adversarial scoped-mapping
 and bypass tests, plus finite-bond and finite-branching oracles and planted
 backend defects, plus cross-system-class diagnostic and evidence-transfer
-contracts. Exit code 0
+contracts and a preserved-audit process replay. Exit code 0
 means every planted defect was caught and correctly classified, every
 guard held, and every control behaved as designed. Anything else fails
 the build: the laboratory does not ship a diagnostic infrastructure whose
@@ -38,7 +38,8 @@ from .validation.system_track_defects import (
     verify_system_track_guards,
 )
 from .validation import (
-    test_applicability, test_branching, test_cross_system, test_percolation, test_substitution,
+    test_applicability, test_audit_process, test_branching, test_cross_system,
+    test_percolation, test_substitution,
 )
 
 
@@ -75,9 +76,13 @@ def run_self_check() -> int:
     print("\nCROSS-SYSTEM CLASSES: orthogonal diagnostics and scoped transfer guards", flush=True)
     suite = unittest.defaultTestLoader.loadTestsFromModule(test_cross_system)
     cross_system_result = unittest.TextTestRunner(verbosity=1).run(suite)
+    print("\nAUDIT PROCESS PILOT: preserved Tolman trace and inference boundaries", flush=True)
+    suite = unittest.defaultTestLoader.loadTestsFromModule(test_audit_process)
+    audit_process_result = unittest.TextTestRunner(verbosity=1).run(suite)
     passed = (summary.passed and mapping_result.wasSuccessful()
               and equation_result.wasSuccessful() and percolation_result.wasSuccessful()
-              and branching_result.wasSuccessful() and cross_system_result.wasSuccessful())
+              and branching_result.wasSuccessful() and cross_system_result.wasSuccessful()
+              and audit_process_result.wasSuccessful())
     print("COMBINED SELF-CHECK PASSED" if passed else "COMBINED SELF-CHECK FAILED")
     return 0 if passed else 1
 

@@ -239,6 +239,21 @@ python3 -m playground.validation.cross_system
 python3 -m unittest playground.validation.test_cross_system
 ```
 
+## Inspecting an existing audit
+
+The [Tolman VI audit-process pilot](audits/README.md) replays preserved audit
+artifacts and examines the route from mathematical results to physical claims.
+It does not alter the original audit, repair unresolved registry references,
+manufacture a physical experiment or extend the closed equation engine.
+Planted scope/absence/expiry probes are explicitly distinguished from replayed
+records and actual observations.
+
+```sh
+# from experimental/; use a new output directory OUTSIDE the repository
+python3 -m playground.audits.tolman_process --output-dir /tmp/tolman-audit-process-new
+python3 -m unittest playground.validation.test_audit_process
+```
+
 ## Self-check
 
 ```
@@ -251,7 +266,7 @@ design-contract guards, and the control cases. Every planted defect must be
 caught **and correctly classified**, or the build fails. The self-check also
 runs applicability, equation-substitution, finite-percolation, finite-branching
 and cross-system-class
-adversarial/unit suites. All
+adversarial/unit suites, plus the preserved-audit process pilot. All
 parts must pass.
 
 ## Module map
