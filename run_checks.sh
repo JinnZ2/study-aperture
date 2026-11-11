@@ -35,6 +35,7 @@ step 1 "lab: checker on draft-0.2 example"   "$PY" experimental/scope_audit_lab/
 step 0 "lab: tolman-vi-2026-10-27 tests"     bash -c "cd experimental/scope_audit_lab/reviews/tolman-vi-2026-10-27 && '$PY' -m unittest test_case.py"
 step 0 "in_situ_learning: toy tests"         bash -c "cd experimental/in_situ_learning && '$PY' -m unittest test_loop.py"
 step 0 "lab: tolman-vi-phase-trace-0.1 tests" bash -c "cd experimental/scope_audit_lab/reviews/tolman-vi-phase-trace-0.1 && '$PY' -m unittest test_trace.py"
+step 0 "playground: milestone-1 self-check" bash -c "cd experimental && '$PY' -m playground.self_check"
 
 if [ "$fail" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "CHECKS FAILED"; fi
 exit "$fail"
