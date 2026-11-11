@@ -32,3 +32,14 @@ jobs:
           name: tolman-audit-process-python-${{ matrix.python }}
           path: ${{ runner.temp }}/tolman-audit-process
           if-no-files-found: error
+      - name: Capture second audit-process evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.audits.pendulum_process \
+            --output-dir "$RUNNER_TEMP/pendulum-audit-process"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pendulum-audit-process-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/pendulum-audit-process
+          if-no-files-found: error

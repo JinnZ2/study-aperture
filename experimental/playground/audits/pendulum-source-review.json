@@ -1,0 +1,24 @@
+{
+  "record_kind": "ATTRIBUTED_SOURCE_INSPECTION_NOT_FULL_SOURCE_ARCHIVE",
+  "source_url": "https://openstax.org/books/university-physics-volume-1/pages/15-4-pendulums",
+  "title": "15.4 Pendulums, University Physics Volume 1",
+  "publisher": "OpenStax",
+  "checked_on_utc": "2026-11-11",
+  "retrieval": "fetch_url cleaned page; cached response, not a newly authenticated source capture",
+  "reviewer": "Perplexity-assisted second audit-process pilot",
+  "location": "The Simple Pendulum, paragraph before Eq15.17",
+  "short_excerpts": [
+    "less than 15 degrees or about 0.26 radians",
+    "differ by less than 1%"
+  ],
+  "reviewer_summary": "The paragraph compares sine of the angle with the angle in radians and uses a small-angle condition. It does not state a relative-error denominator.",
+  "source_criterion": "Source wording is strict: less than 1%.",
+  "pilot_criterion": "Separately selected inclusive error <= 1/100; not attributed to the source.",
+  "unresolved": [
+    "The source's intended relative-error denominator is not specified.",
+    "Pedagogical rounding or a different intended comparison is not selected as the explanation.",
+    "Restoring-term comparison is not a bound on period error.",
+    "No pendulum observation or instrument calibration was supplied."
+  ],
+  "provenance_limit": "This is an attributed review note, not full publication bytes, authentication, independent evidence, or an empirical record."
+}
