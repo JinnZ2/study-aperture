@@ -48,6 +48,12 @@ negative result.
 - A clean determination must not silently certify an instrument.
 - An integrity PASS must not silently change claim support.
 
+The [measurand-identity substitution challenge](equations/MEASURAND.md)
+additionally tests that matching names, units, values and arithmetic
+diagnostics cannot license comparison of different declared quantities.
+Comparison eligibility stays separate from calculation status and physical
+adequacy; both run records survive a void comparison.
+
 ## L0: accounting closure
 
 L0 runs before any physics. Its question: does the boundary accounting
