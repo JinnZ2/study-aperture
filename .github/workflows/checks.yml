@@ -87,3 +87,14 @@ jobs:
           name: distribution-to-mean-audit-python-${{ matrix.python }}
           path: ${{ runner.temp }}/distribution-to-mean-audit
           if-no-files-found: error
+      - name: Capture constructed cross-audit regression evidence
+        if: always()
+        run: |
+          PYTHONPATH=experimental python3 -m playground.audits.cross_audit_regression \
+            --output-dir "$RUNNER_TEMP/cross-audit-regression"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cross-audit-regression-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/cross-audit-regression
+          if-no-files-found: error

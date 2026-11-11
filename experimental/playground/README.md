@@ -67,6 +67,12 @@ its mean. Linear controls and second-moment counterexamples distinguish
 arithmetic fidelity from purpose-specific information loss. Scope is explicit;
 stationarity, ergodicity, equilibrium and missing dependencies are not inferred.
 
+The [cross-audit regression pass](audits/cross-regression-README.md) runs
+separately linked denominator and mean-substitution pairs in one shared
+constructed context. Findings remain separate when policy changes, target
+loss and missing scope coexist; sibling certificates cannot clear failures.
+This is a diagnostic interaction test, not a new jointly composed estimator.
+
 ## L0: accounting closure
 
 L0 runs before any physics. Its question: does the boundary accounting
