@@ -148,6 +148,8 @@ variance is not determination uncertainty, finite survival is not permanent
 organization, and model extinction is not physical absence. The same diagnostic
 runner qualifies every calculation without ranking branching above percolation.
 
+[ROTL specs](experimental/rotl_specs/README.md): two experiment specifications from Kimi, filed verbatim. EXP-002 (reversible translation, behavioural, PROPOSED) and an organizational-mode linear probe (PARKED, needs compute and a corpus that does not exist yet). Frame labels pending source-holder confirmation. Nothing built or run.
+
 ## In situ learning (experimental)
 
 [In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
@@ -157,6 +159,8 @@ runner qualifies every calculation without ranking branching above percolation.
 [audits/simulators-run-count](audits/simulators-run-count/README.md) — which stated results in JinnZ2/Simulators rest on a single random draw, and whether they survive re-drawing at 20 other seeds (ADDENDUM C2). Measures within-run n only; says nothing about whether a claim is true.
 
 [Card 02 framing provenance](audits/card02-framing-2026-11-11/README.md) preserves a read-only assessment, the user's self-described relational standpoint and blind spot, the assistant's response, and candidate assessor blind spots. Cultural descriptions remain self-report and model/framing explanations remain hypotheses; no multi-model probe, new core card or physical-validity certification is claimed.
+
+[Kimi frontier sweep](audits/kimi-frontier-sweep-2026-11-11/README.md) preserves one model's literature sweep (probes, representational geometry, epistemic-justice literature, neuro-symbolic verification) verbatim, with a citation ledger: three sources located, their figures unchecked, the rest not checked. Four pilots proposed; none built or run.
 
 ## Work to be done
 
