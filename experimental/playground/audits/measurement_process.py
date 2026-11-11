@@ -91,13 +91,18 @@ def paired_statistics(source):
 
 def covariance_record(vv, ii, cov):
     record = FailureRecord()
+    diagonal_ok = all(finite(x) for x in (vv, ii)) and vv >= 0 and ii >= 0
+    if not diagonal_ok:
+        record = record.with_finding(finding(
+            Axis.DETERMINATION, Status.FAILED, "INVALID_INPUT_VARIANCE_DIAGONAL",
+            "Known invalid variance entries remain invalid even when cross-covariance is missing.",
+        ))
     if cov is None:
         return record.with_finding(finding(
             Axis.DETERMINATION, Status.INDETERMINATE, "INPUT_COVARIANCE_MISSING",
             "Missing V/I covariance is not zero covariance; no propagated variance is licensed.",
         ))
-    if (not all(finite(x) for x in (vv, ii, cov)) or vv < 0 or ii < 0
-            or Fraction(cov)**2 > Fraction(vv)*Fraction(ii)):
+    if (not finite(cov) or (diagonal_ok and Fraction(cov)**2 > Fraction(vv)*Fraction(ii))):
         return record.with_finding(finding(
             Axis.DETERMINATION, Status.FAILED, "INVALID_INPUT_COVARIANCE",
             "Covariance must be finite, nonnegative on the diagonal and positive semidefinite; no clipping.",

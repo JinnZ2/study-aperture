@@ -157,6 +157,14 @@ class MeasurementAuditTests(unittest.TestCase):
         self.assertGreater(Fraction(cov)**2, Fraction(ii))
         self.assertEqual(covariance_record(1.0, ii, cov).determination, Status.FAILED)
 
+    def test_missing_covariance_does_not_mask_a_known_invalid_diagonal(self):
+        record = covariance_record(-1.0, 1.0, None)
+        self.assertEqual(record.determination, Status.FAILED)
+        self.assertEqual({f.code for f in record.findings},
+                         {"INVALID_INPUT_VARIANCE_DIAGONAL", "INPUT_COVARIANCE_MISSING"})
+        self.assertEqual(record.instrument, Status.UNTESTED)
+        self.assertEqual(record.physical, Status.UNTESTED)
+
     def test_non_psd_input_budget_cannot_be_executed(self):
         stats = dict(self.stats, cov=Fraction(1, 1000))
         run = run_case(stats)
