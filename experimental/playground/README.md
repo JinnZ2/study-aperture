@@ -54,6 +54,13 @@ diagnostics cannot license comparison of different declared quantities.
 Comparison eligibility stays separate from calculation status and physical
 adequacy; both run records survive a void comparison.
 
+The [denominator-change procedure audit](audits/denominator-README.md) checks
+the selected count against explicit cohort-member IDs and the actual equation
+input binding. Equal rates, equal counts and shared false labels do not license
+interchangeability. Unknown membership, empty denominators and inconsistent
+source records remain distinct; both policies have scoped positive controls.
+This is constructed procedure evidence, not independently observed membership.
+
 ## L0: accounting closure
 
 L0 runs before any physics. Its question: does the boundary accounting

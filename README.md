@@ -115,6 +115,12 @@ measurement/design failures but cannot inherit the previous equation's
 certificates or physical support. The example and bypass tests are constructed;
 successful computation is not physical validation.
 
+The [constructed denominator-change audit](experimental/playground/audits/denominator-README.md)
+traces initial-enrollment and surviving-member normalization to explicit member
+IDs and equation inputs. Coincident values and shared false declarations cannot
+substitute for that procedure check. Missing membership, zero denominators and
+inconsistent source records remain distinct; no empirical support is promoted.
+
 The first [finite-graph bond percolation family](experimental/playground/equations/PERCOLATION.md)
 uses that same diagnostic path for a selected graph, declared boundary sets,
 component results, and exhaustive independent-bond ensemble metrics.
