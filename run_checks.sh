@@ -25,6 +25,7 @@ for f in provenance_graph false_agree conditional_claims safe_provenance; do
   step 0 "vendored/$f.py selftest"           bash -c "cd vendored && '$PY' $f.py selftest"
 done
 step 0 "example: reproducibility-model recompute" "$PY" examples/reproducibility-model/recompute.py selftest
+step 0 "audit: arxiv-2611.05459 extract check" "$PY" audits/arxiv-2611.05459-llm-review-benchmark-2026-11-14/extract.py --check
 step 0 "repo integrity tests"                "$PY" -m unittest discover -s tests
 
 # scope audit lab

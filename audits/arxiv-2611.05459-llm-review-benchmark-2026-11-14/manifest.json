@@ -1,0 +1,79 @@
+{
+  "schema": "study-aperture/source-extract-audit/1",
+  "record_id": "arxiv-2611.05459-llm-review-benchmark-2026-11-14",
+  "record_date": "2026-11-14",
+  "co_authored": true,
+  "license": "CC0-1.0",
+  "source": {
+    "arxiv_id": "2611.05459v1",
+    "title": "Can Large Language Models Review the Scientific Literature? A Test Against a 102-Article Benchmark",
+    "submitted": "2026-11-03",
+    "source_license": "CC BY 4.0",
+    "retrieved_utc": "2026-11-14T22:33:36Z (file mtimes of the local copies)",
+    "fetched": [
+      {
+        "url": "https://arxiv.org/abs/2611.05459",
+        "sha256": "0de8a906b7832272a1e2bb5249034df4c913d639268a97178c9f47aac9b5e0f1",
+        "bytes": 43442,
+        "committed": false
+      },
+      {
+        "url": "https://arxiv.org/html/2611.05459",
+        "sha256": "22e47930d0ea45121e745b9aa9c7d322d1ef992aaab3f0be922cd3eb564006c5",
+        "bytes": 197660,
+        "committed": false
+      },
+      {
+        "url": "https://arxiv.org/pdf/2611.05459",
+        "sha256": "e597eac71baaff3941e4541172fc6689ce98e04d44212b960c5aebd77ff6da4c",
+        "bytes": 893804,
+        "committed": false
+      }
+    ],
+    "pdf_text": "pdftotext -layout (poppler) output, 35 form-feed-separated pages; not committed"
+  },
+  "authors_repository": {
+    "url": "https://github.com/abx40/spanish-plume-llm-literature-review",
+    "commit": "f2f565bf8502ee294a74945f7dcad158bab9091d",
+    "read_for": [
+      "rubric or insight definition (none found)",
+      "Data/access_barriers/access_status.csv retrieval routes (31 automatic, 71 manual_import)",
+      "Data/synthesis/prompt.md"
+    ]
+  },
+  "not_read": [
+    "Schultz et al. 2025 benchmark review and its database"
+  ],
+  "files": [
+    {
+      "path": "CHECKS.md",
+      "sha256": "da742ed2f7ccc4b386b848ff8a95cb78bb9ea9d8268e15c1eeae62291711ec7c",
+      "bytes": 12749
+    },
+    {
+      "path": "EXTRACT.md",
+      "sha256": "77194b635eaf6155efb6dff89b7d80a7382f5a12083423e0ec8ec99bb50a1262",
+      "bytes": 14936
+    },
+    {
+      "path": "README.md",
+      "sha256": "90190eb2897edaf70ea697b5dd39c8795b11de45a156607f6ac46aeaee2392c0",
+      "bytes": 2689
+    },
+    {
+      "path": "extract.py",
+      "sha256": "7f469f79c4da656fbb2a2bc3f1c977846601895a3cf9152c2665d8789c8ca4dd",
+      "bytes": 7356
+    },
+    {
+      "path": "located.json",
+      "sha256": "3c27f1b2a53d1c7b72c586e1ef1acc1c972b047a6e1c497e74ace8ba736bdfc5",
+      "bytes": 4616
+    },
+    {
+      "path": "quotes.json",
+      "sha256": "486dc0090c501750d0a9561fbdebf951466a4eafffe92c5236b77a6621d6c37b",
+      "bytes": 17883
+    }
+  ]
+}

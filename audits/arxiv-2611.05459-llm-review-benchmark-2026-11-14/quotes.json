@@ -1,0 +1,400 @@
+{
+ "schema": "study-aperture/extract-quotes/1",
+ "note": "Quotes only. Each `quote` must appear verbatim (whitespace-normalised) in the arXiv HTML text of 2611.05459v1. `pdf_page` is located by extract.py against the PDF. A field with no passage in the paper is an UNKNOWN entry with `quote: null` and a `searched` note; it is never dropped.",
+ "items": [
+  {
+   "item": 1,
+   "topic": "Tools tested",
+   "entries": [
+    {
+     "section": "2.3 The tools",
+     "quote": "Six tools were used, consisting of three types: three online assistants, two coding agents, and a retrieval-grounded assistant."
+    },
+    {
+     "section": "2.3 The tools",
+     "quote": "All three were run in their deep-research modes (Deep Research in ChatGPT and Gemini, Research in Claude), in which the assistant plans and carries out many web searches before writing a report."
+    },
+    {
+     "section": "2.3 The tools",
+     "quote": "Second, a coding agent runs on the user’s own machine with a terminal, a file system, and a browser that carries the user’s sessions: Codex and Claude Code."
+    },
+    {
+     "section": "2.3 The tools",
+     "quote": "Third, a retrieval-grounded assistant answers only from documents uploaded to it: NotebookLM, renamed Gemini Notebook in July 2026."
+    },
+    {
+     "section": "2.3 The tools",
+     "quote": "All six were used on the entry-level paid plan of their provider, and wherever a product offered a reasoning-effort setting, it was set to its maximum for every task."
+    },
+    {
+     "section": "2.3, Table 1 caption",
+     "quote": "Model versions are those the products reported; NotebookLM does not report its model version; Gemini 3.5 is from Google’s announcement ( Google, 2026 ) ."
+    },
+    {
+     "section": "2.3, Table 1 rows (tool | underlying model | type | plan | tasks)",
+     "table": [
+      [
+       "ChatGPT Deep Research",
+       "GPT-5.6 Sol",
+       "online assistant",
+       "ChatGPT Plus",
+       "find"
+      ],
+      [
+       "Gemini Deep Research",
+       "Gemini 3.1 Pro",
+       "online assistant",
+       "Google AI Pro",
+       "find"
+      ],
+      [
+       "Claude (web interface)",
+       "Claude Opus 5",
+       "online assistant",
+       "Claude Pro",
+       "find"
+      ],
+      [
+       "Codex",
+       "GPT-5.6 Sol",
+       "coding agent",
+       "ChatGPT Plus",
+       "find, interpret, synthesize, propose"
+      ],
+      [
+       "Claude Code",
+       "Claude Opus 5",
+       "coding agent",
+       "Claude Pro",
+       "find, interpret, synthesize, propose"
+      ],
+      [
+       "NotebookLM",
+       "Gemini 3.5",
+       "retrieval-grounded assistant",
+       "Google AI Pro",
+       "interpret, synthesize, propose"
+      ]
+     ]
+    },
+    {
+     "section": "3.2 Method",
+     "quote": "The saved search results were produced in late July and early August 2026."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "This study tested one topic and one set of 102 articles, and each tool was run once on each task."
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "temperature / sampling settings, exact build or snapshot identifiers beyond the product-reported model name, plan prices",
+     "searched": "paper HTML and PDF text; not stated"
+    }
+   ]
+  },
+  {
+   "item": 2,
+   "topic": "How insight was defined and scored",
+   "entries": [
+    {
+     "section": "5.2 Method",
+     "quote": "Two coauthors (DMS and AKAF) scored each synthesis independently, theme by theme, on five criteria developed jointly: writing quality and readability, depth and breadth, veracity, insight, and usefulness to a researcher conducting a review."
+    },
+    {
+     "section": "5.2 Method",
+     "quote": "Each criterion was rated from 1 (strongly disagree) to 5 (strongly agree), giving 50 ratings per synthesis per reviewer and 300 in total."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Reviewer B scored veracity at 3.6 to 3.8 and insight at 2.3 to 2.5 for every tool, and wrote that the outputs were “fine, but quite uninsightful” and “just a summary without any insights.”"
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "The tools reported the literature; they did not synthesize it."
+    },
+    {
+     "section": "5.3 Results, Table 5 caption",
+     "quote": "Mean blinded rating (1–5) per criterion, averaged over the ten themes, for each reviewer and tool."
+    },
+    {
+     "section": "5.5 Discussion",
+     "quote": "Every grounding rule in the prompt penalized an unsupported statement; none rewarded a justified interpretation."
+    },
+    {
+     "section": "5.5 Discussion",
+     "quote": "Only one of the three labels, “cross-article synthesis inference”, allowed a tool to reason across articles, and the prompt did not define it."
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "a definition of `insight`; the statement each 1-5 agreement rating was made against; anchor descriptions per scale point; scored examples",
+     "searched": "paper HTML and PDF text; authors' public repository at commit f2f565b (README, Data/synthesis/prompt.md, scripts/), where `insight` occurs only as a column/criterion name"
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "a published rubric document",
+     "searched": "paper text (none cited) and authors' repository f2f565b (no rubric file; per-theme scores and anonymised ratings are published)"
+    }
+   ]
+  },
+  {
+   "item": 3,
+   "topic": "Graders",
+   "entries": [
+    {
+     "section": "1 Introduction",
+     "quote": "Then, two coauthors of the present study (DMS, the lead author of that review, and AKAF, a convective-storms expert, but not a coauthor on that review) evaluated LLM-written syntheses of the same corpus, blinded to which tool had produced which."
+    },
+    {
+     "section": "5.2 Method",
+     "quote": "The three syntheses were anonymized as Syntheses 1, 2 and 3, with the key held by the first author and withheld from both reviewers (1 was NotebookLM, 2 was Codex, and 3 was Claude)."
+    },
+    {
+     "section": "5.2 Method",
+     "quote": "Citation formatting was standardized across the three so that style could not identify a tool; claims, hedges, identifiers and page numbers were left untouched."
+    },
+    {
+     "section": "5.2 Method",
+     "quote": "Reviewer A is the lead author of the benchmark review (DMS); Reviewer B is an independent researcher in severe convection who was not involved in that study (AKAF)."
+    },
+    {
+     "section": "Affiliations",
+     "quote": "Department of Earth and Environmental Sciences, The University of Manchester, Manchester, United Kingdom"
+    },
+    {
+     "section": "Affiliations",
+     "quote": "Department of Atmospheric and Climate Science, University of Washington, Seattle, Washington, United States"
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "Across the 150 ratings each gave, they agreed exactly on 24% and within one point on 67%, Reviewer A scored 0.94 points higher on average than Reviewer B, and they ranked the three tools differently."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "Reviewer A led the writing of the benchmark review and was potentially biased by being too close to the subject matter."
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "degrees / formal credentials; years in field; operational (forecasting) roles; a chance-corrected inter-rater statistic (Cohen's kappa in the paper is tool vs benchmark only)",
+     "searched": "paper HTML and PDF text"
+    }
+   ]
+  },
+  {
+   "item": 4,
+   "topic": "How the 102-article benchmark was built",
+   "entries": [
+    {
+     "section": "2.1 The benchmark review",
+     "quote": "searched Google Scholar, Web of Science, American Meteorological Society journals, and Royal Meteorological Society journals for the exact phrase “Spanish plume”, and assembled 102 peer-reviewed articles published between 1968 and 2023."
+    },
+    {
+     "section": "2.1 The benchmark review",
+     "quote": "Eighty-four articles mentioned the plume in passing. Fourteen, which we call informative, used it as an integral part of their argument. Four, which we call essential, were specifically about it"
+    },
+    {
+     "section": "1 Introduction",
+     "quote": "the Spanish plume, a weather pattern associated with severe convective storms in western Europe."
+    },
+    {
+     "section": "3.4 Discussion",
+     "quote": "In the present study, the tools found 21 of the 27 articles from 2020 onward (78%), compared with 34 of the 71 from 1995–2019 (48%)."
+    },
+    {
+     "section": "3.4 Discussion",
+     "quote": "The corpus contains only four articles before 1995, limiting the comparison to the results of Poe and Dryer (2026) ."
+    },
+    {
+     "section": "2.2 The corpus",
+     "quote": "The 102 articles were retrieved as PDFs and assigned identifiers SP001–SP102 in order of publication year."
+    },
+    {
+     "section": "3.3 Results",
+     "quote": "Only 2 of the 11 pre-2005 Weather articles were found, against 7 of the 11 pre-2005 articles in other journals."
+    },
+    {
+     "section": "3.4 Discussion",
+     "quote": "After login, Codex found a similar share of articles from every period, but Claude Code still found only 39% of those published before 2000 (Fig.  3 )."
+    },
+    {
+     "section": "3.4 Discussion",
+     "quote": "They found three of the four essential articles; the exception, Gray and Marshall (1998) , was in Weather ."
+    },
+    {
+     "section": "2.1 The benchmark review",
+     "quote": "Carlson and Ludlam (1968) , who first described the mechanism; Morris (1986) , who popularized the name"
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "language criterion; treatment of non-peer-reviewed sources beyond `peer-reviewed`; exclusion criteria beyond the exact phrase; search date",
+     "searched": "paper HTML and PDF text (the benchmark review Schultz et al. 2025 itself was not read for this record)"
+    }
+   ]
+  },
+  {
+   "item": 5,
+   "topic": "Access conditions",
+   "entries": [
+    {
+     "section": "3.2 Method",
+     "quote": "Institutional authentication and browser state were not controlled uniformly across these five runs, so the comparison describes what each tool reported in practice rather than a matched test of model capability."
+    },
+    {
+     "section": "3.2 Method",
+     "quote": "Codex and Claude Code were each run twice with an identical prompt: once with browser cookies cleared and no institutional session, and once after the first author signed in to the University of Manchester’s publisher and database subscriptions."
+    },
+    {
+     "section": "3.3 Results",
+     "quote": "Web of Science was unavailable to both coding agents without a university subscription. Google Scholar interrupted Codex with a CAPTCHA and Claude Code after 15 results; AMS blocked Claude Code entirely but admitted Codex."
+    },
+    {
+     "section": "3.3 Results",
+     "quote": "In the paired test, Codex went from 42 benchmark articles before login to 82 after, and Claude Code from 15 to 79 (Fig.  3 )."
+    },
+    {
+     "section": "3.3 Results",
+     "quote": "Most of the gain came from Wiley’s journals, where Codex went from 21 of the 62 articles to 53 and Claude Code from 12 to 53. Before login, Claude Code found no articles from five of the seven publisher groups."
+    },
+    {
+     "section": "3.4 Discussion",
+     "quote": "Wiley, by contrast, serves Weather articles from before about 2005 as metadata and a reference list, with the article body available only as a scanned image, so the phrase cannot be matched inside them."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "In the login test, logging in gave the two coding agents subscription access and also let them past websites that had blocked them, so the test cannot separate those two effects."
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "the itemised list of subscriptions the University of Manchester login provided; per-publisher licence terms",
+     "searched": "paper HTML and PDF text; the paper states private authentication records are not posted"
+    }
+   ]
+  },
+  {
+   "item": 6,
+   "topic": "Unsupported claim, quotation error, exaggerated consensus",
+   "entries": [
+    {
+     "section": "arXiv listing abstract (differs from the abstract in the paper body)",
+     "quote_source": "abs",
+     "quote": "Although largely accurate, the syntheses provided limited insight and sometimes contained unsupported claims, quotation errors, and exaggerated statements of consensus."
+    },
+    {
+     "section": "5.2 Method (prompt rule 4)",
+     "quote": "Do not convert repeated unsupported claims into established facts, and do not describe anything as consensus unless the supplied sources demonstrate it."
+    },
+    {
+     "section": "4.2 Method",
+     "quote": "ignoring hyphenation, line numbering, and spacing so that only a genuine departure from the source counted as a failure."
+    },
+    {
+     "section": "4.3 Results",
+     "quote": "Of its 101 quotations, 94 appeared word for word in the article it cited; the other 7 were taken from the article but altered its wording, dropping or changing words without marking the change."
+    },
+    {
+     "section": "4.3 Results",
+     "quote": "Claude gave a quotation for 101 articles, all of them real text from the article cited, with the page number correct for 98 and wrong for 3."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Codex used no direct quotations. NotebookLM used two, and both were wrong."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Theme 8 asked for areas of agreement in the literature, and all three tools answered with more confidence than the corpus supports."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Synthesis 1 asserted “absolute consensus” and called the plume “the primary driver of Europe’s most severe summertime convective hazards”"
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "The reviewers also found errors that no citation audit would catch"
+    },
+    {
+     "section": "UNKNOWN",
+     "quote": null,
+     "field": "an operational definition of `unsupported claim` and a count of unsupported claims per synthesis; a count of exaggerated-consensus statements beyond `all three tools` on Theme 8",
+     "searched": "paper HTML and PDF text; the term `unsupported claims` appears in the arXiv listing abstract and as a prompt rule, not as a scored category"
+    }
+   ]
+  },
+  {
+   "item": 7,
+   "topic": "Authors' stated limitations",
+   "entries": [
+    {
+     "section": "8 Limitations",
+     "quote": "Differences between tools could therefore reflect chance variation between runs, which was not measured."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "we cannot know whether the underlying LLMs had been trained on it, as the review was published more than a year before our tests were performed."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The benchmark has only four articles from before 1995, which limits what can be said about older literature."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The databases built by the tools were scored on 4 of their 17 fields, the ones that the benchmark database also records."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The benchmark database was treated as correct, so any error in it was counted as an error by the tool."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The synthesis prompt told the tools what to write about, rather than leaving them to write openly, so we did not test whether they would have found the main problems in the literature on their own."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The low ratings for insight, and the differences in length between the syntheses, may therefore reflect the prompt as much as the tools."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "Two reviewers are too few to assess statistical significance, and the results would be subjective anyway."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "The implicit assumption that human judgment is monolithic and characterized by consensus should be carefully examined in future work."
+    },
+    {
+     "section": "8 Limitations",
+     "quote": "This study has not compared our results to these specialized tools."
+    },
+    {
+     "section": "6.4 Discussion",
+     "quote": "These results rest on one answer from each tool, scored by two reviewers."
+    }
+   ]
+  },
+  {
+   "item": "frame",
+   "topic": "Prompt text bearing on the frame note",
+   "entries": [
+    {
+     "section": "5.2 Method",
+     "quote": "The prompt required a source and a page for every claim, forbade outside knowledge and web access, and instructed the tool to write “Not established by the provided sources” where evidence was absent."
+    },
+    {
+     "section": "5.2 Method",
+     "quote": "Four of the ten themes encoded concerns raised by the benchmark review itself, so this was a guided synthesis test rather than an open-ended one. The tools were not asked to discover the problems in the literature, only to discuss them."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Reviewer A observed that none of the three recognized that Spain lies on the trajectory path from Africa, a point central to the debate about the origin of the Spanish plume airstream."
+    },
+    {
+     "section": "5.3 Results",
+     "quote": "Several articles in the corpus describe it that way, but the description is inconsistent with the original definition of Carlson and Ludlam (1968) , in which the plume is warm, dry air above a moist layer."
+    }
+   ]
+  }
+ ]
+}
