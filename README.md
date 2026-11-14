@@ -1,3 +1,6 @@
+> Read first: [READING_PROTOCOL.md](READING_PROTOCOL.md) (how to read this repo).
+> Map, not prescription. Errors are data. Check it. Built for the need, revisable.
+
 # study-aperture
 
 A ready-to-use toolbox for AI-assisted assessment of any study or publication — reasoning tools, a record format, and a report generator that keeps incompleteness visible.
