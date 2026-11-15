@@ -59,6 +59,7 @@ python3 assess.py selftest
 | Path | Contents |
 |---|---|
 | `cards/00_ROUTING.md` … `cards/06_RECORDS.md` | the seven method cards |
+| `cards/07_READ_CEILING.md` | read depth per source (SNIPPET / PRESS_RELEASE / ABSTRACT / FULL_TEXT / CARRIED) and the read-ceiling declaration; convention only, not enforced by `assess.py` |
 | `assess.py` | record validator + report generator (stdlib) |
 | `TEMPLATE.json` | skeleton record showing where measurement declarations, design checks, falsifiers, epistemic labels, and per-finding sources live |
 | `vendored/` | `provenance_graph.py`, `false_agree.py`, `conditional_claims.py` (upstream), `safe_provenance.py` (scoped adapter) — selftests intact + `PROVENANCE.md` |

@@ -15,7 +15,7 @@ Decide which cards apply to *this* publication before any of them run. "Assess a
    - `SIMULATION` — computational experiment on constructed inputs
    - `COMMENTARY` — essay, editorial, position, research note
    - If you cannot tell from the material in hand: record `UNDECLARED`. Do not guess.
-2. **Record the material you actually hold** (full text, abstract only, preprint, methods only). Every later grade is conditioned on this. Do not claim material you have not read.
+2. **Record the material you actually hold** (full text, abstract only, preprint, methods only). Every later grade is conditioned on this. Do not claim material you have not read. Per source, record the read depth and any read ceiling: Card 07.
 3. **Record the decision context** — what the assessment is *for*. If absent, downstream implications must be stated conditionally, not as recommendations.
 4. **Route (defaults, not gates):**
 

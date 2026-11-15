@@ -6,7 +6,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 
 ```
                          ┌───────────────────────────┐
-  publication ──► cards/ (00 route → 01..06) ──► AI_ENTRY_PROMPT.md (LLM path, no Python)
+  publication ──► cards/ (00 route → 01..07) ──► AI_ENTRY_PROMPT.md (LLM path, no Python)
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/1)
@@ -27,7 +27,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | Path | Role | Edit rules |
 |---|---|---|
 | `assess.py` | validator + report generator | stdlib only, no network; keep the docstring schema in sync with code |
-| `cards/00..06_*.md` | method cards (provenance, procedure, outputs, limits) | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate |
+| `cards/00..07_*.md` | method cards (provenance, procedure, outputs, limits); 07 read depth is convention only, no validator field | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate |
 | `AI_ENTRY_PROMPT.md` | LLM prompt + CLI handoff table | update the handoff table when CLI flags change |
 | `TEMPLATE.json` | skeleton record | keep valid against `assess.py check` |
 | `vendored/*.py` (3 upstream) | verbatim from Simulators `0655e8b` | **do not modify**; upstream oddities are data, not defects. Changes go in `safe_provenance.py` (toolbox adapter) or upstream |
