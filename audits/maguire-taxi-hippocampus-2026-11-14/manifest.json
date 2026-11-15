@@ -1,0 +1,112 @@
+{
+  "schema": "study-aperture/source-extract-audit/2",
+  "record_id": "maguire-taxi-hippocampus-2026-11-14",
+  "record_date": "2026-11-14",
+  "co_authored": true,
+  "license": "CC0-1.0",
+  "fetched": [
+    {
+      "file": "pnas2000.pmc.html",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC18253/",
+      "retrieved_utc": "2026-11-15T14:50:33Z (file mtime of the local copy)",
+      "sha256": "7bb3485d77d31f4632fd0a123223269b51d618ef7785146ebd4dd9380e8c56c8",
+      "bytes": 155641,
+      "note": "PMC HTML full text; PNAS publisher licence, not committed",
+      "committed": false
+    },
+    {
+      "file": "cub2011.epmc.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3268356/fullTextXML",
+      "retrieved_utc": "2026-11-15T02:19:16Z (file mtime of the local copy)",
+      "sha256": "6767832326ed54fa967ad7d0cfe32d3c76445b9c1558ae82317bd7767bacff78",
+      "bytes": 78556,
+      "note": "Europe PMC JATS full text; CC BY 3.0; not committed (hash suffices)",
+      "committed": false
+    },
+    {
+      "file": "hipo2006.epmc.json",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&resultType=core&query=DOI%3A10.1002%2Fhipo.20233",
+      "retrieved_utc": "2026-11-15T14:51:01Z (file mtime of the local copy)",
+      "sha256": "0679e37b189b835a61289e8b6275fcf7d416eab6c7794d9dcb63cd3acd727458",
+      "bytes": 5637,
+      "note": "Europe PMC metadata + abstract only",
+      "committed": false
+    },
+    {
+      "file": "dahmani2020.epmc.json",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&resultType=core&query=DOI%3A10.1038%2Fs41598-020-62877-0",
+      "retrieved_utc": "2026-11-15T14:50:59Z (file mtime of the local copy)",
+      "sha256": "20164715bd5bcbc1378fad1e06ef2fc0a295d4fa26faaafef4599ed4654639fc",
+      "bytes": 5972,
+      "note": "Europe PMC metadata + abstract only",
+      "committed": false
+    },
+    {
+      "file": "draganski2004.epmc.json",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&resultType=core&query=DOI%3A10.1038%2F427311a",
+      "retrieved_utc": "2026-11-15T14:50:58Z (file mtime of the local copy)",
+      "sha256": "9f5010f50031bc8865c628c864c38bd7c29403b6b45d8e9207a424919da70545",
+      "bytes": 3840,
+      "note": "Europe PMC metadata, no abstract",
+      "committed": false
+    }
+  ],
+  "blocked": [
+    {
+      "what": "Maguire 2000 PDF and publisher page",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.070039597",
+      "result": "HTTP 403 bot challenge (Cloudflare); PMC HTML copy used instead"
+    },
+    {
+      "what": "Maguire 2006 full text",
+      "url": "https://doi.org/10.1002/hipo.20233",
+      "result": "not fetched: Wiley and UCL Discovery hosts refused by network policy; Europe PMC lists it as subscription-only"
+    },
+    {
+      "what": "Woollett 2011 supplement (Document S1, Table S1)",
+      "url": "https://doi.org/10.1016/j.cub.2011.11.018",
+      "result": "not fetched (cell.com host not allowed); main text only"
+    },
+    {
+      "what": "Draganski 2004 text",
+      "url": "https://doi.org/10.1038/427311a",
+      "result": "not fetched; Europe PMC record has no abstract"
+    }
+  ],
+  "not_read": [
+    "Sapolsky and McEwen glucocorticoid literature (named in a check, carried, not fetched)",
+    "Maguire et al. 2003 and Woollett et al. 2009 (retired drivers), cited by W2011 as [3,4,20,21]"
+  ],
+  "files": [
+    {
+      "path": "CHECKS.md",
+      "sha256": "4fe12f46f1bf9f89ad102380e1933d54e2be61ff1a59b2683604e7f23fe65db6",
+      "bytes": 14703
+    },
+    {
+      "path": "EXTRACT.md",
+      "sha256": "15dc614273bcb93afa751810b2a326acf4f86cec8cef2d1651bca3cf1d79539d",
+      "bytes": 15806
+    },
+    {
+      "path": "README.md",
+      "sha256": "77a3a175f1754f0616f00c469dc46eadd488d2d43db4b30c6dd17606df29eb94",
+      "bytes": 3475
+    },
+    {
+      "path": "extract.py",
+      "sha256": "d1951e8c967299123ef4b438268ea45b9657ad13a5dd882606119b862a0c19fc",
+      "bytes": 7608
+    },
+    {
+      "path": "located.json",
+      "sha256": "f5ee32c05601f1ea9a4eaa2f03a77be207b1317b03c72b438a51a5b30bccc41e",
+      "bytes": 3350
+    },
+    {
+      "path": "quotes.json",
+      "sha256": "1974a7ba314eb15ee3ce3d8968e33cbc68e0be0e8c7018c4029c3f281dcea11c",
+      "bytes": 18763
+    }
+  ]
+}
