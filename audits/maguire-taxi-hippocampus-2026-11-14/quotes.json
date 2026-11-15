@@ -1,0 +1,372 @@
+{
+ "schema": "study-aperture/extract-quotes/2",
+ "note": "Quotes only. Each `quote` must appear verbatim (whitespace ignored) in the text of the fetched source named by `source` (see manifest.json). A field with no passage in what was fetched is an UNKNOWN entry with `quote: null` and a `searched` note; it is never dropped. `reach` says how much of the source was read: full_text, abstract_only, or title_only.",
+ "sources": {
+  "M2000": {
+   "file": "pnas2000.pmc.html",
+   "kind": "html",
+   "reach": "full_text",
+   "cite": "Maguire EA, Gadian DG, Johnsrude IS, Good CD, Ashburner J, Frackowiak RSJ, Frith CD. Navigation-related structural change in the hippocampi of taxi drivers. PNAS 2000;97(8):4398-4403. doi:10.1073/pnas.070039597. PMC18253"
+  },
+  "M2006": {
+   "file": "hipo2006.epmc.json",
+   "kind": "epmc_abstract",
+   "reach": "abstract_only",
+   "cite": "Maguire EA, Woollett K, Spiers HJ. London taxi drivers and bus drivers: a structural MRI and neuropsychological analysis. Hippocampus 2006;16(12):1091-1101. doi:10.1002/hipo.20233. PMID 17024677"
+  },
+  "W2011": {
+   "file": "cub2011.epmc.xml",
+   "kind": "jats",
+   "reach": "full_text",
+   "cite": "Woollett K, Maguire EA. Acquiring “the Knowledge” of London's layout drives structural brain changes. Current Biology 2011;21(24):2109-2114. doi:10.1016/j.cub.2011.11.018. PMC3268356. CC BY 3.0. Main text read; Supplemental Experimental Procedures and Table S1 not read"
+  },
+  "D2020": {
+   "file": "dahmani2020.epmc.json",
+   "kind": "epmc_abstract",
+   "reach": "abstract_only",
+   "cite": "Dahmani L, Bohbot VD. Habitual use of GPS negatively impacts spatial memory during self-guided navigation. Scientific Reports 2020;10:6310. doi:10.1038/s41598-020-62877-0. PMC7156656"
+  },
+  "D2004": {
+   "file": "draganski2004.epmc.json",
+   "kind": "epmc_abstract",
+   "reach": "title_only",
+   "cite": "Draganski B et al. Neuroplasticity: changes in grey matter induced by training. Nature 2004;427:311-312. doi:10.1038/427311a. PMID 14737157 (Europe PMC record carries no abstract)"
+  }
+ },
+ "items": [
+  {
+   "item": 1,
+   "topic": "What was measured: hippocampal regions, gray-matter method, memory tests",
+   "entries": [
+    {
+     "source": "M2000",
+     "section": "Introduction (unheaded)",
+     "quote": "In the first instance, we used voxel-based morphometry (VBM) to examine whether morphological changes associated with navigation experience were detectable anywhere in the healthy human brain."
+    },
+    {
+     "source": "M2000",
+     "section": "Introduction (unheaded)",
+     "quote": "The data were also analyzed by using a second and completely independent pixel-counting technique within the hippocampus proper."
+    },
+    {
+     "source": "M2000",
+     "section": "Methods: Image Analysis Method 2: Pixel Counting",
+     "quote": "These were grouped into three regions (14): posterior hippocampus (6 slices), body (12 slices), and anterior (6 slices)."
+    },
+    {
+     "source": "M2000",
+     "section": "Results: VBM",
+     "quote": "The increase in hippocampal gray matter volume was focal and limited to the posterior hippocampus bilaterally."
+    },
+    {
+     "source": "M2000",
+     "section": "Results: Pixel Counting",
+     "quote": "Although the analysis revealed no difference in the overall volume of the hippocampi between taxi drivers and controls, it did reveal regionally specific differences in volume (Fig. 2)."
+    },
+    {
+     "source": "M2000",
+     "section": "Results: VBM",
+     "quote": "Significantly increased gray matter volume was found in the brains of taxi drivers compared with those of controls in only two brain regions, namely the right and the left hippocampi (Fig. 1 a and b)."
+    },
+    {
+     "source": "M2000",
+     "section": "Results: Changes with Navigation Experience",
+     "quote": "We examined the correlation between volume and amount of time spent as a taxi driver (including both training on The Knowledge and practicing as a qualified taxi driver)."
+    },
+    {
+     "source": "M2000",
+     "field": "memory tests used",
+     "quote": null,
+     "searched": "full text: Methods, Results, Discussion for any memory or neuropsychological test; none is described. The study reports MRI measures only."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "We found that compared with bus drivers, taxi drivers had greater gray matter volume in mid-posterior hippocampi and less volume in anterior hippocampi."
+    },
+    {
+     "source": "M2006",
+     "field": "gray-matter method; memory test names",
+     "quote": null,
+     "searched": "abstract only (full text not fetched: Wiley and UCL hosts blocked by network policy; Europe PMC lists it as subscription-only). The abstract names neither the analysis method nor any test."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 1",
+     "quote": "An automated whole-brain analysis method, voxel-based morphometry (VBM; [22, 23]) implemented in SPM8, was used to compare GM volume between the groups."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "This was accomplished by implementing high-dimensional warping (HDW) in SPM8."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 1",
+     "quote": "We next looked at their performance at T1 on a battery of tests assessing working and long-term memory, recognition and recall, and visual and verbal material (see Supplemental Experimental Procedures and Table S1A available online)."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "A significant difference was found between the groups on the London landmarks proximity judgments test [F(2,87) = 8.09 p = 0.001], with trainees who qualified being significantly better at judging the spatial relations between London landmarks than the control participants (p = 0.003), as were nonqualified trainees (p = 0.003)."
+    },
+    {
+     "source": "W2011",
+     "field": "full list of memory tests",
+     "quote": null,
+     "searched": "main text names two tests (London landmarks proximity judgments; Taylor complex figure delayed recall). The full battery is in Supplemental Experimental Procedures / Table S1, not read."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "The opposite comparison (T1 > T2) did not show any significant differences, nor were there any significant differences in GM volume anywhere else in the brain for either contrast."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion (introductory)",
+     "quote": "We therefore conducted a longitudinal study examining 79 male trainee London taxi drivers at the start of their training (T1, time 1) and then again 3–4 years later just after qualification (T2, time 2), as well as 31 male control participants, with two aims."
+    }
+   ]
+  },
+  {
+   "item": 2,
+   "topic": "The trade-off claim: exact wording, which tests showed deficits",
+   "entries": [
+    {
+     "source": "M2000",
+     "section": "Discussion",
+     "quote": "The converging results from these two independent analysis techniques indicate that the professional dependence on navigational skills in licensed London taxi drivers is associated with a relative redistribution of gray matter in the hippocampus."
+    },
+    {
+     "source": "M2000",
+     "section": "Results: Changes with Navigation Experience",
+     "quote": "The pixel-counting data also showed a negative correlation between the time spent as a taxi driver and the volume of anterior hippocampal tissue (r = −0.6; P < 0.05) as plotted in Fig. 3c."
+    },
+    {
+     "source": "M2000",
+     "field": "memory deficit / trade-off on tests",
+     "quote": null,
+     "searched": "full text: no memory test was run, so no test deficit is reported. The 2000 claim is a volume redistribution (posterior larger, anterior smaller), not a behavioural cost."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "We then tested for functional differences between the groups and found that the ability to acquire new visuo-spatial information was worse in taxi drivers than in bus drivers."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "We speculate that a complex spatial representation, which facilitates expert navigation and is associated with greater posterior hippocampal gray matter volume, might come at a cost to new spatial memories and gray matter volume in the anterior hippocampus."
+    },
+    {
+     "source": "M2006",
+     "field": "which tests showed the deficit",
+     "quote": null,
+     "searched": "abstract only; test names are in the body, not fetched."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion (introductory)",
+     "quote": "As well as displaying a specific pattern of hippocampal GM volume, qualified taxi drivers have been found to display better memory for London-based information, but surprisingly poorer learning and memory for certain types of new visual information (e.g., delayed recall of complex figures), compared with control participants, suggesting there might be a price to pay for the acquisition of their spatial knowledge, perhaps linked to their reduced anterior hippocampal volume (see [3, 4, 20] for more on this)."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "The groups also differed on the delayed recall of the Taylor complex figure [F(2,87) = 4.38; p = 0.015], with qualified trainees being significantly worse at recalling the complex figure after 30 min delay than the control participants (p = 0.01)."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "Although the posterior hippocampal increase accords with previous findings, we did not observe a decrease in anterior hippocampal GM volume."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "In fact, the poor performance of the qualified trainees on the delayed recall of the complex figure at T2 may be an indication that changes are already afoot in the anterior hippocampus but are not yet detectable with MRI."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2 (concluding)",
+     "quote": "However, this needs to be balanced by our finding that memory improvement in one domain may come at the expense of memory performance elsewhere."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion (introductory)",
+     "quote": "Interestingly, the opposite pattern of hippocampal GM volume and memory profile has been described in retired taxi drivers, hinting that any changes acquired through learning might be reversed or “normalized” when the call on stored memory representations lessens [21]."
+    }
+   ]
+  },
+  {
+   "item": 3,
+   "topic": "Controls: bus drivers (fixed routes), trainees who failed the Knowledge",
+   "entries": [
+    {
+     "source": "M2000",
+     "section": "Methods: Subjects",
+     "quote": "The scans of control subjects were selected from the structural MRI scan database at the same unit where the taxi drivers were scanned."
+    },
+    {
+     "source": "M2000",
+     "section": "Methods: Subjects",
+     "quote": "After the application of these exclusion criteria, the scans of 50 healthy right-handed males who did not drive taxis were included in the analyses for comparison with the taxi drivers."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "We examined the contribution of these factors by comparing London taxi drivers with London bus drivers, who were matched for driving experience and levels of stress, but differed in that they follow a constrained set of routes."
+    },
+    {
+     "source": "M2006",
+     "field": "bus-driver sample size; how matching was done",
+     "quote": null,
+     "searched": "abstract only; body not fetched."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion (introductory)",
+     "quote": "Of the 79 trainees, 39 went on to qualify as licensed London taxi drivers, while 20 did not qualify (ceased training or failed their appearances) but agreed to return for testing at T2."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "There was a difference, however, in the number of hours per week the groups spent training, with the trainees who qualified spending twice as many hours per week training compared to the group who failed to qualify [t(57) = 6.62; p = 0.001]."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "Importantly, the posterior hippocampal change in GM volume cannot be attributed to the qualified trainee taxi drivers' training procedures, methods, or general attempts to learn, as the trainees who failed to qualify were exposed to the same milieu."
+    },
+    {
+     "source": "W2011",
+     "field": "who the 31 control participants were (occupation, recruitment)",
+     "quote": null,
+     "searched": "main text gives only '31 male control participants' and Table 1 background measures; recruitment details are in the supplement, not read."
+    }
+   ]
+  },
+  {
+   "item": 4,
+   "topic": "Stress, emotional load, passenger interaction, cortisol",
+   "entries": [
+    {
+     "source": "M2000",
+     "field": "stress / cortisol / passengers / emotion",
+     "quote": null,
+     "searched": "full text, case-insensitive: 'stress', 'cortisol', 'passenger', 'emotion', 'fare' -- zero hits."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "While these gray matter differences could result from using and updating spatial representations, they might instead be influenced by factors such as self-motion, driving experience, and stress."
+    },
+    {
+     "source": "M2006",
+     "section": "Abstract",
+     "quote": "This suggests that spatial knowledge, and not stress, driving, or self-motion, is associated with the pattern of hippocampal gray matter volume in taxi drivers."
+    },
+    {
+     "source": "M2006",
+     "field": "how stress was measured (instrument, cortisol or not); passenger interaction",
+     "quote": null,
+     "searched": "abstract only. It says the groups were 'matched for ... levels of stress' but not how stress was measured; no mention of cortisol, passengers or emotional load in the abstract."
+    },
+    {
+     "source": "W2011",
+     "field": "stress / cortisol / passengers / emotion",
+     "quote": null,
+     "searched": "main text, case-insensitive: 'stress', 'cortisol', 'passenger', 'emotion', 'fare' -- zero hits. Supplement not read."
+    }
+   ]
+  },
+  {
+   "item": 5,
+   "topic": "Authors' stated limitations",
+   "entries": [
+    {
+     "source": "M2000",
+     "section": "Results: VBM",
+     "quote": "The anterior changes did not survive correction for multiple comparisons but were confirmed in the second analysis technique as described below."
+    },
+    {
+     "source": "M2000",
+     "section": "Discussion",
+     "quote": "The prolonged accumulation of other types of nonnavigational information may also produce similar hippocampal changes."
+    },
+    {
+     "source": "M2000",
+     "section": "Discussion",
+     "quote": "Although the hippocampus does not support navigation in isolation from other brain regions, it seems to be crucial to the storage and use of mental maps of our environments."
+    },
+    {
+     "source": "M2000",
+     "section": "Discussion",
+     "quote": "Given the macroscopic level of our analyses, the data do not speak directly to the microscopic mechanisms, such as neurogenesis (31–33), that might underlie the structural change we report herein."
+    },
+    {
+     "source": "M2006",
+     "field": "stated limitations",
+     "quote": null,
+     "searched": "abstract only; the abstract's last sentence is marked 'We speculate'; body not fetched."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2",
+     "quote": "Using standard structural MRI scanning in humans, it is not possible to address this question directly, but based on work in nonhumans, there are several candidates."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2 (concluding)",
+     "quote": "Very few trainees reported ceasing because they found the spatial memory demands to be too great, although it is possible, or even likely, that the reasons given may have masked such difficulties in some individuals."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 2 (concluding)",
+     "quote": "The trainees that qualified may have had a genetic predisposition toward plasticity that the nonqualified individuals lacked."
+    }
+   ]
+  },
+  {
+   "item": "selection",
+   "topic": "Baseline (T1) differences between groups",
+   "entries": [
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 1",
+     "quote": "There were no statistically significant differences between the three groups for any of the memory measures [F(18,158) = 1.33; p = 0.18]."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion: Time 1",
+     "quote": "No significant differences were found, even with a liberal statistical threshold (p < 0.005 uncorrected for multiple comparisons)."
+    },
+    {
+     "source": "W2011",
+     "section": "Results and Discussion (introductory)",
+     "quote": "Of the other 20 trainees who did not wish to return at T2, two had qualified, and the remaining 18 decided to stop training or made no appearances."
+    }
+   ]
+  },
+  {
+   "item": "context",
+   "topic": "Cross-study sources named in the checks",
+   "entries": [
+    {
+     "source": "D2020",
+     "section": "Abstract",
+     "quote": "We first present cross-sectional results that show that people with greater lifetime GPS experience have worse spatial memory during self-guided navigation, i.e. when they are required to navigate without GPS."
+    },
+    {
+     "source": "D2020",
+     "section": "Abstract",
+     "quote": "Although the longitudinal sample was small, we observed an important effect of GPS use over time, whereby greater GPS use since initial testing was associated with a steeper decline in hippocampal-dependent spatial memory."
+    },
+    {
+     "source": "D2004",
+     "field": "findings of the juggling study",
+     "quote": null,
+     "searched": "Europe PMC record has title only, no abstract; Nature full text not fetched. Nothing about its findings is quoted here."
+    }
+   ]
+  }
+ ]
+}
