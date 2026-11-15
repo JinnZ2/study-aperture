@@ -72,6 +72,7 @@ python3 assess.py selftest
 | `examples/incomplete-input/` | failure mode: incomplete material stays visibly incomplete |
 | `examples/nonempirical-note/` | routing check: commentary returns `NOT_APPLICABLE` for quantitative cards |
 | `examples/reproducibility-model/` | run on a 2026 preprint arguing the OSC 2015 replication rate is a power artifact: record, report, `FINDINGS.md`, and `recompute.py` (stdlib recomputation of the paper's arithmetic, pinned) |
+| `examples/arxiv-2611.16833-grok-specimen/` | specimen for the section-level read ceiling: results claims carried from a press writeup and a snippet are flagged; the methods claim, read in full, is not. All values CARRIED from Grok's assessment |
 | `examples/lab-link/` | synthetic: a Scope Audit Lab integrity report linked to a claim with `labref`; support unchanged, gaps listed as incompleteness |
 | `audits/gemini-assessment-records-2026-11-11/` | preserved user-supplied assessment specimens: two attempts, four publication records, separate source review and capture hashes; not a model benchmark or a source-authentication implementation |
 | `experimental/publication_provenance/` | offline publication/claim capture-binding audit: separate identity declarations, access, byte integrity, location and rendering; no automatic support promotion or publisher authentication |

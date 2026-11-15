@@ -1,0 +1,183 @@
+{
+  "schema": "study-aperture/2",
+  "title": "Chen, He, Zhou, Bu (PKU, submitted 2026-11-12): resistance to AI-assisted writing among first authors (arXiv 2611.16833)",
+  "pub_type": "EMPIRICAL",
+  "citation": "arXiv:2611.16833, submitted 2026-11-12, https://arxiv.org/abs/2611.16833",
+  "materials": "CARRIED: Grok's assessment, relayed by Claude 2026-11-15. Grok's stated reads: the paper's abstract, introduction and methods; a CASRAI writeup (2026-11-15); an alphaXiv summary. Results and limitations sections: read depth not stated. Data as relayed: OpenAlex snapshot 2026-09-23; 71,133 first authors; 565,602 publications, 2023 to Sep 2026.",
+  "decision_context": "Specimen for the section-level read ceiling (Card 07 4b): results claims carried from a press writeup and a snippet, beside a methods claim read in full. Not an assessment for a decision.",
+  "sources": [
+    {
+      "id": "S1",
+      "location": "https://arxiv.org/abs/2611.16833",
+      "depth": "FULL_TEXT",
+      "detail": "abstract, introduction, methods (as declared in Grok's assessment)",
+      "basis": "Grok's assessment, relayed 2026-11-15 (CARRIED)",
+      "sections": [
+        "abstract",
+        "introduction",
+        "methods"
+      ],
+      "section_depths": {
+        "results": "UNDECLARED",
+        "limitations": "UNDECLARED"
+      }
+    },
+    {
+      "id": "S2",
+      "location": "CASRAI writeup of arXiv 2611.16833, 2026-11-15 (URL not relayed)",
+      "depth": "PRESS_RELEASE",
+      "basis": "Grok's assessment, relayed 2026-11-15 (CARRIED)"
+    },
+    {
+      "id": "S3",
+      "location": "alphaXiv summary of arXiv 2611.16833 (URL not relayed)",
+      "depth": "SNIPPET",
+      "basis": "Grok's assessment, relayed 2026-11-15 (CARRIED)"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Resistance = predicted minus observed share of a first author's abstracts with alpha >= 0.1.",
+      "evidence_location": "Methods (as relayed)",
+      "support": "UNTESTED",
+      "measurand": "resistance to AI-assisted writing, per first author",
+      "label": "DERIVED",
+      "instrument": "alpha classifier (GPT-3.5 rewrites); threshold 0.1",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT",
+          "section": "methods"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "text": "Early resistance predicts later resistance; the positive-resistance share falls from 52.9% to 37.2%.",
+      "evidence_location": "Results (carried through S2/S3)",
+      "support": "UNTESTED",
+      "grade": "MEASURED_PRESENT",
+      "label": "OBSERVED",
+      "rests_on": [
+        {
+          "source": "S2",
+          "depth": "PRESS_RELEASE"
+        },
+        {
+          "source": "S3",
+          "depth": "SNIPPET"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "text": "Environment predicts resistance better than individual traits; overall predictive power is low.",
+      "evidence_location": "Results (carried through S2/S3)",
+      "support": "UNTESTED",
+      "grade": "MEASURED_PRESENT",
+      "label": "OBSERVED",
+      "rests_on": [
+        {
+          "source": "S2",
+          "depth": "PRESS_RELEASE"
+        },
+        {
+          "source": "S3",
+          "depth": "SNIPPET"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "text": "A non-positive collaborator is followed by lower later resistance.",
+      "evidence_location": "Results (carried through S2/S3)",
+      "support": "UNTESTED",
+      "grade": "MEASURED_PRESENT",
+      "label": "OBSERVED",
+      "rests_on": [
+        {
+          "source": "S2",
+          "depth": "PRESS_RELEASE"
+        },
+        {
+          "source": "S3",
+          "depth": "SNIPPET"
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "text": "The positive-resistance group cites older work and fewer subfields; their reuse gap widens from 3.24 to 7.95 percentage points, visible before 2023.",
+      "evidence_location": "Results (carried through S2/S3)",
+      "support": "UNTESTED",
+      "grade": "MEASURED_PRESENT",
+      "label": "OBSERVED",
+      "rests_on": [
+        {
+          "source": "S2",
+          "depth": "PRESS_RELEASE"
+        },
+        {
+          "source": "S3",
+          "depth": "SNIPPET"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "card": "03",
+      "state": "RUN",
+      "output": "Threshold alpha >= 0.1 comes from the same group's earlier work (not an independent calibration). The robustness check with Qwen is a same-family model, not an independent detector. Relayed premises; not checked here.",
+      "source": "https://arxiv.org/abs/2611.16833",
+      "error_types": [
+        "E3_DEFAULTED_SLOT"
+      ]
+    }
+  ],
+  "decisions": [],
+  "notes": "UNDECLARED",
+  "design_checks": [
+    {
+      "check": "measurement_validity",
+      "state": "CHECKED",
+      "finding": "AI use is measured by an alpha classifier trained on GPT-3.5 rewrites; reading its output as AI use is a construct leap (relayed premise).",
+      "source": "https://arxiv.org/abs/2611.16833",
+      "error_types": [
+        "E4_UNCHECKED_OBSERVER"
+      ]
+    },
+    {
+      "check": "confounding",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    },
+    {
+      "check": "selection",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    },
+    {
+      "check": "uncertainty",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    },
+    {
+      "check": "multiplicity",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    },
+    {
+      "check": "missing_data",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    },
+    {
+      "check": "preregistration",
+      "state": "NOT_CHECKED",
+      "finding": "not in the relayed assessment"
+    }
+  ]
+}
