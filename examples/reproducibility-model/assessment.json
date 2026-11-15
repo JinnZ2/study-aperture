@@ -1,10 +1,19 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Almudevar & Almudevar (2026): Reproducibility and Statistical Methodology",
   "pub_type": "THEORETICAL",
   "citation": "arXiv:2602.15697v1 [stat.AP], submitted 2026-02-17, https://arxiv.org/html/2602.15697v1",
   "materials": "arXiv HTML rendering read through a fetch tool: abstract, section list, Tables 1 and 4, and quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5. PDF not downloadable here (shell egress 403). Per-study OSC p-values and replication sample sizes behind the type II error figure not in hand. Cited sources (Nosek 2015, Klein 2014, Camerer 2016) not read.",
   "decision_context": "Whether to read the Open Science Collaboration's 36% replication rate (Nosek et al. 2015) as an estimate of how many published psychology findings are true, or as largely an artifact of how the replications were powered. Assessor-chosen paper; no decision owner named.",
+  "sources": [
+    {
+      "id": "S1",
+      "location": "https://arxiv.org/html/2602.15697v1",
+      "depth": "FULL_TEXT",
+      "detail": "arXiv HTML: abstract, section list, Tables 1 and 4, quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5",
+      "basis": "arXiv HTML rendering read through a fetch tool: abstract, section list, Tables 1 and 4, and quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5"
+    }
+  ],
   "claims": [
     {
       "id": "C1",
@@ -17,7 +26,13 @@
       "label": "DERIVED",
       "source": "https://arxiv.org/html/2602.15697v1",
       "range": "OSC-RP 97 studies; ML-RP 13; Camerer 18",
-      "instrument": "eq. 3 with pi = 0.25 (main) and 0.05 (interactions) and mean beta* 0.468"
+      "instrument": "eq. 3 with pi = 0.25 (main) and 0.05 (interactions) and mean beta* 0.468",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C2",
@@ -29,7 +44,13 @@
       "falsifiers": "Recomputing from OSC's per-study p-values and replication sample sizes gives a mean near 0.08. Not recomputed here: inputs not in hand.",
       "label": "DERIVED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "beta_c(eta, t, alpha, beta), t = z_alpha/2, eta replaced by its MLE bounded below by 0; N = 93 of 97"
+      "instrument": "beta_c(eta, t, alpha, beta), t = z_alpha/2, eta replaced by its MLE bounded below by 0; N = 93 of 97",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C3",
@@ -41,7 +62,13 @@
       "falsifiers": "Table 4 counts differ from the OSC data file (not checked: OSC file not read). Arithmetic recomputed: totals 35/97 and Fisher p 0.0228 (R2, R3).",
       "label": "OBSERVED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "OSC-RP data as tabulated in Table 4"
+      "instrument": "OSC-RP data as tabulated in Table 4",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C4",
@@ -53,7 +80,13 @@
       "falsifiers": "Any measured prevalence for the OSC original hypotheses. None exists in the paper.",
       "label": "PROPOSED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "none: stated as a supposition; pi = 0.25 borrowed from the ML-RP calibration, pi = 0.05 from 'secondary or exploratory analyses'"
+      "instrument": "none: stated as a supposition; pi = 0.25 borrowed from the ML-RP calibration, pi = 0.05 from 'secondary or exploratory analyses'",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C5",
@@ -65,7 +98,13 @@
       "falsifiers": "ML-RP's own replication error rates are not near zero. The closeness is shared with the calibration: Table 1 labels pi = 0.25 'consistent with ML-RP' (R7).",
       "label": "DERIVED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "treats ML-RP replication error rates as about zero"
+      "instrument": "treats ML-RP replication error rates as about zero",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C6",
@@ -77,7 +116,13 @@
       "falsifiers": "Observed rate outside 0.357-0.827. Holds (R4). The same interval also contains 0.796, the no-bias prediction (R8), so the comparison does not separate the readings.",
       "label": "DERIVED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "eq. 3 with beta* 0.441"
+      "instrument": "eq. 3 with beta* 0.441",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C7",
@@ -89,7 +134,13 @@
       "falsifiers": "Recomputation from the caption: PPV column reproduces; PPV_obs reproduces for row 1, within 0.003 for row 3, and rows 2 and 4 match beta* = 0.15 instead (R1). Table 1 is not an input to the Section 3.5 fit.",
       "label": "DERIVED",
       "source": "https://arxiv.org/html/2602.15697v1",
-      "instrument": "eqs. 2 and 3"
+      "instrument": "eqs. 2 and 3",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C8",
@@ -100,7 +151,13 @@
       "grade": "UNDECLARED",
       "falsifiers": "Not an empirical claim; carried as an argument.",
       "label": "PROPOSED",
-      "source": "https://arxiv.org/html/2602.15697v1"
+      "source": "https://arxiv.org/html/2602.15697v1",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     }
   ],
   "tools": [

@@ -1,6 +1,6 @@
 # Card 07 — Read ceiling: read depth per source
 
-**Provenance:** JinnZ2/Simulators `mining-increment/SOURCE_DROP_V2.md`, paragraph "READ CEILING", and the audit claim `MI_010` in `mining-increment/CLAIM_TABLE.md` (CC0, co-authored; read at Simulators `main` `38a77bc`). Status: documented procedure adapted from one upstream instance. The depth vocabulary below is this card's, not upstream's: upstream states one depth (abstracts and citation metadata) in prose. **Not enforced by `assess.py`**: there is no per-source field and no check; the declaration lives in `source` / `notes` text by convention. Co-authored.
+**Provenance:** JinnZ2/Simulators `mining-increment/SOURCE_DROP_V2.md`, paragraph "READ CEILING", and the audit claim `MI_010` in `mining-increment/CLAIM_TABLE.md` (CC0, co-authored; read at Simulators `main` `38a77bc`). Status: documented procedure adapted from one upstream instance. The depth vocabulary below is this card's, not upstream's: upstream states one depth (abstracts and citation metadata) in prose. Enforced by `assess.py` (schema `study-aperture/2`, 2026-11-15): every source carries a depth, and every graded claim names the sources and depths it rests on (section 5). The ceiling rule itself (section 4) is not checked by code. Co-authored.
 
 ## 1. What the card is for
 
@@ -49,19 +49,32 @@ When a claim needs content a source's depth cannot show, write the three parts u
 - Nothing may be filled in to stand where the unread content would be: no reconstructed formulation, figure or number.
 - Compliance can be checked in both directions (upstream's falsifier): the record should contain nothing that only a deeper read could have supplied. Upstream checks this mechanically on its scaffold; here it is a reviewer check, because no field exists.
 
-## 5. Where to write it now
+## 5. How `assess.py` enforces it
 
-Until `assess.py` has a field (it does not; adding one is a schema change, see CLAUDE.md):
+```text
+source --id S1 --location <url> --depth ABSTRACT [--detail ...] [--basis ...]
+   depth missing                        -> violation (UNDECLARED is legal; omitted is not)
+   FULL_TEXT / CARRIED without --detail -> violation (name the sections / the origin)
+any `--source <url>` elsewhere          -> must be a listed source, else violation
+claim graded (SUPPORTED, PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED, or MEASURED_*)
+   no rests_on                          -> violation
+   rests_on depth != the source's depth -> violation
+   rests on an UNDECLARED depth         -> FLAGGED: valid, not clean
+                                           `check` prints "VALID — FLAGGED"; `check --strict` exits 3
+study-aperture/1 record                 -> read through an in-memory migration (all depths
+                                           UNDECLARED); never rewritten until `migrate` runs
+```
 
-- `--source` on `claim`, `tool` and `design`: give the location, then the depth. For example `doi:10.x/abc (ABSTRACT)`.
-- `materials` on `init`: list each source with its depth.
+- `--source` on `claim` adds that source to `rests_on`; `--rests-on S2` adds others.
+- `migrate --depths decl.json` takes a depth only from a declaration whose `basis` quote appears verbatim in the record's own text, and writes every change into the record's `migrations` log.
 - A ceiling declaration (section 3) goes in `notes`, or in the tool output that hit it.
 
-Two existing examples already do this in free text: `examples/aaiw-reversal-2026/` ("Press coverage only", with a separate fetched PDF) and `examples/arase-may2024/` ("not checkable at press-release depth").
+The repository's own examples were migrated this way. Depths came from their `materials` text; where a record states no depth for a source, the source stays UNDECLARED.
 
 ## 6. Limits
 
 - One upstream instance. The vocabulary in section 2 is a proposal, not upstream's and not tested across records.
-- No validator: a record can state no depth at all and still check `VALID`.
+- A record can declare every depth UNDECLARED and still check VALID. Only graded claims on those sources are FLAGGED.
+- What `assess.py` checks is that a depth is declared and restated consistently. It does not check that a grade stays within what the depth could show (section 4); that stays a reviewer check.
 - A declared depth is recorded provenance, not verified provenance (same rule as every `source` field).
 - The card says nothing about whether a source is right, only about how deeply it was read.

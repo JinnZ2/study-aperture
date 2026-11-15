@@ -31,8 +31,20 @@ Enforcement notes (the prohibitions are enforced in code, not promised in prose)
     cannot carry a MEASURED_* grade. ASSESSED stationarity needs a basis and a
     stated population and window. Frozen, partial, split, fitted and transferred
     averages are incompleteness, printed first.
+  - Every source carries a read depth (Card 07). A record lists its sources once,
+    each with depth SNIPPET, PRESS_RELEASE, ABSTRACT, FULL_TEXT (sections named),
+    CARRIED (from what named) or UNDECLARED. Every `source` string elsewhere in
+    the record must be one of them. A graded claim (support SUPPORTED,
+    PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED, or a MEASURED_* grade) must
+    name the sources and depths it rests on. UNDECLARED depth is allowed, but a
+    graded claim resting on it is FLAGGED: the record is valid, not clean.
+  - Old records are migrated, never silently. A study-aperture/1 file is read
+    through an in-memory migration (all depths UNDECLARED) and is not written;
+    commands that change a record refuse it until `migrate` has run. `migrate`
+    takes a depth only from a declaration whose basis quote is verbatim in the
+    record's own text, and logs every change in the record.
 
-Schema (study-aperture/1):
+Schema (study-aperture/2):
 
   record = {
     "title": str,
@@ -40,8 +52,12 @@ Schema (study-aperture/1):
     "citation": str,            # where the study itself lives
     "materials": str,           # what you actually had access to (be honest here)
     "decision_context": str,    # what the assessment is FOR; may be UNDECLARED
+    "sources": [ {id, location, depth: one of READ_DEPTHS,
+                  detail?,             # required: FULL_TEXT sections, CARRIED from
+                  basis?} ],           # where the depth statement comes from
     "claims": [ {id, text, evidence_location | NO_EVIDENCE_LOCATION,
-                 support: one of SUPPORT} ],
+                 support: one of SUPPORT,
+                 rests_on: [ {source: source id, depth: that source's depth} ]} ],
     "tools": [ {id, card, state: one of TOOL_STATES, output?, declined_reason?,
                 error_types?: [one of ERROR_TYPES]} ],
     "decisions": [ {id, text, state: one of DECISION_STATES,
@@ -53,14 +69,19 @@ Schema (study-aperture/1):
                    stationarity: one of STATIONARITY_STATES | UNDECLARED,
                    stationarity_basis?, claims: [claim ids], split_of?,
                    fitted_to?, estimated_from?, source?} ],
-    "notes": str
+    "notes": str,
+    "migrations": [ {from, to, by, changes: [str]} ]   # written by `migrate` only
   }
 
 Commands:
   init --file s.json --title "..." --type EMPIRICAL [--citation ...] [--materials ...]
+  source --file s.json --id S1 --location <url> --depth ABSTRACT [--detail ...] [--basis ...]
+                                # FULL_TEXT needs --detail (sections); CARRIED needs --detail (from)
+  migrate --file s.json [--depths decl.json]   # study-aperture/1 -> /2; logs every change
   claim --file s.json --id C1 --text "..." --evidence "p. 4, Table 1" [--support ...]
         [--measurand ...] [--grade ...] [--falsifiers ...] [--label OBSERVED|DERIVED|PROPOSED] [--source <url>]
-        [--range ...] [--instrument ...] [--resolution ...]
+        [--range ...] [--instrument ...] [--resolution ...] [--rests-on S1 ...]
+                                # --source adds its source to rests_on
   tool  --file s.json --id T1 --card 03 --state RUN --output "..." [--source <url>]
         [--declined-reason ...] [--error-type E1_DROPPED_VARIABLE ...]
   design --file s.json --check confounding --state CHECKED|NOT_CHECKED|NOT_APPLICABLE
@@ -75,13 +96,15 @@ Commands:
         [--value ...] [--basis ...] [--split-of A0] [--fitted-to ...]
         [--estimated-from ...] [--source <url>]
                                 # an average used as a model input (Card 02 frozen-state check)
-  check  --file s.json         # validate; exit 1 on violations; file never changed
+  check  --file s.json [--strict]   # validate; exit 1 on violations; flags print
+                                # "VALID — FLAGGED" (exit 0, or 3 with --strict)
   report --file s.json          # markdown report; INVALID banner if violations
   selftest
 """
 import argparse, hashlib, json, os, sys
 
-SCHEMA = "study-aperture/1"
+SCHEMA = "study-aperture/2"
+LEGACY_SCHEMAS = frozenset(["study-aperture/1"])   # read through migrate(), never written
 
 PUB_TYPES = frozenset([
     "EMPIRICAL",        # study generating data from the world
@@ -162,6 +185,31 @@ STATIONARITY_STATES = frozenset([
 ])
 MEASURED_GRADES = frozenset(["MEASURED_PRESENT", "MEASURED_ABSENT", "MEASURED_DISCARDED"])
 
+# Card 07: how deeply a source was read. One depth per source, not per record.
+READ_DEPTHS = frozenset([
+    "SNIPPET",        # a search-result fragment or index entry; not the document
+    "PRESS_RELEASE",  # coverage or a release about the work, not the work
+    "ABSTRACT",       # the abstract and citation metadata only
+    "FULL_TEXT",      # the document itself; detail names the sections read
+    "CARRIED",        # not read: taken from another report of it; detail names from what
+    "UNDECLARED",     # depth not stated; kept, never read as FULL_TEXT
+])
+DEPTH_DETAIL = {"FULL_TEXT": "the sections read", "CARRIED": "what it was carried from"}
+# A claim is graded when its support or its measurement grade asserts something
+# about the evidence. These must name the sources and depths they rest on.
+LOCATED_SUPPORT = frozenset(["SUPPORTED", "PARTIALLY_SUPPORTED", "UNSUPPORTED", "CONTRADICTED"])
+
+
+def is_graded(c):
+    return c.get("support") in LOCATED_SUPPORT or c.get("grade") in MEASURED_GRADES
+
+
+def depth_label(src):
+    """FULL_TEXT(methods, Table 2) / CARRIED(review X) / ABSTRACT."""
+    dep = src.get("depth", "UNDECLARED")
+    det = src.get("detail")
+    return f"{dep}({det})" if dep in DEPTH_DETAIL and not _is_missing(det) else str(dep)
+
 # Card 06 section 4: classify a miss before repairing it. From the glyph procedure,
 # JinnZ2/Simulators tools/glyph_reasoning.md (CC0, delivered 2026-10-25): "the glyph
 # holds; the reasoning fails". Each type calls for a different repair.
@@ -179,17 +227,29 @@ LAB_SCOPE_NOTE = ("bundle integrity only: references, version bindings, conditio
 def load(path):
     with open(path) as f:
         d = json.load(f)
-    if d.get("schema") != SCHEMA:
+    if d.get("schema") in LEGACY_SCHEMAS:
+        legacy = d.get("schema")
+        d, _ = migrate(d)
+        d["_read_from"] = legacy   # in memory only; save() refuses this record
+    elif d.get("schema") != SCHEMA:
         raise SystemExit(f"{path}: wrong or missing schema field (want {SCHEMA})")
     for key in ("title", "pub_type", "citation", "materials", "decision_context"):
         d.setdefault(key, "UNDECLARED")
     d.setdefault("claims", []); d.setdefault("tools", [])
     d.setdefault("decisions", []); d.setdefault("design_checks", [])
     d.setdefault("notes", "UNDECLARED")
+    d.setdefault("sources", [])
     return d
 
 
+class LegacyRecord(Exception):
+    pass
+
+
 def save(d, path):
+    if d.get("_read_from"):
+        raise LegacyRecord(f"{path} is {d['_read_from']}; run `assess.py migrate --file "
+                           f"{path}` first (a legacy record is never rewritten implicitly)")
     with open(path, "w") as f:
         json.dump(d, f, indent=2)
 
@@ -291,12 +351,163 @@ def _check_error_types(v, label, tags, state_ok, state_name, text, text_name):
                  f"(classify a stated miss, not an empty field)")
 
 
+def _record_text(d):
+    """All string values in a record, for checking that a basis quote is in it."""
+    out = []
+    def walk(x):
+        if isinstance(x, str):
+            out.append(x)
+        elif isinstance(x, dict):
+            for v in x.values(): walk(v)
+        elif isinstance(x, list):
+            for v in x: walk(v)
+    walk(d)
+    return "\n".join(out)
+
+
+def migrate(d, declarations=None):
+    """study-aperture/1 -> /2. Return (new record, change log). Pure: d is not changed.
+
+    Sources are created from the record itself, values kept verbatim:
+      S0 = the publication (location = citation); every distinct `source` string
+      on a claim, tool, design check or average becomes S1, S2, ... in order.
+    Depth is UNDECLARED unless `declarations` gives one, keyed by source id or
+    location: {"depth": ..., "detail": ..., "basis": "<quote>"}. The basis quote
+    must appear verbatim in the record's own text, so a migrated depth is one the
+    record already stated. Each claim rests on its own source if it names one,
+    else on S0 (its evidence location is inside the publication)."""
+    if d.get("schema") not in LEGACY_SCHEMAS:
+        raise ValueError(f"migrate expects {sorted(LEGACY_SCHEMAS)}, got {d.get('schema')!r}")
+    declarations = declarations or {}
+    text = _record_text(d)
+    new = json.loads(json.dumps(d))
+    log = [f"schema {d.get('schema')} -> {SCHEMA}"]
+    locs = [new.get("citation") if not _is_missing(new.get("citation")) else "UNDECLARED"]
+    for key in ("claims", "tools", "design_checks", "averages"):
+        for item in new.get(key, []):
+            s = item.get("source")
+            if not _is_sentinel(s) and s not in locs:
+                locs.append(s)
+    used = set()
+    sources = []
+    for i, loc in enumerate(locs):
+        sid = f"S{i}"
+        decl = declarations.get(sid) or declarations.get(loc) or {}
+        used.update(k for k in (sid, loc) if k in declarations)
+        src = {"id": sid, "location": loc, "depth": decl.get("depth", "UNDECLARED")}
+        if decl:
+            basis = decl.get("basis")
+            if _is_missing(basis) or basis not in text:
+                raise ValueError(f"declaration for {sid} ({loc}): basis quote not found "
+                                 f"verbatim in the record; a migrated depth must be one "
+                                 f"the record already states")
+            if not _is_missing(decl.get("detail")):
+                src["detail"] = decl["detail"]
+            src["basis"] = basis
+        role = "the publication (citation)" if i == 0 else "a source string in the record"
+        log.append(f"source {sid} added for {role}: {loc} -> depth {depth_label(src)}"
+                   + (f" (basis quoted from the record: {src['basis']!r})" if decl else
+                      " (no depth stated in the record)"))
+        sources.append(src)
+    unused = set(declarations) - used
+    if unused:
+        raise ValueError(f"declarations name no source in the record: {sorted(unused)}")
+    by_loc = {s["location"]: s for s in sources}
+    for c in new.get("claims", []):
+        s = c.get("source")
+        src = by_loc.get(s) if not _is_sentinel(s) else sources[0]
+        c["rests_on"] = [{"source": src["id"], "depth": src["depth"]}]
+        log.append(f"claim {c.get('id')}: rests_on {src['id']} ({src['depth']})"
+                   + ("" if not _is_sentinel(s) else " -- no source of its own; the publication"))
+    new["sources"] = sources
+    new["schema"] = SCHEMA
+    new.setdefault("migrations", []).append(
+        {"from": d.get("schema"), "to": SCHEMA, "by": "assess.py migrate", "changes": log})
+    return new, log
+
+
+def _check_sources(d, v):
+    """Card 07 read-depth rules. Appends violations to v."""
+    sources = d.get("sources", [])
+    ids, locs = set(), {}
+    for s in sources:
+        sid = s.get("id", "?")
+        if _is_missing(s.get("id")):
+            v.append("source ?: id missing")
+        if sid in ids:
+            v.append(f"source {sid}: duplicate id")
+        ids.add(sid)
+        if _is_missing(s.get("location")):
+            v.append(f"source {sid}: location missing (record UNDECLARED if unknown)")
+        elif s["location"] in locs and not _is_sentinel(s["location"]):
+            v.append(f"source {sid}: same location as {locs[s['location']]}")
+        locs.setdefault(s.get("location"), sid)
+        dep = s.get("depth")
+        if _is_missing(dep):
+            v.append(f"source {sid}: depth missing; record one of READ_DEPTHS or UNDECLARED "
+                     f"(an absent field is not a declared absence)")
+        elif dep not in READ_DEPTHS:
+            v.append(f"source {sid}: depth {dep!r} not in vocabulary")
+        elif dep in DEPTH_DETAIL and _is_sentinel(s.get("detail")):
+            v.append(f"source {sid}: {dep} needs --detail naming {DEPTH_DETAIL[dep]}")
+    for key, label in (("claims", "claim"), ("tools", "tool"),
+                       ("design_checks", "design check"), ("averages", "average")):
+        for item in d.get(key, []):
+            s = item.get("source")
+            if not _is_sentinel(s) and s not in locs:
+                name = item.get("id", item.get("check", "?"))
+                v.append(f"{label} {name}: source {s!r} is not a listed source; list it "
+                         f"with its read depth (`source` command)")
+    by_id = {s.get("id"): s for s in sources}
+    for c in d.get("claims", []):
+        cid = c.get("id", "?")
+        rests = c.get("rests_on")
+        if rests is None:
+            rests = []
+        if not isinstance(rests, list):
+            v.append(f"claim {cid}: rests_on must be a list")
+            continue
+        for r in rests:
+            src = by_id.get(r.get("source")) if isinstance(r, dict) else None
+            if src is None:
+                v.append(f"claim {cid}: rests on {r!r}, which is not a listed source")
+            elif r.get("depth") != src.get("depth"):
+                v.append(f"claim {cid}: rests on {src.get('id')} at depth {r.get('depth')!r}, "
+                         f"but the source's depth is {src.get('depth')!r}")
+        named = {r.get("source") for r in rests if isinstance(r, dict)}
+        own = locs.get(c.get("source")) if not _is_sentinel(c.get("source")) else None
+        if own and own not in named:
+            v.append(f"claim {cid}: names source {c.get('source')!r} ({own}) but does not "
+                     f"rest on it")
+        if is_graded(c) and not rests:
+            v.append(f"claim {cid}: graded ({c.get('support')}, grade {c.get('grade')}) "
+                     f"without naming the sources and depths it rests on")
+
+
+def flags(d):
+    """Valid, but not clean: graded claims resting on an UNDECLARED read depth."""
+    by_id = {s.get("id"): s for s in d.get("sources", [])}
+    out = []
+    for c in d.get("claims", []):
+        if not is_graded(c):
+            continue
+        undeclared = [r.get("source") for r in c.get("rests_on") or []
+                      if isinstance(r, dict) and by_id.get(r.get("source"), {}).get("depth")
+                      == "UNDECLARED"]
+        if undeclared:
+            out.append(f"claim {c.get('id')}: graded {c.get('support')}"
+                       + (f" / {c.get('grade')}" if c.get("grade") else "")
+                       + f" resting on UNDECLARED read depth: {', '.join(undeclared)}")
+    return out
+
+
 def check(d, base_dir=None):
     """Return list of violation strings. Empty list = valid record.
     base_dir (the record file's folder) enables lab-report hash verification."""
     v = []
     if d["pub_type"] not in PUB_TYPES:
         v.append(f"pub_type {d['pub_type']!r} not in vocabulary")
+    _check_sources(d, v)
     for c in d["claims"]:
         cid = c.get("id", "?")
         if _is_missing(c.get("text")):
@@ -480,16 +691,32 @@ def report(d, base_dir=None):
     lines = [f"# Assessment: {d['title']}",
              f"schema {SCHEMA} — generated by study-aperture; this report is a record, not a verdict.",
              ""]
+    if d.get("_read_from"):
+        lines += [f"**Read from {d['_read_from']} through an in-memory migration; the file is "
+                  f"unchanged and every source depth is UNDECLARED. Run `assess.py migrate`.**", ""]
     v = check(d, base_dir)
     if v:
         lines.append("## RECORD INVALID — the violations below are not findings; fix them")
         lines += [f"- {x}" for x in v]
+        lines.append("")
+    fl = flags(d)
+    if fl:
+        lines.append("## FLAGGED — valid, not clean: graded on an undeclared read depth (Card 07)")
+        lines += [f"- {x}" for x in fl]
         lines.append("")
     lines += [f"- citation: {d['citation']}",
               f"- publication type: {d['pub_type']}",
               f"- materials actually held: {d['materials']}",
               f"- decision context: {d['decision_context']}",
               ""]
+    lines.append("## Sources and read depth (Card 07)")
+    if not d.get("sources"):
+        lines.append("- NODATA (no sources listed)")
+    for src in d.get("sources", []):
+        lines.append(f"- **{src.get('id')}** {depth_label(src)} — {src.get('location')}")
+        if not _is_missing(src.get("basis")):
+            lines.append(f"  - depth basis: {src.get('basis')}")
+    lines.append("")
     inc = incompleteness(d, base_dir)
     lines.append("## Incompleteness (printed first, on purpose)")
     if inc:
@@ -543,6 +770,9 @@ def report(d, base_dir=None):
             lines.append(f"  - falsifiers: {c.get('falsifiers')}")
         if c.get("source"):
             lines.append(f"  - source: {c.get('source')}")
+        if c.get("rests_on"):
+            lines.append("  - rests on: " + ", ".join(
+                f"{r.get('source')} ({r.get('depth')})" for r in c["rests_on"]))
         linked = [r.get("id") for r in d.get("lab_refs", []) if c.get("id") in r.get("claims", [])]
         if linked:
             lines.append(f"  - lab refs: {', '.join(linked)} (bundle integrity only; "
@@ -616,6 +846,10 @@ def report(d, base_dir=None):
     lines.append("")
     lines.append("## Notes")
     lines.append(str(d["notes"]))
+    for m in d.get("migrations", []):  # optional section; absent records render as before
+        lines.append("")
+        lines.append(f"## Migration log: {m.get('from')} -> {m.get('to')} ({m.get('by')})")
+        lines += [f"- {x}" for x in m.get("changes", [])]
     return "\n".join(lines)
 
 
@@ -625,6 +859,10 @@ def _base_dir(record_path):
 
 def _commit(d, path, ok_msg):
     """Save only if the mutated record validates. Exit nonzero, no write, if not."""
+    if d.get("_read_from"):
+        print(f"REJECTED (file unchanged): {path} is {d['_read_from']}; run `assess.py migrate "
+              f"--file {path}` first", file=sys.stderr)
+        return 1
     v = check(d, _base_dir(path))
     if v:
         for x in v:
@@ -638,7 +876,8 @@ def _commit(d, path, ok_msg):
 def main(argv=None):
     p = argparse.ArgumentParser(description="study-aperture record validator and report generator")
     p.add_argument("cmd", choices=["init", "claim", "tool", "design", "decide", "resolve", "defer",
-                                   "labref", "average", "check", "report", "selftest"])
+                                   "labref", "average", "source", "migrate", "check", "report",
+                                   "selftest"])
     p.add_argument("--file", default="assessment.json")
     p.add_argument("--title"); p.add_argument("--type", dest="pub_type")
     p.add_argument("--citation"); p.add_argument("--materials"); p.add_argument("--context")
@@ -657,6 +896,10 @@ def main(argv=None):
     p.add_argument("--stationarity"); p.add_argument("--basis")
     p.add_argument("--split-of"); p.add_argument("--fitted-to"); p.add_argument("--estimated-from")
     p.add_argument("--error-type", dest="error_types", action="append")
+    p.add_argument("--location"); p.add_argument("--depth"); p.add_argument("--detail")
+    p.add_argument("--rests-on", dest="rests_on", action="append")
+    p.add_argument("--depths", help="migrate: JSON of depth declarations with verbatim basis quotes")
+    p.add_argument("--strict", action="store_true", help="check: exit 3 when FLAGGED")
     args = p.parse_args(argv)
 
     if args.cmd == "selftest":
@@ -667,13 +910,50 @@ def main(argv=None):
              "citation": args.citation or "UNDECLARED",
              "materials": args.materials or "UNDECLARED",
              "decision_context": args.context or "UNDECLARED",
-             "claims": [], "tools": [], "decisions": [], "notes": "UNDECLARED"}
+             "sources": [], "claims": [], "tools": [], "decisions": [], "notes": "UNDECLARED"}
         v = check(d)
         if v:  # bad --type value
             for x in v: print(f"REJECTED (file unchanged): {x}", file=sys.stderr)
             return 1
         save(d, args.file); print(f"-> {args.file}"); return 0
+    if args.cmd == "migrate":
+        with open(args.file) as fh:
+            raw = json.load(fh)
+        if raw.get("schema") == SCHEMA:
+            print(f"REJECTED (file unchanged): {args.file} is already {SCHEMA}", file=sys.stderr)
+            return 1
+        decl = {}
+        if args.depths:
+            with open(args.depths) as fh:
+                decl = json.load(fh)
+        try:
+            new, log = migrate(raw, decl)
+        except ValueError as e:
+            print(f"REJECTED (file unchanged): {e}", file=sys.stderr)
+            return 1
+        v = check(new, _base_dir(args.file))
+        if v:
+            for x in v: print(f"REJECTED (file unchanged): {x}", file=sys.stderr)
+            return 1
+        save(new, args.file)
+        for x in log: print(f"MIGRATED: {x}")
+        for x in flags(new): print(f"FLAG: {x}")
+        return 0
     d = load(args.file)
+    if args.cmd == "source":
+        if _is_missing(args.id) or _is_missing(args.location) or _is_missing(args.depth):
+            print("REJECTED (file unchanged): source requires --id, --location and --depth "
+                  "(UNDECLARED is a legal depth; an omitted one is not).", file=sys.stderr)
+            return 1
+        if any(x.get("id") == args.id for x in d["sources"]):
+            print(f"REJECTED (file unchanged): source {args.id!r} already exists; use a new id.",
+                  file=sys.stderr)
+            return 1
+        src = {"id": args.id, "location": args.location, "depth": args.depth}
+        if args.detail: src["detail"] = args.detail
+        if args.basis: src["basis"] = args.basis
+        d["sources"].append(src)
+        return _commit(d, args.file, f"source {args.id} recorded ({depth_label(src)})")
     if args.cmd == "claim":
         c = {"id": args.id, "text": args.text,
              "evidence_location": args.evidence or "",
@@ -682,6 +962,14 @@ def main(argv=None):
                     "claim_range", "instrument", "resolution"):
             if getattr(args, opt):
                 c["range" if opt == "claim_range" else opt] = getattr(args, opt)
+        by_id = {x.get("id"): x for x in d["sources"]}
+        by_loc = {x.get("location"): x for x in d["sources"]}
+        names = list(args.rests_on or [])
+        if args.source and args.source in by_loc and by_loc[args.source]["id"] not in names:
+            names.append(by_loc[args.source]["id"])
+        if names:
+            c["rests_on"] = [{"source": n, "depth": by_id[n].get("depth") if n in by_id else None}
+                             for n in dict.fromkeys(names)]
         d["claims"].append(c)
         return _commit(d, args.file, f"claim {args.id} recorded")
     if args.cmd == "tool":
@@ -784,8 +1072,19 @@ def main(argv=None):
     if args.cmd == "check":
         v = check(d, _base_dir(args.file))
         for x in v: print(f"VIOLATION: {x}")
-        print("VALID" if not v else f"{len(v)} violations")
-        return 0 if not v else 1
+        if v:
+            print(f"{len(v)} violations")
+            return 1
+        fl = flags(d)
+        for x in fl: print(f"FLAG: {x}")
+        if d.get("_read_from"):
+            print(f"NOTE: read from {d['_read_from']} through an in-memory migration; "
+                  f"file unchanged; run migrate")
+        if fl:
+            print(f"VALID — FLAGGED ({len(fl)})")
+            return 3 if args.strict else 0
+        print("VALID")
+        return 0
     if args.cmd == "report":
         print(report(d, _base_dir(args.file)))
         return 0
@@ -804,6 +1103,8 @@ def selftest():
 
     cli("init", "--title", "t", "--type", "EMPIRICAL",
         "--materials", "abstract only", "--context", "UNDECLARED")
+    assert cli("source", "--id", "S1", "--location", "https://example.org",
+               "--depth", "ABSTRACT").returncode == 0
     d = load(f)
     # 1. silent resolution via decide is rejected, file unchanged
     r = cli("decide", "--id", "D1", "--text", "use this?", "--state", "RESOLVED")
@@ -993,7 +1294,9 @@ def selftest():
                                      capture_output=True, text=True)
     cli3("init", "--title", "t", "--type", "THEORETICAL", "--materials", "full text",
          "--context", "UNDECLARED")
-    assert cli3("claim", "--id", "C1", "--text", "x", "--evidence", "p. 2",
+    assert cli3("source", "--id", "S0", "--location", "doc", "--depth", "FULL_TEXT",
+                "--detail", "all").returncode == 0
+    assert cli3("claim", "--id", "C1", "--text", "x", "--evidence", "p. 2", "--rests-on", "S0",
                 "--support", "UNTESTED", "--grade", "MEASURED_PRESENT").returncode == 0
     assert cli3("claim", "--id", "C2", "--text", "y", "--evidence", "p. 3",
                 "--support", "UNTESTED", "--grade", "IMPOSED").returncode == 0
@@ -1096,6 +1399,114 @@ def selftest():
     assert any("listed twice" in x for x in check(d))
     d["tools"][0]["error_types"] = []
     assert any("non-empty list" in x for x in check(d))
+    # 17. read depth per source (Card 07)
+    f4 = os.path.join(tmp, "s4.json")
+    cli4 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f4],
+                                     capture_output=True, text=True)
+    cli4("init", "--title", "t", "--type", "EMPIRICAL", "--materials", "x", "--context", "y")
+    before = open(f4).read()
+    # 17a. a depth is required; UNDECLARED is legal, an omitted depth is not
+    r = cli4("source", "--id", "S1", "--location", "u1")
+    assert r.returncode != 0 and "--depth" in r.stderr
+    r = cli4("source", "--id", "S1", "--location", "u1", "--depth", "SKIMMED")
+    assert r.returncode != 0 and "not in vocabulary" in r.stderr
+    # 17b. FULL_TEXT needs sections, CARRIED needs its origin
+    r = cli4("source", "--id", "S1", "--location", "u1", "--depth", "FULL_TEXT")
+    assert r.returncode != 0 and "the sections read" in r.stderr
+    r = cli4("source", "--id", "S1", "--location", "u1", "--depth", "CARRIED")
+    assert r.returncode != 0 and "what it was carried from" in r.stderr
+    assert open(f4).read() == before  # every rejection left the file byte-identical
+    assert cli4("source", "--id", "S1", "--location", "u1", "--depth", "CARRIED",
+                "--detail", "review R, Table 3").returncode == 0
+    assert cli4("source", "--id", "S2", "--location", "u2", "--depth", "UNDECLARED").returncode == 0
+    r = cli4("source", "--id", "S1", "--location", "u3", "--depth", "ABSTRACT")
+    assert r.returncode != 0 and "already exists" in r.stderr
+    # 17c. a source string elsewhere must be a listed source
+    r = cli4("design", "--check", "selection", "--state", "CHECKED", "--finding", "x",
+             "--source", "u9")
+    assert r.returncode != 0 and "not a listed source" in r.stderr
+    # 17d. a graded claim must name what it rests on; an ungraded one need not
+    r = cli4("claim", "--id", "C1", "--text", "x", "--evidence", "p. 1", "--support", "SUPPORTED")
+    assert r.returncode != 0 and "without naming the sources and depths" in r.stderr
+    r = cli4("claim", "--id", "C1", "--text", "x", "--evidence", "p. 1", "--support", "UNTESTED")
+    assert r.returncode == 0
+    r = cli4("claim", "--id", "C2", "--text", "x", "--evidence", "p. 1",
+             "--support", "SUPPORTED", "--rests-on", "S9")
+    assert r.returncode != 0 and "not a listed source" in r.stderr
+    # 17e. --source adds its source to rests_on; the depth is copied from the source
+    assert cli4("claim", "--id", "C2", "--text", "x", "--evidence", "p. 1",
+                "--support", "SUPPORTED", "--source", "u1").returncode == 0
+    d = load(f4)
+    assert d["claims"][1]["rests_on"] == [{"source": "S1", "depth": "CARRIED"}]
+    assert check(d) == [] and flags(d) == []
+    rep4 = report(d)
+    assert "**S1** CARRIED(review R, Table 3) — u1" in rep4 and "rests on: S1 (CARRIED)" in rep4
+    assert "FLAGGED" not in rep4
+    # 17f. a graded claim on an UNDECLARED depth is valid but FLAGGED, not clean
+    assert cli4("claim", "--id", "C3", "--text", "x", "--evidence", "p. 2",
+                "--support", "PARTIALLY_SUPPORTED", "--rests-on", "S2").returncode == 0
+    r = cli4("check")
+    assert r.returncode == 0 and "VALID — FLAGGED (1)" in r.stdout and "C3" in r.stdout
+    assert cli4("check", "--strict").returncode == 3
+    assert "## FLAGGED" in report(load(f4))
+    # 17g. a restated depth must match the source; a named source must be rested on
+    d = load(f4); d["claims"][1]["rests_on"][0]["depth"] = "FULL_TEXT"
+    assert any("but the source's depth is" in x for x in check(d))
+    d = load(f4); d["claims"][1]["rests_on"] = [{"source": "S2", "depth": "UNDECLARED"}]
+    assert any("does not rest on it" in x for x in check(d))
+    d = load(f4); del d["sources"][0]["depth"]
+    assert any("depth missing" in x for x in check(d))
+    # 18. migration: v1 is read, never rewritten implicitly; values kept; depth only from a quote
+    v1 = {"schema": "study-aperture/1", "title": "t", "pub_type": "EMPIRICAL",
+          "citation": "doi:1", "materials": "Abstract only; the press release P was also read.",
+          "decision_context": "UNDECLARED",
+          "claims": [{"id": "C1", "text": "a", "evidence_location": "p. 1", "support": "SUPPORTED"},
+                     {"id": "C2", "text": "b", "evidence_location": "x", "support": "UNSUPPORTED",
+                      "source": "P"}],
+          "tools": [], "decisions": [], "design_checks": [], "notes": "n"}
+    f5 = os.path.join(tmp, "s5.json")
+    with open(f5, "w") as fh:
+        json.dump(v1, fh)
+    raw = open(f5).read()
+    cli5 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f5],
+                                     capture_output=True, text=True)
+    # 18a. check reads v1 through an in-memory migration: all depths UNDECLARED, so FLAGGED
+    r = cli5("check")
+    assert r.returncode == 0 and "FLAGGED (2)" in r.stdout and "in-memory migration" in r.stdout
+    assert "Read from study-aperture/1" in report(load(f5))
+    # 18b. a mutation on a v1 file is refused, file unchanged
+    r = cli5("decide", "--id", "D1", "--text", "q", "--state", "UNRESOLVED")
+    assert r.returncode != 0 and "run `assess.py migrate" in r.stderr and open(f5).read() == raw
+    # 18c. a declaration whose basis is not in the record is refused
+    bad = os.path.join(tmp, "bad.json")
+    with open(bad, "w") as fh:
+        json.dump({"S0": {"depth": "FULL_TEXT", "detail": "all", "basis": "full text read"}}, fh)
+    r = cli5("migrate", "--depths", bad)
+    assert r.returncode != 0 and "not found verbatim" in r.stderr and open(f5).read() == raw
+    with open(bad, "w") as fh:
+        json.dump({"S7": {"depth": "ABSTRACT", "basis": "Abstract only"}}, fh)
+    r = cli5("migrate", "--depths", bad)
+    assert r.returncode != 0 and "name no source" in r.stderr
+    # 18d. migrate with a quoted declaration: depth taken, the rest UNDECLARED, all logged
+    good = os.path.join(tmp, "good.json")
+    with open(good, "w") as fh:
+        json.dump({"S0": {"depth": "ABSTRACT", "basis": "Abstract only"}}, fh)
+    r = cli5("migrate", "--depths", good)
+    assert r.returncode == 0, r.stderr
+    assert "source S1 added" in r.stdout and "FLAG: claim C2" in r.stdout
+    d = load(f5)
+    assert d["schema"] == SCHEMA and "_read_from" not in d
+    assert [s["depth"] for s in d["sources"]] == ["ABSTRACT", "UNDECLARED"]
+    assert d["claims"][0]["rests_on"] == [{"source": "S0", "depth": "ABSTRACT"}]
+    assert d["claims"][1]["rests_on"] == [{"source": "S1", "depth": "UNDECLARED"}]
+    for k in v1:  # no v1 value changed
+        if k != "schema" and k != "claims":
+            assert d[k] == v1[k], k
+    for old, c in zip(v1["claims"], d["claims"]):
+        assert {k: c[k] for k in old} == old
+    assert d["migrations"][0]["from"] == "study-aperture/1"
+    assert "## Migration log" in report(d)
+    assert cli5("migrate").returncode != 0  # already migrated
     print("SELFTEST OK")
     return 0
 

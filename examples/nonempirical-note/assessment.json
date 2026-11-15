@@ -1,5 +1,5 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "WO-1: Chain position detectability from inside a container (research note)",
   "pub_type": "COMMENTARY",
   "citation": "github.com/JinnZ2/chain-position-detectability (README)",
@@ -10,19 +10,37 @@
       "id": "C1",
       "text": "OWASP ACS and Top 10 for Agentic Applications 2026 specify per-agent isolation, lineage tracking, gateway tracing, and runtime interception",
       "evidence_location": "README, standards review section",
-      "support": "UNTESTED"
+      "support": "UNTESTED",
+      "rests_on": [
+        {
+          "source": "S0",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C2",
       "text": "These controls operate from the gateway's external view, so lineage can exist without being visible to the container",
       "evidence_location": "README, identified-gap section",
-      "support": "UNTESTED"
+      "support": "UNTESTED",
+      "rests_on": [
+        {
+          "source": "S0",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C3",
       "text": "The rule that an unassessed factor should be treated as not stable",
       "evidence_location": "README, load-class test section",
-      "support": "UNDETERMINED"
+      "support": "UNDETERMINED",
+      "rests_on": [
+        {
+          "source": "S0",
+          "depth": "FULL_TEXT"
+        }
+      ]
     }
   ],
   "tools": [
@@ -60,5 +78,28 @@
     }
   ],
   "decisions": [],
-  "notes": "UNDECLARED"
+  "notes": "UNDECLARED",
+  "sources": [
+    {
+      "id": "S0",
+      "location": "github.com/JinnZ2/chain-position-detectability (README)",
+      "depth": "FULL_TEXT",
+      "detail": "the full README",
+      "basis": "full README of the research note"
+    }
+  ],
+  "migrations": [
+    {
+      "from": "study-aperture/1",
+      "to": "study-aperture/2",
+      "by": "assess.py migrate",
+      "changes": [
+        "schema study-aperture/1 -> study-aperture/2",
+        "source S0 added for the publication (citation): github.com/JinnZ2/chain-position-detectability (README) -> depth FULL_TEXT(the full README) (basis quoted from the record: 'full README of the research note')",
+        "claim C1: rests_on S0 (FULL_TEXT) -- no source of its own; the publication",
+        "claim C2: rests_on S0 (FULL_TEXT) -- no source of its own; the publication",
+        "claim C3: rests_on S0 (FULL_TEXT) -- no source of its own; the publication"
+      ]
+    }
+  ]
 }
