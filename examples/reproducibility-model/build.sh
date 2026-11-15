@@ -38,7 +38,7 @@ $A design --file $F --check preregistration --state NOT_APPLICABLE --source "$U"
   --finding "Model and re-analysis paper; no preregistration stated or expected."
 
 # ---- claims
-$A claim --file $F --id C1 --label DERIVED --support PARTIALLY_SUPPORTED --grade IMPOSED \
+$A claim --file $F --id C1 --central --label DERIVED --support PARTIALLY_SUPPORTED --grade IMPOSED \
   --text "We show that the OSC methodology induces a bias that is able by itself to explain the discrepancy between the OSC estimates of reproducibility and other more optimistic estimates made by similar studies." \
   --evidence "Abstract; mechanism Sections 3.3-3.5; fit Table 4 and Section 3.5" \
   --measurand "observed replication rate PPV_obs, predicted from prevalence pi and replication type II error beta*" \

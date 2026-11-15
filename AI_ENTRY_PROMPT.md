@@ -56,9 +56,9 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | AI output block | CLI command |
 |---|---|
 | header line | `init --title ... --type EMPIRICAL --citation <url> --materials "<what you actually read>" --context "<decision it is for>" |
-| each SOURCES line | `source --id S1 --location <url> --depth <SNIPPET|PRESS_RELEASE|ABSTRACT|FULL_TEXT|CARRIED|UNDECLARED> [--detail "<sections read, or carried from>"] [--basis "<where the depth statement comes from>"]` — before any command that names `--source <url>` |
+| each SOURCES line | `source --id S1 --location <url> --depth <SNIPPET|PRESS_RELEASE|ABSTRACT|FULL_TEXT|CARRIED|UNDECLARED> [--detail "<sections read, or carried from>"] [--basis "<where the depth statement comes from>"] [--sections "abstract,methods"] [--section-depth results=ABSTRACT]` — before any command that names `--source <url>`. On a FULL_TEXT source, `--sections` lists the sections read in full; `--section-depth` gives a lower depth for a section read only through another route |
 | DESIGN CHECKS lines | `design --check confounding --state CHECKED --finding "..." --source <url>` |
-| each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url> [--rests-on S2 ...]` — `--source` adds its source to rests_on; a graded claim must rest on at least one source |
+| each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url> [--rests-on S2 ...] [--rests-on S1:results] [--central]` — `--source` adds its source to rests_on; a graded claim must rest on at least one source; `S1:results` names the section the claim rests on (a section outside the source's `--sections` takes its `--section-depth`, else UNDECLARED); `--central` marks the central claim |
 | each INPUT AVERAGES line | `average --id A1 --text "<what is averaged>" --value <v> --population "<...>" --window "<...>" --stationarity <ASSESSED|ASSUMED|UNASSESSED|UNDECLARED> [--basis "<...>"] --claim C1 [--split-of A0] [--fitted-to "<...>"] [--estimated-from "<...>"] --source <url>` |
 | each card run | `tool --id T1 --card 03 --state RUN --output "<finding + source location>" --source <url>` (or `--state DECLINED --declined-reason "..."`) |
 | each MISSES line | add `--error-type <E1_DROPPED_VARIABLE|E2_STALE_CONDITIONS|E3_DEFAULTED_SLOT|E4_UNCHECKED_OBSERVER>` (repeatable) to the `tool` or `design` command that states the miss; accepted only on RUN / CHECKED with the miss in the output or finding |
@@ -71,6 +71,6 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | a grade lowered after review | `downgrade --id C1 --support <new> [--grade <new>] --by <who> --reason "<why>"` — the old grade is kept in the claim's log |
 | a reviewer's decision that a grade may exceed its read-depth ceiling | `override --id C1 --by <who> --reason "<why>"` — logged and printed; refused when nothing exceeds the ceiling |
 | an old study-aperture/1 record | `migrate --file s.json [--depths decl.json]` — a declared depth needs a basis quote found verbatim in the record; every change is logged |
-| INCOMPLETENESS list | generated automatically by `report`; do not hand-write it |
+| INCOMPLETENESS list | generated automatically by `report`, one block per kind (UNTESTED, UNDETERMINED, IMPOSED, UNDECLARED, UNDERPOWERED, open decisions, claims on unverified inputs, other), items touching a `--central` claim flagged; do not hand-write it |
 
 Then `check` (must print VALID) and `report` (markdown; incompleteness printed first). The report is the deliverable: a record, not a verdict.

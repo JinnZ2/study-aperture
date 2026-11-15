@@ -61,10 +61,13 @@ Schema (study-aperture/2):
     "sources": [ {id, location, depth: one of READ_DEPTHS,
                   detail?,             # required: FULL_TEXT sections, CARRIED from
                   basis?,              # where the depth statement comes from
-                  abstract_text?} ],   # ABSTRACT only: the abstract, verbatim
+                  abstract_text?,      # ABSTRACT only: the abstract, verbatim
+                  sections?: [str],    # FULL_TEXT only: sections read in full
+                  section_depths?: {section: depth below FULL_TEXT}} ],
     "claims": [ {id, text, evidence_location | NO_EVIDENCE_LOCATION,
                  support: one of SUPPORT,
-                 rests_on: [ {source: source id, depth: that source's depth, quoted?} ],
+                 rests_on: [ {source: source id, depth: that source's depth, section?, quoted?} ],
+                 central?: true,          # the incompleteness block flags what touches it
                  ceiling_override?: {reason, by},
                  downgrades?: [ {from: {support, grade}, to: {support, grade},
                                  reason, by} ]} ],
@@ -243,6 +246,34 @@ def depth_label(src):
     dep = src.get("depth", "UNDECLARED")
     det = src.get("detail")
     return f"{dep}({det})" if dep in DEPTH_DETAIL and not _is_missing(det) else str(dep)
+
+
+def _sec(x):
+    return " ".join(str(x).lower().split())
+
+
+def effective_depth(src, rest):
+    """Card 07 section-level ceiling. A rest naming a section of a FULL_TEXT source is
+    read at FULL_TEXT only if that section is in the source's `sections`; otherwise at
+    the depth `section_depths` gives for it, else UNDECLARED. A rest naming no section
+    takes the source's depth (records written before sections existed)."""
+    dep = src.get("depth", "UNDECLARED")
+    sec = rest.get("section") if isinstance(rest, dict) else None
+    if _is_missing(sec) or dep != "FULL_TEXT":
+        return dep
+    if _sec(sec) in {_sec(x) for x in src.get("sections") or []}:
+        return "FULL_TEXT"
+    for k, v in (src.get("section_depths") or {}).items():
+        if _sec(k) == _sec(sec):
+            return v
+    return "UNDECLARED"
+
+
+def rest_label(src, rest):
+    sec = rest.get("section") if isinstance(rest, dict) else None
+    if _is_missing(sec):
+        return f"{src.get('id')} {src.get('depth')}"
+    return f"{src.get('id')} {src.get('depth')}[{sec} -> {effective_depth(src, rest)}]"
 
 # Card 06 section 4: classify a miss before repairing it. From the glyph procedure,
 # JinnZ2/Simulators tools/glyph_reasoning.md (CC0, delivered 2026-10-25): "the glyph
@@ -486,6 +517,23 @@ def _check_sources(d, v):
             v.append(f"source {sid}: {dep} needs --detail naming {DEPTH_DETAIL[dep]}")
         if "abstract_text" in s and dep != "ABSTRACT":
             v.append(f"source {sid}: abstract_text is stored only on an ABSTRACT source")
+        if ("sections" in s or "section_depths" in s) and dep != "FULL_TEXT":
+            v.append(f"source {sid}: sections / section_depths belong on a FULL_TEXT source")
+        if "sections" in s and not isinstance(s["sections"], list):
+            v.append(f"source {sid}: sections must be a list of the sections read in full")
+        sd = s.get("section_depths")
+        if sd is not None:
+            if not isinstance(sd, dict):
+                v.append(f"source {sid}: section_depths must map section -> depth")
+            else:
+                full = {_sec(x) for x in s.get("sections") or []}
+                for k, val in sd.items():
+                    if val not in READ_DEPTHS or val == "FULL_TEXT":
+                        v.append(f"source {sid}: section {k!r} depth {val!r} must be a read "
+                                 f"depth below FULL_TEXT (a section read in full goes in sections)")
+                    if _sec(k) in full:
+                        v.append(f"source {sid}: section {k!r} is both read in full and given "
+                                 f"a lower depth")
     for key, label in (("claims", "claim"), ("tools", "tool"),
                        ("design_checks", "design check"), ("averages", "average")):
         for item in d.get(key, []):
@@ -510,6 +558,10 @@ def _check_sources(d, v):
             elif r.get("depth") != src.get("depth"):
                 v.append(f"claim {cid}: rests on {src.get('id')} at depth {r.get('depth')!r}, "
                          f"but the source's depth is {src.get('depth')!r}")
+            elif not _is_missing(r.get("section")) and src.get("depth") != "FULL_TEXT":
+                v.append(f"claim {cid}: rests on section {r.get('section')!r} of {src.get('id')}, "
+                         f"which is {src.get('depth')}, not FULL_TEXT (a section names part of "
+                         f"a document that was read)")
         named = {r.get("source") for r in rests if isinstance(r, dict)}
         own = locs.get(c.get("source")) if not _is_sentinel(c.get("source")) else None
         if own and own not in named:
@@ -557,7 +609,7 @@ def quote_in_abstract(src, rest):
 
 
 def _permits(src, rest, field, value):
-    row = CEILING.get(src.get("depth"))
+    row = CEILING.get(effective_depth(src, rest))
     if row is None or value not in row[field]:
         return True
     return field == "grade" and row["quote_lifts_grade"] and quote_in_abstract(src, rest)
@@ -575,7 +627,7 @@ def ceiling_breaches(c, by_id):
             continue
         if any(_permits(src, r, field, value) for r, src in rests):
             continue
-        where = ", ".join(f"{src.get('id')} {src.get('depth')}" for r, src in rests)
+        where = ", ".join(rest_label(src, r) for r, src in rests)
         extra = (" (an ABSTRACT source lifts this only with the value quoted from the abstract)"
                  if field == "grade" and any(src.get("depth") == "ABSTRACT" for _, src in rests)
                  else "")
@@ -604,9 +656,9 @@ def flags(d):
     for c in d.get("claims", []):
         if not is_graded(c):
             continue
-        undeclared = [r.get("source") for r in c.get("rests_on") or []
-                      if isinstance(r, dict) and by_id.get(r.get("source"), {}).get("depth")
-                      == "UNDECLARED"]
+        undeclared = [rest_label(by_id[r.get("source")], r) for r in c.get("rests_on") or []
+                      if isinstance(r, dict) and r.get("source") in by_id
+                      and effective_depth(by_id[r.get("source")], r) == "UNDECLARED"]
         if undeclared:
             out.append(f"claim {c.get('id')}: graded {c.get('support')}"
                        + (f" / {c.get('grade')}" if c.get("grade") else "")
@@ -747,13 +799,11 @@ def check(d, base_dir=None):
     return v
 
 
-def incompleteness(d, base_dir=None):
+def _other_incompleteness(d, base_dir=None):
     """Everything that keeps this assessment from counting as complete.
     Incompleteness is a state, not an error: the record stays VALID."""
     out = []
-    if d["pub_type"] == "UNDECLARED":
-        out.append("publication type UNDECLARED (no cards routed)")
-    else:
+    if d["pub_type"] != "UNDECLARED":
         if not d["claims"]:
             out.append("claims: NODATA (none extracted)")
         if not d["tools"]:
@@ -764,8 +814,6 @@ def incompleteness(d, base_dir=None):
         loc = c.get("evidence_location", "")
         if _is_sentinel(loc) or loc == "NO_EVIDENCE_LOCATION":
             out.append(f"claim {c.get('id')}: evidence location missing (NODATA)")
-        if c.get("support") in ("UNDETERMINED", None, "UNDECLARED"):
-            out.append(f"claim {c.get('id')}: support UNDETERMINED")
     if d["pub_type"] == "EMPIRICAL" and not d.get("design_checks"):
         out.append("design checks: NODATA (EMPIRICAL record without ordinary design "
                    "checks is incomplete)")
@@ -777,13 +825,6 @@ def incompleteness(d, base_dir=None):
             out.append(f"tool {t.get('id')}: BLOCKED (inputs unavailable; always incompleteness)")
         elif t.get("state") == "RUN" and _is_missing(t.get("output")):
             out.append(f"tool {t.get('id')}: RUN with no output recorded")
-    for x in d["decisions"]:
-        if x.get("state") == "UNRESOLVED":
-            out.append(f"decision {x.get('id')}: UNRESOLVED")
-        if x.get("state") == "DETECTED":
-            out.append(f"decision {x.get('id')}: DETECTED (located, nothing more known)")
-        if x.get("state") == "DEFERRED":
-            out.append(f"decision {x.get('id')}: DEFERRED (owned, still open)")
     for ref in d.get("lab_refs", []):
         lid = ref.get("id")
         if ref.get("status") == "INTEGRITY_GAPS_RECORDED":
@@ -816,6 +857,101 @@ def incompleteness(d, base_dir=None):
                        f"(carried across populations; INCOMMENSURABLE(range) unless a bridge "
                        f"is stated)")
     return out
+
+
+
+# ADDENDUM B5: the incompleteness block lists each kind of open state separately,
+# flags the items that touch a claim marked central, and adds nothing up.
+UNVERIFIED_DEPTHS = frozenset(["SNIPPET", "PRESS_RELEASE", "CARRIED", "UNDECLARED"])
+INCOMPLETENESS_BLOCKS = ("UNTESTED", "UNDETERMINED", "IMPOSED", "UNDECLARED", "UNDERPOWERED",
+                         "open decisions", "claims on unverified inputs", "other")
+
+
+def central_claims(d):
+    return [c.get("id") for c in d.get("claims", []) if c.get("central") is True]
+
+
+def incompleteness_blocks(d, base_dir=None):
+    """[(block name, [(item text, claim ids it touches)])], one entry per block in
+    INCOMPLETENESS_BLOCKS, empty blocks kept. No total is computed."""
+    by_id = {s.get("id"): s for s in d.get("sources", [])}
+    blocks = {b: [] for b in INCOMPLETENESS_BLOCKS}
+    frozen = {}
+    for a in d.get("averages", []):
+        st = average_state(a)
+        bad = []
+        if st in ("FROZEN", "PARTIAL"):
+            bad.append(f"average {a.get('id')} {st}")
+        if not _is_missing(a.get("fitted_to")):
+            bad.append(f"average {a.get('id')} fitted to {a['fitted_to']}")
+        ef = a.get("estimated_from")
+        if not _is_missing(ef) and ef != a.get("population"):
+            bad.append(f"average {a.get('id')} carried from {ef}")
+        for cid in a.get("claims") or []:
+            frozen.setdefault(cid, []).extend(bad)
+            if st == "FROZEN":
+                frozen.setdefault(("imposed", cid), []).append(a.get("id"))
+    gaps = {}
+    for ref in d.get("lab_refs", []):
+        if ref.get("status") == "INTEGRITY_GAPS_RECORDED":
+            for cid in ref.get("claims") or []:
+                gaps.setdefault(cid, []).append(f"lab ref {ref.get('id')} with integrity gaps")
+    if d["pub_type"] == "UNDECLARED":
+        blocks["UNDECLARED"].append(("publication type UNDECLARED (no cards routed)", []))
+    for s in d.get("sources", []):
+        if s.get("depth") == "UNDECLARED":
+            blocks["UNDECLARED"].append((f"source {s.get('id')}: read depth UNDECLARED", []))
+    for c in d["claims"]:
+        cid, sup, gr = c.get("id"), c.get("support"), c.get("grade")
+        t = [cid]
+        if sup == "UNTESTED":
+            blocks["UNTESTED"].append((f"claim {cid}: support UNTESTED", t))
+        if sup in ("UNDETERMINED", None):
+            blocks["UNDETERMINED"].append((f"claim {cid}: support UNDETERMINED", t))
+        if gr == "IMPOSED":
+            blocks["IMPOSED"].append((f"claim {cid}: grade IMPOSED", t))
+        elif frozen.get(("imposed", cid)):
+            blocks["IMPOSED"].append((f"claim {cid}: rests on frozen average "
+                                      f"{', '.join(frozen[('imposed', cid)])} (IMPOSED input; "
+                                      f"grade {gr})", t))
+        if sup == "UNDECLARED":
+            blocks["UNDECLARED"].append((f"claim {cid}: support UNDECLARED", t))
+        if gr == "UNDECLARED":
+            blocks["UNDECLARED"].append((f"claim {cid}: measurement grade UNDECLARED", t))
+        if gr == "UNDERPOWERED":
+            blocks["UNDERPOWERED"].append((f"claim {cid}: grade UNDERPOWERED", t))
+        why = []
+        for r in c.get("rests_on") or []:
+            if isinstance(r, dict) and r.get("source") in by_id:
+                src = by_id[r["source"]]
+                if effective_depth(src, r) in UNVERIFIED_DEPTHS:
+                    why.append(rest_label(src, r) if not _is_missing(r.get("section"))
+                               else f"{src.get('id')} {src.get('depth')}")
+        why += [x for x in frozen.get(cid, []) if x] + gaps.get(cid, [])
+        if why:
+            blocks["claims on unverified inputs"].append(
+                (f"claim {cid}: rests on {'; '.join(dict.fromkeys(why))}", t))
+    for x in d["decisions"]:
+        st = x.get("state")
+        if st == "UNRESOLVED":
+            blocks["open decisions"].append((f"decision {x.get('id')}: UNRESOLVED", []))
+        elif st == "DETECTED":
+            blocks["open decisions"].append((f"decision {x.get('id')}: DETECTED (located, "
+                                             f"nothing more known)", []))
+        elif st == "DEFERRED":
+            blocks["open decisions"].append((f"decision {x.get('id')}: DEFERRED (owned, "
+                                             f"still open)", []))
+    cl = {c.get("id") for c in d["claims"]}
+    for item in _other_incompleteness(d, base_dir):
+        touched = [w.rstrip(":,") for w in item.replace(",", " ").split() if w.rstrip(":,") in cl]
+        blocks["other"].append((item, touched))
+    return [(b, blocks[b]) for b in INCOMPLETENESS_BLOCKS]
+
+
+def incompleteness(d, base_dir=None):
+    """Everything that keeps this assessment from counting as complete, flattened.
+    Incompleteness is a state, not an error: the record stays VALID."""
+    return [t for _, items in incompleteness_blocks(d, base_dir) for t, _ in items]
 
 
 def report(d, base_dir=None):
@@ -851,16 +987,30 @@ def report(d, base_dir=None):
         lines.append("- NODATA (no sources listed)")
     for src in d.get("sources", []):
         lines.append(f"- **{src.get('id')}** {depth_label(src)} — {src.get('location')}")
+        if src.get("sections"):
+            lines.append(f"  - sections read in full: {', '.join(src['sections'])}")
+        for k, val in (src.get("section_depths") or {}).items():
+            lines.append(f"  - section {k}: read at {val}")
         if not _is_missing(src.get("basis")):
             lines.append(f"  - depth basis: {src.get('basis')}")
     lines.append("")
-    inc = incompleteness(d, base_dir)
+    blocks = incompleteness_blocks(d, base_dir)
+    central = central_claims(d)
     lines.append("## Incompleteness (printed first, on purpose)")
-    if inc:
-        lines += [f"- {x}" for x in inc]
-        lines.append("- => this assessment is INCOMPLETE; treat every graded field below accordingly")
-    else:
-        lines.append("- none recorded; claims and decisions below carry their states")
+    lines.append("Each kind is listed on its own; nothing is added up (ADDENDUM B5).")
+    lines.append("- central claims: " + (", ".join(central) if central else
+                 "UNDECLARED (no claim marked central, so nothing can be flagged as touching one)"))
+    for name, items in blocks:
+        lines.append(f"### {name}")
+        if not items:
+            lines.append("- none")
+        for text, touched in items:
+            hit = [x for x in touched if x in central]
+            lines.append(f"- {text}" + (f"  **[touches central claim {', '.join(hit)}]**"
+                                        if hit else ""))
+    if any(items for _, items in blocks):
+        lines.append("")
+        lines.append("=> this assessment is INCOMPLETE; treat every graded field below accordingly")
     lines.append("")
     routed = ROUTER.get(d["pub_type"], set())
     if routed:
@@ -914,6 +1064,7 @@ def report(d, base_dir=None):
         if c.get("rests_on"):
             lines.append("  - rests on: " + ", ".join(
                 f"{r.get('source')} ({r.get('depth')}"
+                + (f", section {r['section']}" if not _is_missing(r.get("section")) else "")
                 + (f", quoted: {r['quoted']}" if not _is_missing(r.get("quoted")) else "") + ")"
                 for r in c["rests_on"]))
         linked = [r.get("id") for r in d.get("lab_refs", []) if c.get("id") in r.get("claims", [])]
@@ -1044,7 +1195,13 @@ def main(argv=None):
     p.add_argument("--split-of"); p.add_argument("--fitted-to"); p.add_argument("--estimated-from")
     p.add_argument("--error-type", dest="error_types", action="append")
     p.add_argument("--location"); p.add_argument("--depth"); p.add_argument("--detail")
-    p.add_argument("--rests-on", dest="rests_on", action="append")
+    p.add_argument("--rests-on", dest="rests_on", action="append",
+                   help="claim: S1 or S1:<section> (a section of a FULL_TEXT source)")
+    p.add_argument("--sections", help="source: comma-separated sections read in full (FULL_TEXT)")
+    p.add_argument("--section-depth", dest="section_depths", action="append",
+                   help="source: <section>=<depth> for a section read below FULL_TEXT")
+    p.add_argument("--central", action="store_true",
+                   help="claim: mark this claim central (the incompleteness block flags what touches it)")
     p.add_argument("--abstract-text"); p.add_argument("--abstract-file")
     p.add_argument("--date"); p.add_argument("--note")
     p.add_argument("--quoted", action="append",
@@ -1103,6 +1260,18 @@ def main(argv=None):
         src = {"id": args.id, "location": args.location, "depth": args.depth}
         if args.detail: src["detail"] = args.detail
         if args.basis: src["basis"] = args.basis
+        if args.sections:
+            src["sections"] = [x.strip() for x in args.sections.split(",") if x.strip()]
+        if args.section_depths:
+            sd = {}
+            for q in args.section_depths:
+                k, sep, val = q.partition("=")
+                if not sep:
+                    print("REJECTED (file unchanged): --section-depth takes <section>=<depth>",
+                          file=sys.stderr)
+                    return 1
+                sd[k.strip()] = val.strip()
+            src["section_depths"] = sd
         if args.abstract_text and args.abstract_file:
             print("REJECTED (file unchanged): give --abstract-text or --abstract-file, not both",
                   file=sys.stderr)
@@ -1178,7 +1347,12 @@ def main(argv=None):
                 c["range" if opt == "claim_range" else opt] = getattr(args, opt)
         by_id = {x.get("id"): x for x in d["sources"]}
         by_loc = {x.get("location"): x for x in d["sources"]}
-        names = list(args.rests_on or [])
+        names, sections = [], {}
+        for n in args.rests_on or []:
+            sid, sep, sec = n.partition(":")
+            names.append(sid.strip())
+            if sep and sec.strip():
+                sections[sid.strip()] = sec.strip()
         if args.source and args.source in by_loc and by_loc[args.source]["id"] not in names:
             names.append(by_loc[args.source]["id"])
         quoted = {}
@@ -1193,8 +1367,11 @@ def main(argv=None):
                 names.append(sid.strip())
         if names:
             c["rests_on"] = [{"source": n, "depth": by_id[n].get("depth") if n in by_id else None,
+                              **({"section": sections[n]} if n in sections else {}),
                               **({"quoted": quoted[n]} if n in quoted else {})}
                              for n in dict.fromkeys(names)]
+        if args.central:
+            c["central"] = True
         d["claims"].append(c)
         return _commit(d, args.file, f"claim {args.id} recorded")
     if args.cmd == "tool":
@@ -1842,6 +2019,74 @@ def selftest():
     assert t1["output"] == out_before
     assert t1["notes"] == [{"date": "2026-11-15", "note": "pre-downgrade output; see claim log"}]
     assert "  - note (2026-11-15): pre-downgrade output; see claim log" in report(load(f6))
+    # 23. section-level ceiling (Card 07 4b): a rest names a section of a FULL_TEXT source;
+    #     a section outside `sections` takes the depth `section_depths` gives, else UNDECLARED
+    f7 = os.path.join(tmp, "s7.json")
+    cli7 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f7],
+                                     capture_output=True, text=True)
+    cli7("init", "--title", "t", "--type", "EMPIRICAL", "--materials", "x", "--context", "y")
+    assert cli7("source", "--id", "S1", "--location", "s1", "--depth", "FULL_TEXT",
+                "--detail", "abstract, intro, methods", "--sections", "abstract,Intro,methods",
+                "--section-depth", "results=ABSTRACT").returncode == 0
+    assert cli7("source", "--id", "S2", "--location", "s2", "--depth", "ABSTRACT").returncode == 0
+    for cid, rest, sup in (("M1", "S1:methods", "SUPPORTED"), ("M2", "S1:results", "SUPPORTED"),
+                           ("M3", "S1:discussion", "SUPPORTED"), ("M4", "S1", "SUPPORTED"),
+                           ("M5", "S1:intro", "SUPPORTED")):
+        assert cli7("claim", "--id", cid, "--text", "x", "--evidence", "p. 1", "--support", sup,
+                    "--rests-on", rest).returncode == 0
+    d = load(f7)
+    fl7 = " | ".join(flags(d))
+    s1 = d["sources"][0]
+    assert effective_depth(s1, {"section": "methods"}) == "FULL_TEXT"
+    assert effective_depth(s1, {"section": "intro"}) == "FULL_TEXT"   # case-insensitive
+    assert effective_depth(s1, {"section": "results"}) == "ABSTRACT"
+    assert effective_depth(s1, {"section": "discussion"}) == "UNDECLARED"
+    assert effective_depth(s1, {}) == "FULL_TEXT"                     # no section: source depth
+    assert "claim M1:" not in fl7 and "claim M4:" not in fl7 and "claim M5:" not in fl7
+    assert "claim M3: graded SUPPORTED resting on UNDECLARED read depth: S1 FULL_TEXT[discussion -> UNDECLARED]" in fl7
+    assert not any("claim M2" in x for x in flags(d))                  # ABSTRACT permits support
+    assert cli7("claim", "--id", "M6", "--text", "x", "--evidence", "p", "--support", "UNTESTED",
+                "--grade", "MEASURED_PRESENT", "--rests-on", "S1:results").returncode == 0
+    assert any("claim M6: grade MEASURED_PRESENT exceeds" in x and "results -> ABSTRACT" in x
+               for x in flags(load(f7)))
+    d = load(f7); d["sources"][1]["sections"] = ["x"]
+    assert any("belong on a FULL_TEXT source" in x for x in check(d))
+    d = load(f7); d["sources"][0]["section_depths"] = {"methods": "ABSTRACT", "z": "FULL_TEXT"}
+    v7 = " | ".join(check(d))
+    assert "both read in full and given a lower depth" in v7 and "must be a read depth below FULL_TEXT" in v7
+    d = load(f7); d["claims"][0]["rests_on"] = [{"source": "S2", "depth": "ABSTRACT", "section": "m"}]
+    assert any("not FULL_TEXT" in x for x in check(d))
+    # 24. ADDENDUM B5: incompleteness listed by kind; central claim flagged; no total
+    f8 = os.path.join(tmp, "s8.json")
+    cli8 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f8],
+                                     capture_output=True, text=True)
+    cli8("init", "--title", "t", "--type", "THEORETICAL", "--materials", "x", "--context", "y")
+    cli8("source", "--id", "S1", "--location", "s1", "--depth", "FULL_TEXT", "--detail", "all")
+    cli8("source", "--id", "S2", "--location", "s2", "--depth", "PRESS_RELEASE")
+    cli8("claim", "--id", "B1", "--text", "x", "--evidence", "p", "--support", "UNTESTED",
+         "--grade", "IMPOSED", "--rests-on", "S2", "--central")
+    cli8("claim", "--id", "B2", "--text", "x", "--evidence", "p", "--support", "SUPPORTED",
+         "--grade", "UNDERPOWERED", "--rests-on", "S1")
+    cli8("claim", "--id", "B3", "--text", "x", "--evidence", "p", "--grade", "UNDECLARED")
+    cli8("decide", "--id", "D1", "--text", "x", "--state", "UNRESOLVED")
+    d = load(f8)
+    blocks = dict(incompleteness_blocks(d))
+    assert list(blocks) == list(INCOMPLETENESS_BLOCKS)
+    assert [t for t, _ in blocks["UNTESTED"]] == ["claim B1: support UNTESTED"]
+    assert [t for t, _ in blocks["IMPOSED"]] == ["claim B1: grade IMPOSED"]
+    assert [t for t, _ in blocks["UNDERPOWERED"]] == ["claim B2: grade UNDERPOWERED"]
+    assert [t for t, _ in blocks["UNDETERMINED"]] == ["claim B3: support UNDETERMINED"]
+    assert [t for t, _ in blocks["UNDECLARED"]] == ["claim B3: measurement grade UNDECLARED"]
+    assert [t for t, _ in blocks["open decisions"]] == ["decision D1: UNRESOLVED"]
+    assert [t for t, _ in blocks["claims on unverified inputs"]] == ["claim B1: rests on S2 PRESS_RELEASE"]
+    r8 = report(d)
+    inc8 = r8.split("## Incompleteness")[1].split("\n## ")[0]
+    assert "- central claims: B1" in inc8
+    assert inc8.count("[touches central claim B1]") == 3          # UNTESTED, IMPOSED, unverified
+    assert "### UNDERPOWERED" in inc8 and "### other\n- tools: NODATA" in inc8
+    assert "total" not in inc8.lower() and "score" not in inc8.lower()
+    d["claims"][0].pop("central")
+    assert "central claims: UNDECLARED" in report(d)
     print("SELFTEST OK")
     return 0
 

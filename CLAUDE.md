@@ -87,6 +87,11 @@ read depth           → every source lists a depth (UNDECLARED allowed, kept); 
                        a graded claim (located support or MEASURED_*) names the sources + depths
                        it rests on; graded on UNDECLARED depth = FLAGGED (valid, not clean;
                        `check --strict` exits 3)
+section ceiling      → rests_on may name a section of a FULL_TEXT source; the ceiling uses that
+                       section's depth (in `sections` = FULL_TEXT, else `section_depths`, else UNDECLARED)
+incompleteness       → report lists each kind in its own block (UNTESTED · UNDETERMINED · IMPOSED ·
+                       UNDECLARED · UNDERPOWERED · open decisions · claims on unverified inputs ·
+                       other); items touching a `central` claim are flagged; never totalled
 read-depth ceiling   → CEILING table (Card 07 §4a): SNIPPET / PRESS_RELEASE / CARRIED nothing above
                        UNTESTED, no MEASURED_*; ABSTRACT no MEASURED_* unless --quoted, and the quote
                        must be word for word in the abstract_text stored on that source. Above the ceiling of every source rested on = FLAGGED; a reviewer

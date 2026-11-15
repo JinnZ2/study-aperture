@@ -32,7 +32,8 @@
           "source": "S1",
           "depth": "FULL_TEXT"
         }
-      ]
+      ],
+      "central": true
     },
     {
       "id": "C2",

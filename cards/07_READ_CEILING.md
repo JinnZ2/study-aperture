@@ -75,6 +75,16 @@ Rules:
   - Overrides are printed in `check` and in their own report section.
   - An override left over after the claim no longer exceeds the ceiling is FLAGGED as stale.
 
+### 4b. Section-level ceiling (enforced)
+
+A FULL_TEXT read of some sections is not a full read of the others.
+
+- On a FULL_TEXT source, `--sections "abstract,intro,methods"` lists the sections read in full, and `--section-depth results=ABSTRACT` gives the depth a section was read at by another route.
+- A claim names the section it rests on: `--rests-on S1:results` (stored as `{source, depth, section}`).
+- The ceiling for that rest uses the section's depth: FULL_TEXT when the section is in `sections`; the `section_depths` value when one is given; otherwise **UNDECLARED**, which flags any grade resting on it.
+- A rest naming no section takes the source's depth, as before (records written before sections existed).
+- Section names compare case-insensitively, whitespace normalised. A section both in `sections` and in `section_depths`, a `section_depths` value of FULL_TEXT or outside READ_DEPTHS, and a section on a source that is not FULL_TEXT are violations.
+
 ## 5. How `assess.py` enforces it
 
 ```text
