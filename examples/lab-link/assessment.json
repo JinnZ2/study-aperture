@@ -1,5 +1,5 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Synthetic: linking a Scope Audit Lab integrity report to a claim",
   "pub_type": "THEORETICAL",
   "citation": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json (synthetic draft-0.2 records; not a publication)",
@@ -11,7 +11,13 @@
       "text": "Synthetic placeholder claim, used only to demonstrate labref; it is not drawn from any publication.",
       "evidence_location": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json",
       "support": "UNDETERMINED",
-      "label": "PROPOSED"
+      "label": "PROPOSED",
+      "rests_on": [
+        {
+          "source": "S0",
+          "depth": "UNDECLARED"
+        }
+      ]
     }
   ],
   "tools": [
@@ -45,6 +51,25 @@
       ],
       "claims": [
         "C1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S0",
+      "location": "experimental/scope_audit_lab/examples/schema-draft-0.2/records.json (synthetic draft-0.2 records; not a publication)",
+      "depth": "UNDECLARED"
+    }
+  ],
+  "migrations": [
+    {
+      "from": "study-aperture/1",
+      "to": "study-aperture/2",
+      "by": "assess.py migrate",
+      "changes": [
+        "schema study-aperture/1 -> study-aperture/2",
+        "source S0 added for the publication (citation): experimental/scope_audit_lab/examples/schema-draft-0.2/records.json (synthetic draft-0.2 records; not a publication) -> depth UNDECLARED (no depth stated in the record)",
+        "claim C1: rests_on S0 (UNDECLARED) -- no source of its own; the publication"
       ]
     }
   ]

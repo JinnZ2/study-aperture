@@ -31,6 +31,7 @@ Built from five CC0 repositories by JinnZ2, distilled into one portable layer:
 
 ```sh
 python3 assess.py init --file s.json --title "Carney et al. 2010" --type EMPIRICAL
+python3 assess.py source --file s.json --id S1 --location "<url>" --depth FULL_TEXT --detail "Methods, Results"   # every source carries its read depth (Card 07)
 python3 assess.py design --file s.json --check preregistration --state CHECKED --finding "none" --source "<url>"
 python3 assess.py claim --file s.json --id C1 --text "..." --evidence "p. 1365, Fig. 1" --support UNDETERMINED \
     --label OBSERVED --grade MEASURED_PRESENT --falsifiers "null at adequate power" --source "<url>"
@@ -59,6 +60,10 @@ python3 assess.py selftest
 | Path | Contents |
 |---|---|
 | `cards/00_ROUTING.md` … `cards/06_RECORDS.md` | the seven method cards |
+| `cards/07_READ_CEILING.md` | read depth per source (SNIPPET / PRESS_RELEASE / ABSTRACT / FULL_TEXT / CARRIED) and the read-ceiling declaration; the depth field is enforced by `assess.py`, the ceiling itself is a reviewer check |
+| `cards/08_BOUND.md` | bound and resolution leak: list every bound of an instrument and test each, not only the suspected one (convention) |
+| `cards/09_CONTROL.md` | control: a wrong-rule or random run that should fail; no control → result UNTESTED (convention) |
+| `cards/10_OBJECTIVE.md` | objective: "best" names its measure; rank under each measure the data supports (convention) |
 | `assess.py` | record validator + report generator (stdlib) |
 | `TEMPLATE.json` | skeleton record showing where measurement declarations, design checks, falsifiers, epistemic labels, and per-finding sources live |
 | `vendored/` | `provenance_graph.py`, `false_agree.py`, `conditional_claims.py` (upstream), `safe_provenance.py` (scoped adapter) — selftests intact + `PROVENANCE.md` |
@@ -82,6 +87,7 @@ python3 assess.py selftest
 - **Design check states:** CHECKED, NOT_CHECKED, NOT_APPLICABLE
 - **Stationarity states:** ASSESSED, ASSUMED, UNASSESSED (for an average used as a model input; see Card 02)
 - **Error types:** E1_DROPPED_VARIABLE, E2_STALE_CONDITIONS, E3_DEFAULTED_SLOT, E4_UNCHECKED_OBSERVER (classify a stated miss before repairing it; see Card 06 section 4)
+- **Read depths:** SNIPPET, PRESS_RELEASE, ABSTRACT, FULL_TEXT, CARRIED (one per source; FULL_TEXT names the sections read, CARRIED names what it was carried from; see Card 07)
 - **Lab report statuses:** NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE, INTEGRITY_GAPS_RECORDED (the lab checker's own words; not claim support)
 
 `UNDECLARED`, `NODATA`, `NOTFOUND` are values, not errors. A zero is a property of the measurement, not of the world.

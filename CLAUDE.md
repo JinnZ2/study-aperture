@@ -6,11 +6,12 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 
 ```
                          ┌───────────────────────────┐
-  publication ──► cards/ (00 route → 01..06) ──► AI_ENTRY_PROMPT.md (LLM path, no Python)
+  publication ──► cards/ (00 route → 01..10) ──► AI_ENTRY_PROMPT.md (LLM path, no Python)
                          └────────────┬──────────────┘
                                       ▼
-                     assess.py  (record ⇄ JSON, schema study-aperture/1)
-                     init/claim/design/average/tool/decide/resolve/defer ──► check ──► report
+                     assess.py  (record ⇄ JSON, schema study-aperture/2; /1 read via migrate)
+                     init/source/claim/override/downgrade/design/average/tool/decide/resolve/defer ──► check ──► report
+                     migrate (study-aperture/1 → /2, logged)
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance
                        (Card 03 independence / conditional-form tools)
@@ -27,7 +28,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | Path | Role | Edit rules |
 |---|---|---|
 | `assess.py` | validator + report generator | stdlib only, no network; keep the docstring schema in sync with code |
-| `cards/00..06_*.md` | method cards (provenance, procedure, outputs, limits) | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate |
+| `cards/00..10_*.md` | method cards (provenance, procedure, outputs, limits); 07's depth field and ceiling table are enforced by `assess.py`; 08 bound, 09 control, 10 objective are convention only | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate, and must equal `ROUTER` in assess.py (integrity test) |
 | `AI_ENTRY_PROMPT.md` | LLM prompt + CLI handoff table | update the handoff table when CLI flags change |
 | `TEMPLATE.json` | skeleton record | keep valid against `assess.py check` |
 | `vendored/*.py` (3 upstream) | verbatim from Simulators `0655e8b` | **do not modify**; upstream oddities are data, not defects. Changes go in `safe_provenance.py` (toolbox adapter) or upstream |
@@ -81,6 +82,19 @@ input average        → declares population, window, stationarity (UNDECLARED a
                        none stated = FROZEN (derived, never set by hand): a claim resting on it
                        cannot carry a MEASURED_* grade; ASSESSED needs a basis + stated
                        population and window; frozen/partial/split/fitted/transferred = incompleteness
+read depth           → every source lists a depth (UNDECLARED allowed, kept); FULL_TEXT names
+                       sections, CARRIED names its origin; every `source` string is a listed source;
+                       a graded claim (located support or MEASURED_*) names the sources + depths
+                       it rests on; graded on UNDECLARED depth = FLAGGED (valid, not clean;
+                       `check --strict` exits 3)
+read-depth ceiling   → CEILING table (Card 07 §4a): SNIPPET / PRESS_RELEASE / CARRIED nothing above
+                       UNTESTED, no MEASURED_*; ABSTRACT no MEASURED_* unless --quoted, and the quote
+                       must be word for word in the abstract_text stored on that source. Above the ceiling of every source rested on = FLAGGED; a reviewer
+                       overrides only via `override --reason --by` (logged, printed; stale = FLAGGED);
+                       a lowered grade goes through `downgrade --reason --by`, old grade kept
+legacy record        → study-aperture/1 is read via in-memory migration and never rewritten
+                       implicitly; `migrate` takes a depth only from a verbatim quote in the
+                       record and logs every change
 no shared ancestor in declared graph ≠ independent in the world
 ```
 
@@ -97,6 +111,7 @@ Vocabulary (closed sets, defined in `assess.py`; `UNDECLARED` is also accepted i
 | design check states | CHECKED · NOT_CHECKED · NOT_APPLICABLE |
 | stationarity states | ASSESSED · ASSUMED · UNASSESSED |
 | error types | E1_DROPPED_VARIABLE · E2_STALE_CONDITIONS · E3_DEFAULTED_SLOT · E4_UNCHECKED_OBSERVER |
+| read depths | SNIPPET · PRESS_RELEASE · ABSTRACT · FULL_TEXT · CARRIED |
 | lab report statuses | NO_GAPS_DETECTED_WITHIN_CHECKED_SCOPE · INTEGRITY_GAPS_RECORDED |
 
 This table, the README vocabulary list, and `AI_ENTRY_PROMPT.md` are checked against `assess.py` by the integrity tests. Adding or renaming a value touches: `assess.py` sets + `check()` + selftest, the cards that emit it, `AI_ENTRY_PROMPT.md`, README vocabulary, this table, and `TEMPLATE.json`.

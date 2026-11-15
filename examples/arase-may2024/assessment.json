@@ -1,23 +1,57 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Miyoshi et al. (2026): Local Acceleration of Multi-MeV Electrons Inside Earth's Impenetrable Barrier During the May 2024 Superstorm",
   "pub_type": "EMPIRICAL",
   "citation": "Geophysical Research Letters 2026, doi:10.1029/2026GL125879; press release dated 2026-10-28, https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
   "materials": "Press release only (read through a fetch tool). Paper, figures, methods and supplement NOT read: Wiley and phys.org pages returned client errors. Independent check: arXiv:2602.03990 abstract page (CALET on the ISS, same storm), read through a fetch tool. Baker et al. 2014 (origin of the barrier) not read.",
   "decision_context": "User-chosen study. Two decisions it could feed: whether spacecraft radiation planning can treat the region inside about 3 Earth radii as protected from multi-MeV electrons, and whether radiation-belt forecast models need a local acceleration source at low L. No decision owner named.",
+  "sources": [
+    {
+      "id": "S1",
+      "location": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "depth": "PRESS_RELEASE",
+      "basis": "Press release only (read through a fetch tool)"
+    },
+    {
+      "id": "S2",
+      "location": "https://arxiv.org/abs/2602.03990",
+      "depth": "ABSTRACT",
+      "basis": "arXiv:2602.03990 abstract page (CALET on the ISS, same storm), read through a fetch tool"
+    }
+  ],
   "claims": [
     {
       "id": "C1",
       "text": "in 2024, Japan's Arase space probe detected these electrons well inside the barrier",
       "evidence_location": "Press release; paper figures not read. Independently: CALET reports relativistic electrons down to L = 2.2, below the nominal L = 2.8 barrier, persisting months (https://arxiv.org/abs/2602.03990)",
-      "support": "SUPPORTED",
+      "support": "UNTESTED",
       "measurand": "presence of multi-MeV (some above 3 MeV) electrons inside about 3 Earth radii",
-      "grade": "MEASURED_PRESENT",
+      "grade": "UNDECLARED",
       "falsifiers": "Arase and CALET both report presence from different orbits and detectors. A shared contamination (for example penetrating protons counted as electrons) would have to affect both.",
       "label": "OBSERVED",
       "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
       "range": "May 2024 storm and after",
-      "instrument": "Arase particle instruments (paper); CALET on the ISS (independent, integral count rates)"
+      "instrument": "Arase particle instruments (paper); CALET on the ISS (independent, integral count rates)",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "PRESS_RELEASE"
+        }
+      ],
+      "downgrades": [
+        {
+          "from": {
+            "support": "SUPPORTED",
+            "grade": "MEASURED_PRESENT"
+          },
+          "to": {
+            "support": "UNTESTED",
+            "grade": "UNDECLARED"
+          },
+          "reason": "graded above read depth",
+          "by": "user"
+        }
+      ]
     },
     {
       "id": "C2",
@@ -30,7 +64,13 @@
       "label": "DERIVED",
       "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
       "range": "one storm",
-      "instrument": "Arase electron data over several orbits, converted to PSD with a magnetic field model (model not stated in material read)"
+      "instrument": "Arase electron data over several orbits, converted to PSD with a magnetic field model (model not stated in material read)",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "PRESS_RELEASE"
+        }
+      ]
     },
     {
       "id": "C3",
@@ -42,7 +82,13 @@
       "falsifiers": "A quasi-linear or test-particle calculation with the observed chorus amplitude and density gives acceleration far too slow to build the observed peak in the observed time. Not reported in the material read.",
       "label": "PROPOSED",
       "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
-      "instrument": "Arase wave measurements; link to acceleration by timing"
+      "instrument": "Arase wave measurements; link to acceleration by timing",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "PRESS_RELEASE"
+        }
+      ]
     },
     {
       "id": "C4",
@@ -54,7 +100,13 @@
       "falsifiers": "The 2014 boundary was characterized over storms of a range that did not include a superstorm; if so, 'broken' and 'outside the conditions it was measured in' predict the same observation.",
       "label": "DERIVED",
       "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
-      "instrument": "comparison of the May 2024 observation against the boundary location"
+      "instrument": "comparison of the May 2024 observation against the boundary location",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "PRESS_RELEASE"
+        }
+      ]
     }
   ],
   "tools": [

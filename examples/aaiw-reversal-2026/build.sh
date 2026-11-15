@@ -20,6 +20,13 @@ $A init --file $F --title "Mishra, Gayen & Naveira Garabato (2026): Reversal of 
   --materials "Press coverage only (Scientific Frontline, Oceanographic, Phys.org screenshot). Paper, figures, salinity/density magnitudes, depths and methods NOT read. Related: Spira et al. 2026 (Nature Climate Change, doi:10.1038/s41558-026-02601-4), open-access PDF read through a fetch tool. Unit conversions computed in earth-systems-physics aaiw_reversal_2026.py." \
   --context "User-chosen study, routed to Thwaites and Earth-system modelling: whether a Southern Ocean freshwater budget built around ice-shelf melt (the CDW-AABW loop in earth-systems-physics, the Thwaites audit in CEED) needs the sea-ice meltwater term, and whether AAIW has changed state. No decision owner named."
 
+# ---- sources and read depth (Card 07); each basis is quoted from --materials above
+$A source --file $F --id S1 --location "$U" --depth PRESS_RELEASE \
+  --basis "Press coverage only (Scientific Frontline, Oceanographic, Phys.org screenshot)"
+$A source --file $F --id S2 --location "$V" --depth FULL_TEXT \
+  --detail "open-access PDF, read through a fetch tool" --basis "open-access PDF read through a fetch tool"
+$A source --file $F --id S3 --location "$E" --depth UNDECLARED
+
 $A design --file $F --check selection --state CHECKED --source "$U" \
   --finding "One water mass, 1995-2024, reversal window 2016-2024 (9 years). The coverage calls it the first direct observational evidence. Argo near-global coverage is a 2000s development, so the early part of the 1995-2015 baseline rests on sparser data (VERIFY in the paper)."
 $A design --file $F --check measurement_validity --state CHECKED --source "$U" --error-type E1_DROPPED_VARIABLE \
@@ -39,6 +46,10 @@ $A claim --file $F --id C1 --label OBSERVED --support PARTIALLY_SUPPORTED --grad
   --range "1995-2024; post-reversal 9 years" \
   --falsifiers "The post-2016 trend lies within the spread of earlier 9-year windows of the same record; or the reversal is confined to the depth/region range where Argo coverage changed." \
   --source "$U"
+# decided 2026-11-15: C1 was graded above its read depth (PRESS_RELEASE; Card 07 table 4a).
+# Downgraded to the ceiling, no override; the original grade stays in the claim's downgrades log.
+$A downgrade --file $F --id C1 --support UNTESTED --grade UNDECLARED --by user \
+  --reason "graded above read depth"
 $A claim --file $F --id C2 --label DERIVED --support UNDETERMINED --grade UNDECLARED \
   --text "Reversal of Antarctic Intermediate Water trends triggered by sea ice decline" \
   --evidence "Paper title; coverage: summer melt about 3x Amazon flow before 2016, about 2x after" \

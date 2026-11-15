@@ -8,7 +8,7 @@ You are assessing a publication using the study-aperture method cards. Your job 
 
 Work through these steps in order:
 
-Throughout: for every substantive finding you state, retain the source location it came from (URL, page, table, or passage). A finding without a source location is not yet a finding.
+Throughout: for every substantive finding you state, retain the source location it came from (URL, page, table, or passage). A finding without a source location is not yet a finding. For every source, state how deeply you read it: SNIPPET (a search fragment), PRESS_RELEASE (coverage, not the work), ABSTRACT, FULL_TEXT (name the sections read), CARRIED (not read; name what it was carried from), or UNDECLARED. A support grade or MEASURED_* grade names the sources it rests on, and never rests on content deeper than that source was read (Card 07). Ceiling by depth: SNIPPET, PRESS_RELEASE and CARRIED carry nothing above UNTESTED and no MEASURED_*; ABSTRACT no MEASURED_* unless you quote the value word for word from the abstract (store the abstract text with the source).
 
 1. **Route.** Give the publication one type: EMPIRICAL, REVIEW, THEORETICAL, SIMULATION, COMMENTARY — or UNDECLARED if the material in hand is insufficient. State what material you actually hold (full text, abstract only, etc.) and what the assessment is FOR (decision context); if the decision context is absent, state downstream implications conditionally, never as recommendations. The type gives DEFAULT cards; applicability is ultimately per-claim and per-input — a commentary citing empirical lineage still gets the independence checks on that lineage; record any out-of-default card run and why. Apply the cards that fit; for the rest, return NOT_APPLICABLE — that is a legal output, not a failure. Before any card runs, do the ordinary study-design checks (confounding, selection, measurement validity, uncertainty, multiplicity, missing data, preregistration) and record their state.
 
@@ -30,9 +30,11 @@ Then return, in this exact structure:
 
 ```
 PUBLICATION: <title> | TYPE: <one of the six> | MATERIAL HELD: <...> | DECISION CONTEXT: <...>
+SOURCES:
+- S1 <location> | depth: <SNIPPET|PRESS_RELEASE|ABSTRACT|FULL_TEXT (sections)|CARRIED (from)|UNDECLARED>
 DESIGN CHECKS: <state of each ordinary check; UNDECLARED if not inspectable with material in hand>
 CLAIMS:
-- C1 [OBSERVED|DERIVED|PROPOSED] "verbatim" | evidence: <loc or NO_EVIDENCE_LOCATION> | grade: <...> | support: <SUPPORTED|PARTIALLY_SUPPORTED|UNSUPPORTED|CONTRADICTED|UNTESTED|UNDETERMINED> | falsifiers: <...>
+- C1 [OBSERVED|DERIVED|PROPOSED] "verbatim" | evidence: <loc or NO_EVIDENCE_LOCATION> | grade: <...> | support: <SUPPORTED|PARTIALLY_SUPPORTED|UNSUPPORTED|CONTRADICTED|UNTESTED|UNDETERMINED> | rests on: <S1 (depth), ...> | falsifiers: <...>
 INPUT AVERAGES:
 - A1 "<what is averaged>" = <value> | population: <...> | window: <...> | stationarity: <ASSESSED (basis)|ASSUMED|UNASSESSED|UNDECLARED> | claims: <ids> | fitted to / split of / estimated from: <...>
 INDEPENDENCE: <pairwise routes, or NODATA>
@@ -54,8 +56,9 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | AI output block | CLI command |
 |---|---|
 | header line | `init --title ... --type EMPIRICAL --citation <url> --materials "<what you actually read>" --context "<decision it is for>" |
+| each SOURCES line | `source --id S1 --location <url> --depth <SNIPPET|PRESS_RELEASE|ABSTRACT|FULL_TEXT|CARRIED|UNDECLARED> [--detail "<sections read, or carried from>"] [--basis "<where the depth statement comes from>"]` — before any command that names `--source <url>` |
 | DESIGN CHECKS lines | `design --check confounding --state CHECKED --finding "..." --source <url>` |
-| each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url>` |
+| each CLAIMS line | `claim --id C1 --text "<verbatim>" --evidence "<location or empty>" --support <grade> --label <OBSERVED|DERIVED|PROPOSED> --grade <measurement grade> --falsifiers "<...>" --source <url> [--rests-on S2 ...]` — `--source` adds its source to rests_on; a graded claim must rest on at least one source |
 | each INPUT AVERAGES line | `average --id A1 --text "<what is averaged>" --value <v> --population "<...>" --window "<...>" --stationarity <ASSESSED|ASSUMED|UNASSESSED|UNDECLARED> [--basis "<...>"] --claim C1 [--split-of A0] [--fitted-to "<...>"] [--estimated-from "<...>"] --source <url>` |
 | each card run | `tool --id T1 --card 03 --state RUN --output "<finding + source location>" --source <url>` (or `--state DECLINED --declined-reason "..."`) |
 | each MISSES line | add `--error-type <E1_DROPPED_VARIABLE|E2_STALE_CONDITIONS|E3_DEFAULTED_SLOT|E4_UNCHECKED_OBSERVER>` (repeatable) to the `tool` or `design` command that states the miss; accepted only on RUN / CHECKED with the miss in the output or finding |
@@ -63,6 +66,10 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | a resolved decision | `resolve --id D1 --by <user|assessor> --answer "<answer>"` — the only path to RESOLVED |
 | a deferred decision | `defer --id D1 --by <who> --reason "<why>"` |
 | a Scope Audit Lab integrity report bearing on a claim | `labref --id L1 --lab-report <integrity-report.json> --claim C1` — links and hash-binds the report; never changes the claim's support grade |
+| a measured value quoted from an ABSTRACT source | store the abstract with `source ... --depth ABSTRACT --abstract-text "<abstract>"`, then add `--quoted S1="<the value, word for word>"` to the `claim` command |
+| a grade lowered after review | `downgrade --id C1 --support <new> [--grade <new>] --by <who> --reason "<why>"` — the old grade is kept in the claim's log |
+| a reviewer's decision that a grade may exceed its read-depth ceiling | `override --id C1 --by <who> --reason "<why>"` — logged and printed; refused when nothing exceeds the ceiling |
+| an old study-aperture/1 record | `migrate --file s.json [--depths decl.json]` — a declared depth needs a basis quote found verbatim in the record; every change is logged |
 | INCOMPLETENESS list | generated automatically by `report`; do not hand-write it |
 
 Then `check` (must print VALID) and `report` (markdown; incompleteness printed first). The report is the deliverable: a record, not a verdict.

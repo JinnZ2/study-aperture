@@ -1,5 +1,5 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Carney, Cuddy & Yap (2010): Power posing",
   "pub_type": "EMPIRICAL",
   "citation": "Psychological Science 21(10):1363-1368, doi:10.1177/0956797610383437",
@@ -15,7 +15,13 @@
       "grade": "MEASURED_PRESENT",
       "falsifiers": "null felt-power effect at adequate power; negative direction vs neutral control",
       "label": "OBSERVED",
-      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C2",
@@ -26,7 +32,13 @@
       "grade": "MEASURED_PRESENT",
       "falsifiers": "null gambling effect at adequate power",
       "label": "OBSERVED",
-      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C3",
@@ -37,7 +49,13 @@
       "grade": "MEASURED_PRESENT",
       "falsifiers": "null testosterone change at adequate power; win-feedback confound explains effect",
       "label": "OBSERVED",
-      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     },
     {
       "id": "C4",
@@ -48,7 +66,13 @@
       "grade": "MEASURED_PRESENT",
       "falsifiers": "null cortisol change at adequate power",
       "label": "OBSERVED",
-      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full"
+      "source": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "FULL_TEXT"
+        }
+      ]
     }
   ],
   "tools": [
@@ -158,6 +182,75 @@
       "state": "CHECKED",
       "finding": "experimenters not blind to condition",
       "source": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S0",
+      "location": "Psychological Science 21(10):1363-1368, doi:10.1177/0956797610383437",
+      "depth": "FULL_TEXT",
+      "detail": "consulted to verify reported statistics",
+      "basis": "original article: journal full text consulted to verify reported statistics"
+    },
+    {
+      "id": "S1",
+      "location": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "depth": "FULL_TEXT",
+      "detail": "consulted to verify reported statistics",
+      "basis": "original article: journal full text consulted to verify reported statistics"
+    },
+    {
+      "id": "S2",
+      "location": "vendored/conditional_claims.py run outputs; Slate 2016 for TED phrasing",
+      "depth": "UNDECLARED"
+    },
+    {
+      "id": "S3",
+      "location": "2016 statement excerpts; journal full text (no exclusions mentioned there)",
+      "depth": "UNDECLARED"
+    },
+    {
+      "id": "S4",
+      "location": "vendored/safe_provenance.py and vendored/false_agree.py run outputs",
+      "depth": "UNDECLARED"
+    },
+    {
+      "id": "S5",
+      "location": "commentary on Cuddy et al. 2018 (open.lnu.se); Clearer Thinking summary of Gronau et al. 2017",
+      "depth": "SNIPPET",
+      "basis": "replication/p-curve/commentary literature: excerpts of the primary texts obtained via search"
+    },
+    {
+      "id": "S6",
+      "location": "journal full text; Slate 2016",
+      "depth": "UNDECLARED"
+    },
+    {
+      "id": "S7",
+      "location": "https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf",
+      "depth": "UNDECLARED"
+    }
+  ],
+  "migrations": [
+    {
+      "from": "study-aperture/1",
+      "to": "study-aperture/2",
+      "by": "assess.py migrate",
+      "changes": [
+        "schema study-aperture/1 -> study-aperture/2",
+        "source S0 added for the publication (citation): Psychological Science 21(10):1363-1368, doi:10.1177/0956797610383437 -> depth FULL_TEXT(consulted to verify reported statistics) (basis quoted from the record: 'original article: journal full text consulted to verify reported statistics')",
+        "source S1 added for a source string in the record: https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full -> depth FULL_TEXT(consulted to verify reported statistics) (basis quoted from the record: 'original article: journal full text consulted to verify reported statistics')",
+        "source S2 added for a source string in the record: vendored/conditional_claims.py run outputs; Slate 2016 for TED phrasing -> depth UNDECLARED (no depth stated in the record)",
+        "source S3 added for a source string in the record: 2016 statement excerpts; journal full text (no exclusions mentioned there) -> depth UNDECLARED (no depth stated in the record)",
+        "source S4 added for a source string in the record: vendored/safe_provenance.py and vendored/false_agree.py run outputs -> depth UNDECLARED (no depth stated in the record)",
+        "source S5 added for a source string in the record: commentary on Cuddy et al. 2018 (open.lnu.se); Clearer Thinking summary of Gronau et al. 2017 -> depth SNIPPET (basis quoted from the record: 'replication/p-curve/commentary literature: excerpts of the primary texts obtained via search')",
+        "source S6 added for a source string in the record: journal full text; Slate 2016 -> depth UNDECLARED (no depth stated in the record)",
+        "source S7 added for a source string in the record: https://faculty.haas.berkeley.edu/dana_carney/pdf_my%20position%20on%20power%20poses.pdf -> depth UNDECLARED (no depth stated in the record)",
+        "claim C1: rests_on S1 (FULL_TEXT)",
+        "claim C2: rests_on S1 (FULL_TEXT)",
+        "claim C3: rests_on S1 (FULL_TEXT)",
+        "claim C4: rests_on S1 (FULL_TEXT)"
+      ]
     }
   ]
 }

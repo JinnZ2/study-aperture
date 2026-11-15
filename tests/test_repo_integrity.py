@@ -49,13 +49,14 @@ VOCAB = {
     "lab report statuses": "LAB_REPORT_STATUSES",
     "stationarity states": "STATIONARITY_STATES",
     "error types": "ERROR_TYPES",
+    "read depths": "READ_DEPTHS",
 }
 
 # Sets AI_ENTRY_PROMPT.md must teach the model (it does not define design-check
 # states; the CLI handoff table covers those).
 PROMPT_SETS = ["PUB_TYPES", "SUPPORT", "MEASUREMENT_GRADES", "CLAIM_LABELS",
                "TOOL_STATES", "DECISION_STATES", "STATIONARITY_STATES",
-               "ERROR_TYPES"]
+               "ERROR_TYPES", "READ_DEPTHS"]
 
 TOKEN = re.compile(r"\b[A-Z][A-Z0-9_]*[A-Z]\b")  # digits allowed inside (E1_DROPPED_VARIABLE)
 
@@ -155,6 +156,20 @@ class AuditsRegenerate(unittest.TestCase):
                 self.assertEqual(after, before,
                                  f"{final.relative_to(ROOT)} does not match its data; "
                                  f"regenerate with: python3 {script.relative_to(ROOT)}")
+
+
+class RoutingInSync(unittest.TestCase):
+
+    def test_card_00_table_matches_router(self):
+        text = (ROOT / "cards" / "00_ROUTING.md").read_text()
+        table = {}
+        for m in re.finditer(r"^\| ([A-Z]+) \| ([0-9, ]+) \|\s*$", text, re.M):
+            table[m.group(1)] = {c.strip() for c in m.group(2).split(",")}
+        want = {k: v for k, v in assess.ROUTER.items() if v}
+        self.assertEqual(table, want, "cards/00_ROUTING.md routing table and assess.py ROUTER differ")
+        for cards in want.values():
+            for c in cards:
+                self.assertTrue(list((ROOT / "cards").glob(f"{c}_*.md")), f"routed card {c} has no file")
 
 
 class VocabularyInSync(unittest.TestCase):

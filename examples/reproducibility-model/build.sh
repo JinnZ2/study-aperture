@@ -16,6 +16,11 @@ $A init --file $F --title "Almudevar & Almudevar (2026): Reproducibility and Sta
   --materials "arXiv HTML rendering read through a fetch tool: abstract, section list, Tables 1 and 4, and quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5. PDF not downloadable here (shell egress 403). Per-study OSC p-values and replication sample sizes behind the type II error figure not in hand. Cited sources (Nosek 2015, Klein 2014, Camerer 2016) not read." \
   --context "Whether to read the Open Science Collaboration's 36% replication rate (Nosek et al. 2015) as an estimate of how many published psychology findings are true, or as largely an artifact of how the replications were powered. Assessor-chosen paper; no decision owner named."
 
+# ---- sources and read depth (Card 07); the basis is quoted from --materials above
+$A source --file $F --id S1 --location "$U" --depth FULL_TEXT \
+  --detail "arXiv HTML: abstract, section list, Tables 1 and 4, quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5" \
+  --basis "arXiv HTML rendering read through a fetch tool: abstract, section list, Tables 1 and 4, and quoted passages of Sections 2.1-2.2, 3.5, 3.6, 5"
+
 # ---- ordinary design checks (THEORETICAL record; run anyway because the paper re-analyses data)
 $A design --file $F --check selection --state CHECKED --source "$U" --error-type E3_DEFAULTED_SLOT \
   --finding "The prevalence used for OSC (pi = 0.25) is labelled 'consistent with ML-RP' (Table 1); Klein et al. 2014 studied a hand-picked set of effects. Selection of that set is not discussed as a reason it may differ from OSC's sample."

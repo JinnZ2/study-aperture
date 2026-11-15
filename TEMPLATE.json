@@ -1,10 +1,29 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Author(s) (Year): Short title",
   "pub_type": "UNDECLARED",
   "citation": "journal, volume(pages), doi or URL - where the study itself lives",
   "materials": "what you ACTUALLY held and read - be honest; every grade below is conditioned on this",
   "decision_context": "what the assessment is FOR; UNDECLARED if none - then downstream implications must be conditional, never recommendations",
+  "sources": [
+    {
+      "id": "S1",
+      "location": "URL or location backing this claim record",
+      "depth": "UNDECLARED",
+      "detail": "required if FULL_TEXT (the sections read) or CARRIED (what it was carried from)",
+      "basis": "where the depth statement comes from, e.g. a phrase of materials"
+    },
+    {
+      "id": "S2",
+      "location": "URL or location",
+      "depth": "UNDECLARED"
+    },
+    {
+      "id": "S3",
+      "location": "URL or location of the finding",
+      "depth": "UNDECLARED"
+    }
+  ],
   "design_checks": [
     {
       "check": "confounding",
@@ -26,7 +45,13 @@
       "grade": "UNDECLARED",
       "resolution": "coarseness, as a value",
       "falsifiers": "what would have to be observed for the claim to be wrong, and whether the publication reports testing it",
-      "source": "URL or location backing this claim record"
+      "source": "URL or location backing this claim record",
+      "rests_on": [
+        {
+          "source": "S1",
+          "depth": "UNDECLARED"
+        }
+      ]
     }
   ],
   "averages": [
@@ -77,6 +102,8 @@
     "tool.state": "RUN | DECLINED | BLOCKED | NOT_APPLICABLE",
     "decision.state": "DETECTED | UNRESOLVED | RESOLVED | DEFERRED | NOT_APPLICABLE",
     "source fields": "recorded provenance (where you say it came from), not verified provenance",
-    "average.stationarity": "ASSESSED | ASSUMED | UNASSESSED | UNDECLARED (population, window, stationarity all unstated = FROZEN; claims resting on a FROZEN average cannot be MEASURED_*)"
+    "average.stationarity": "ASSESSED | ASSUMED | UNASSESSED | UNDECLARED (population, window, stationarity all unstated = FROZEN; claims resting on a FROZEN average cannot be MEASURED_*)",
+    "source.depth": "SNIPPET | PRESS_RELEASE | ABSTRACT | FULL_TEXT (detail: sections read) | CARRIED (detail: from what) | UNDECLARED (Card 07). Every source string in the record must be a listed source.",
+    "claim.rests_on": "[{source, depth}] for every source the claim rests on, depth copied from the source. Required once the claim is graded (located support or MEASURED_* grade); a graded claim resting on UNDECLARED depth is FLAGGED, valid but not clean."
   }
 }

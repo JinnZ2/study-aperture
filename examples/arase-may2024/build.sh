@@ -19,6 +19,12 @@ $A init --file $F --title "Miyoshi et al. (2026): Local Acceleration of Multi-Me
   --materials "Press release only (read through a fetch tool). Paper, figures, methods and supplement NOT read: Wiley and phys.org pages returned client errors. Independent check: arXiv:2602.03990 abstract page (CALET on the ISS, same storm), read through a fetch tool. Baker et al. 2014 (origin of the barrier) not read." \
   --context "User-chosen study. Two decisions it could feed: whether spacecraft radiation planning can treat the region inside about 3 Earth radii as protected from multi-MeV electrons, and whether radiation-belt forecast models need a local acceleration source at low L. No decision owner named."
 
+# ---- sources and read depth (Card 07); each basis is quoted from --materials above
+$A source --file $F --id S1 --location "$U" --depth PRESS_RELEASE \
+  --basis "Press release only (read through a fetch tool)"
+$A source --file $F --id S2 --location "$V" --depth ABSTRACT \
+  --basis "arXiv:2602.03990 abstract page (CALET on the ISS, same storm), read through a fetch tool"
+
 # ---- design checks (at press-release depth; most are not inspectable)
 $A design --file $F --check selection --state CHECKED --source "$U" \
   --finding "One storm (May 2024), described as a superstorm. The release reports no other event and no generalization. n = 1 event: the result is an existence observation, not a rate."
@@ -40,6 +46,10 @@ $A claim --file $F --id C1 --label OBSERVED --support SUPPORTED --grade MEASURED
   --range "May 2024 storm and after" \
   --falsifiers "Arase and CALET both report presence from different orbits and detectors. A shared contamination (for example penetrating protons counted as electrons) would have to affect both." \
   --source "$U"
+# decided 2026-11-15: C1 was graded above its read depth (PRESS_RELEASE; Card 07 table 4a).
+# Downgraded to the ceiling, no override; the original grade stays in the claim's downgrades log.
+$A downgrade --file $F --id C1 --support UNTESTED --grade UNDECLARED --by user \
+  --reason "graded above read depth"
 $A claim --file $F --id C2 --label DERIVED --support UNDETERMINED --grade UNDECLARED \
   --text "the electrons were accelerated locally rather than infiltrating from outer radiation belts" \
   --evidence "Press release: a distinct local PSD peak near the barrier boundary that strengthened over time. Method not read." \

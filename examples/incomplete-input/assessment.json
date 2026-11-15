@@ -1,5 +1,5 @@
 {
-  "schema": "study-aperture/1",
+  "schema": "study-aperture/2",
   "title": "Unknown preprint (abstract only)",
   "pub_type": "UNDECLARED",
   "citation": "UNDECLARED",
@@ -10,7 +10,13 @@
       "id": "C1",
       "text": "Abstract states the intervention 'significantly improved outcomes'",
       "evidence_location": "",
-      "support": "UNDETERMINED"
+      "support": "UNDETERMINED",
+      "rests_on": [
+        {
+          "source": "S0",
+          "depth": "ABSTRACT"
+        }
+      ]
     }
   ],
   "tools": [
@@ -26,5 +32,25 @@
     }
   ],
   "decisions": [],
-  "notes": "UNDECLARED"
+  "notes": "UNDECLARED",
+  "sources": [
+    {
+      "id": "S0",
+      "location": "UNDECLARED",
+      "depth": "ABSTRACT",
+      "basis": "abstract only, obtained in transit; no full text"
+    }
+  ],
+  "migrations": [
+    {
+      "from": "study-aperture/1",
+      "to": "study-aperture/2",
+      "by": "assess.py migrate",
+      "changes": [
+        "schema study-aperture/1 -> study-aperture/2",
+        "source S0 added for the publication (citation): UNDECLARED -> depth ABSTRACT (basis quoted from the record: 'abstract only, obtained in transit; no full text')",
+        "claim C1: rests_on S0 (ABSTRACT) -- no source of its own; the publication"
+      ]
+    }
+  ]
 }
