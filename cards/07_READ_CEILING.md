@@ -47,7 +47,29 @@ When a claim needs content a source's depth cannot show, write the three parts u
 
 - No support grade may rest on content above a source's read depth. If the claim needs it, the claim's support stays `UNTESTED` or `UNDETERMINED` until the retrieval step runs.
 - Nothing may be filled in to stand where the unread content would be: no reconstructed formulation, figure or number.
-- Compliance can be checked in both directions (upstream's falsifier): the record should contain nothing that only a deeper read could have supplied. Upstream checks this mechanically on its scaffold; here it is a reviewer check, because no field exists.
+- Compliance can be checked in both directions (upstream's falsifier): the record should contain nothing that only a deeper read could have supplied. Upstream checks this mechanically on its scaffold. Here, the part a depth label can decide is checked by the table in section 4a; the rest is a reviewer check.
+
+### 4a. The ceiling table (mechanical part, enforced)
+
+The highest grade each depth can carry. `FULL_TEXT` has no row: what a full read can carry depends on the sections read, which the table cannot see.
+
+| Depth | Support not allowed | Measurement grade not allowed |
+|---|---|---|
+| `SNIPPET` | `SUPPORTED` | any `MEASURED_*` |
+| `PRESS_RELEASE` | `SUPPORTED` | any `MEASURED_*` |
+| `ABSTRACT` | (none) | any `MEASURED_*`, unless the value is quoted from the abstract |
+| `CARRIED` | anything above `UNTESTED`: `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED`, `CONTRADICTED` | any `MEASURED_*` |
+| `UNDECLARED` | no row: flagged separately (section 5) | no row |
+
+Rules:
+- **Any one source can carry the grade.** A claim exceeds the ceiling only when no source it rests on permits its grade. A claim on a press release and on the full text can be SUPPORTED.
+- **Exceeding the ceiling is a FLAG, not a violation.** The record stays valid and is not clean.
+- **A quoted value lifts an ABSTRACT ceiling.** Write `claim ... --quoted S1="<the value as the abstract gives it>"`. A quote on any other depth is a violation.
+- **A reviewer can override a ceiling only with a logged reason and a named author**: `override --id C1 --by <who> --reason "..."`.
+  - An override is refused when nothing exceeds the ceiling.
+  - An override missing its reason or author is a violation.
+  - Overrides are printed in `check` and in their own report section.
+  - An override left over after the claim no longer exceeds the ceiling is FLAGGED as stale.
 
 ## 5. How `assess.py` enforces it
 
@@ -60,6 +82,7 @@ claim graded (SUPPORTED, PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED, or MEAS
    no rests_on                          -> violation
    rests_on depth != the source's depth -> violation
    rests on an UNDECLARED depth         -> FLAGGED: valid, not clean
+   above the ceiling of every source    -> FLAGGED (table 4a), unless overridden with a logged reason
                                            `check` prints "VALID — FLAGGED"; `check --strict` exits 3
 study-aperture/1 record                 -> read through an in-memory migration (all depths
                                            UNDECLARED); never rewritten until `migrate` runs
@@ -71,10 +94,17 @@ study-aperture/1 record                 -> read through an in-memory migration (
 
 The repository's own examples were migrated this way. Depths came from their `materials` text; where a record states no depth for a source, the source stays UNDECLARED.
 
+Under table 4a, two examples are FLAGGED, and their flags are left standing:
+- `arase-may2024` C1 is SUPPORTED and MEASURED_PRESENT on a press release.
+- `aaiw-reversal-2026` C1 is MEASURED_PRESENT on press coverage.
+
+Neither carries an override, because an override is a reviewer's logged decision.
+
 ## 6. Limits
 
 - One upstream instance. The vocabulary in section 2 is a proposal, not upstream's and not tested across records.
 - A record can declare every depth UNDECLARED and still check VALID. Only graded claims on those sources are FLAGGED.
-- What `assess.py` checks is that a depth is declared and restated consistently. It does not check that a grade stays within what the depth could show (section 4); that stays a reviewer check.
+- What `assess.py` checks is that a depth is declared and restated consistently, and that a grade is within the table in 4a. It does not check that the content a grade relies on is visible at the depth, for example which sections a FULL_TEXT read covered. That stays a reviewer check.
+- The table is coarse by design. SUPPORTED is barred on a press release and PARTIALLY_SUPPORTED is not, so the line is drawn at "fully". A reviewer who reads it differently records an override.
 - A declared depth is recorded provenance, not verified provenance (same rule as every `source` field).
 - The card says nothing about whether a source is right, only about how deeply it was read.

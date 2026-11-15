@@ -38,6 +38,11 @@ Enforcement notes (the prohibitions are enforced in code, not promised in prose)
     PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED, or a MEASURED_* grade) must
     name the sources and depths it rests on. UNDECLARED depth is allowed, but a
     graded claim resting on it is FLAGGED: the record is valid, not clean.
+  - The read-depth ceiling (CEILING table, Card 07 section 4): SNIPPET and
+    PRESS_RELEASE carry no SUPPORTED and no MEASURED_*; ABSTRACT no MEASURED_*
+    unless the value is quoted from the abstract; CARRIED nothing above UNTESTED.
+    A claim above the ceiling of every source it rests on is FLAGGED. A reviewer
+    may override one only with a logged reason and a named author.
   - Old records are migrated, never silently. A study-aperture/1 file is read
     through an in-memory migration (all depths UNDECLARED) and is not written;
     commands that change a record refuse it until `migrate` has run. `migrate`
@@ -82,6 +87,8 @@ Commands:
         [--measurand ...] [--grade ...] [--falsifiers ...] [--label OBSERVED|DERIVED|PROPOSED] [--source <url>]
         [--range ...] [--instrument ...] [--resolution ...] [--rests-on S1 ...]
                                 # --source adds its source to rests_on
+        [--quoted S1=<value as quoted in the abstract>]   # lifts an ABSTRACT grade ceiling
+  override --file s.json --id C1 --by <who> --reason "..."   # logged ceiling override
   tool  --file s.json --id T1 --card 03 --state RUN --output "..." [--source <url>]
         [--declined-reason ...] [--error-type E1_DROPPED_VARIABLE ...]
   design --file s.json --check confounding --state CHECKED|NOT_CHECKED|NOT_APPLICABLE
@@ -144,11 +151,11 @@ DECISION_STATES = frozenset([
 # empirical lineage still runs card 03) — record the override as a tool run
 # with its reason. UNDECLARED type routes to nothing.
 ROUTER = {
-    "EMPIRICAL":   {"00", "01", "02", "03", "04", "05", "06"},
-    "REVIEW":      {"00", "01", "02", "03", "04", "06"},
-    "THEORETICAL": {"00", "01", "04", "06"},
-    "SIMULATION":  {"00", "01", "02", "04", "06"},
-    "COMMENTARY":  {"00", "01", "06"},
+    "EMPIRICAL":   {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10"},
+    "REVIEW":      {"00", "01", "02", "03", "04", "06", "07", "08", "09", "10"},
+    "THEORETICAL": {"00", "01", "04", "06", "07", "10"},
+    "SIMULATION":  {"00", "01", "02", "04", "06", "07", "08", "09", "10"},
+    "COMMENTARY":  {"00", "01", "06", "07", "10"},
     "UNDECLARED":  set(),
 }
 
@@ -198,6 +205,22 @@ DEPTH_DETAIL = {"FULL_TEXT": "the sections read", "CARRIED": "what it was carrie
 # A claim is graded when its support or its measurement grade asserts something
 # about the evidence. These must name the sources and depths they rest on.
 LOCATED_SUPPORT = frozenset(["SUPPORTED", "PARTIALLY_SUPPORTED", "UNSUPPORTED", "CONTRADICTED"])
+
+# Card 07 section 4, the mechanical part: the highest grade a read depth can carry.
+# A claim exceeds the ceiling when NO source it rests on permits its support (or its
+# measurement grade). Exceeding it is a FLAG, not a violation; a reviewer may override
+# one with a logged reason and author (`override`). FULL_TEXT and UNDECLARED have no
+# row here (UNDECLARED is already flagged on its own).
+CEILING = {
+    "SNIPPET":       {"support": frozenset(["SUPPORTED"]), "grade": MEASURED_GRADES,
+                      "quote_lifts_grade": False},
+    "PRESS_RELEASE": {"support": frozenset(["SUPPORTED"]), "grade": MEASURED_GRADES,
+                      "quote_lifts_grade": False},
+    "ABSTRACT":      {"support": frozenset(), "grade": MEASURED_GRADES,
+                      "quote_lifts_grade": True},   # a MEASURED_* value quoted from the abstract
+    "CARRIED":       {"support": LOCATED_SUPPORT, "grade": MEASURED_GRADES,
+                      "quote_lifts_grade": False},  # nothing above UNTESTED
+}
 
 
 def is_graded(c):
@@ -479,13 +502,67 @@ def _check_sources(d, v):
         if own and own not in named:
             v.append(f"claim {cid}: names source {c.get('source')!r} ({own}) but does not "
                      f"rest on it")
+        for r in rests:
+            if isinstance(r, dict) and "quoted" in r:
+                src = by_id.get(r.get("source")) or {}
+                if src.get("depth") != "ABSTRACT":
+                    v.append(f"claim {cid}: a quoted value lifts only an ABSTRACT source; "
+                             f"{r.get('source')} is {src.get('depth')}")
+                elif _is_sentinel(r.get("quoted")):
+                    v.append(f"claim {cid}: quoted value on {r.get('source')} is empty")
+        o = c.get("ceiling_override")
+        if o is not None and (not isinstance(o, dict) or _is_sentinel(o.get("reason"))
+                              or _is_sentinel(o.get("by"))):
+            v.append(f"claim {cid}: ceiling_override needs a reason AND a named author "
+                     f"(an override is logged, never silent)")
         if is_graded(c) and not rests:
             v.append(f"claim {cid}: graded ({c.get('support')}, grade {c.get('grade')}) "
                      f"without naming the sources and depths it rests on")
 
 
+def _permits(src, rest, field, value):
+    row = CEILING.get(src.get("depth"))
+    if row is None or value not in row[field]:
+        return True
+    return field == "grade" and row["quote_lifts_grade"] and not _is_sentinel(rest.get("quoted"))
+
+
+def ceiling_breaches(c, by_id):
+    """Card 07 ceiling, mechanical part. Return a list of breach strings for one claim."""
+    rests = [(r, by_id[r.get("source")]) for r in c.get("rests_on") or []
+             if isinstance(r, dict) and r.get("source") in by_id]
+    if not rests:
+        return []
+    out = []
+    for field, value in (("support", c.get("support")), ("grade", c.get("grade"))):
+        if value is None or all(_permits(src, r, field, value) for r, src in rests):
+            continue
+        if any(_permits(src, r, field, value) for r, src in rests):
+            continue
+        where = ", ".join(f"{src.get('id')} {src.get('depth')}" for r, src in rests)
+        extra = (" (an ABSTRACT source lifts this only with the value quoted from the abstract)"
+                 if field == "grade" and any(src.get("depth") == "ABSTRACT" for _, src in rests)
+                 else "")
+        out.append(f"{field} {value} exceeds the read-depth ceiling of every source it rests "
+                   f"on: {where}{extra}")
+    return out
+
+
+def overrides(d):
+    """Ceiling breaches a reviewer overrode, with the logged reason and author."""
+    by_id = {s.get("id"): s for s in d.get("sources", [])}
+    out = []
+    for c in d.get("claims", []):
+        o = c.get("ceiling_override")
+        if isinstance(o, dict):
+            for b in ceiling_breaches(c, by_id) or ["(nothing exceeds the ceiling now)"]:
+                out.append(f"claim {c.get('id')}: {b} -- overridden by {o.get('by')}: {o.get('reason')}")
+    return out
+
+
 def flags(d):
-    """Valid, but not clean: graded claims resting on an UNDECLARED read depth."""
+    """Valid, but not clean: graded claims resting on an UNDECLARED read depth, and
+    claims above the read-depth ceiling of every source they rest on (unless overridden)."""
     by_id = {s.get("id"): s for s in d.get("sources", [])}
     out = []
     for c in d.get("claims", []):
@@ -498,6 +575,12 @@ def flags(d):
             out.append(f"claim {c.get('id')}: graded {c.get('support')}"
                        + (f" / {c.get('grade')}" if c.get("grade") else "")
                        + f" resting on UNDECLARED read depth: {', '.join(undeclared)}")
+        if not isinstance(c.get("ceiling_override"), dict):
+            out += [f"claim {c.get('id')}: {b}" for b in ceiling_breaches(c, by_id)]
+    for c in d.get("claims", []):
+        if isinstance(c.get("ceiling_override"), dict) and not ceiling_breaches(c, by_id):
+            out.append(f"claim {c.get('id')}: ceiling override recorded, but nothing exceeds "
+                       f"the ceiling now (stale override; remove it)")
     return out
 
 
@@ -701,8 +784,14 @@ def report(d, base_dir=None):
         lines.append("")
     fl = flags(d)
     if fl:
-        lines.append("## FLAGGED — valid, not clean: graded on an undeclared read depth (Card 07)")
+        lines.append("## FLAGGED — valid, not clean: read depth undeclared or below the "
+                     "grade (Card 07)")
         lines += [f"- {x}" for x in fl]
+        lines.append("")
+    ov = overrides(d)
+    if ov:
+        lines.append("## Read-depth ceiling overrides (logged; Card 07)")
+        lines += [f"- {x}" for x in ov]
         lines.append("")
     lines += [f"- citation: {d['citation']}",
               f"- publication type: {d['pub_type']}",
@@ -772,7 +861,9 @@ def report(d, base_dir=None):
             lines.append(f"  - source: {c.get('source')}")
         if c.get("rests_on"):
             lines.append("  - rests on: " + ", ".join(
-                f"{r.get('source')} ({r.get('depth')})" for r in c["rests_on"]))
+                f"{r.get('source')} ({r.get('depth')}"
+                + (f", quoted: {r['quoted']}" if not _is_missing(r.get("quoted")) else "") + ")"
+                for r in c["rests_on"]))
         linked = [r.get("id") for r in d.get("lab_refs", []) if c.get("id") in r.get("claims", [])]
         if linked:
             lines.append(f"  - lab refs: {', '.join(linked)} (bundle integrity only; "
@@ -876,7 +967,7 @@ def _commit(d, path, ok_msg):
 def main(argv=None):
     p = argparse.ArgumentParser(description="study-aperture record validator and report generator")
     p.add_argument("cmd", choices=["init", "claim", "tool", "design", "decide", "resolve", "defer",
-                                   "labref", "average", "source", "migrate", "check", "report",
+                                   "labref", "average", "source", "override", "migrate", "check", "report",
                                    "selftest"])
     p.add_argument("--file", default="assessment.json")
     p.add_argument("--title"); p.add_argument("--type", dest="pub_type")
@@ -898,6 +989,8 @@ def main(argv=None):
     p.add_argument("--error-type", dest="error_types", action="append")
     p.add_argument("--location"); p.add_argument("--depth"); p.add_argument("--detail")
     p.add_argument("--rests-on", dest="rests_on", action="append")
+    p.add_argument("--quoted", action="append",
+                   help="claim: S1=<value as quoted in the abstract>; lifts an ABSTRACT ceiling")
     p.add_argument("--depths", help="migrate: JSON of depth declarations with verbatim basis quotes")
     p.add_argument("--strict", action="store_true", help="check: exit 3 when FLAGGED")
     args = p.parse_args(argv)
@@ -954,6 +1047,23 @@ def main(argv=None):
         if args.basis: src["basis"] = args.basis
         d["sources"].append(src)
         return _commit(d, args.file, f"source {args.id} recorded ({depth_label(src)})")
+    if args.cmd == "override":
+        if _is_sentinel(args.deferred_reason) or _is_sentinel(args.by):
+            print("REJECTED (file unchanged): override requires --reason AND --by "
+                  "(an override is logged, never silent).", file=sys.stderr)
+            return 1
+        by_id = {x.get("id"): x for x in d["sources"]}
+        for c in d["claims"]:
+            if c.get("id") == args.id:
+                if not ceiling_breaches(c, by_id):
+                    print(f"REJECTED (file unchanged): claim {args.id} does not exceed the "
+                          f"read-depth ceiling; there is nothing to override.", file=sys.stderr)
+                    return 1
+                c["ceiling_override"] = {"reason": args.deferred_reason, "by": args.by}
+                return _commit(d, args.file, f"claim {args.id}: ceiling override logged "
+                                             f"(by {args.by})")
+        print(f"REJECTED (file unchanged): no claim {args.id!r} in {args.file}", file=sys.stderr)
+        return 1
     if args.cmd == "claim":
         c = {"id": args.id, "text": args.text,
              "evidence_location": args.evidence or "",
@@ -967,8 +1077,19 @@ def main(argv=None):
         names = list(args.rests_on or [])
         if args.source and args.source in by_loc and by_loc[args.source]["id"] not in names:
             names.append(by_loc[args.source]["id"])
+        quoted = {}
+        for q in args.quoted or []:
+            sid, sep, val = q.partition("=")
+            if not sep:
+                print("REJECTED (file unchanged): --quoted takes S1=<value as quoted>",
+                      file=sys.stderr)
+                return 1
+            quoted[sid.strip()] = val.strip()
+            if sid.strip() not in names:
+                names.append(sid.strip())
         if names:
-            c["rests_on"] = [{"source": n, "depth": by_id[n].get("depth") if n in by_id else None}
+            c["rests_on"] = [{"source": n, "depth": by_id[n].get("depth") if n in by_id else None,
+                              **({"quoted": quoted[n]} if n in quoted else {})}
                              for n in dict.fromkeys(names)]
         d["claims"].append(c)
         return _commit(d, args.file, f"claim {args.id} recorded")
@@ -1077,6 +1198,7 @@ def main(argv=None):
             return 1
         fl = flags(d)
         for x in fl: print(f"FLAG: {x}")
+        for x in overrides(d): print(f"OVERRIDE: {x}")
         if d.get("_read_from"):
             print(f"NOTE: read from {d['_read_from']} through an in-memory migration; "
                   f"file unchanged; run migrate")
@@ -1435,7 +1557,7 @@ def selftest():
     assert r.returncode != 0 and "not a listed source" in r.stderr
     # 17e. --source adds its source to rests_on; the depth is copied from the source
     assert cli4("claim", "--id", "C2", "--text", "x", "--evidence", "p. 1",
-                "--support", "SUPPORTED", "--source", "u1").returncode == 0
+                "--support", "UNTESTED", "--source", "u1").returncode == 0
     d = load(f4)
     assert d["claims"][1]["rests_on"] == [{"source": "S1", "depth": "CARRIED"}]
     assert check(d) == [] and flags(d) == []
@@ -1507,6 +1629,62 @@ def selftest():
     assert d["migrations"][0]["from"] == "study-aperture/1"
     assert "## Migration log" in report(d)
     assert cli5("migrate").returncode != 0  # already migrated
+    # 19. the read-depth ceiling (Card 07 section 4): above it -> FLAG; override logged
+    f6 = os.path.join(tmp, "s6.json")
+    cli6 = lambda *a: subprocess.run([sys.executable, me, *a, "--file", f6],
+                                     capture_output=True, text=True)
+    cli6("init", "--title", "t", "--type", "EMPIRICAL", "--materials", "x", "--context", "y")
+    for sid, dep, *det in (("P", "PRESS_RELEASE"), ("A", "ABSTRACT"), ("N", "SNIPPET"),
+                           ("C", "CARRIED", "review R"), ("F", "FULL_TEXT", "Results")):
+        extra = ["--detail", det[0]] if det else []
+        assert cli6("source", "--id", sid, "--location", sid.lower(), "--depth", dep,
+                    *extra).returncode == 0
+    def claim6(cid, support, *a):
+        r = cli6("claim", "--id", cid, "--text", "x", "--evidence", "p. 1", "--support", support, *a)
+        assert r.returncode == 0, r.stderr
+    claim6("K1", "SUPPORTED", "--rests-on", "P")                         # above PRESS_RELEASE
+    claim6("K2", "PARTIALLY_SUPPORTED", "--rests-on", "P")               # within
+    claim6("K3", "UNTESTED", "--rests-on", "N", "--grade", "MEASURED_PRESENT")   # above SNIPPET
+    claim6("K4", "UNTESTED", "--rests-on", "A", "--grade", "MEASURED_PRESENT")   # above ABSTRACT
+    claim6("K5", "UNTESTED", "--quoted", "A=d = 0.41 (95% CI 0.1-0.7)",
+           "--grade", "MEASURED_PRESENT")                                 # lifted by a quote
+    claim6("K6", "PARTIALLY_SUPPORTED", "--rests-on", "C")               # above CARRIED
+    claim6("K7", "UNTESTED", "--rests-on", "C")                          # within
+    claim6("K8", "SUPPORTED", "--rests-on", "P", "--rests-on", "F")      # F permits it
+    d = load(f6)
+    assert check(d) == []
+    fl = " | ".join(flags(d))
+    for cid in ("K1", "K3", "K4", "K6"):
+        assert f"claim {cid}:" in fl, (cid, fl)
+    for cid in ("K2", "K5", "K7", "K8"):
+        assert f"claim {cid}:" not in fl, (cid, fl)
+    assert d["claims"][4]["rests_on"] == [{"source": "A", "depth": "ABSTRACT",
+                                          "quoted": "d = 0.41 (95% CI 0.1-0.7)"}]
+    assert "quoted: d = 0.41" in report(d)
+    # 19a. a quote lifts only an ABSTRACT source; an override needs reason AND author
+    before = open(f6).read()
+    r = cli6("claim", "--id", "K9", "--text", "x", "--evidence", "p", "--support", "UNTESTED",
+             "--quoted", "P=x")
+    assert r.returncode != 0 and "lifts only an ABSTRACT source" in r.stderr
+    r = cli6("override", "--id", "K1", "--by", "reviewer")
+    assert r.returncode != 0 and "requires --reason AND --by" in r.stderr
+    r = cli6("override", "--id", "K2", "--by", "reviewer", "--reason", "x")
+    assert r.returncode != 0 and "nothing to override" in r.stderr
+    assert open(f6).read() == before
+    # 19b. a logged override removes the flag and is printed with its reason
+    r = cli6("override", "--id", "K1", "--by", "reviewer", "--reason",
+             "press release reproduces the paper's Table 2 verbatim")
+    assert r.returncode == 0, r.stderr
+    d = load(f6)
+    assert "claim K1:" not in " | ".join(flags(d))
+    r = cli6("check")
+    assert "OVERRIDE: claim K1: support SUPPORTED exceeds" in r.stdout and "by reviewer" in r.stdout
+    assert "## Read-depth ceiling overrides" in report(d)
+    # 19c. a forged override without an author is a violation; a stale one is FLAGGED
+    d["claims"][0]["ceiling_override"] = {"reason": "x"}
+    assert any("needs a reason AND a named author" in x for x in check(d))
+    d = load(f6); d["claims"][0]["rests_on"].append({"source": "F", "depth": "FULL_TEXT"})
+    assert any("stale override" in x for x in flags(d))
     print("SELFTEST OK")
     return 0
 

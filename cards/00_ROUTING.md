@@ -21,12 +21,18 @@ Decide which cards apply to *this* publication before any of them run. "Assess a
 
 | Type | Cards suggested by default |
 |---|---|
-| EMPIRICAL | 00, 01, 02, 03, 04, 05, 06 |
-| REVIEW | 00, 01, 02, 03, 04, 06 |
-| THEORETICAL | 00, 01, 04, 06 |
-| SIMULATION | 00, 01, 02, 04, 06 |
-| COMMENTARY | 00, 01, 06 |
+| EMPIRICAL | 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10 |
+| REVIEW | 00, 01, 02, 03, 04, 06, 07, 08, 09, 10 |
+| THEORETICAL | 00, 01, 04, 06, 07, 10 |
+| SIMULATION | 00, 01, 02, 04, 06, 07, 08, 09, 10 |
+| COMMENTARY | 00, 01, 06, 07, 10 |
 | UNDECLARED | none — stop and declare first |
+
+Why cards 07–10 are where they are:
+- **07 read ceiling**: every type cites sources, so every declared type routes it.
+- **08 bound**: readings taken through an instrument (EMPIRICAL, REVIEW of such readings, SIMULATION).
+- **09 control**: claims that a method found, detected or matched something (same three types).
+- **10 objective**: any claim of best, optimal or most efficient, including in THEORETICAL work and COMMENTARY.
 
 **The table is a default, not a gate.** Applicability is ultimately determined by
 the *claims* and the *available inputs*, not the type alone: a COMMENTARY that

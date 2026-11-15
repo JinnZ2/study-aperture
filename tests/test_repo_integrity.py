@@ -158,6 +158,20 @@ class AuditsRegenerate(unittest.TestCase):
                                  f"regenerate with: python3 {script.relative_to(ROOT)}")
 
 
+class RoutingInSync(unittest.TestCase):
+
+    def test_card_00_table_matches_router(self):
+        text = (ROOT / "cards" / "00_ROUTING.md").read_text()
+        table = {}
+        for m in re.finditer(r"^\| ([A-Z]+) \| ([0-9, ]+) \|\s*$", text, re.M):
+            table[m.group(1)] = {c.strip() for c in m.group(2).split(",")}
+        want = {k: v for k, v in assess.ROUTER.items() if v}
+        self.assertEqual(table, want, "cards/00_ROUTING.md routing table and assess.py ROUTER differ")
+        for cards in want.values():
+            for c in cards:
+                self.assertTrue(list((ROOT / "cards").glob(f"{c}_*.md")), f"routed card {c} has no file")
+
+
 class VocabularyInSync(unittest.TestCase):
 
     def _check_doc(self, doc_sets, source):

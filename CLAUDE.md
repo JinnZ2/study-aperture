@@ -10,7 +10,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/2; /1 read via migrate)
-                     init/source/claim/design/average/tool/decide/resolve/defer ──► check ──► report
+                     init/source/claim/override/design/average/tool/decide/resolve/defer ──► check ──► report
                      migrate (study-aperture/1 → /2, logged)
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance
@@ -28,7 +28,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
 | Path | Role | Edit rules |
 |---|---|---|
 | `assess.py` | validator + report generator | stdlib only, no network; keep the docstring schema in sync with code |
-| `cards/00..10_*.md` | method cards (provenance, procedure, outputs, limits); 07's depth field is enforced by `assess.py`; 08 bound, 09 control, 10 objective are convention only and outside the routing table | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate |
+| `cards/00..10_*.md` | method cards (provenance, procedure, outputs, limits); 07's depth field and ceiling table are enforced by `assess.py`; 08 bound, 09 control, 10 objective are convention only | each card keeps its **Provenance** line; routing table in 00 is a default, not a gate, and must equal `ROUTER` in assess.py (integrity test) |
 | `AI_ENTRY_PROMPT.md` | LLM prompt + CLI handoff table | update the handoff table when CLI flags change |
 | `TEMPLATE.json` | skeleton record | keep valid against `assess.py check` |
 | `vendored/*.py` (3 upstream) | verbatim from Simulators `0655e8b` | **do not modify**; upstream oddities are data, not defects. Changes go in `safe_provenance.py` (toolbox adapter) or upstream |
@@ -87,6 +87,10 @@ read depth           → every source lists a depth (UNDECLARED allowed, kept); 
                        a graded claim (located support or MEASURED_*) names the sources + depths
                        it rests on; graded on UNDECLARED depth = FLAGGED (valid, not clean;
                        `check --strict` exits 3)
+read-depth ceiling   → CEILING table (Card 07 §4a): SNIPPET / PRESS_RELEASE no SUPPORTED, no
+                       MEASURED_*; ABSTRACT no MEASURED_* unless --quoted; CARRIED nothing above
+                       UNTESTED. Above the ceiling of every source rested on = FLAGGED; a reviewer
+                       overrides only via `override --reason --by` (logged, printed; stale = FLAGGED)
 legacy record        → study-aperture/1 is read via in-memory migration and never rewritten
                        implicitly; `migrate` takes a depth only from a verbatim quote in the
                        record and logs every change

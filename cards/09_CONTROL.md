@@ -1,6 +1,6 @@
 # Card 09 — Control: a run that should fail
 
-**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math runs at commit `80b9ed0` (CC0, co-authored): `experiments/fibonacci_chain.py`, `experiments/simplex_4d.py`, `experiments/golden_angle.py`, and `open_questions.md` Q12. Status: a procedure. Its rule maps onto the existing support vocabulary, but `assess.py` does not check for a control. It is not in the routing table; run it on any claim that a method found, detected or matched something. Co-authored.
+**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math (CC0, co-authored). The runs `experiments/fibonacci_chain.py`, `experiments/simplex_4d.py` and `experiments/golden_angle.py` are at `main` `80b9ed0`. The Q12 control run is on branch `claude/quasicrystal-projection-properties-448bx7` at `3b8e9ab` (`runs/symmetry_resolution_seed0.json`, `docs/resolution_leak.md` row 2a), not yet on `main`. Status: a procedure. Its rule maps onto the existing support vocabulary, but `assess.py` does not check for a control. It is not in the routing table; run it on any claim that a method found, detected or matched something. Co-authored.
 
 ## 1. What the card is for
 
@@ -34,10 +34,12 @@ If no control was run, the result was never put at risk. It is `UNTESTED`, howev
 | Z² cut at slope 1/φ gives a chain with no short period (`fibonacci_chain`) | rational slope 1/2, same cut | a fixed small period | golden prefix periods 5, 13, 21, 34, 89, 233 (lengths 10 to 320); control period 3 at every length | `CONTROL_RUN_FAILED_AS_EXPECTED` |
 | the golden angle packs most evenly (`golden_angle`) | rational turns 2/5 (144°) and 3/8 (135°) | spokes, uneven gaps | worst two by `nn_cv`: 0.399 and 0.407, against 0.018 for golden | `CONTROL_RUN_FAILED_AS_EXPECTED` |
 | the Petrie projection of the 5-cell is reached (`simplex_4d`) | 2000 random rotations | random search does not land on it | best random score 23.45, median 152.83; Petrie 2.2e-14 | `CONTROL_RUN_FAILED_AS_EXPECTED`. The reading in the run is that the view was found by construction, not by search. |
-| both φ unions have the same symmetry order (Q12) | shapes of known, different orders | the probe returns different orders | not run | `CONTROL_ABSENT` → the equality is `UNTESTED`. Q12 is the control's specification. |
+| both φ unions have the same symmetry order (Q12), probe at `k_max` 12 | a regular 8-gon and 16-gon, known orders 8 and 16 | the probe returns different lists | `[2, 4, 8]` for both: the control also reads "equal" | `CONTROL_RUN_ALSO_FOUND` → at `k_max` 12 an "equal" reading carries no information about the unions |
+| the same, probe at `k_max` 24 | the same pair | different lists | `[2, 4, 8]` against `[2, 4, 8, 16]` | `CONTROL_RUN_FAILED_AS_EXPECTED` → the unions' equal lists at `k_max` 24 can be read. Logged as "not a leak at the bounds tested"; Q12 stays PROPOSED because only two of its listed shapes were run |
 
 ## 5. Limits
 
 - A control that fails as expected shows that the method can say no on that input. It does not show that the method is right on other input.
 - Choosing the control is a judgement. Record who chose it and before or after seeing the main result.
 - One repository's runs; all of these controls were built by the same hand as the method.
+- The Q12 rows show the state can depend on a setting of the method: the same control is `ALSO_FOUND` at one `k_max` and `FAILED_AS_EXPECTED` at another. Record the setting beside the state.
