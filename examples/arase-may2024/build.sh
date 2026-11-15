@@ -46,6 +46,10 @@ $A claim --file $F --id C1 --label OBSERVED --support SUPPORTED --grade MEASURED
   --range "May 2024 storm and after" \
   --falsifiers "Arase and CALET both report presence from different orbits and detectors. A shared contamination (for example penetrating protons counted as electrons) would have to affect both." \
   --source "$U"
+# decided 2026-11-15: C1 was graded above its read depth (PRESS_RELEASE; Card 07 table 4a).
+# Downgraded to the ceiling, no override; the original grade stays in the claim's downgrades log.
+$A downgrade --file $F --id C1 --support UNTESTED --grade UNDECLARED --by user \
+  --reason "graded above read depth"
 $A claim --file $F --id C2 --label DERIVED --support UNDETERMINED --grade UNDECLARED \
   --text "the electrons were accelerated locally rather than infiltrating from outer radiation belts" \
   --evidence "Press release: a distinct local PSD peak near the barrier boundary that strengthened over time. Method not read." \

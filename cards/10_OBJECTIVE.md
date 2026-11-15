@@ -1,6 +1,6 @@
 # Card 10 — Objective: "best" names its measure
 
-**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math `runs/golden_angle_seed0.json` (commit `80b9ed0`, CC0, co-authored). Status: a procedure. It is not enforced by `assess.py` and not in the routing table; run it on any claim that something is best, optimal, most efficient or most even. Co-authored.
+**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math `runs/golden_angle_seed0.json` (commit `80b9ed0`, CC0, co-authored). Status: a procedure. It is not enforced by `assess.py`. It is routed by default for all five declared types (Card 00); run it on any claim that something is best, optimal, most efficient or most even. Co-authored.
 
 ## 1. What the card is for
 

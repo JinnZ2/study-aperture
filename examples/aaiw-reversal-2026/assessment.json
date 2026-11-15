@@ -30,9 +30,9 @@
       "id": "C1",
       "text": "has rapidly reversed its long-term trends in salinity and density",
       "evidence_location": "Coverage only; magnitudes and figures not read",
-      "support": "PARTIALLY_SUPPORTED",
+      "support": "UNTESTED",
       "measurand": "AAIW salinity and density trends, 1995-2015 vs 2016-2024",
-      "grade": "MEASURED_PRESENT",
+      "grade": "UNDECLARED",
       "falsifiers": "The post-2016 trend lies within the spread of earlier 9-year windows of the same record; or the reversal is confined to the depth/region range where Argo coverage changed.",
       "label": "OBSERVED",
       "source": "https://www.sflorg.com/2026/10/oce10282601.html",
@@ -42,6 +42,20 @@
         {
           "source": "S1",
           "depth": "PRESS_RELEASE"
+        }
+      ],
+      "downgrades": [
+        {
+          "from": {
+            "support": "PARTIALLY_SUPPORTED",
+            "grade": "MEASURED_PRESENT"
+          },
+          "to": {
+            "support": "UNTESTED",
+            "grade": "UNDECLARED"
+          },
+          "reason": "graded above read depth",
+          "by": "user"
         }
       ]
     },

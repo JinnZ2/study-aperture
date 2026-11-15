@@ -1,6 +1,6 @@
 # Card 08 — Bound and resolution leak
 
-**Provenance:** worked out on 2026-11-15 in JinnZ2/explorative-math, `open_questions.md` Q12 (CC0, co-authored). The question and the code read (`toolkit/probes.py`, `compare/cross.py`) are at `main` `80b9ed0`. The bound tests are on branch `claude/quasicrystal-projection-properties-448bx7` at `3b8e9ab`, not yet on `main`: `docs/resolution_leak.md` rows 2a–2c, `runs/symmetry_resolution_seed0.json`, `runs/mirror_sweep_seed0.json`. Status: a procedure taken from one case. It is not enforced by `assess.py` and not in the routing table; run it on any claim whose evidence is an instrument reading. Co-authored.
+**Provenance:** worked out on 2026-11-15 in JinnZ2/explorative-math, `open_questions.md` Q12 (CC0, co-authored). The question and the code read (`toolkit/probes.py`, `compare/cross.py`) are at `main` `80b9ed0`. The bound tests are on `main` at `3b8e9ab` (merged 2026-11-15 from `claude/quasicrystal-projection-properties-448bx7`): `docs/resolution_leak.md` rows 2a–2c, `runs/symmetry_resolution_seed0.json`, `runs/mirror_sweep_seed0.json`. Status: a procedure taken from one case. It is not enforced by `assess.py`. It is routed by default for EMPIRICAL, REVIEW and SIMULATION (Card 00); run it on any claim whose evidence is an instrument reading. Co-authored.
 
 ## 1. What the card is for
 

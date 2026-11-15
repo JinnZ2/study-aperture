@@ -46,6 +46,10 @@ $A claim --file $F --id C1 --label OBSERVED --support PARTIALLY_SUPPORTED --grad
   --range "1995-2024; post-reversal 9 years" \
   --falsifiers "The post-2016 trend lies within the spread of earlier 9-year windows of the same record; or the reversal is confined to the depth/region range where Argo coverage changed." \
   --source "$U"
+# decided 2026-11-15: C1 was graded above its read depth (PRESS_RELEASE; Card 07 table 4a).
+# Downgraded to the ceiling, no override; the original grade stays in the claim's downgrades log.
+$A downgrade --file $F --id C1 --support UNTESTED --grade UNDECLARED --by user \
+  --reason "graded above read depth"
 $A claim --file $F --id C2 --label DERIVED --support UNDETERMINED --grade UNDECLARED \
   --text "Reversal of Antarctic Intermediate Water trends triggered by sea ice decline" \
   --evidence "Paper title; coverage: summer melt about 3x Amazon flow before 2016, about 2x after" \

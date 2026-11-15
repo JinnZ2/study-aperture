@@ -24,9 +24,9 @@
       "id": "C1",
       "text": "in 2024, Japan's Arase space probe detected these electrons well inside the barrier",
       "evidence_location": "Press release; paper figures not read. Independently: CALET reports relativistic electrons down to L = 2.2, below the nominal L = 2.8 barrier, persisting months (https://arxiv.org/abs/2602.03990)",
-      "support": "SUPPORTED",
+      "support": "UNTESTED",
       "measurand": "presence of multi-MeV (some above 3 MeV) electrons inside about 3 Earth radii",
-      "grade": "MEASURED_PRESENT",
+      "grade": "UNDECLARED",
       "falsifiers": "Arase and CALET both report presence from different orbits and detectors. A shared contamination (for example penetrating protons counted as electrons) would have to affect both.",
       "label": "OBSERVED",
       "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
@@ -36,6 +36,20 @@
         {
           "source": "S1",
           "depth": "PRESS_RELEASE"
+        }
+      ],
+      "downgrades": [
+        {
+          "from": {
+            "support": "SUPPORTED",
+            "grade": "MEASURED_PRESENT"
+          },
+          "to": {
+            "support": "UNTESTED",
+            "grade": "UNDECLARED"
+          },
+          "reason": "graded above read depth",
+          "by": "user"
         }
       ]
     },

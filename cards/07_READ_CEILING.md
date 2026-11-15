@@ -55,16 +55,20 @@ The highest grade each depth can carry. `FULL_TEXT` has no row: what a full read
 
 | Depth | Support not allowed | Measurement grade not allowed |
 |---|---|---|
-| `SNIPPET` | `SUPPORTED` | any `MEASURED_*` |
-| `PRESS_RELEASE` | `SUPPORTED` | any `MEASURED_*` |
-| `ABSTRACT` | (none) | any `MEASURED_*`, unless the value is quoted from the abstract |
+| `SNIPPET` | anything above `UNTESTED`: `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED`, `CONTRADICTED` | any `MEASURED_*` |
+| `PRESS_RELEASE` | anything above `UNTESTED` | any `MEASURED_*` |
+| `ABSTRACT` | (none) | any `MEASURED_*`, unless the value is quoted word for word from the abstract text stored on the source |
 | `CARRIED` | anything above `UNTESTED`: `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED`, `CONTRADICTED` | any `MEASURED_*` |
 | `UNDECLARED` | no row: flagged separately (section 5) | no row |
 
 Rules:
 - **Any one source can carry the grade.** A claim exceeds the ceiling only when no source it rests on permits its grade. A claim on a press release and on the full text can be SUPPORTED.
 - **Exceeding the ceiling is a FLAG, not a violation.** The record stays valid and is not clean.
-- **A quoted value lifts an ABSTRACT ceiling.** Write `claim ... --quoted S1="<the value as the abstract gives it>"`. A quote on any other depth is a violation.
+- **A quoted value lifts an ABSTRACT ceiling, and is checked.**
+  - Store the abstract on the source: `source --depth ABSTRACT --abstract-text "..."` or `--abstract-file path`.
+  - Quote from it on the claim: `claim ... --quoted S1="<the value as the abstract gives it>"`.
+  - The quote must appear in the stored text word for word. Only whitespace is normalised, and a fragment of a word does not match.
+  - These are violations: a quote not in the text, a quote on a source with no stored abstract, a quote on any depth other than ABSTRACT, and abstract text stored on a non-ABSTRACT source.
 - **A reviewer can override a ceiling only with a logged reason and a named author**: `override --id C1 --by <who> --reason "..."`.
   - An override is refused when nothing exceeds the ceiling.
   - An override missing its reason or author is a violation.
@@ -94,17 +98,17 @@ study-aperture/1 record                 -> read through an in-memory migration (
 
 The repository's own examples were migrated this way. Depths came from their `materials` text; where a record states no depth for a source, the source stays UNDECLARED.
 
-Under table 4a, two examples are FLAGGED, and their flags are left standing:
-- `arase-may2024` C1 is SUPPORTED and MEASURED_PRESENT on a press release.
-- `aaiw-reversal-2026` C1 is MEASURED_PRESENT on press coverage.
-
-Neither carries an override, because an override is a reviewer's logged decision.
+Applied to the examples (decided 2026-11-15, by evidence, no override):
+- `arase-may2024` C1 (SUPPORTED, MEASURED_PRESENT on a press release) and `aaiw-reversal-2026` C1 (PARTIALLY_SUPPORTED, MEASURED_PRESENT on press coverage) were downgraded to the ceiling: UNTESTED, grade UNDECLARED.
+  - Each was lowered with `downgrade --reason "graded above read depth" --by user`.
+  - The old grades stay in each claim's `downgrades` log.
+- C4 in both examples is PARTIALLY_SUPPORTED on press material. It is still FLAGGED: the decision named C1 only.
 
 ## 6. Limits
 
 - One upstream instance. The vocabulary in section 2 is a proposal, not upstream's and not tested across records.
 - A record can declare every depth UNDECLARED and still check VALID. Only graded claims on those sources are FLAGGED.
 - What `assess.py` checks is that a depth is declared and restated consistently, and that a grade is within the table in 4a. It does not check that the content a grade relies on is visible at the depth, for example which sections a FULL_TEXT read covered. That stays a reviewer check.
-- The table is coarse by design. SUPPORTED is barred on a press release and PARTIALLY_SUPPORTED is not, so the line is drawn at "fully". A reviewer who reads it differently records an override.
+- The table is coarse by design. On a snippet or a press release, nothing above UNTESTED is allowed, partial support included. A reviewer who reads a case differently records an override.
 - A declared depth is recorded provenance, not verified provenance (same rule as every `source` field).
 - The card says nothing about whether a source is right, only about how deeply it was read.

@@ -1,6 +1,6 @@
 # Card 09 — Control: a run that should fail
 
-**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math (CC0, co-authored). The runs `experiments/fibonacci_chain.py`, `experiments/simplex_4d.py` and `experiments/golden_angle.py` are at `main` `80b9ed0`. The Q12 control run is on branch `claude/quasicrystal-projection-properties-448bx7` at `3b8e9ab` (`runs/symmetry_resolution_seed0.json`, `docs/resolution_leak.md` row 2a), not yet on `main`. Status: a procedure. Its rule maps onto the existing support vocabulary, but `assess.py` does not check for a control. It is not in the routing table; run it on any claim that a method found, detected or matched something. Co-authored.
+**Provenance:** worked out on 2026-11-15 from JinnZ2/explorative-math (CC0, co-authored). The runs `experiments/fibonacci_chain.py`, `experiments/simplex_4d.py` and `experiments/golden_angle.py` are at `main` `80b9ed0`. The Q12 control run is on `main` at `3b8e9ab`, merged 2026-11-15 from `claude/quasicrystal-projection-properties-448bx7` (`runs/symmetry_resolution_seed0.json`, `docs/resolution_leak.md` row 2a). Status: a procedure. Its rule maps onto the existing support vocabulary, but `assess.py` does not check for a control. Routed by default for EMPIRICAL, REVIEW and SIMULATION (Card 00); run it on any claim that a method found, detected or matched something. Co-authored.
 
 ## 1. What the card is for
 

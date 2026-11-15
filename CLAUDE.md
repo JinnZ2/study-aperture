@@ -10,7 +10,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/2; /1 read via migrate)
-                     init/source/claim/override/design/average/tool/decide/resolve/defer ──► check ──► report
+                     init/source/claim/override/downgrade/design/average/tool/decide/resolve/defer ──► check ──► report
                      migrate (study-aperture/1 → /2, logged)
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance
@@ -87,10 +87,11 @@ read depth           → every source lists a depth (UNDECLARED allowed, kept); 
                        a graded claim (located support or MEASURED_*) names the sources + depths
                        it rests on; graded on UNDECLARED depth = FLAGGED (valid, not clean;
                        `check --strict` exits 3)
-read-depth ceiling   → CEILING table (Card 07 §4a): SNIPPET / PRESS_RELEASE no SUPPORTED, no
-                       MEASURED_*; ABSTRACT no MEASURED_* unless --quoted; CARRIED nothing above
-                       UNTESTED. Above the ceiling of every source rested on = FLAGGED; a reviewer
-                       overrides only via `override --reason --by` (logged, printed; stale = FLAGGED)
+read-depth ceiling   → CEILING table (Card 07 §4a): SNIPPET / PRESS_RELEASE / CARRIED nothing above
+                       UNTESTED, no MEASURED_*; ABSTRACT no MEASURED_* unless --quoted, and the quote
+                       must be word for word in the abstract_text stored on that source. Above the ceiling of every source rested on = FLAGGED; a reviewer
+                       overrides only via `override --reason --by` (logged, printed; stale = FLAGGED);
+                       a lowered grade goes through `downgrade --reason --by`, old grade kept
 legacy record        → study-aperture/1 is read via in-memory migration and never rewritten
                        implicitly; `migrate` takes a depth only from a verbatim quote in the
                        record and logs every change
