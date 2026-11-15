@@ -10,7 +10,7 @@ study-aperture is a toolbox for AI-assisted assessment of publications. It **rou
                          └────────────┬──────────────┘
                                       ▼
                      assess.py  (record ⇄ JSON, schema study-aperture/2; /1 read via migrate)
-                     init/source/claim/override/downgrade/design/average/tool/decide/resolve/defer ──► check ──► report
+                     init/source/claim/override/downgrade/annotate/design/average/tool/decide/resolve/defer ──► check ──► report
                      migrate (study-aperture/1 → /2, logged)
                                       ▲
             vendored/  provenance_graph · false_agree · conditional_claims · safe_provenance

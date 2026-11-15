@@ -67,6 +67,7 @@ Each block of the structured output above maps onto the `assess.py` record (`pyt
 | a deferred decision | `defer --id D1 --by <who> --reason "<why>"` |
 | a Scope Audit Lab integrity report bearing on a claim | `labref --id L1 --lab-report <integrity-report.json> --claim C1` — links and hash-binds the report; never changes the claim's support grade |
 | a measured value quoted from an ABSTRACT source | store the abstract with `source ... --depth ABSTRACT --abstract-text "<abstract>"`, then add `--quoted S1="<the value, word for word>"` to the `claim` command |
+| a note on an earlier tool run (for example, that a claim it graded was later downgraded) | `annotate --id T3 --date YYYY-MM-DD --note "<note>"` — the run's output is never edited |
 | a grade lowered after review | `downgrade --id C1 --support <new> [--grade <new>] --by <who> --reason "<why>"` — the old grade is kept in the claim's log |
 | a reviewer's decision that a grade may exceed its read-depth ceiling | `override --id C1 --by <who> --reason "<why>"` — logged and printed; refused when nothing exceeds the ceiling |
 | an old study-aperture/1 record | `migrate --file s.json [--depths decl.json]` — a declared depth needs a basis quote found verbatim in the record; every change is logged |

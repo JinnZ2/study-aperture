@@ -98,7 +98,7 @@
       "id": "C4",
       "text": "That transition took thousands of years, not two decades.",
       "evidence_location": "Coverage quote (Gayen); the ~130 kyr ago transition",
-      "support": "PARTIALLY_SUPPORTED",
+      "support": "UNTESTED",
       "measurand": "rate comparison: past AAIW state change vs present reversal",
       "grade": "UNDECLARED",
       "falsifiers": "None stated. The two are different objects: a 9-year trend statistic and a completed state change.",
@@ -108,6 +108,20 @@
         {
           "source": "S1",
           "depth": "PRESS_RELEASE"
+        }
+      ],
+      "downgrades": [
+        {
+          "from": {
+            "support": "PARTIALLY_SUPPORTED",
+            "grade": "UNDECLARED"
+          },
+          "to": {
+            "support": "UNTESTED",
+            "grade": "UNDECLARED"
+          },
+          "reason": "graded above read depth",
+          "by": "user"
         }
       ]
     }

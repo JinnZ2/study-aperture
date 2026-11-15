@@ -72,6 +72,9 @@ $A claim --file $F --id C4 --label DERIVED --support PARTIALLY_SUPPORTED --grade
   --instrument "comparison of the May 2024 observation against the boundary location" \
   --falsifiers "The 2014 boundary was characterized over storms of a range that did not include a superstorm; if so, 'broken' and 'outside the conditions it was measured in' predict the same observation." \
   --source "$U"
+# decided 2026-11-15: C4 graded above its read depth too (PRESS_RELEASE), same as C1.
+$A downgrade --file $F --id C4 --support UNTESTED --by user \
+  --reason "graded above read depth"
 
 # ---- input averages (Card 02 frozen-state check)
 $A average --file $F --id A1 --text "location of the impenetrable barrier (inner edge of multi-MeV electrons)" --value "about 3 Earth radii (L about 2.8)" \
@@ -89,6 +92,8 @@ $A tool --file $F --id T2 --card 01 --state RUN --source "$U" \
   --output "4 claims. Conditional form of C2: IF the PSD peak is real in adiabatic coordinates (field-model independent) AND transport plus loss cannot build a growing peak there, THEN the electrons were accelerated locally. Neither antecedent is checkable from the release."
 $A tool --file $F --id T3 --card 02 --state RUN --source "$U" \
   --output "C1 graded MEASURED_PRESENT (direct detection, corroborated). C2 and C3 UNDECLARED: PSD depends on a field model not named in the material, and the chorus link is by timing. Two input averages, both FROZEN as stated: the barrier location (A1) and the typical recovery time (A2)."
+$A annotate --file $F --id T3 --date 2026-11-15 \
+  --note "pre-downgrade output; C1 now UNTESTED / UNDECLARED, see claim log"
 $A tool --file $F --id T4 --card 03 --state RUN --source "$V" \
   --output "Independent route for C1: CALET on the ISS (different orbit, detector, team) sees relativistic electrons at L 2.2-3.2 for months after the storm. Supports presence, not mechanism: CALET reports count rates, not PSD. CALET's own wording ('pushed down' from the outer belt, per its plain language summary as read) is a transport reading of the same event. So: agreement on presence, the two routes differ on mechanism wording."
 $A tool --file $F --id T5 --card 04 --state RUN --source "$U" \

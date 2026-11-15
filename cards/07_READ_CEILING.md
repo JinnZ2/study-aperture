@@ -102,7 +102,9 @@ Applied to the examples (decided 2026-11-15, by evidence, no override):
 - `arase-may2024` C1 (SUPPORTED, MEASURED_PRESENT on a press release) and `aaiw-reversal-2026` C1 (PARTIALLY_SUPPORTED, MEASURED_PRESENT on press coverage) were downgraded to the ceiling: UNTESTED, grade UNDECLARED.
   - Each was lowered with `downgrade --reason "graded above read depth" --by user`.
   - The old grades stay in each claim's `downgrades` log.
-- C4 in both examples is PARTIALLY_SUPPORTED on press material. It is still FLAGGED: the decision named C1 only.
+- C4 in both examples (PARTIALLY_SUPPORTED on press material) was downgraded to UNTESTED the same way, on the same date.
+  - Neither example is flagged now.
+  - `arase-may2024` tool run T3 still reads "C1 graded MEASURED_PRESENT", because a run's output is never edited. It now carries a dated note pointing to the claim log (`annotate`).
 
 ## 6. Limits
 

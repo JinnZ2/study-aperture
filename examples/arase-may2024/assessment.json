@@ -94,7 +94,7 @@
       "id": "C4",
       "text": "The so-called impenetrable barrier seemed to have been broken.",
       "evidence_location": "Press release; C1",
-      "support": "PARTIALLY_SUPPORTED",
+      "support": "UNTESTED",
       "measurand": "whether multi-MeV electrons can exist inside the empirical inner boundary first reported in 2014",
       "grade": "UNDECLARED",
       "falsifiers": "The 2014 boundary was characterized over storms of a range that did not include a superstorm; if so, 'broken' and 'outside the conditions it was measured in' predict the same observation.",
@@ -105,6 +105,20 @@
         {
           "source": "S1",
           "depth": "PRESS_RELEASE"
+        }
+      ],
+      "downgrades": [
+        {
+          "from": {
+            "support": "PARTIALLY_SUPPORTED",
+            "grade": "UNDECLARED"
+          },
+          "to": {
+            "support": "UNTESTED",
+            "grade": "UNDECLARED"
+          },
+          "reason": "graded above read depth",
+          "by": "user"
         }
       ]
     }
@@ -129,7 +143,13 @@
       "card": "02",
       "state": "RUN",
       "output": "C1 graded MEASURED_PRESENT (direct detection, corroborated). C2 and C3 UNDECLARED: PSD depends on a field model not named in the material, and the chorus link is by timing. Two input averages, both FROZEN as stated: the barrier location (A1) and the typical recovery time (A2).",
-      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/"
+      "source": "https://en.nagoya-u.ac.jp/news/articles/pr-2024-solar-storm-triggered-ultra-relativistic-electrons-inside-earths-impenetrable-barrier/",
+      "notes": [
+        {
+          "date": "2026-11-15",
+          "note": "pre-downgrade output; C1 now UNTESTED / UNDECLARED, see claim log"
+        }
+      ]
     },
     {
       "id": "T4",

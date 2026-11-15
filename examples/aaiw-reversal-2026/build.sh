@@ -69,6 +69,9 @@ $A claim --file $F --id C4 --label DERIVED --support PARTIALLY_SUPPORTED --grade
   --measurand "rate comparison: past AAIW state change vs present reversal" \
   --falsifiers "None stated. The two are different objects: a 9-year trend statistic and a completed state change." \
   --source "$U"
+# decided 2026-11-15: C4 graded above its read depth too (PRESS_RELEASE), same as C1.
+$A downgrade --file $F --id C4 --support UNTESTED --by user \
+  --reason "graded above read depth"
 
 $A average --file $F --id A1 --text "summer sea-ice meltwater before 2016" --value "about 3x Amazon annual flow (about 19,800 km3/yr)" \
   --population "Antarctic summer sea-ice melt" --window "1995-2015" --stationarity UNASSESSED \

@@ -69,7 +69,8 @@ Schema (study-aperture/2):
                  downgrades?: [ {from: {support, grade}, to: {support, grade},
                                  reason, by} ]} ],
     "tools": [ {id, card, state: one of TOOL_STATES, output?, declined_reason?,
-                error_types?: [one of ERROR_TYPES]} ],
+                error_types?: [one of ERROR_TYPES],
+                notes?: [ {date: YYYY-MM-DD, note} ]} ],   # dated; output never edited
     "decisions": [ {id, text, state: one of DECISION_STATES,
                     answer?, by?, deferred_reason?} ],
     "lab_refs": [ {id, report_path (relative to the record file), report_sha256,
@@ -95,6 +96,8 @@ Commands:
                                 # --source adds its source to rests_on
         [--quoted S1=<value as quoted in the abstract>]   # lifts an ABSTRACT grade ceiling
   override --file s.json --id C1 --by <who> --reason "..."   # logged ceiling override
+  annotate --file s.json --id T3 --date 2026-11-15 --note "..."   # dated note beside a tool
+                                # run's output; the output itself is never changed
   downgrade --file s.json --id C1 --support UNTESTED --grade UNDECLARED --by <who> --reason "..."
                                 # lowers a grade; the old grade is kept in the claim's downgrades log
   tool  --file s.json --id T1 --card 03 --state RUN --output "..." [--source <url>]
@@ -649,6 +652,18 @@ def check(d, base_dir=None):
             v.append(f"tool {tid}: DECLINED without a reason (a decline is the headline)")
         if _is_missing(t.get("card")):
             v.append(f"tool {tid}: card missing")
+        notes = t.get("notes")
+        if notes is not None:
+            if not isinstance(notes, list) or not notes:
+                v.append(f"tool {tid}: notes must be a non-empty list when present")
+            else:
+                for n in notes:
+                    dt = n.get("date") if isinstance(n, dict) else None
+                    if (not isinstance(dt, str) or len(dt) != 10 or dt[4] != "-" or dt[7] != "-"
+                            or not (dt[:4] + dt[5:7] + dt[8:]).isdigit()):
+                        v.append(f"tool {tid}: a note needs a date YYYY-MM-DD")
+                    if not isinstance(n, dict) or _is_sentinel(n.get("note")):
+                        v.append(f"tool {tid}: a note needs text")
         _check_error_types(v, f"tool {tid}", t.get("error_types"),
                            t.get("state") == "RUN", "state RUN",
                            t.get("output"), "output")
@@ -915,6 +930,8 @@ def report(d, base_dir=None):
             lines.append(f"  - declined reason: {t.get('declined_reason')}")
         if not _is_missing(t.get("output")):
             lines.append(f"  - output: {t.get('output')}")
+        for n in t.get("notes") or []:
+            lines.append(f"  - note ({n.get('date')}): {n.get('note')}")
         if t.get("source"):
             lines.append(f"  - source: {t.get('source')}")
         if t.get("error_types"):
@@ -1004,7 +1021,8 @@ def _commit(d, path, ok_msg):
 def main(argv=None):
     p = argparse.ArgumentParser(description="study-aperture record validator and report generator")
     p.add_argument("cmd", choices=["init", "claim", "tool", "design", "decide", "resolve", "defer",
-                                   "labref", "average", "source", "override", "downgrade", "migrate", "check",
+                                   "labref", "average", "source", "override", "downgrade", "annotate", "migrate",
+                                   "check",
                                    "report",
                                    "selftest"])
     p.add_argument("--file", default="assessment.json")
@@ -1028,6 +1046,7 @@ def main(argv=None):
     p.add_argument("--location"); p.add_argument("--depth"); p.add_argument("--detail")
     p.add_argument("--rests-on", dest="rests_on", action="append")
     p.add_argument("--abstract-text"); p.add_argument("--abstract-file")
+    p.add_argument("--date"); p.add_argument("--note")
     p.add_argument("--quoted", action="append",
                    help="claim: S1=<value as quoted in the abstract>; lifts an ABSTRACT ceiling")
     p.add_argument("--depths", help="migrate: JSON of depth declarations with verbatim basis quotes")
@@ -1111,6 +1130,18 @@ def main(argv=None):
                 return _commit(d, args.file, f"claim {args.id}: ceiling override logged "
                                              f"(by {args.by})")
         print(f"REJECTED (file unchanged): no claim {args.id!r} in {args.file}", file=sys.stderr)
+        return 1
+    if args.cmd == "annotate":
+        if _is_sentinel(args.note) or _is_missing(args.date):
+            print("REJECTED (file unchanged): annotate requires --note and --date YYYY-MM-DD.",
+                  file=sys.stderr)
+            return 1
+        for t in d["tools"]:
+            if t.get("id") == args.id:
+                t.setdefault("notes", []).append({"date": args.date, "note": args.note})
+                return _commit(d, args.file, f"tool {args.id}: note dated {args.date} added "
+                                             f"(output unchanged)")
+        print(f"REJECTED (file unchanged): no tool {args.id!r} in {args.file}", file=sys.stderr)
         return 1
     if args.cmd == "downgrade":
         if _is_sentinel(args.deferred_reason) or _is_sentinel(args.by):
@@ -1793,6 +1824,24 @@ def selftest():
     assert "downgraded from UNTESTED / MEASURED_PRESENT to UNTESTED / UNDECLARED by user" in report(d)
     d["claims"][2]["downgrades"][0]["by"] = "UNDECLARED"
     assert any("a downgrade needs from, reason AND by" in x for x in check(d))
+    # 22. annotate: a dated note beside a tool's output; the output is never changed
+    assert cli6("tool", "--id", "T1", "--card", "02", "--state", "RUN",
+                "--output", "K3 graded MEASURED_PRESENT").returncode == 0
+    before = open(f6).read()
+    r = cli6("annotate", "--id", "T1", "--note", "pre-downgrade output")
+    assert r.returncode != 0 and "--date" in r.stderr
+    r = cli6("annotate", "--id", "T1", "--date", "15 Nov", "--note", "x")
+    assert r.returncode != 0 and "YYYY-MM-DD" in r.stderr
+    r = cli6("annotate", "--id", "T9", "--date", "2026-11-15", "--note", "x")
+    assert r.returncode != 0 and "no tool" in r.stderr
+    assert open(f6).read() == before
+    out_before = [t for t in load(f6)["tools"] if t["id"] == "T1"][0]["output"]
+    assert cli6("annotate", "--id", "T1", "--date", "2026-11-15",
+                "--note", "pre-downgrade output; see claim log").returncode == 0
+    t1 = [t for t in load(f6)["tools"] if t["id"] == "T1"][0]
+    assert t1["output"] == out_before
+    assert t1["notes"] == [{"date": "2026-11-15", "note": "pre-downgrade output; see claim log"}]
+    assert "  - note (2026-11-15): pre-downgrade output; see claim log" in report(load(f6))
     print("SELFTEST OK")
     return 0
 
