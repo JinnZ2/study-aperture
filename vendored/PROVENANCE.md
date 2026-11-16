@@ -1,7 +1,8 @@
 # Vendored tools — provenance record
 
-These two files are vendored verbatim from the Simulators repository
+The three upstream files below are vendored verbatim from the Simulators repository
 (CC0-1.0, no rights reserved; attribution not required, recorded anyway).
+The fourth row, `safe_provenance.py`, is a toolbox-written adapter, not upstream.
 
 | File | Upstream path | Upstream commit | Upstream state |
 |---|---|---|---|
