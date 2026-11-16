@@ -52,8 +52,9 @@ python3 assess.py decide --file s.json --id D1 --text "Rely on this for training
 python3 assess.py check --file s.json     # exit 1 on violations
 python3 assess.py report --file s.json    # markdown; incompleteness printed first
 python3 assess.py average --file s.json --id A1 --text "effect prevalence" --value 0.25 \
-    --population UNDECLARED --window UNDECLARED --stationarity UNDECLARED --claim C1   # an input average; all three unstated = FROZEN
-python3 assess.py labref --file s.json --id L1 --lab-report integrity-report.json --claim C1   # optional: lab evidence
+    --population UNDECLARED --window UNDECLARED --stationarity UNDECLARED --claim C1   # an input average; all three unstated = FROZEN.
+    # REJECTED here, file unchanged, on purpose: C1 above is graded MEASURED_PRESENT, and a claim resting on a FROZEN average cannot carry a MEASURED_* grade (Card 02). Grade C1 IMPOSED or UNDECLARED, or state the three, and it records.
+python3 assess.py labref --file s.json --id L1 --lab-report integrity-report.json --claim C1   # optional: lab evidence; needs a real checker report, e.g. examples/lab-link/integrity-report.json
 python3 assess.py selftest
 ```
 
@@ -72,7 +73,7 @@ python3 assess.py selftest
 | Path | Contents |
 |---|---|
 | `cards/00_ROUTING.md` … `cards/06_RECORDS.md` | the seven method cards |
-| `cards/07_READ_CEILING.md` | read depth per source (SNIPPET / PRESS_RELEASE / ABSTRACT / FULL_TEXT / CARRIED) and the read-ceiling declaration; the depth field is enforced by `assess.py`, the ceiling itself is a reviewer check |
+| `cards/07_READ_CEILING.md` | read depth per source (SNIPPET / PRESS_RELEASE / ABSTRACT / FULL_TEXT / CARRIED) and the read-ceiling declaration; the depth field and the ceiling table (§4a) are enforced by `assess.py` (above the ceiling of every source rested on = FLAGGED; `check --strict` exits 3); the rest of the ceiling is a reviewer check |
 | `cards/08_BOUND.md` | bound and resolution leak: list every bound of an instrument and test each, not only the suspected one (convention) |
 | `cards/09_CONTROL.md` | control: a wrong-rule or random run that should fail; no control → result UNTESTED (convention) |
 | `cards/10_OBJECTIVE.md` | objective: "best" names its measure; rank under each measure the data supports (convention) |
@@ -107,7 +108,7 @@ python3 assess.py selftest
 
 ## Verification state
 
-- `assess.py` and all four vendored tools pass their selftests; the README quick-start commands and all three example records were re-run from a fresh extracted copy before shipping.
+- `assess.py` and all four vendored tools pass their selftests. At initial release (2026-10-28) the README quick-start commands and the three example records then present were re-run from a fresh extracted copy; the quick-start `average` line, added later with the frozen-average check (`a0bd2b7`, 2026-10-28), is rejected as written, which the README did not say until 2026-11-16. Since then `tests/test_readme_claims.py` re-runs the quick start and checks concrete README sentences against `assess.py` on every `./run_checks.sh`; `python3 tests/test_readme_claims.py --hunt` lists README lines not yet checked.
 - `./run_checks.sh` runs every selftest and test suite in one pass; GitHub Actions runs it on each push and pull request. `tests/test_repo_integrity.py` checks that vendored files still match their recorded upstream hashes (`vendored/SHA256SUMS`), that example reports regenerate byte-identically from their records, and that the vocabulary above matches `assess.py`.
 - Upstream repositories' own reading guidance (`READ_ME_THIS_WAY.md` where present) was read before adapting methods; per that guidance, mismatches and odd names upstream are data, not defects, and are not "fixed" here.
 - The upstream `method-layer` test suite runs 208 tests with 3 failures, all in an unrelated fitness-bin module (Python 3.14 environment); the modules this toolbox draws on (register map, branch set, ranking) pass.
