@@ -5,6 +5,18 @@
 
 A ready-to-use toolbox for AI-assisted assessment of any study or publication — reasoning tools, a record format, and a report generator that keeps incompleteness visible.
 
+In plain words: when you (or an AI) read a paper, this toolbox makes the record say what was read, how deeply, what each claim rests on, and which numbers were measured versus assumed. `assess.py` refuses to write a record that skips those declarations, and the report prints what is missing before what is supported. It gives no quality score and no verdict on whether the paper is right.
+
+Try it (Python 3, nothing to install):
+
+```sh
+python3 assess.py selftest
+./run_checks.sh                                              # every check; ends ALL CHECKS PASSED
+python3 assess.py report --file examples/power-pose/assessment.json
+```
+
+Before relying on a summary of this repository, read [READING_NOTES.md](READING_NOTES.md): it lists misreads a careful outside reader has already made, and a short glossary.
+
 Built from five CC0 repositories by JinnZ2, distilled into one portable layer:
 
 - [Simulators](https://github.com/JinnZ2/Simulators) (`0655e8b`) — grounding layers, agreement-independence tools, conditional claims, term-drift
@@ -17,7 +29,7 @@ Built from five CC0 repositories by JinnZ2, distilled into one portable layer:
 
 - A set of **method cards** (reasoning tools), each with provenance, procedure, outputs, and limits
 - A **record format + validator + report generator** (`assess.py`, Python 3 stdlib only, no dependencies, no network)
-- Three **vendored upstream tools** with their selftests intact
+- Three **vendored upstream tools** from Simulators (`0655e8b`, SHA-256 pinned) with their selftests intact, plus one toolbox-written adapter, `safe_provenance.py`. The other four upstream repositories are pinned by commit above, not vendored or hashed
 - A **worked example** on a real contested literature, plus failure-mode examples
 - An **AI entry prompt** so the toolbox works with any LLM, no Python needed
 
