@@ -175,6 +175,15 @@ runner qualifies every calculation without ranking branching above percolation.
 
 [In situ learning](experimental/in_situ_learning/README.md) — gap analysis of an in situ machine-learning DNP study (Jensen et al., arXiv:2603.19448), a stdlib toy of the learning loop (in situ vs in silico, transfer between instruments, best-observed overstatement, single-run comparisons, mean vs worst case), and a proposed learning program for AI. The toy is constructed; the program has not been run.
 
+## Protocols
+
+Docs only; nothing here is enforced by `assess.py`.
+
+| Path | Contents |
+|---|---|
+| `protocols/explain_then_do.md` | Explain-then-do (PROPOSED): a model explains its plan, does the task, and the two are diffed; the gap is the question list. No runs yet; all measure slots VOID |
+| `protocols/design_note_2026-11-16.md` | design note filed with it (PROPOSED): a DEGRADED state, self-reference as a slot fill, slot shapes per class, Lojban gaps (from memory, VERIFY), and a discarded causal story kept as a record |
+
 ## Audits
 
 [audits/simulators-run-count](audits/simulators-run-count/README.md) — which stated results in JinnZ2/Simulators rest on a single random draw, and whether they survive re-drawing at 20 other seeds (ADDENDUM C2). Measures within-run n only; says nothing about whether a claim is true.
