@@ -2,6 +2,11 @@
 
 Status: a list of misreads of this repository, recorded so the next reader can avoid them, plus a glossary of terms that are not in the vocabulary table. Each entry says what the repository records and where to check it. First entries come from one AI deep-research audit of this repository and formula-audit, dated 2026-11-17, which the owner pasted into a session on 2026-11-16 and which was checked against the repositories at `4af5786` (this one) and `19ff7df` (formula-audit); the audit text itself is not in this repository. Not established: that this list is complete, or that every reader makes these misreads. The closed vocabulary is defined in `assess.py` and listed in [CLAUDE.md](CLAUDE.md); this file does not define or extend it, and does not name the unnamed state in ADDENDUM A1.
 
+Note 2026-11-19, on the line above (which is kept as written):
+
+- Author of the 2026-11-17 outside audit: Kimi or GPT, UNRESOLVED (owner-stated). The audit text is not filed in any repository.
+- formula-audit `19ff7df` is on formula-audit's stale default branch (`claude/quasicrystal-projection-properties-448bx7`), 45 commits behind `main`. The audit's formula-audit claims were rechecked against formula-audit `main` (`c1acb59`): 7 HOLD, 1 BROKEN (FAILS / `holds_elsewhere` is now MIXED; corrected in formula-audit PR #13, merged at `a1513b9`), 1 SUPERSEDED (branch 3 exists).
+
 Prose drift is now checked: `tests/test_readme_claims.py` binds concrete README sentences to what `assess.py` does and re-runs the README Quick start as written; it fails if either side changes. `python3 tests/test_readme_claims.py --hunt` lists README lines that look like behaviour statements and are not registered (UNCHECKED, not wrong; the selection rule is a heuristic). First run, 2026-11-16 on `main` at `153e546`: the Quick start `average` line was rejected as written (now stated in the README), and the file map understated the read ceiling (now corrected); 7 sentences registered, all matching after those two edits; 3 lines UNCHECKED.
 
 ## Misreads already made
