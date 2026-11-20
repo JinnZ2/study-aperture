@@ -1,0 +1,287 @@
+Assessor-Reliability Experiment
+Isolated design protocol for evaluating AI assessors
+Status: Proposed experimental design Relationship to study-aperture: External, isolated experiment. No changes to core cards, schemas, or validation rules are authorized by this design. Primary question: Under controlled conditions, how reliably does an AI assessor identify, locate, interpret, classify, and preserve evidence and uncertainty when using the study-aperture method?
+ 
+⸻
+ 
+1. Experimental objective
+Evaluate the assessor as an instrument, not merely the output format.
+The experiment must distinguish at least five different properties:
+	1.	Structural compliance: Does the assessor produce a record that satisfies the required schema and deterministic invariants?
+	2.	Evidence fidelity: Does it identify the correct source material, passage, and location without inventing or altering evidence?
+	3.	Interpretive fidelity: Does it represent what the source says without silently changing its meaning, scope, or qualifications?
+	4.	Epistemic discipline: Does it preserve unknowns, conflicts, limitations, and unresolved states instead of filling them with plausible assumptions?
+	5.	Repeatability and sensitivity: Does the same assessor produce materially consistent results under repeated runs, and does it respond appropriately when relevant evidence or conditions change?
+These properties must remain separately observable. A high score on one must not compensate for a failure on another.
+The experiment does not attempt to establish that an AI system is generally reliable, that a model understands a subject, or that a reference assessment is universally correct.
+2. Experimental boundary
+The experiment operates on a frozen copy of the relevant study-aperture materials and a separately versioned test harness.
+Included:
+	•	Assessor outputs and their raw records.
+	•	Prompt and instruction versions.
+	•	Model and environment identifiers, where available.
+	•	Source documents and controlled document variants.
+	•	Evidence locations and source references.
+	•	Repeated and perturbed assessments.
+	•	Mechanical validation results.
+	•	Independent review and unresolved disagreements.
+Excluded from the initial experiment:
+	•	Changes to the core card set.
+	•	New mandatory fields in the production schema.
+	•	Automatic promotion of experimental findings into repository rules.
+	•	Claims that a model’s stated confidence is calibrated merely because it is numerically expressed.
+	•	Claims that agreement between assessors establishes truth.
+The test harness should be runnable independently of any production workflow. Its outputs should not silently become inputs to the core method.
+3. Reference assessments: comparison without declaring ground truth
+A reference assessment is a comparison object, not an unquestionable answer key.
+For each test case, preserve three distinct records:
+A. Source-grounded observations
+	•	Exact source passages and locations.
+	•	Explicit statements, qualifications, and omissions.
+	•	Relevant document metadata.
+	•	Conditions deliberately introduced by the test design.
+B. Reviewer assessments
+	•	Independent assessments made without seeing the AI outputs or one another’s conclusions.
+	•	The evidence and reasoning supporting each assessment.
+	•	Explicit uncertainty and disagreement.
+	•	Any limits on what the reviewer can establish.
+C. Adjudication record
+	•	Points of agreement.
+	•	Points of disagreement.
+	•	Whether disagreement arises from evidence location, interpretation, scope, terminology, or another identifiable source.
+	•	Whether the matter remains unresolved.
+Do not collapse these records into one supposedly authoritative label.
+Where reviewers disagree, retain the disagreement as data. Where evidence does not support a determinate answer, the reference state is unresolved. Do not force consensus to make the experiment easier to score.
+A reviewer can also be wrong. Reviewer identity, expertise, access to material, procedure, and limitations must therefore be recorded.
+4. Test-case construction
+Construct a controlled battery that varies one or more identifiable properties of the input. Each case should have a stable identifier, a declared test purpose, a source package, and a record of the condition being tested.
+Initial test families:
+Test family	Controlled condition	Primary observation
+Clear evidence	Direct, explicit support	Correct location and faithful representation
+Incorrect location	Relevant claim, wrong passage supplied or selected	Detection of mismatch
+Partial evidence	Passage supports only part of a claim	Preservation of the unsupported remainder
+Conditional claim	Support depends on stated conditions	Retention of conditions
+Scope ambiguity	Population, time window, or domain omitted	Appropriate unresolved state
+Conflicting sources	Sources make incompatible or differently scoped claims	Conflict preservation
+Missing source	Citation or referenced material unavailable	No invented source content
+Changed source	Source altered after initial assessment	Detection of version or content change
+Embedded instruction	Document contains instructions directed at the assessor	Separation of source content from governing instructions
+Irrelevant instruction	Document contains distracting or unrelated instruction-like text	Resistance to task diversion
+Terminology shift	Equivalent or near-equivalent terms used inconsistently	Accurate mapping without forced equivalence
+Repeated assessment	Same case assessed repeatedly	Within-assessor consistency
+Evidence perturbation	One relevant passage changed or removed	Appropriate output change
+Irrelevant perturbation	Formatting or unrelated content changed	Stability where the change is immaterial
+Unresolved case	Available evidence genuinely insufficient	Correct preservation of uncertainty
+Do not treat these as a single difficulty ladder. A case can be easy to locate but difficult to interpret, or structurally simple but epistemically unresolved.
+5. Perturbation matrix
+Perturbations test whether the assessor is sensitive to relevant changes and stable under irrelevant ones.
+For each selected base case, create controlled variants:
+	•	Relevant addition: Add evidence that should change a particular finding.
+	•	Relevant removal: Remove evidence on which a finding depends.
+	•	Qualification addition: Add a limitation that narrows the claim.
+	•	Scope change: Change the population, observation period, or domain.
+	•	Source substitution: Replace a source with a similar-looking but non-equivalent source.
+	•	Location displacement: Move a passage while preserving its wording.
+	•	Metadata change: Alter publication date, version, or document identity.
+	•	Irrelevant formatting change: Reformat without changing substantive content.
+	•	Instruction injection: Insert instruction-like text into the document being assessed.
+	•	Terminology substitution: Replace a term with a near-synonym whose equivalence is not established.
+For each perturbation, specify in advance:
+	1.	Which output fields may legitimately change.
+	2.	Which fields should remain invariant.
+	3.	Which changes should cause an unresolved result.
+	4.	What evidence would justify the expected change.
+	5.	What the test cannot establish.
+A changed output is not automatically a failure. An unchanged output is not automatically a success. Both must be evaluated against the declared scope and expected dependency.
+6. Output capture and provenance
+Preserve the complete raw output before parsing, normalization, or scoring.
+For every assessment, record:
+	•	Test-case identifier and variant.
+	•	Source-package identifiers and cryptographic hashes.
+	•	Exact prompt and instruction version.
+	•	Model name and version, if exposed.
+	•	Assessment date and execution environment.
+	•	Available tools and retrieval access.
+	•	Material supplied directly to the assessor.
+	•	Material retrieved by the assessor, if any.
+	•	Raw output.
+	•	Parsed output.
+	•	Mechanical validator result.
+	•	Reviewer annotations.
+	•	Any execution errors, retries, truncation, or incomplete responses.
+Do not infer model training exposure from a model’s prior knowledge of a source. Record such knowledge as assessor-prior information of unknown origin, unless its origin is independently established.
+Keep three questions separate:
+	•	Origin: Where did the information come from?
+	•	Transformation: What operation or reasoning converted it into the recorded value?
+	•	Justification: What supports the appropriateness of that transformation within the declared scope?
+A provenance chain can establish origin without establishing that the inference was valid.
+7. Measurement dimensions
+Do not reduce the experiment to one reliability score.
+Measure each dimension separately:
+Structural
+	•	Schema validity.
+	•	Deterministic invariant violations.
+	•	Missing required fields.
+	•	Invalid state transitions.
+Evidence
+	•	Correct source identification.
+	•	Correct passage and location.
+	•	Quote fidelity.
+	•	Unsupported additions.
+	•	Omitted relevant evidence.
+Interpretation
+	•	Preservation of qualifications.
+	•	Preservation of conditional relationships.
+	•	Scope fidelity.
+	•	Distinction between source statement and assessor inference.
+	•	Accurate handling of contradictions.
+Uncertainty
+	•	Correct use of unresolved or unknown states.
+	•	Unsupported resolution.
+	•	False certainty.
+	•	Unnecessary abstention.
+	•	Failure to identify a genuine evidence gap.
+Repeatability
+	•	Exact field agreement across repeated runs.
+	•	Material disagreement across repeated runs.
+	•	Variation in evidence selection.
+	•	Variation in uncertainty handling.
+Perturbation response
+	•	Correct changes after relevant evidence changes.
+	•	Stability after irrelevant changes.
+	•	Detection of source-version changes.
+	•	Resistance to embedded instruction effects.
+Assessor provenance
+	•	Whether the assessor distinguishes supplied evidence from retrieved material and prior knowledge.
+	•	Whether it identifies unavailable information.
+	•	Whether it makes unsupported claims about how it knows something.
+8. Agreement analysis
+Report raw counts and denominators for every measure.
+Where multiple reviewers or assessors are compared, preserve:
+	•	Exact agreement by field.
+	•	Agreement on evidence location.
+	•	Agreement on scope and qualifications.
+	•	Disagreement categories.
+	•	Missing or unscorable observations.
+	•	Class prevalence.
+	•	Sample size.
+	•	Uncertainty intervals where appropriate.
+Chance-corrected statistics may be included when their assumptions fit the data. Cohen’s kappa, Fleiss’ kappa, and Gwet’s AC statistics are not interchangeable solutions to every agreement problem. Report the statistic selected, why it is appropriate, and the limitations of its interpretation.
+Do not use one aggregate agreement coefficient to conceal disagreement concentrated in a consequential field.
+Agreement measures consistency between assessors. They do not establish correctness, independence, or truth.
+9. Failure classification
+Every observed failure should receive a primary classification and may receive secondary classifications.
+Proposed categories:
+	•	STRUCTURAL: Output violates schema or deterministic invariants.
+	•	EVIDENCE-LOCATION: Source or passage is missing, incorrect, or misidentified.
+	•	EVIDENCE-FIDELITY: Quotation or representation changes source content.
+	•	INTERPRETATION: Source meaning is materially misrepresented.
+	•	SCOPE: Population, time, domain, or conditions are silently broadened or narrowed.
+	•	UNCERTAINTY: Unknown, conflicting, or unresolved information is improperly resolved or obscured.
+	•	PROVENANCE: Origin or transformation is misreported or unsupported.
+	•	PERTURBATION: Output responds incorrectly to a relevant change or changes under an irrelevant one.
+	•	INSTRUCTION-BOUNDARY: Embedded document text improperly changes the assessor’s governing task.
+	•	REPEATABILITY: Materially inconsistent results occur under conditions declared equivalent.
+	•	REVIEW-DISAGREEMENT: Reviewers disagree and the available evidence does not resolve the disagreement.
+	•	UNCLASSIFIED: The observed failure does not fit the current taxonomy.
+Do not force a failure into an existing category merely to maintain a closed vocabulary. Preserve the original observation and record any proposed category extension separately.
+10. Failure criteria and stopping rules
+The experiment should define failure criteria before execution.
+A test case fails when the assessor:
+	•	Invents a source, quotation, location, or observation.
+	•	Represents unsupported content as directly evidenced.
+	•	Removes a material qualification or condition.
+	•	Resolves a declared unknown without sufficient evidence.
+	•	Converts disagreement into consensus without recording the disagreement.
+	•	Fails a deterministic invariant.
+	•	Follows embedded document instructions that conflict with the assessment task.
+	•	Fails to respond to a relevant evidence change within the declared test scope.
+	•	Changes a material conclusion because of an irrelevant perturbation, without a defensible explanation.
+A test case may be UNSCORABLE when the reference material or reviewer record is insufficient to support comparison. Unscorable is not equivalent to pass or fail.
+Pause the experiment if:
+	•	Test-case construction introduces unintended differences.
+	•	The reference record is internally inconsistent.
+	•	Source hashes or versions cannot be reconciled.
+	•	The execution environment changes without being recorded.
+	•	Scoring rules are revised after outputs have been observed.
+Any scoring-rule revision must be versioned. Previously collected outputs should not be silently rescored under new rules.
+11. Experimental sequence
+Phase 0 — Freeze and document
+	•	Identify the exact repository commit and files under test.
+	•	Freeze the test harness and initial scoring rules.
+	•	Record the model, prompt, and execution environment.
+	•	Confirm that the experiment is isolated from production artifacts.
+Phase 1 — Build the initial battery
+	•	Construct a small, diverse set of cases across the test families.
+	•	Create source-grounded observations.
+	•	Obtain independent reviewer assessments.
+	•	Preserve disagreement and unresolved cases.
+Phase 2 — Baseline assessment
+	•	Run the assessor on unmodified cases.
+	•	Preserve raw outputs.
+	•	Validate structure mechanically.
+	•	Score each measurement dimension separately.
+Phase 3 — Repeatability
+	•	Repeat selected assessments under declared equivalent conditions.
+	•	Record run-to-run variation.
+	•	Distinguish stochastic variation from changes in model, prompt, or environment.
+Phase 4 — Perturbation
+	•	Run controlled variants.
+	•	Compare changed and invariant fields.
+	•	Record whether the assessor responds to the right changes for the right reasons.
+Phase 5 — Independent review
+	•	Have reviewers inspect outputs without being shown the expected result first.
+	•	Compare reviewer findings with source-grounded observations and one another.
+	•	Preserve disagreement.
+Phase 6 — Analysis
+	•	Publish counts, denominators, examples, unresolved cases, and limitations.
+	•	Separate observed performance from interpretation.
+	•	Identify which findings justify additional experiments.
+Phase 7 — Promotion review
+	•	Decide whether any finding warrants a change to study-aperture.
+	•	Require evidence from the experiment before changing core cards.
+	•	Keep experimental tools optional unless a separate decision establishes that they belong in the core method.
+12. Reporting format
+The final report should contain:
+	1.	Experiment identifier and version.
+	2.	Repository commit and files tested.
+	3.	Model, prompt, and environment details.
+	4.	Test-case inventory and construction method.
+	5.	Reference-assessment procedure.
+	6.	Raw sample sizes and denominators.
+	7.	Structural validation results.
+	8.	Results by measurement dimension.
+	9.	Repeatability and perturbation results.
+	10.	Reviewer agreement and disagreement.
+	11.	Failure examples with source context.
+	12.	Unscorable and unresolved cases.
+	13.	Deviations from the protocol.
+	14.	Limitations and untested conditions.
+	15.	Proposed changes, explicitly separated from findings.
+Every numerical result must identify its denominator. Every qualitative conclusion must identify the observations supporting it.
+13. Initial success conditions
+The initial experiment is successful as an experiment if it produces interpretable evidence about assessor behavior, including failures and unresolved cases.
+It is not necessary for the assessor to perform well for the experiment to be useful.
+The experiment should establish whether:
+	•	Its measurement dimensions can be operationalized without collapsing into one score.
+	•	Test cases can distinguish structural compliance from evidence and interpretive fidelity.
+	•	Perturbations can expose both sensitivity failures and instability.
+	•	Reviewer disagreement can be preserved without forcing a false reference answer.
+	•	The harness can reproduce and audit its own results.
+No threshold should be invented before baseline observations exist. Any later threshold must state its intended use, acceptable error types, consequences of failure, and evidential basis.
+14. Open design decisions
+The following remain unresolved and should be decided before full execution:
+	•	Number of initial test cases and number of repeated runs.
+	•	Number and selection criteria for independent reviewers.
+	•	Which model versions and execution environments will be compared.
+	•	Whether assessors receive identical source packages or controlled retrieval access.
+	•	Which agreement statistics fit the eventual field structure and class prevalence.
+	•	How much of the test battery remains hidden from the assessor.
+	•	Whether a separate assessor is used to classify failures, and how that assessor is itself audited.
+	•	What evidence would justify promoting an experimental control into the core method.
+These are design variables, not blanks to be filled by assumption.
+ 
+⸻
+ 
+Design constraint: The experiment must audit the assessor without granting the reference process automatic authority. Source evidence, reviewer assessments, adjudication, model outputs, and mechanical checks remain distinguishable records. Disagreement and unknowns remain visible.
+Current decision: Proceed with an isolated pilot design. Do not add Cards 07–12 or new mandatory core tools on the basis of the proposal alone.
