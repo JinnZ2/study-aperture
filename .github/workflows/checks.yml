@@ -15,8 +15,8 @@ jobs:
       matrix:
         python: ["3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
       - name: Run all checks (stdlib only, no installs)
@@ -25,7 +25,7 @@ jobs:
         run: |
           python3 -m experimental.publication_provenance.demo \
             --output-dir "$RUNNER_TEMP/publication-provenance"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: publication-provenance-python-${{ matrix.python }}
           path: ${{ runner.temp }}/publication-provenance
@@ -35,7 +35,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.tolman_process \
             --output-dir "$RUNNER_TEMP/tolman-audit-process"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: tolman-audit-process-python-${{ matrix.python }}
@@ -46,7 +46,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.pendulum_process \
             --output-dir "$RUNNER_TEMP/pendulum-audit-process"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: pendulum-audit-process-python-${{ matrix.python }}
@@ -57,7 +57,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.measurement_process \
             --output-dir "$RUNNER_TEMP/measurement-boundary-audit-process"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: measurement-boundary-audit-process-python-${{ matrix.python }}
@@ -68,7 +68,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.equations.measurand_example \
             --output-dir "$RUNNER_TEMP/measurand-substitution-probe"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: measurand-substitution-python-${{ matrix.python }}
@@ -79,7 +79,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.denominator_process \
             --output-dir "$RUNNER_TEMP/denominator-change-audit"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: denominator-change-audit-python-${{ matrix.python }}
@@ -90,7 +90,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.distribution_mean_process \
             --output-dir "$RUNNER_TEMP/distribution-to-mean-audit"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: distribution-to-mean-audit-python-${{ matrix.python }}
@@ -101,7 +101,7 @@ jobs:
         run: |
           PYTHONPATH=experimental python3 -m playground.audits.cross_audit_regression \
             --output-dir "$RUNNER_TEMP/cross-audit-regression"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cross-audit-regression-python-${{ matrix.python }}
